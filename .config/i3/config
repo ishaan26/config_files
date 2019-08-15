@@ -210,3 +210,7 @@ exec compton -f
 
 # App bindings
 bindsym $mod+Ctrl+a exec atom
+
+
+# Keyring issue Solve for manjaro i3
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
