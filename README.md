@@ -1,5 +1,4 @@
-# custom_ubuntu
-All the scripts and conf files to make ubuntu look awesome 
+# My Linix Config
 
 Just Link all the files form your clone into your home folder.
 
