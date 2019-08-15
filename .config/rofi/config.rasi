@@ -22,7 +22,7 @@
 
 #listview {
     spacing: 4;
-    scrollbar: true;
+    scrollbar: false;
     margin: 4;
     dynamic: true;
 
@@ -31,8 +31,8 @@
 #window {
     background-color: @backgroundcolor;
     border-color: @separatorcolor;
-    border: 1;
-    border-radius: 20px;
+    border: 0;
+    border-radius: 12px;
 }
 
 #mainbox {
