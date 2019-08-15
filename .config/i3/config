@@ -30,7 +30,7 @@ font pango:Lexend Deca 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -195,7 +195,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Gaps config
 # smart_gaps on
-gaps inner 20
+gaps inner 30
 gaps outer -10
 
 for_window [class="^.*"] border pixel 0
@@ -203,7 +203,7 @@ for_window [class="^.*"] border pixel 0
 smart_borders on
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/Abstract.jpg
+exec_always feh --bg-fill ~/Pictures/3d_lines.jpg
 
 # compton
 exec compton -f
