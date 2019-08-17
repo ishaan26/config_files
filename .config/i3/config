@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Lexend Deca 12
+font pango:GoogleSans 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -169,9 +169,9 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+#bar {
+#        status_command i3status
+#}
 
 # Media and brightness controls
 # Pulse Audio controls
@@ -203,13 +203,19 @@ for_window [class="^.*"] border pixel 0
 smart_borders on
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/3d_lines.jpg
+exec_always feh --bg-fill ~/Pictures/Space_City.png
 
 # compton
 exec compton -f
 
+# polybar 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # App bindings
 bindsym $mod+Ctrl+a exec atom
+bindsym $mod+Ctrl+p exec pamac-manager
+bindsym $mod+Ctrl+c exec google-chrome-stable
+bindsym $mod+Ctrl+t exec thunar 
 
 
 # Keyring issue Solve for manjaro i3
