@@ -30,7 +30,7 @@ font pango:GoogleSans 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty 
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -235,19 +235,19 @@ bindsym XF86AudioPrev exec playerctl previous
 for_window [class="^.*"] border pixel 0
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/Bliss.jpg
+exec_always feh --bg-fill ~/Pictures/Space_City.png
 
 # compton
 exec compton -f
 
-# polybar 
+# polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # App bindings
 bindsym $mod+Ctrl+a exec atom
 bindsym $mod+Ctrl+p exec pamac-manager
 bindsym $mod+Ctrl+c exec google-chrome-stable
-bindsym $mod+Ctrl+t exec thunar 
+bindsym $mod+Ctrl+t exec thunar
 
 # network applet
 exec --no-startup-id nm-applet &
@@ -271,7 +271,7 @@ gaps outer -2
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
