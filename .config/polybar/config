@@ -27,7 +27,7 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/example]
+[bar/top_bar]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 35
@@ -65,7 +65,7 @@ font-7 = FontAwesome5Brands:style=Regular:size=12
 
 modules-left = i3
 modules-center = xwindow
-modules-right = xbacklight pulseaudio memory cpu wlan battery date
+modules-right = filesystem xbacklight pulseaudio memory cpu wlan battery date
 
 tray-position = right
 tray-padding = 5
@@ -87,7 +87,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:70:...%
+label = %title:0:50:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -111,7 +111,10 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+fixed-values = true
+
+;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted =  %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -264,24 +267,28 @@ label-connected = %essid%
 format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %local_ip% 
+;label-disconnected = %local_ip%
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
-type = internal/date
-interval = 1.0
+;type = internal/date
+;interval = 1.0
 
-date-alt =
-date =  %Y-%m-%d
+;date-alt =  %Y-%m-%d
+;date =
 
-time =  %H:%M
-time-alt =  %H:%M:%S
+;time =  %H:%M
+;time-alt =  %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+type = custom/script
+exec = TZ=Asia/India date +"%H:%M"
+interval = 5
+
+;format-prefix =
+;format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %date% %time%
+;label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio

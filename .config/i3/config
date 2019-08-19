@@ -235,7 +235,7 @@ bindsym XF86AudioPrev exec playerctl previous
 for_window [class="^.*"] border pixel 0
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/Space_City.png
+exec_always feh --bg-fill ~/Pictures/tree_hut.jpg
 
 # compton
 exec compton -f
@@ -260,8 +260,8 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+gaps inner 30
+gaps outer -10
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
