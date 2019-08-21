@@ -47,6 +47,61 @@ border-left-size = 0
 border-right-size = 0
 border-color = #00000000
 
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=12;1
+font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
+font-2 = siji:pixelsize=12;1
+font-3 = "Material Icons:style=Regular:size=12;2"
+font-4 = FontAwesome5Free:style=Solid:size=12
+font-5 = FontAwesome:style=Regular:size=12
+font-6 = FontAwesome5Free:style=Regular:size=12
+font-7 = FontAwesome5Brands:style=Regular:size=12
+
+
+modules-left = date battery 
+modules-center = xwindow
+modules-right = xbacklight pulseaudio wlan 
+
+tray-position = right
+tray-padding = 5
+tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/bottom_bar]
+
+bottom = true
+
+width = 100%
+height = 35
+;offset-x = 1%
+;offset-y = 1%
+; radius-bottom = 1.0
+fixed-center = true
+
+background = #77111111
+foreground = ${colors.foreground}
+
+line-size = 5
+line-color = #f00
+
 padding-left = 0
 padding-right = 2
 
@@ -64,23 +119,11 @@ font-7 = FontAwesome5Brands:style=Regular:size=12
 
 
 modules-left = i3
-modules-center = xwindow
-modules-right = filesystem xbacklight pulseaudio memory cpu wlan battery date
+modules-center = mpd
+modules-right = filesystem memory cpu temperature powermenu
 
-tray-position = right
-tray-padding = 5
-tray-background = #770063ff
-
-;wm-restack = bspwm
-wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -114,6 +157,7 @@ mount-0 = /
 fixed-values = true
 
 ;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+format-mounted-underline = #eda405
 label-mounted =  %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -198,6 +242,8 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label>
+format-underline = #E3F2FD
+format-padding = 2
 label =  %percentage%%
 
 #bar-width = 10
@@ -220,14 +266,16 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format-prefix = " "
+format-padding = 2
 format-prefix-foreground = ${colors.foreground}
-format-underline = #f90000
+format-underline = #00E5FF
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
+format-padding = 2
 format-prefix-foreground = ${colors.foreground}
 format-underline = #4bffdc
 label = %percentage_used%%
@@ -237,9 +285,11 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
+
 format-connected = <ramp-signal> <label-connected>
+format-connected-padding = 2
 format-connected-underline = #9f78e1
-label-connected =  %essid%
+label-connected =  %essid%   %downspeed%  %upspeed%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -281,11 +331,12 @@ format-disconnected =
 ;time-alt =  %H:%M:%S
 
 type = custom/script
-exec = TZ=Asia/India date +"%H:%M"
+exec = TZ=Asia/India date +" %H:%M"
 interval = 5
 
 ;format-prefix =
 ;format-prefix-foreground = ${colors.foreground-alt}
+format-padding = 2
 format-underline = #0a6cf5
 
 ;label = %date% %time%
@@ -296,56 +347,14 @@ type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
 format-volume = <label-volume>
+format-volume-padding = 2
+format-volume-underline = #5ad631
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted =  muted
 label-muted-foreground = #666
 
-bar-volume-width = 7
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = 
-bar-volume-fill-font = 2
-bar-volume-empty = 
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-; [module/alsa]
-; type = internal/alsa
-;
-; format-volume = <label-volume> <bar-volume>
-; label-volume = VOL
-; label-volume-foreground = ${root.foreground}
-;
-; format-muted-prefix = " "
-; format-muted-foreground = ${colors.foreground-alt}
-; label-muted = sound muted
-;
-; bar-volume-width = 10
-; bar-volume-foreground-0 = #55aa55
-; bar-volume-foreground-1 = #55aa55
-; bar-volume-foreground-2 = #55aa55
-; bar-volume-foreground-3 = #55aa55
-; bar-volume-foreground-4 = #55aa55
-; bar-volume-foreground-5 = #f5a70a
-; bar-volume-foreground-6 = #ff5555
-; bar-volume-gradient = false
-; bar-volume-indicator = |
-; bar-volume-indicator-font = 2
-; bar-volume-fill = ─
-; bar-volume-fill-font = 2
-; bar-volume-empty = ─
-; bar-volume-empty-font = 2
-; bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -355,8 +364,10 @@ full-at = 100
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
+format-charging-padding = 2
 
 format-discharging = <animation-discharging> <label-discharging>
+format-discharging-padding = 2
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
@@ -404,27 +415,29 @@ type = custom/menu
 
 expand-right = true
 
-format-spacing = 1
+format-spacing = 3
+format-padding = 3
+; format-background = #0063ff
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = 
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
+menu-0-0 =  
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 =  
 menu-0-1-exec = menu-open-2
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-1-exec = reboot
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
