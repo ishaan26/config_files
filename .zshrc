@@ -24,7 +24,7 @@ POWERLEVEL9K_CUSTOM_MANJARO_ICON_BACKGROUND=077
 #POWERLEVEL9K_CUSTOM_FEDORA_ICON_FOREGROUND=015
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_manjaro_icon dir vcs)
-
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -130,3 +130,7 @@ PERL5LIB="/home/ishaan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LI
 PERL_LOCAL_LIB_ROOT="/home/ishaan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/ishaan/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/ishaan/perl5"; export PERL_MM_OPT;
+
+
+
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
