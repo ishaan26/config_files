@@ -235,7 +235,7 @@ bindsym XF86AudioPrev exec playerctl previous
 for_window [class="^.*"] border pixel 0
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/tree_hut.jpg
+exec_always feh --bg-fill ~/Pictures/CyberPunk2077.jpg
 
 # compton
 exec compton -f
@@ -251,6 +251,9 @@ bindsym $mod+Ctrl+t exec thunar
 
 # network applet
 exec --no-startup-id nm-applet &
+
+# Snap Startup
+exec systemctl start snapd.service
 
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &

@@ -22,7 +22,7 @@ trans = #00000000
 white = #FFFFFF
 black = #000000
 
-bg = #1F1F1F
+bg = #77333333
 fg = #e0e0e0
 fg-alt = #A9ABB0
 
@@ -52,7 +52,7 @@ fixed-center = true
 
 line-size = 5
 
-background = #7111
+background = #44111122
 foreground = ${colors.fg}
 
 border-color = ${colors.trans}
@@ -75,7 +75,7 @@ font-8 = Ionicons:style=Regular
 
 
 modules-left = rofi xwindow
-modules-center = 
+modules-center =
 modules-right = xbacklight pulseaudio battery date
 
 tray-position = right
@@ -89,11 +89,14 @@ cursor-scroll = ns-resize
 
 inherit = bar/top_bar
 
+height = 40
+
 bottom = true
 
-modules-left = files chrome whatsapp appstore vscode terminal 
+modules-left = files chrome firefox whatsapp appstore vscode terminal
 modules-center = i3
 modules-right = wlan filesystem memory cpu temperature powermenu
+
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -116,7 +119,7 @@ mount-0 = /
 fixed-values = true
 
 ;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-format-mounted-background = 
+format-mounted-background =
 format-mounted-padding = 2
 label-mounted =  %free%
 label-unmounted = %mountpoint% not mounted
@@ -134,7 +137,12 @@ ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
-ws-icon-default = ♟
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-10 = 0;
+; ws-icon-default = ♟
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -188,7 +196,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label>
-format-background = 
+format-background =
 format-padding = 2
 label =  %percentage%%
 
@@ -199,7 +207,7 @@ interval = 2
 format-prefix = " "
 format-padding = 2
 format-prefix-foreground = ${colors.fg}
-format-background = 
+format-background =
 label = %percentage:2%%
 click-left = exec xfce4-taskmanager &
 
@@ -209,7 +217,7 @@ interval = 2
 format-prefix = " "
 format-padding = 2
 format-prefix-foreground = ${colors.fg}
-format-background = 
+format-background =
 label = %percentage_used%%
 
 [module/wlan]
@@ -220,7 +228,7 @@ interval = 3.0
 
 format-connected = <label-connected>
 format-connected-padding = 2
-format-connected-background = 
+format-connected-background =
 label-connected =  %downspeed%  %upspeed%
 
 format-disconnected =
@@ -230,7 +238,7 @@ type = internal/network
 interface = enp3s0f1
 interval = 3.0
 
-format-connected-background = 
+format-connected-background =
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.fg-alt}
 label-connected = %essid%
@@ -244,7 +252,7 @@ exec = TZ=Asia/India date +" %H:%M"
 interval = 5
 
 format-padding = 2
-format-background = 
+format-background =
 
 
 [module/pulseaudio]
@@ -254,7 +262,7 @@ sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
 format-volume = <label-volume>
 format-volume-padding = 2
-format-volume-background = 
+format-volume-background =
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
@@ -274,12 +282,12 @@ format-charging-padding = 2
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-padding = 2
-format-discharging-foreground = 
+format-discharging-foreground =
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.fg}
 format-full-padding = 2
-format-full-background = 
+format-full-background =
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -305,7 +313,7 @@ warn-temperature = 60
 
 format = <ramp> <label>
 format-padding = 2
-format-background = 
+format-background =
 format-warn = <ramp> <label-warn>
 format-warn-background = ${colors.alert}
 
@@ -334,9 +342,9 @@ label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.fg-alt}
 
-menu-0-0 =  
+menu-0-0 = 
 menu-0-0-exec = menu-open-1
-menu-0-1 =  
+menu-0-1 = 
 menu-0-1-exec = menu-open-2
 
 menu-1-0 = cancel
@@ -365,6 +373,14 @@ content = 
 content-padding = 3
 content-foreground = ${colors.fg-alt}
 click-left = exec google-chrome-stable &
+
+[module/firefox]
+
+type = custom/text
+content = 
+content-padding = 3
+content-foreground = ${colors.fg-alt}
+click-left = exec firefox &
 
 [module/appstore]
 
