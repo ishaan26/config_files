@@ -255,6 +255,14 @@ exec --no-startup-id nm-applet &
 # Snap Startup
 exec systemctl start snapd.service
 
+# Flash Focus 
+exec_always --no-startup-id flashfocus
+bindsym $mod+n exec --no-startup-id flash_window
+
+# Screenshot 
+bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -f
+
+
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 

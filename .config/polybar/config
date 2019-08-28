@@ -105,7 +105,7 @@ tray-position = none
 
 [module/xwindow]
 type = internal/xwindow
-label = %title%
+label = %title:0:125:...%
 label-padding = 2
 label-font = 3
 
@@ -308,8 +308,9 @@ animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
+thermal-zone = 2
 warn-temperature = 60
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 
 format = <ramp> <label>
 format-padding = 2
