@@ -30,7 +30,7 @@ font pango:GoogleSans 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec konsole 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -235,10 +235,10 @@ bindsym XF86AudioPrev exec playerctl previous
 for_window [class="^.*"] border pixel 0
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/blue_cloud.jpg
+exec_always feh --bg-fill ~/Pictures/Space_City.jpg
 
 # compton
-exec compton -f
+exec --no-startup-id compton 
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -266,6 +266,8 @@ bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -f
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
+border_radius 10 
+
 #############################
 ### settings for i3-gaps: ###
 #############################
@@ -280,7 +282,7 @@ gaps outer -10
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+#smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

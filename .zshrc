@@ -14,7 +14,6 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 
-
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
@@ -131,6 +130,8 @@ PERL_LOCAL_LIB_ROOT="/home/ishaan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/home/ishaan/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/ishaan/perl5"; export PERL_MM_OPT;
 
+# Powerline Theme
+# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
-
+#environment variables
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
