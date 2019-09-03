@@ -56,6 +56,9 @@ background = #44111122
 foreground = ${colors.fg}
 
 border-color = ${colors.trans}
+; border-size = 30
+; border-radius = 10
+
 
 padding-left = 0
 padding-right = 0
@@ -81,6 +84,7 @@ modules-right = xbacklight pulseaudio battery date
 tray-position = right
 tray-padding = 5
 tray-background = ${colors.primary}
+; tray-background-radius = 10
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -248,7 +252,7 @@ format-disconnected =
 [module/date]
 
 type = custom/script
-exec = TZ=Asia/India date +" %H:%M"
+exec = date +" %H:%M"
 interval = 5
 
 format-padding = 2
@@ -309,23 +313,23 @@ animation-discharging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 2
-warn-temperature = 60
+warn-temperature = 75
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 
-format = <ramp> <label>
-format-padding = 2
+format = <label>
+format-padding = 4
 format-background =
-format-warn = <ramp> <label-warn>
-format-warn-background = ${colors.alert}
+format-warn = <label-warn>
+; format-warn-foreground = ${colors.alert}
 
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.fg}
+label =  %temperature-c% 
+label-warn =  %temperature-c% 
+label-warn-foreground = ${colors.alert}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.fg}
+; ramp-0 = 
+; ramp-1 = 
+; ramp-2 = 
+; ramp-foreground = ${colors.fg}
 
 [module/powermenu]
 type = custom/menu
@@ -405,7 +409,7 @@ type = custom/text
 content = 
 content-padding = 3
 content-foreground = ${colors.fg-alt}
-click-left = exec thunar &
+click-left = exec dolphin &
 
 [module/terminal]
 
