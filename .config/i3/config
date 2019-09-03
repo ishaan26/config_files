@@ -30,7 +30,7 @@ font pango:GoogleSans 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole 
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -238,7 +238,7 @@ for_window [class="^.*"] border pixel 0
 exec_always feh --bg-fill ~/Pictures/Space_City.jpg
 
 # compton
-exec --no-startup-id compton 
+exec_always --no-startup-id compton
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -255,18 +255,18 @@ exec --no-startup-id nm-applet &
 # Snap Startup
 exec systemctl start snapd.service
 
-# Flash Focus 
+# Flash Focus
 exec_always --no-startup-id flashfocus
 bindsym $mod+n exec --no-startup-id flash_window
 
-# Screenshot 
+# Screenshot
 bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -f
 
 
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
-border_radius 10 
+border_radius 10
 
 #############################
 ### settings for i3-gaps: ###
