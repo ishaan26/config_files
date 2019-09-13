@@ -235,7 +235,7 @@ bindsym XF86AudioPrev exec playerctl previous
 for_window [class="^.*"] border pixel 0
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/Space_City.jpg
+exec_always feh --bg-fill ~/Pictures/wallpaper.*
 
 # compton
 exec_always --no-startup-id compton

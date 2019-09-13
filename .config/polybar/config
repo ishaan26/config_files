@@ -66,10 +66,10 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = "Google Sans:style=Regular;1"
-font-1 = "Google Sans:style=Regular;1"
-font-2 = "Google Sans:style=Bold;1"
-font-3 = "Material Icons:style=Regular:size=14;2"
+font-0 = "Google Sans:style=Regular;3"
+font-1 = "Google Sans:style=Regular;3"
+font-2 = "Google Sans:style=Bold;3"
+font-3 = "Material Icons:style=Regular:size=16;5"
 font-4 = FontAwesome5Free:style=Solid:size=14;2
 font-5 = FontAwesome:style=Regular:size=14;2
 font-6 = FontAwesome5Free:style=Regular:size=14;2
@@ -97,7 +97,7 @@ height = 40
 
 bottom = true
 
-modules-left = files chrome firefox whatsapp appstore vscode terminal
+modules-left = files mail chrome firefox whatsapp appstore vscode terminal
 modules-center = i3
 modules-right = wlan filesystem memory cpu temperature powermenu
 
@@ -322,8 +322,8 @@ format-background =
 format-warn = <label-warn>
 ; format-warn-foreground = ${colors.alert}
 
-label =  %temperature-c% 
-label-warn =  %temperature-c% 
+label =  %temperature-c%
+label-warn =  %temperature-c%
 label-warn-foreground = ${colors.alert}
 
 ; ramp-0 = 
@@ -378,6 +378,14 @@ content = 
 content-padding = 3
 content-foreground = ${colors.fg-alt}
 click-left = exec google-chrome-stable &
+
+[module/mail]
+
+type = custom/text
+content = 
+content-padding = 3
+content-foreground = ${colors.fg-alt}
+click-left = exec mailspring &
 
 [module/firefox]
 
