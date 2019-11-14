@@ -30,7 +30,7 @@ font pango:GoogleSans 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -266,7 +266,7 @@ bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -f
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
-border_radius 10
+#border_radius 10
 
 #############################
 ### settings for i3-gaps: ###

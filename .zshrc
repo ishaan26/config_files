@@ -139,3 +139,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/ishaan/perl5"; export PERL_MM_OPT;
 
 #environment variables
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+
+#Sources
+source .bash_aliases
