@@ -1,1 +1,1 @@
-# My Linix Config
+# My i3-gaps Config
