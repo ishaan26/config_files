@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ishaan/.oh-my-zsh"
+export ZSH="/Users/$(whoami)/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -18,7 +18,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 
-POWERLEVEL9K_CUSTOM_MANJARO_ICON="echo "
+POWERLEVEL9K_CUSTOM_MANJARO_ICON="echo "
 POWERLEVEL9K_CUSTOM_MANJARO_ICON_BACKGROUND=077
 #POWERLEVEL9K_CUSTOM_FEDORA_ICON_FOREGROUND=015
 
@@ -128,11 +128,11 @@ source $ZSH/oh-my-zsh.sh
 # Zsh Syntax highlighting
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-PATH="/home/ishaan/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/ishaan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/ishaan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/ishaan/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/ishaan/perl5"; export PERL_MM_OPT;
+#PATH="/home/ishaan/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/home/ishaan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/ishaan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/ishaan/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/ishaan/perl5"; export PERL_MM_OPT;
 
 # Powerline Theme
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
@@ -141,4 +141,4 @@ PERL_MM_OPT="INSTALL_BASE=/home/ishaan/perl5"; export PERL_MM_OPT;
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 #Sources
-source .bash_aliases
+source .my_aliases
