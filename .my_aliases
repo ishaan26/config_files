@@ -1,1 +1,8 @@
-alias update="brew update && brew upgrade && brew cask upgrade"
+alias update="brew update &&
+              brew upgrade &&
+              brew cask upgrade"
+
+alias pycoding="cd ~/MegaSync/Coding/Python/Learning/ &&
+                open ~/MegaSync/Coding/Python &&
+		open /Volumes/Data/MegaSync/Coding/Python/Mark\ Lutz\ -\ Learning\ Python,\ 5th\ Edition\ -\ 2013.pdf &&
+                code ."
