@@ -141,4 +141,4 @@ source $ZSH/oh-my-zsh.sh
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 #Sources
-source .my_aliases
+source .mac_aliases
