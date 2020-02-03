@@ -340,9 +340,9 @@ format-spacing = 3
 format-padding = 3
 format-background = ${colors.primary}
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
-label-close = 
+label-close = 
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.fg-alt}
@@ -401,7 +401,7 @@ type = custom/text
 content = 率
 content-padding = 3
 content-foreground = ${colors.fg-alt}
-click-left = exec io.elementary.appcenter &
+click-left = exec gnome-software &
 
 [module/vscode]
 
@@ -425,8 +425,7 @@ type = custom/text
 content = 
 content-padding = 3
 content-foreground = ${colors.fg-alt}
-click-left = exec gnome-terminal &
-
+click-left = exec kitty &
 
 
 [module/rofi]

@@ -30,7 +30,7 @@ font pango:GoogleSans Nerd Font 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -245,9 +245,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # App bindings
 bindsym $mod+Ctrl+a exec atom
-bindsym $mod+Ctrl+p exec pamac-manager
+bindsym $mod+Ctrl+p exec gnome-software
 bindsym $mod+Ctrl+c exec google-chrome-stable
-bindsym $mod+Ctrl+t exec thunar
+bindsym $mod+Ctrl+t exec nautilus
 
 # network applet
 exec --no-startup-id nm-applet &
@@ -266,7 +266,7 @@ bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -f
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
-border_radius 7 
+border_radius 7
 
 #############################
 ### settings for i3-gaps: ###
