@@ -218,7 +218,7 @@ click-left = exec xfce4-taskmanager &
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-padding = 2
 format-prefix-foreground = ${colors.fg}
 format-background =
