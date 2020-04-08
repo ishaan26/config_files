@@ -2,3 +2,16 @@ alias update='sudo apt update && sudo apt upgrade -y'
 alias gitupload='git add . && git commit -m "updates" && git push'
 alias autoremove='sudo apt autoremove'
 
+alias githistory="git log --oneline --graph --decorate --all"
+
+function gitupload() {
+	
+	if [ -n "$1" ]; then
+		git add .
+		git commit -m "$1"
+		git push
+	else
+		echo "Provide a commit message"
+	fi
+		
+}
