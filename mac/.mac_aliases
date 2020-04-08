@@ -3,6 +3,16 @@ alias update="brew update &&
               brew cask upgrade"
 
 alias pycoding="cd ~/MegaSync/Coding/Python/ &&
-                open . &&
-                code ."
+                open ."
+
+alias ccoding="cd ~/MegaSync/Coding/C && 
+	      open ."
+
+alias githistory="git log --oneline --graph --decorate --all"
+
+function gitupload() {
+	git add .
+       	git commit -m "$1"
+        git push
+}
 
