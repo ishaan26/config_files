@@ -1,3 +1,4 @@
+# Bash Stuff
 alias update="brew update &&
               brew upgrade &&
               brew cask upgrade"
@@ -5,13 +6,13 @@ alias update="brew update &&
 alias pycoding="cd ~/MegaSync/Coding/Python/ &&
                 open ."
 
-alias ccoding="cd ~/MegaSync/Coding/C && 
+alias ccoding="cd ~/MegaSync/Coding/C &&
 	      open ."
 
+# Git Stuff
 alias githistory="git log --oneline --graph --decorate --all"
 
 function gitupload() {
-	
 	if [ -n "$1" ]; then
 		git add .
 		git commit -m "$1"
@@ -19,6 +20,13 @@ function gitupload() {
 	else
 		echo "Provide a commit message"
 	fi
-		
 }
 
+# PDF stuff
+
+function ocrall() {
+    for i in ./*.pdf; do
+        echo "Rescannig $i"
+        ocrmypdf --force-ocr $i $i
+    done
+}
