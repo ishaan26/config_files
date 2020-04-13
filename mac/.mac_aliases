@@ -11,6 +11,7 @@ alias ccoding="cd ~/MegaSync/Coding/C &&
 
 # Git Stuff
 alias githistory="git log --oneline --graph --decorate --all"
+alias kraken='open -na "GitKraken" --args -p $(pwd)'
 
 function gitupload() {
 	if [ -n "$1" ]; then
