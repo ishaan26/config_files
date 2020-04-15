@@ -1,8 +1,6 @@
-# Ubintu stuff
 alias update='sudo apt update && sudo apt upgrade -y'
 alias autoremove='sudo apt autoremove'
 
-#Git stuff
 alias githistory="git log --oneline --graph --decorate --all"
 
 function gitupload() {
@@ -15,12 +13,4 @@ function gitupload() {
 		echo "Provide a commit message"
 	fi
 		
-}
-
-# PDF stuff
-function ocrall() {
-    for i in ./*.pdf; do
-        echo "Rescannig $i"
-        ocrmypdf --force-ocr $i $i
-    done
 }
