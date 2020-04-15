@@ -4,6 +4,7 @@ alias autoremove='sudo apt autoremove'
 
 #Git stuff
 alias githistory="git log --oneline --graph --decorate --all"
+alias kraken="exec gitkraken . &> /dev/null &"
 
 function gitupload() {
 	
