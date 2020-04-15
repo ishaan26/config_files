@@ -20,7 +20,7 @@ function gitupload() {
 # PDF stuff
 function ocrall() {
     for i in ./*.pdf; do
-        echo "Rescannig $i"
+        echo -e "\nRescannig $i"
         ocrmypdf --force-ocr $i $i
     done
 }
