@@ -1,4 +1,4 @@
-# Bash Stuff
+# Mac Stuff
 alias update="brew update &&
               brew upgrade &&
               brew cask upgrade"
@@ -8,6 +8,7 @@ alias pycoding="cd ~/MegaSync/Coding/Python/ &&
 
 alias ccoding="cd ~/MegaSync/Coding/C &&
 	      open ."
+
 
 # Git Stuff
 alias githistory="git log --oneline --graph --decorate --all"
@@ -24,7 +25,6 @@ function gitupload() {
 }
 
 # PDF stuff
-
 function ocrall() {
     for i in ./*.pdf; do
         echo "Rescannig $i"
