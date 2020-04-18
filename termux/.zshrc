@@ -10,11 +10,13 @@ export ZSH="/data/data/com.termux/files/home/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
+POWERLEVEL9K_MODE='nerdfont-complete'
+
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 
-POWERLEVEL9K_CUSTOM_MANJARO_ICON="echo ﲎ "
+POWERLEVEL9K_CUSTOM_MANJARO_ICON="echo ﲎ   "
 POWERLEVEL9K_CUSTOM_MANJARO_ICON_BACKGROUND=077
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_manjaro_icon dir vcs)
