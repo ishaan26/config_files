@@ -123,7 +123,7 @@ sudo apt install refind
 
  Soft link the config files and aliases files to the desired location directly from the git repo so that your changes can be directly uploaded to your github if you choose to do so.
 
- *In any case the files will still work if you just copy them to there supposed locaton*.
+ *In any case the files will still work if you just copy them to there supposed location*.
 
   ```shell
   cd <location to where the file is supposed to be linked>
