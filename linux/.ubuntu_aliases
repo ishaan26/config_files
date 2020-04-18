@@ -1,4 +1,4 @@
-# Ubintu stuff
+# Ubuntu stuff
 alias update='sudo apt update && sudo apt upgrade -y'
 alias autoremove='sudo apt autoremove'
 
