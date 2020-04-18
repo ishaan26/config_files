@@ -1,4 +1,4 @@
-# Linux and Mac Configuration files
+# Linux, Mac and Termux Configuration files
 
 These are my config files for linux and mac and also some patched nerdfonts. I try to keep this repo updated and add more stuff regularly. 
 
@@ -8,8 +8,9 @@ These are my config files for linux and mac and also some patched nerdfonts. I t
     - kitty config
     - compton(tryone) cnofig
     - rofi config
-  - .zshrc files for both mac and linux 
+  - .zshrc files for both mac, linux and termux
   - aliases files for both mac and linux 
+  - termux shell config files
   - some patched nerdfornts
   
  ## Notes 
