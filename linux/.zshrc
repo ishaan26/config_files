@@ -140,6 +140,7 @@ source $ZSH/oh-my-zsh.sh
 
 #environment variables
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 #Sources
 source ~/.ubuntu_aliases
