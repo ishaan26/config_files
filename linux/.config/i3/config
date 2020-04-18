@@ -324,3 +324,6 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# Dual Display setting 
+exec_always --no-startup-id xrandr --output HDMI-0 --right-of eDP-1-1 --auto
