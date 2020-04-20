@@ -1,0 +1,15 @@
+// copy to Windows Terminal settings
+{
+    "defaults":
+    {
+        "acrylicOpacity" : 0.8,
+        "useAcrylic" : true,
+        "colorScheme": "One Half Dark",
+
+        "fontFace" : "NovaMono Nerd Font",
+
+        "padding" : "0, 0, 0, 0",
+
+        "scrollbarState" : "hidden"
+    }
+}
