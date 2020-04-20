@@ -1,8 +1,8 @@
-# Linux, Mac and Termux Configuration files
+# Linux, Mac, Termux and WSL Configuration files
 
 These are all my config files from different systems I use and also some patched nerdfonts. I try to keep this repo updated and add more stuff regularly.
 
-***I am not resposible for any harm caused to you computer by using these files or runnig any commands mentioned below.***
+***I am not resposible for any harm caused to you system by using these files or runnig any commands mentioned below.***
 
 ## Includes
 
@@ -11,12 +11,13 @@ These are all my config files from different systems I use and also some patched
   - kitty config
   - compton(tryone) cnofig
   - rofi config
-- .zshrc files for both mac, linux and termux
+- .zshrc files for all four systems
   - zshrc is from oh-my-zsh and include plugins:
   - powerlevel9k
   - zsh-systax-highlighting
-- aliases files for mac, linux and termux
+- aliases files for mac, linux and termux (for WSL the alias file of linux can be used)
 - termux shell config files
+- Windows Terminal profile settings
 - some patched nerdfornts
 
 ## Dependencies
