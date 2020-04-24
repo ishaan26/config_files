@@ -13,8 +13,8 @@ These are all my config files from different systems I use and also some patched
   - rofi config
 - .zshrc files for all four systems
   - zshrc is from oh-my-zsh and includes the following plugins:
-  - powerlevel9k
-  - zsh-systax-highlighting
+    - powerlevel9k
+    - zsh-systax-highlighting
 - aliases files for mac, linux and termux (for WSL the alias file of linux can be used)
 - termux shell config files
 - Windows Terminal profile settings
