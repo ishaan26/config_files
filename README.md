@@ -28,11 +28,7 @@ These are all my config files from different systems I use and also some patched
 - Gitkraken
 - ocrmypdf
 - rEFInd
-- polybar
-- rofi
-- kitty
-- compton(tryone)
-- i3-gapps-rounded
+- some patched nerdfornts
 
 ### Dependency Install commands
 
@@ -111,14 +107,17 @@ sudo make install
 
 # Install Refind (**IF YOU DONOT KNOW WHAT IT IS LEAVE IT ALONE**)
 
+sudo apt-add-repository ppa:rodsmith/refind
+sudo apt update
 sudo apt install refind
 ```
 
 ## Notes
 
-1. The linux config files have been tested on Ubuntu 19.10
-2. The mac files have been testede on Mac Os Catalinia 10.15.4
-3. The andorid logo in termux shell is slightly offset towards right
+1. The Polybar config files have only been tested on Acer Predator Helios 300 G-572 and therefore correspond to its hardware only. You will need to change many of the settings to match your hardware.
+2. The linux config files have been tested on Ubuntu 19.10 and 20.04
+3. The mac files have been testede on Mac Os Catalinia 10.15.4
+4. The andorid logo in termux shell is slightly offset towards right
 
 ### Pro tip
 
