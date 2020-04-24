@@ -26,7 +26,7 @@ These are all my config files from different systems I use and also some patched
   - powerlevel9k
   - zsh-systax-highlighting
 - Gitkraken
-- ocrmypdf
+- ocrmypdf (I am a law student so have to read alot of scanned documents)
 - rEFInd
 - some patched nerdfornts
 
@@ -134,4 +134,4 @@ sudo apt install refind
 
 To see my i3 config, refer to this [reddit post](https://www.reddit.com/r/unixporn/comments/cwlk8i/i3gaps_a_blurry_rice/?utm_source=share&utm_medium=web2x)
 
-- PS: This is an old post when i was using manjaro but the config files now work with Ubuntu. (I have not tested them on Manjaro)
+- PS: This is an old post when I was using manjaro but the config files now work with Ubuntu. (I have not tested them on Manjaro)
