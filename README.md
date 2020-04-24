@@ -105,7 +105,7 @@ mkdir -p build && cd build/
 make
 sudo make install
 
-# Install Refind (**IF YOU DONOT KNOW WHAT IT IS LEAVE IT ALONE**)
+# Install Refind (**IF YOU DONOT KNOW WHAT IT IS, LEAVE IT ALONE**)
 
 sudo apt-add-repository ppa:rodsmith/refind
 sudo apt update
@@ -114,10 +114,10 @@ sudo apt install refind
 
 ## Notes
 
-1. The Polybar config files have only been tested on Acer Predator Helios 300 G-572 and therefore correspond to its hardware only. You will need to change many of the settings to match your hardware.
-2. The linux config files have been tested on Ubuntu 19.10 and 20.04
-3. The mac files have been testede on Mac Os Catalinia 10.15.4
-4. The andorid logo in termux shell is slightly offset towards right
+1. The Polybar config file has only been tested on Acer Predator Helios 300 G-572 and therefore correspond to its hardware only. You will need to change hardware module settings to match your hardware. (see the polybar folder for more info)
+2. The linux config files have been tested on Ubuntu 19.10 and 20.04.
+3. The mac files have been testede on Mac Os Catalinia 10.15.4.
+4. The andorid logo in termux shell is slightly offset towards right.
 
 ### Pro tip
 
@@ -132,6 +132,6 @@ sudo apt install refind
 
 ## Look of i3 and terminal theme
 
-To see my i3 config refer to this [reddit post](https://www.reddit.com/r/unixporn/comments/cwlk8i/i3gaps_a_blurry_rice/?utm_source=share&utm_medium=web2x)
+To see my i3 config, refer to this [reddit post](https://www.reddit.com/r/unixporn/comments/cwlk8i/i3gaps_a_blurry_rice/?utm_source=share&utm_medium=web2x)
 
 - PS: This is an old post when i was using manjaro but the config files now work with Ubuntu. (I have not tested them on Manjaro)
