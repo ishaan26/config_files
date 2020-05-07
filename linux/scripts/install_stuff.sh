@@ -17,8 +17,43 @@ APPS=('vscode' 'google-chrome' 'spotify' 'papirus' 'atom' 'gitkraken' 'mailsprin
 DEPENDENCIES=('curl' 'wget' 'gdebi' 'vim' 'git' 'neofetch' 'vlc' 'exfat-fuse' 'exfat-utils')
 
 
-
 # Setup Functions:
+
+function check_system {
+    if [ -f /etc/os-release ]; then
+        # freedesktop.org and systemd
+        . /etc/os-release
+        OS=$NAME
+        VER=$VERSION_ID
+    elif type lsb_release >/dev/null 2>&1; then
+        # linuxbase.org
+        OS=$(lsb_release -si)
+        VER=$(lsb_release -sr)
+    elif [ -f /etc/lsb-release ]; then
+        # For some versions of Debian/Ubuntu without lsb_release command
+        . /etc/lsb-release
+        OS=$DISTRIB_ID
+        VER=$DISTRIB_RELEASE
+    elif [ -f /etc/debian_version ]; then
+        # Older Debian/Ubuntu/etc.
+        OS=Debian
+        VER=$(cat /etc/debian_version)
+    else
+        # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
+        OS=$(uname -s)
+        VER=$(uname -r)
+    fi
+
+   
+    if [[ "$OS" != "Ubuntu" ]]; then
+        echo -e "Scripts is only for Ubuntu-inux"
+        exit
+    elif [[ "$VER" != "$UBUNTU_VERSION" ]]; then
+        echo -e "\n Script is only tested on Ubuntu 20.04 LTS"
+        pause "Press [Enter] still proceed"
+    fi
+}
+
 function check_root {
     if ! sudo -nv 2>/dev/null; then
         echo 'Root privlages are required'
@@ -28,6 +63,7 @@ function check_root {
 
 function pause {
    read -p "$*"
+   clear
 }
 
 function get_package_name {
@@ -35,7 +71,6 @@ function get_package_name {
 
     pkg_name=$(dpkg-deb -I $deb | grep -Po "Package: \K[^ ]+")
 }
-
 
 function check_if_pkg_installed {
     local pkg=$1
@@ -50,24 +85,13 @@ function check_if_pkg_installed {
 
 
 function install_dependencies {
-    check_root
-    
-    for depend in ${DEPENDENCIES[@]}; do
-        check_if_pkg_installed $depend
-
-        if $pkg_not_installed; then
-	    echo -e "\nInstalling $depend"
-	    sudo apt -qq install $depend -y  
-        fi
-    done
+    sudo apt install curl wget gdebi vim git neofetch vlc exfat-fues exfat-utils timeshift 
 }
-
 
 
 # Downloads:
 function question {
     local app_name=$1
-
     echo -e "\nDo you want to download and install $app_name? [y/n]:"
     read answer
 }
@@ -105,27 +129,30 @@ function install_apps {
 
 # Run functions
 
-if [[ "$OSTYPE" != "linux-gnu" ]]; then
-    echo -e "Scripts is only for ubuntu"
-    exit
-elif [[ $(awk -F '=' '/PRETTY_NAME/ { print $2 }' /etc/os-release) != '"Ubuntu 19.10"' ]]; then
-    echo -e "\n Script is only tested on Ubuntu 19.10."
-    pause "Press [Enter] still proceed"
-fi
-
+check_system
+check_root
 
 echo -e "\nInstalling dependencies\n"
 install_dependencies
 
 echo -e "\nSome apps would be downloaded as deb files in the direcotry you specified and installed later"
 
+pause "\nPress [Enter] to continue"
+
+echo -e "\n Do you want to install all apps? {y/n}: "
+read all_ans
+
 for app in ${APPS[@]}; do
-    question $app
-    if [[ $answer == 'y' ]]; then
+    if [[ all_ans == 'y' ]]; then
         install_apps $app
     else
-        echo -e 'Okay skipping'
-        continue
+        question $app
+        if [[ $answer == 'y' ]]; then
+            install_apps $app
+        else
+            echo -e 'Okay skipping'
+            continue
+        fi
     fi
 done
 

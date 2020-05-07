@@ -2,14 +2,42 @@
 
 clear
 
-cd ~
-
-ARG=$1
-
-DEPENDENCIES=('zsh' 'zsh-doc' 'curl' 'wget' 'neofetch' 'python3' 'git' 'font-manager')
-
-
 # Setup Scripts
+
+function check_system {
+    if [ -f /etc/os-release ]; then
+        # freedesktop.org and systemd
+        . /etc/os-release
+        OS=$NAME
+        VER=$VERSION_ID
+    elif type lsb_release >/dev/null 2>&1; then
+        # linuxbase.org
+        OS=$(lsb_release -si)
+        VER=$(lsb_release -sr)
+    elif [ -f /etc/lsb-release ]; then
+        # For some versions of Debian/Ubuntu without lsb_release command
+        . /etc/lsb-release
+        OS=$DISTRIB_ID
+        VER=$DISTRIB_RELEASE
+    elif [ -f /etc/debian_version ]; then
+        # Older Debian/Ubuntu/etc.
+        OS=Debian
+        VER=$(cat /etc/debian_version)
+    else
+        # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
+        OS=$(uname -s)
+        VER=$(uname -r)
+    fi
+
+   
+    if [[ "$OS" != "Ubuntu" ]]; then
+        echo -e "Scripts is only for Ubuntu-inux"
+        exit
+    elif [[ "$VER" != "$UBUNTU_VERSION" ]]; then
+        echo -e "\n Script is only tested on Ubuntu 20.04 LTS"
+        pause "Press [Enter] still proceed"
+    fi
+}
 
 function check_root {
     if ! sudo -nv 2>/dev/null; then
@@ -18,19 +46,9 @@ function check_root {
     fi
 }
 
-function check_if_pkg_installed {
-    local pkg=$1
-
-    if type $pkg > /dev/null 2>&1; then
-        echo "$pkg is already installed"
-        pkg_not_installed=false
-    else
-        pkg_not_installed=true
-    fi
-}
-
 function pause {
    read -p "$*"
+   clear
 }
 
 function tell_location {
@@ -45,16 +63,9 @@ function clone_config_files {
     git clone https://github.com/ishaan26/config_files.git
 }
 
-
 function install_dependencies {
-    for dep in ${DEPENDENCIES[@]}; do
-        check_if_pkg_installed $dep
-        if $pkg_not_installed; then
-            sudo apt install $dep -y
-        fi
-    done
+    sudo apt install zsh zsh-doc curl wget neofetch python3 git font-manager
 }
-
 
 # Install and Setup Scripts
 function install_oh_my_zsh {
@@ -74,29 +85,30 @@ function soft_link_zshrc {
 }
 
 
-if [[ "$OSTYPE" != "linux-gnu" ]]; then
-    echo -e "Scripts is only for ubuntu"
-    exit
-elif [[ $(awk -F '=' '/PRETTY_NAME/ { print $2 }' /etc/os-release) != '"Ubuntu 19.10"' ]]; then
-    echo -e "\n Script is only tested on Ubuntu 19.10."
-    pause "Press [Enter] still proceed"
-fi
+check_system
 
+cd ~
 
-if [[ $ARG == '-h' ]]; then
+if [[ $1 == '-h' ]]; then
     echo -e "\n--install --> install oh-my-zsh"
     echo -e "--setup --> install addons and config files\n"
-elif [[ $ARG == '--install' ]]; then
+elif [[ $1 == '--install' ]]; then
     check_root
     install_dependencies
     clone_config_files
     install_oh_my_zsh
-elif [[ $ARG == '--setup' ]]; then
+elif [[ $1 == '--setup' ]]; then
     check_root
     install_addons
     soft_link_zshrc
-    pause 'Restart the terminal window to see changes. Press [Enter] to continue'
-    exit
+    echo -e "\nDo you want to reboot now? [y/n]: "
+    read answer
+    if [[ answer == 'y' ]]; then
+        reboot
+    else
+        echo -e "\nOkay"
+    fi
+    
 else
-    echo -e '\n-h for help'
+    echo -e "\n-h for help"
 fi

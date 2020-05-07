@@ -1,8 +1,42 @@
 #!/usr/bin/env bash
 clear
 
-cd ~/Documents
-echo -e "\nDirectory set to $(pwd)\n"
+UBUNTU_VERSION="20.04"
+
+function check_system {
+    if [ -f /etc/os-release ]; then
+        # freedesktop.org and systemd
+        . /etc/os-release
+        OS=$NAME
+        VER=$VERSION_ID
+    elif type lsb_release >/dev/null 2>&1; then
+        # linuxbase.org
+        OS=$(lsb_release -si)
+        VER=$(lsb_release -sr)
+    elif [ -f /etc/lsb-release ]; then
+        # For some versions of Debian/Ubuntu without lsb_release command
+        . /etc/lsb-release
+        OS=$DISTRIB_ID
+        VER=$DISTRIB_RELEASE
+    elif [ -f /etc/debian_version ]; then
+        # Older Debian/Ubuntu/etc.
+        OS=Debian
+        VER=$(cat /etc/debian_version)
+    else
+        # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
+        OS=$(uname -s)
+        VER=$(uname -r)
+    fi
+
+   
+    if [[ "$OS" != "Ubuntu" ]]; then
+        echo -e "Scripts is only for Ubuntu-inux"
+        exit
+    elif [[ "$VER" != "$UBUNTU_VERSION" ]]; then
+        echo -e "\n Script is only tested on Ubuntu 20.04 LTS"
+        pause "Press [Enter] still proceed"
+    fi
+}
 
 function check_root {
     if ! sudo -nv 2>/dev/null; then
@@ -12,13 +46,14 @@ function check_root {
 }
 
 function pause {
-   read -p "$*"
+    read -p "$*"
+    clear
 }
 
 function install_dependencies {
     echo -e "\nInstalling dependencies\n"
 
-    sudo apt install cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
+    sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
         libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
         libstartup-notification0-dev libxcb-randr0-dev \
         libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
@@ -127,15 +162,12 @@ function setup_config_files {
     done
 }
 
+# Let it RUN!
 
-if [[ "$OSTYPE" != "linux-gnu" ]]; then
-    echo -e "Scripts is only for ubuntu"
-    exit
-elif [[ $(awk -F '=' '/PRETTY_NAME/ { print $2 }' /etc/os-release) != '"Ubuntu 19.10"' ]]; then
-    echo -e "\n Script is only tested on Ubuntu 19.10."
-    pause "Press [Enter] still proceed"
-fi
+check_system
 
+cd ~/Documents
+echo -e "\nDirectory set to $(pwd)\n"
 
 check_root
 
