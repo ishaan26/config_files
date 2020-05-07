@@ -146,20 +146,19 @@ read -p "Do you wish to install all the apps? [y/n] : " all_ans
 
 case $all_ans in
 	[Yy]* ) 
-		echo "yes"
-	        for app in ${APPS[@]}; do	
-        		install_apps $app
-        	done;;
+	    for app in ${APPS[@]}; do	
+        	install_apps $app
+        done;;
 	[Nn]* )
 		for app in ${APPS[@]}; do
 			question $app
-    	    		if [[ $answer == 'y' ]]; then
-    	        		install_apps $app
-    	    		else
-    	        		echo -e 'Okay skipping'
-    	        		continue
-    	    		fi
-    	    	done;;
+            if [[ $answer == 'y' ]]; then
+                install_apps $app
+            else
+                echo -e 'Okay skipping'
+                continue
+            fi
+    	done;;
 esac
 
 echo -e "\n"
