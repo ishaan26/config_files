@@ -1,7 +1,10 @@
-﻿bash
+#!/usr/bin/env bash
+
 clear
 
 LOCATION=$1
+
+UBUNTU_VERSION="20.04"
 
 if ! [ "$LOCATION" ]; then
     echo "Please specify a directory as the argument\n"
@@ -14,7 +17,6 @@ echo -e "Location changed to $(pwd)\n"
 
 APPS=('vscode' 'google-chrome' 'spotify' 'papirus' 'atom' 'gitkraken' 'mailspring' 'flatpak')
 
-DEPENDENCIES=('curl' 'wget' 'gdebi' 'vim' 'git' 'neofetch' 'vlc' 'exfat-fuse' 'exfat-utils')
 
 
 # Setup Functions:
@@ -85,7 +87,7 @@ function check_if_pkg_installed {
 
 
 function install_dependencies {
-    sudo apt install curl wget gdebi vim git neofetch vlc exfat-fues exfat-utils timeshift 
+    sudo apt install curl wget gdebi vim git neofetch vlc timeshift 
 }
 
 
@@ -139,22 +141,26 @@ echo -e "\nSome apps would be downloaded as deb files in the direcotry you speci
 
 pause "\nPress [Enter] to continue"
 
-echo -e "\n Do you want to install all apps? {y/n}: "
-read all_ans
+read -p "Do you wish to install all the apps? [y/n] : " all_ans
 
-for app in ${APPS[@]}; do
-    if [[ all_ans == 'y' ]]; then
-        install_apps $app
-    else
-        question $app
-        if [[ $answer == 'y' ]]; then
-            install_apps $app
-        else
-            echo -e 'Okay skipping'
-            continue
-        fi
-    fi
-done
+
+case $all_ans in
+	[Yy]* ) 
+		echo "yes"
+	        for app in ${APPS[@]}; do	
+        		install_apps $app
+        	done;;
+	[Nn]* )
+		for app in ${APPS[@]}; do
+			question $app
+    	    		if [[ $answer == 'y' ]]; then
+    	        		install_apps $app
+    	    		else
+    	        		echo -e 'Okay skipping'
+    	        		continue
+    	    		fi
+    	    	done;;
+esac
 
 echo -e "\n"
 pause 'Press [Enter] key to continue installing the downloading files.'
@@ -171,6 +177,3 @@ for deb_file in $LOCATION/*deb; do
         echo 'No deb file found in this directory'
     fi
 done
-
-
-zsh

@@ -4,6 +4,8 @@ clear
 
 # Setup Scripts
 
+UBUNTU_VERSION="20.04"
+
 function check_system {
     if [ -f /etc/os-release ]; then
         # freedesktop.org and systemd
@@ -101,13 +103,7 @@ elif [[ $1 == '--setup' ]]; then
     check_root
     install_addons
     soft_link_zshrc
-    echo -e "\nDo you want to reboot now? [y/n]: "
-    read answer
-    if [[ answer == 'y' ]]; then
-        reboot
-    else
-        echo -e "\nOkay"
-    fi
+    echo -e "\nPlease Reboot"
     
 else
     echo -e "\n-h for help"
