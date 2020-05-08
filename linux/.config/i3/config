@@ -326,4 +326,4 @@ mode "$mode_gaps_outer" {
 }
 
 # Dual Display setting 
-exec_always --no-startup-id xrandr --output HDMI-0 --right-of eDP-1-1 --auto
+exec_always --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1 --auto
