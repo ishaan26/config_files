@@ -238,7 +238,7 @@ for_window [class="^.*"] border pixel 0
 exec_always feh --bg-fill ~/Pictures/wallpaper.*
 
 # compton
-exec_always --no-startup-id compton
+exec --no-startup-id compton
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

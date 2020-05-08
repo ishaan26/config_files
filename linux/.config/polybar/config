@@ -79,7 +79,7 @@ font-8 = "Ionicons:style=Regular"
 
 modules-left = rofi xwindow
 modules-center =
-modules-right = xbacklight pulseaudio battery date
+modules-right = backlight pulseaudio battery date
 
 tray-position = right
 tray-padding = 5
@@ -97,7 +97,7 @@ height = 40
 
 bottom = true
 
-modules-left = files mail chrome firefox whatsapp appstore vscode terminal
+modules-left = files mail chrome firefox whatsapp appstore vscode atom gitkraken terminal
 modules-center = i3
 modules-right = wlan filesystem memory cpu temperature powermenu
 
@@ -196,10 +196,17 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-[module/xbacklight]
-type = internal/xbacklight
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+enable-scroll = true
 
 format = <label>
+
 format-background =
 format-padding = 2
 label =  %percentage%%
@@ -208,7 +215,7 @@ label =  %percentage%%
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-padding = 2
 format-prefix-foreground = ${colors.fg}
 format-background =
@@ -218,7 +225,7 @@ click-left = exec xfce4-taskmanager &
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-padding = 2
 format-prefix-foreground = ${colors.fg}
 format-background =
@@ -313,8 +320,8 @@ animation-discharging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 2
-warn-temperature = 75
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+warn-temperature = 90
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
 
 format = <label>
 format-padding = 4
@@ -322,8 +329,8 @@ format-background =
 format-warn = <label-warn>
 ; format-warn-foreground = ${colors.alert}
 
-label =  %temperature-c% 糖
-label-warn =  %temperature-c% 糖
+label =  %temperature-c% 
+label-warn =  %temperature-c% 
 label-warn-foreground = ${colors.alert}
 
 ; ramp-0 = 
@@ -347,9 +354,9 @@ label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.fg-alt}
 
-menu-0-0 = 
+menu-0-0 = ﰇ
 menu-0-0-exec = menu-open-1
-menu-0-1 = 
+menu-0-1 = 
 menu-0-1-exec = menu-open-2
 
 menu-1-0 = cancel
@@ -357,19 +364,18 @@ menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
 menu-1-1-exec = reboot
 
-menu-2-0 = power off
-menu-2-0-exec = poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
+menu-2-0 = cancel
+menu-2-0-exec = menu-open-0
+menu-2-1 = power off
+menu-2-1-exec = poweroff
 
 [module/whatsapp]
 
 type = custom/text
-content = 
+content = 甆
 content-padding = 3
 content-foreground = ${colors.fg-alt}
-click-left = exec whatsapp-nativefier &
+click-left = exec whatsdesk &
 
 [module/chrome]
 
@@ -406,10 +412,26 @@ click-left = exec gnome-software &
 [module/vscode]
 
 type = custom/text
-content = 
+content = 
 content-padding = 3
 content-foreground = ${colors.fg-alt}
 click-left = exec code &
+
+[module/atom]
+
+type = custom/text
+content = ﱦ
+content-padding = 3
+content-foreground = ${colors.fg-alt}
+click-left = exec atom &
+
+[module/gitkraken]
+
+type = custom/text
+content = 
+content-padding = 3
+content-foreground = ${colors.fg-alt}
+click-left = exec gitkraken &
 
 [module/files]
 
