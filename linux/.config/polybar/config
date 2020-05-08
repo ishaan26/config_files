@@ -327,6 +327,7 @@ format = <label>
 format-padding = 4
 format-background =
 format-warn = <label-warn>
+format-warn-padding = 4
 ; format-warn-foreground = ${colors.alert}
 
 label =  %temperature-c% 
