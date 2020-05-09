@@ -97,7 +97,7 @@ height = 40
 
 bottom = true
 
-modules-left = files mail chrome firefox whatsapp appstore vscode atom gitkraken terminal
+modules-left = files mail chrome firefox whatsapp libreoffice appstore vscode atom androidstudio gitkraken terminal
 modules-center = i3
 modules-right = wlan filesystem memory cpu temperature powermenu
 
@@ -425,6 +425,22 @@ content = ﱦ
 content-padding = 3
 content-foreground = ${colors.fg-alt}
 click-left = exec atom &
+
+[module/libreoffice]
+
+type = custom/text
+content = 
+content-padding = 3
+content-foreground = ${colors.fg-alt}
+click-left = exec libreoffice &
+
+[module/androidstudio]
+
+type = custom/text
+content = 
+content-padding = 3
+content-foreground = ${colors.fg-alt}
+click-left = flatpak run com.google.AndroidStudio &
 
 [module/gitkraken]
 
