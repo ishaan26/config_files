@@ -15,7 +15,7 @@ cd $LOCATION
 
 echo -e "Location changed to $(pwd)\n"
 
-APPS=('vscode' 'google-chrome' 'spotify' 'papirus' 'atom' 'gitkraken' 'mailspring' 'flatpak')
+APPS=('vscode' 'google-chrome' 'spotify' 'papirus' 'atom' 'gitkraken' 'mailspring' 'flatpak' 'libreoffice')
 
 
 
@@ -38,7 +38,7 @@ function check_system {
         VER=$DISTRIB_RELEASE
     elif [ -f /etc/debian_version ]; then
         # Older Debian/Ubuntu/etc.
-        OS=Debian
+        OS=Debian}
         VER=$(cat /etc/debian_version)
     else
         # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
@@ -125,6 +125,10 @@ function install_apps {
         sudo apt install flatpak
         sudo apt install gnome-software-plugin-flatpak
         flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    elif [[ $app_name == 'libreoffice' ]]; then 
+        sudo add-apt-repository ppa:libreoffice/ppa
+        sudo apt install libreoffice
+        sudo apt-get install libreoffice-style-papirus
     fi
 }
 
