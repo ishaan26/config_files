@@ -15,7 +15,7 @@ cd $LOCATION
 
 echo -e "Location changed to $(pwd)\n"
 
-APPS=('vscode' 'google-chrome' 'spotify' 'papirus' 'atom' 'gitkraken' 'mailspring' 'flatpak' 'libreoffice')
+APPS=('vscode' 'google-chrome' 'papirus' 'atom' 'gitkraken' 'mailspring' 'flatpak' 'libreoffice')
 
 
 
@@ -38,7 +38,7 @@ function check_system {
         VER=$DISTRIB_RELEASE
     elif [ -f /etc/debian_version ]; then
         # Older Debian/Ubuntu/etc.
-        OS=Debian}
+        OS=Debian
         VER=$(cat /etc/debian_version)
     else
         # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
@@ -109,10 +109,6 @@ function install_apps {
         wget -O google-chorme.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -q --show-progress
     elif [[ $app_name == 'atom' ]]; then
         wget -O atom.deb https://atom.io/download/deb -q --show-progress
-    elif [[ $app_name == 'spotify' ]]; then
-        curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-        echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-        sudo apt update && sudo apt install spotify-client -y
     elif [[ $app_name == 'papirus' ]]; then
         sudo add-apt-repository ppa:papirus/papirus
         sudo apt-get update
