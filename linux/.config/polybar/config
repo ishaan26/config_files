@@ -482,7 +482,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python /home/ishaan/Documents/OtherGtis/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
+exec = python ~/Documents/OtherGtis/polybar_plugins/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
 
 [settings]
 screenchange-reload = true
