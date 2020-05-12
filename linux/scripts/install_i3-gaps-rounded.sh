@@ -143,6 +143,7 @@ function install_polybar_plugins() {
     cd OtherGits/ploybar_plugins
 
     git clone https://github.com/Jvanrhijn/polybar-spotify.git
+    git clone https://github.com/polybar/polybar-scripts.git
 
 }
 
