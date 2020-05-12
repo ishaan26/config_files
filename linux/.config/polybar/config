@@ -78,7 +78,7 @@ font-8 = "Ionicons:style=Regular"
 
 
 modules-left = rofi xwindow
-modules-center =
+modules-center = spotify
 modules-right = backlight pulseaudio battery date
 
 tray-position = right
@@ -477,6 +477,12 @@ content-background = ${colors.primary}
 ; content-background = ${colors-primary}
 click-left = rofi -show drun -show-icons -icon-theme MY_ICON_THEME
 
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python /home/ishaan/Documents/OtherGtis/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
 
 [settings]
 screenchange-reload = true

@@ -3,7 +3,7 @@ clear
 
 UBUNTU_VERSION="20.04"
 
-function check_system {
+function check_system() {
     if [ -f /etc/os-release ]; then
         # freedesktop.org and systemd
         . /etc/os-release
@@ -28,7 +28,6 @@ function check_system {
         VER=$(uname -r)
     fi
 
-   
     if [[ "$OS" != "Ubuntu" ]]; then
         echo -e "Scripts is only for Ubuntu-inux"
         exit
@@ -38,19 +37,19 @@ function check_system {
     fi
 }
 
-function check_root {
+function check_root() {
     if ! sudo -nv 2>/dev/null; then
         echo 'Root privlages are required'
         sudo -v
     fi
 }
 
-function pause {
+function pause() {
     read -p "$*"
     clear
 }
 
-function install_dependencies {
+function install_dependencies() {
     echo -e "\nInstalling dependencies\n"
 
     sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
@@ -80,11 +79,11 @@ function install_dependencies {
 
 }
 
-function install_i3 {
+function install_i3() {
     # clone repo
     cd ~/Documents
 
-    if ! type i3 > /dev/null; then
+    if ! type i3 >/dev/null; then
 
         echo -e "\nInstalling i3-rounded-corners\n"
 
@@ -108,7 +107,7 @@ function install_i3 {
     fi
 }
 
-function download_polybar {
+function download_polybar() {
     cd ~/Documents
 
     echo -e "\nDownlading latest release of polybar\n"
@@ -121,9 +120,8 @@ function download_polybar {
     rm -rf polybar*.tar
 }
 
-
-function install_polybar {
-    if ! type polybar > /dev/null; then
+function install_polybar() {
+    if ! type polybar >/dev/null; then
         cd polybar
 
         mkdir build
@@ -139,9 +137,17 @@ function install_polybar {
     fi
 }
 
+function install_polybar_plugins() {
+    cd ~/Documents
+    mkdir -p OtherGits
+    cd OtherGits
 
-function install_compton {
-    if ! type compton > /dev/null; then
+    git clone https://github.com/Jvanrhijn/polybar-spotify.git
+
+}
+
+function install_compton() {
+    if ! type compton >/dev/null; then
         cd ~/Documents
         git clone https://github.com/tryone144/compton.git
         cd compton
@@ -151,8 +157,8 @@ function install_compton {
     fi
 }
 
-function setup_config_files {
-    cd ~/.config 
+function setup_config_files() {
+    cd ~/.config
     echo -e "\nDirectory changed to $(pwd)\n"
 
     for file in ~/Documents/Github/config_files/linux/.config/*; do
@@ -193,6 +199,7 @@ else
 fi
 
 install_polybar
+install_polybar_plugins
 
 pause "\nPress [Enter] to install compton"
 install_compton
