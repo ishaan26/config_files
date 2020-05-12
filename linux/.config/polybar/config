@@ -79,7 +79,7 @@ font-8 = "Ionicons:style=Regular"
 
 modules-left = rofi xwindow
 modules-center = spotify
-modules-right = backlight pulseaudio battery date
+modules-right = popup-calendar backlight pulseaudio battery 
 
 tray-position = right
 tray-padding = 5
@@ -486,9 +486,22 @@ exec = python ~/Documents/OtherGtis/polybar_plugins/polybar-spotify/spotify_stat
 
 [module/info-trash]
 type = custom/script
-exec = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/info-trash.sh
+exec = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scripts/info-trash/info-trash.sh
+format = <label>
+format-padding = 2
+format-foreground = ${colors.fg-alt}
+format-prefix = "|    "
 interval = 60
-click-left = ~/polybar-scripts/info-trash.sh --clean &
+click-left =  nautilus ~/.local/share/Trash/files/ &
+
+[module/popup-calendar]
+type = custom/script
+exec =  ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh
+interval = 5
+click-left = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh --popup &
+format = <label>
+format-padding = 2
+format-prefix = "  "
 
 [settings]
 screenchange-reload = true
