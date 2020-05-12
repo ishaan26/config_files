@@ -97,7 +97,7 @@ height = 40
 
 bottom = true
 
-modules-left = files mail chrome firefox whatsapp libreoffice appstore vscode atom androidstudio gitkraken terminal
+modules-left = files mail chrome firefox whatsapp libreoffice appstore vscode atom androidstudio gitkraken terminal info-trash
 modules-center = i3
 modules-right = wlan filesystem memory cpu temperature powermenu
 
@@ -483,6 +483,12 @@ interval = 1
 format-prefix = " "
 format = <label>
 exec = python ~/Documents/OtherGtis/polybar_plugins/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
+
+[module/info-trash]
+type = custom/script
+exec = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/info-trash.sh
+interval = 60
+click-left = ~/polybar-scripts/info-trash.sh --clean &
 
 [settings]
 screenchange-reload = true
