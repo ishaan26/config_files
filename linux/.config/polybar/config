@@ -99,7 +99,7 @@ bottom = true
 
 modules-left = files mail chrome firefox whatsapp libreoffice appstore vscode atom androidstudio gitkraken terminal info-trash
 modules-center = i3
-modules-right = wlan filesystem memory cpu temperature powermenu
+modules-right = system-uptime-pretty wlan filesystem memory cpu temperature powermenu
 
 
 scroll-up = i3wm-wsnext
@@ -502,6 +502,14 @@ click-left = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scrip
 format = <label>
 format-padding = 2
 format-prefix = "  "
+
+[module/system-uptime-pretty]
+type = custom/script
+exec = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scripts/system-uptime-pretty/system-uptime-pretty.sh
+interval = 30
+format = <label>
+format-padding = 2
+format-prefix = 祥
 
 [settings]
 screenchange-reload = true
