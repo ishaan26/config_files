@@ -216,3 +216,5 @@ install_compton
 
 pause "\nPress [Enter] to Setup config files"
 setup_config_files
+
+install_addons
