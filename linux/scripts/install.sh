@@ -17,9 +17,11 @@ echo -e "Location changed to $(pwd)\n"
 
 APPS=('vscode' 'google-chrome' 'papirus' 'atom' 'gitkraken' 'mailspring' 'flatpak' 'libreoffice')
 
+
+
 # Setup Functions:
 
-function check_system() {
+function check_system {
     if [ -f /etc/os-release ]; then
         # freedesktop.org and systemd
         . /etc/os-release
@@ -44,6 +46,7 @@ function check_system() {
         VER=$(uname -r)
     fi
 
+   
     if [[ "$OS" != "Ubuntu" ]]; then
         echo -e "Scripts is only for Ubuntu-inux"
         exit
@@ -53,25 +56,25 @@ function check_system() {
     fi
 }
 
-function check_root() {
+function check_root {
     if ! sudo -nv 2>/dev/null; then
         echo 'Root privlages are required'
         sudo -v
     fi
 }
 
-function pause() {
-    read -p "$*"
-    clear
+function pause {
+   read -p "$*"
+   clear
 }
 
-function get_package_name() {
+function get_package_name {
     local deb=$1
 
     pkg_name=$(dpkg-deb -I $deb | grep -Po "Package: \K[^ ]+")
 }
 
-function check_if_pkg_installed() {
+function check_if_pkg_installed {
     local pkg=$1
 
     if [[ $(dpkg -l $pkg | grep -io desired) == 'Desired' ]]; then
@@ -82,18 +85,20 @@ function check_if_pkg_installed() {
     fi
 }
 
-function install_dependencies() {
-    sudo apt install curl wget gdebi vim git neofetch vlc timeshift
+
+function install_dependencies {
+    sudo apt install curl wget gdebi vim git neofetch vlc timeshift 
 }
 
+
 # Downloads:
-function question() {
+function question {
     local app_name=$1
     echo -e "\nDo you want to download and install $app_name? [y/n]:"
     read answer
 }
 
-function install_apps() {
+function install_apps {
     cd ~/Downloads
 
     local app_name=$1
@@ -116,18 +121,13 @@ function install_apps() {
         sudo apt install flatpak
         sudo apt install gnome-software-plugin-flatpak
         flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    elif [[ $app_name == 'libreoffice' ]]; then
+    elif [[ $app_name == 'libreoffice' ]]; then 
         sudo add-apt-repository ppa:libreoffice/ppa
         sudo apt install libreoffice
         sudo apt-get install libreoffice-style-papirus
     fi
 }
 
-install_addons() {
-    # Vundle 
-    ln -s ~/Documents/Github/config_files/.vimrc .vimrc
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-}
 
 # Run functions
 
@@ -143,23 +143,22 @@ pause "\nPress [Enter] to continue"
 
 read -p "Do you wish to install all the apps? [y/n] : " all_ans
 
+
 case $all_ans in
-[Yy]*)
-    for app in ${APPS[@]}; do
-        install_apps $app
-    done
-    ;;
-[Nn]*)
-    for app in ${APPS[@]}; do
-        question $app
-        if [[ $answer == 'y' ]]; then
-            install_apps $app
-        else
-            echo -e 'Okay skipping'
-            continue
-        fi
-    done
-    ;;
+	[Yy]* ) 
+	    for app in ${APPS[@]}; do	
+        	install_apps $app
+        done;;
+	[Nn]* )
+		for app in ${APPS[@]}; do
+			question $app
+            if [[ $answer == 'y' ]]; then
+                install_apps $app
+            else
+                echo -e 'Okay skipping'
+                continue
+            fi
+    	done;;
 esac
 
 echo -e "\n"
