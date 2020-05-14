@@ -70,7 +70,7 @@ function install_dependencies() {
         libnl-genl-3-dev fonts-materialdesignicons-webfont kitty rofi indent libanyevent-i3-perl \
         libx11-dev libxcomposite-dev libxdamage-dev libxfixes-dev libxrandr-dev \
         libxinerama-dev libconfig-dev libdbus-1-dev mesa-common-dev asciidoc lxappearance \
-        gtk-chtheme qt5ct freeglut3-dev feh jq -y
+        gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
 
 }
 
@@ -172,6 +172,10 @@ function setup_config_files() {
         ln -s ~/Documents/Github/config_files/linux/.config/$filename $filename
         echo "Linked $filename config files"
     done
+}
+
+function install_addons() {
+    pip3 install flashfocus
 }
 
 # Let it RUN!
