@@ -1,22 +1,41 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+autocmd BufEnter * :syntax sync fromstart
+syntax on
+set encoding=utf8
+
+"""""""""""""""""""""""""""""""""
+"""     Vundle Config 
+"""""""""""""""""""""""""""""""""
+
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugins
-Plugin 'itchyny/lightline.vim'
+
+""""""""" Plugins """"""""""
+
+" Utility
 Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 
+" Git Support
+Plugin 'kablamo/vim-git-log'
+Plugin 'gregsexton/gitv'
+Plugin 'tpope/vim-fugitive'
+
+" Themes
+Plugin 'vim-airline/vim-airline-themes'
+
+" Intellisense like
+Bundle 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,8 +54,23 @@ filetype plugin indent on    " required
 
 autocmd BufEnter * :syntax sync fromstart
 
-syntax on
-set nu
+"""""""""""""""""""""""""""""""""""""
+"""" END Vundle Configuration 
+"""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""
+"""" Configuration Section
+"""""""""""""""""""""""""""""""""""""
+
+" Show linenumbers
+set number
+set ruler
+
+" Set Proper Tabs
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
 
 " Bar Settings
 set laststatus=2
@@ -59,4 +93,10 @@ let python_highlight_all=1
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" Vim-Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1 
+let g:airline_theme='hybrid'
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 
 
