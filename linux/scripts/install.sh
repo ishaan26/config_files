@@ -123,7 +123,7 @@ function install_apps() {
     fi
 }
 
-install addons() {
+install_addons() {
     # Vundle
     ln -s ~/Documents/Github/config_files/.vimrc .vimrc
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -179,3 +179,5 @@ for deb_file in $LOCATION/*deb; do
         echo 'No deb file found in this directory'
     fi
 done
+
+install_addons
