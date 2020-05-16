@@ -15,7 +15,7 @@ cd $LOCATION
 
 echo -e "Location changed to $(pwd)\n"
 
-APPS=('vscode' 'google-chrome' 'papirus' 'atom' 'gitkraken' 'mailspring' 'flatpak' 'libreoffice')
+APPS=('vscode' 'google-chrome' 'sublimetext' 'papirus' 'simplenote' 'atom' 'gitkraken' 'mailspring' 'flatpak' 'libreoffice')
 
 # Setup Functions:
 
@@ -120,7 +120,20 @@ function install_apps() {
         sudo add-apt-repository ppa:libreoffice/ppa
         sudo apt install libreoffice
         sudo apt-get install libreoffice-style-papirus
+    elif [[ $app_name == "sublimetext" ]]; then
+        wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+        sudo apt-get install apt-transport-https
+        echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+        sudo apt-get update
+        sudo apt-get install sublime-text
+    elif [[ $app_name == "simplenote" ]]; then
+        curl -s https://api.github.com/repos/Automattic/simplenote-electron/releases/latest \
+        | grep "browser_download_url.*amd64.deb" \
+        | cut -d : -f 2,3 \
+        | tr -d \" \
+        | wget -qi - --show-progress
     fi
+    
 }
 
 install_addons() {
