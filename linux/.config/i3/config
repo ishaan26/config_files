@@ -173,6 +173,7 @@ for_window [class="Kmix"] floating enable, border none
 for_window [class="Klipper"] floating enable, border none
 for_window [class="Plasmoidviewer"] floating enable, border none
 for_window [class="Yad" title="yad-calendar"] floating enable
+for_window [class="MEGAsync"] floating enable
 
 
 # reload the configuration file
@@ -269,6 +270,8 @@ bindsym $mod+n exec --no-startup-id flash_window
 # Screenshot
 bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -f
 
+# Turnoff mouse focus
+focus_follows_mouse no
 
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
@@ -334,3 +337,6 @@ mode "$mode_gaps_outer" {
 
 # Dual Display setting 
 exec_always --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1 --auto
+
+# Startup apps 
+exec --no-startup-id megasync

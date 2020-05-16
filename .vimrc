@@ -1,5 +1,4 @@
 set nocompatible
-autocmd BufEnter * :syntax sync fromstart
 syntax on
 set encoding=utf8
 
@@ -76,7 +75,6 @@ set expandtab
 set laststatus=2
 
 " Python Settings
-au BufNewFile,BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
     \ set shiftwidth=4
