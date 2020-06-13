@@ -138,7 +138,7 @@ function install_apps() {
 
 install_addons() {
     # Vundle
-    ln -s ~/Documents/Github/config_files/.vimrc .vimrc
+    ln -s ~/Documents/Github/config_files/.vimrc ~/.vimrc
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 }
 
