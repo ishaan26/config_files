@@ -227,6 +227,10 @@ case $install_ans in
         fi
     done
 
+    clear
+    echo "Installing Vundle"
+    install_addons
+
     ;;
 
 [Nn]*)
@@ -234,6 +238,3 @@ case $install_ans in
     echo "Install it manually then"
     ;;
 esac
-
-
-install_addons
