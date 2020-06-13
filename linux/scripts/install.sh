@@ -118,24 +118,24 @@ function install_software() {
     if [[ $app_name == 'papirus' ]]; then
         sudo add-apt-repository ppa:papirus/papirus
         sudo apt-get update
-        sudo apt-get install papirus-icon-theme
+        sudo apt-get install papirus-icon-theme -y
 
     elif [[ $app_name == 'flatpak' ]]; then
-        sudo apt install flatpak
-        sudo apt install gnome-software-plugin-flatpak
+        sudo apt install flatpak -y
+        sudo apt install gnome-software-plugin-flatpak -y
         flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
     elif [[ $app_name == 'libreoffice' ]]; then
         sudo add-apt-repository ppa:libreoffice/ppa
-        sudo apt install libreoffice
-        sudo apt-get install libreoffice-style-papirus
+        sudo apt install libreoffice -y
+        sudo apt install libreoffice-style-papirus -y
 
     elif [[ $app_name == "sublimetext" ]]; then
         wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
         sudo apt-get install apt-transport-https
         echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
         sudo apt-get update
-        sudo apt-get install sublime-text
+        sudo apt-get install sublime-text -y
 
     elif [[ $app_name == "vlc" ]]; then
         sudo apt instal vlc
@@ -203,7 +203,9 @@ case $install_ans in
 
     echo "Installing software..."
     for app in ${INSTALL_SOFTWARE[@]}; do
+        echo "\n Installing $app \n\n"
         install_software $app
+
     done 
 
     echo "Downlading Software in $LOCATION"
@@ -211,9 +213,9 @@ case $install_ans in
         download_software $app
     done
 
-    echo -e "\n"
+    echo ""
     pause 'Press [Enter] key to continue installing the downloading files.'
-    echo -e "\n"
+    echo ""
 
     for deb_file in $LOCATION/*deb; do
         if test -f $deb_file; then
