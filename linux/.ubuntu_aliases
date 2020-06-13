@@ -4,6 +4,8 @@ alias autoremove='sudo apt autoremove'
 
 alias config_files='cd ~/Documents/Github/config_files && git fetch'
 
+alias myip="hostname -i | awk '{print $3}'"
+
 #Git stuff
 alias githistory="git log --oneline --graph --decorate --all"
 alias kraken='eval "gitkraken --new-window -p \"`pwd`\" -l /dev/null >/dev/null 2>&1 &"'
