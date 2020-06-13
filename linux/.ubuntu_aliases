@@ -2,7 +2,7 @@
 alias update='sudo apt update && sudo apt upgrade -y'
 alias autoremove='sudo apt autoremove'
 
-alias config_files='cd ~/Documents/Github/config_files'
+alias config_files='cd ~/Documents/Github/config_files && git fetch'
 
 #Git stuff
 alias githistory="git log --oneline --graph --decorate --all"
