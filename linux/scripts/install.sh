@@ -115,7 +115,7 @@ function install_software() {
 
     local app_name=$1
 
-    elif [[ $app_name == 'papirus' ]]; then
+    if [[ $app_name == 'papirus' ]]; then
         sudo add-apt-repository ppa:papirus/papirus
         sudo apt-get update
         sudo apt-get install papirus-icon-theme
