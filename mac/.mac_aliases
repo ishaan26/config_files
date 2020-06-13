@@ -9,6 +9,9 @@ alias pycoding="cd ~/MegaSync/Coding/Python/ &&
 alias ccoding="cd ~/MegaSync/Coding/C &&
 	      open ."
 
+alias config_files='cd ~/Documents/Github/config_files'
+
+alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
 
 # Git Stuff
 alias githistory="git log --oneline --graph --decorate --all"
