@@ -482,11 +482,11 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python ~/Documents/OtherGtis/polybar_plugins/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
+exec = python ~/Documents/OtherGits/polybar_plugins/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
 
 [module/info-trash]
 type = custom/script
-exec = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scripts/info-trash/info-trash.sh
+exec = ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/info-trash/info-trash.sh
 format = <label>
 format-padding = 2
 format-foreground = ${colors.fg-alt}
@@ -496,16 +496,16 @@ click-left =  nautilus ~/.local/share/Trash/files/ &
 
 [module/popup-calendar]
 type = custom/script
-exec =  ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh
+exec =  ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh
 interval = 5
-click-left = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh --popup &
+click-left = ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh --popup &
 format = <label>
 format-padding = 2
 format-prefix = "  "
 
 [module/system-uptime-pretty]
 type = custom/script
-exec = ~/Documents/OtherGtis/polybar_plugins/polybar-scripts/polybar-scripts/system-uptime-pretty/system-uptime-pretty.sh
+exec = ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/system-uptime-pretty/system-uptime-pretty.sh
 interval = 30
 format = <label>
 format-padding = 2

@@ -45,7 +45,7 @@ function check_root() {
 }
 
 function pause() {
-    read -p "$*"
+    read -ep "$*"
     clear
 }
 
@@ -60,9 +60,10 @@ function install_dependencies() {
         autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev gcc make dh-autoreconf libxcb-keysyms1-dev \
         libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev \
         libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev \
-        libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev \
-        libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev\ 
-        lm-sensors build-essential git cmake cmake-data pkg-config python3-sphinx \
+        libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev -y
+
+    sudo apt install libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev build-essential \
+        git cmake cmake-data pkg-config python3-sphinx \
         libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
         python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev \
         libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev \
@@ -78,7 +79,7 @@ function install_i3() {
     # clone repo
     cd ~/Documents
 
-    if ! type i3 >/dev/null; then
+    if ! type i3 >>/dev/null; then
 
         echo -e "\nInstalling i3-rounded-corners\n"
 
@@ -105,7 +106,7 @@ function install_i3() {
 function download_polybar() {
     cd ~/Documents
 
-    echo -e "\nDownlading latest release of polybar\n"
+    echo -e "\nDownlading latest release of polybar in $HOME/Documentes\n"
 
     polybar_release_link=$(curl -s https://api.github.com/repos/polybar/polybar/releases/latest | jq -r ".assets[].browser_download_url")
     wget $polybar_release_link -q --show-progress
@@ -135,14 +136,17 @@ function install_polybar() {
 function install_polybar_plugins() {
     cd ~/Documents
     mkdir -p OtherGits/polybar_plugins
+
     cd OtherGits/ploybar_plugins
 
     #spotify plugin 
-    git clone https://github.com/Jvanrhijn/polybar-spotify.git
+    git clone https://github.com/Jvanrhijn/polybar-spotify.git ~/Documents/OtherGits/polybar_plugins/polybar-spotify
     sudo apt install python-dbus
     #polybar-scripts
-    git clone https://github.com/polybar/polybar-scripts.git
+    git clone https://github.com/polybar/polybar-scripts.git ~/Documents/OtherGits/polybar_plugins/polybar-scripts
 
+
+    cd Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts
     #Execute permissions are not set in the git
     for i in $(find | grep "\.sh"); do 
         chmod 755 $i 
@@ -187,13 +191,17 @@ echo -e "\nDirectory set to $(pwd)\n"
 
 check_root
 
-pause "\nPress [Enter] to install dependencies"
+clear
+pause "Press [Enter] to install dependencies"
 install_dependencies
 
-pause "\nPress [Enter] to install i3-gapps-rounded"
+clear
+pause "Press [Enter] to install i3-gapps-rounded"
 install_i3
 
-pause "\nPress [Enter] to install polybar"
+clear
+pause "Press [Enter] to install polybar"
+
 if test -f ~/Documents/polybar/version.txt; then
     polybar_version=$(tac ~/Documents/polybar/version.txt | egrep -m 1 .)install polybar
     echo -e "\nPolybar version $polybar_version already downloaded"
@@ -206,15 +214,19 @@ if test -f ~/Documents/polybar/version.txt; then
     fi
 else
     download_polybar
+    
 fi
 
 install_polybar
 install_polybar_plugins
 
-pause "\nPress [Enter] to install compton"
+
+clear
+pause "Press [Enter] to install compton"
 install_compton
 
-pause "\nPress [Enter] to Setup config files"
+clear
+pause "Press [Enter] to Setup config files"
 setup_config_files
 
 install_addons
