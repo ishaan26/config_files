@@ -116,7 +116,7 @@ sudo apt install refind
 
 1. The Polybar config file has only been tested on Acer Predator Helios 300 G-572 and therefore correspond to its hardware only. You will need to change hardware module settings to match your hardware. (see the polybar folder for more info)
 2. The linux config files have been tested on Ubuntu 19.10 and 20.04.
-3. The mac files have been testede on Mac Os Catalinia 10.15.4.
+3. The mac files have been tested on Mac Os Catalinia 10.15.4.
 4. The andorid logo in termux shell is slightly offset towards right.
 
 ### Pro tip
