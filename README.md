@@ -9,7 +9,7 @@ These are all my config files from different systems I use and also some patched
 - i3-gapps files in the linux folder which also includes:
   - polybar config
   - kitty config
-  - compton(tryone) cnofig
+  - compton(tryone) config
   - rofi config
 - .zshrc files for all four systems
   - zshrc is from oh-my-zsh and includes the following plugins:
