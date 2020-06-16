@@ -35,6 +35,11 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Intellisense like
 Bundle 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
+
+" Syntax 
+Plugin 'mboughaba/i3config.vim'
+Plugin 'sheerun/vim-polyglot'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

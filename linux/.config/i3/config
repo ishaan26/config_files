@@ -6,7 +6,7 @@
 #
 
 # i3 config file (v4)
-#
+
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
@@ -243,7 +243,7 @@ bindsym XF86AudioPrev exec playerctl previous
 for_window [class="^.*"] border pixel 0
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/Wallpapers/*
+exec_always feh --bg-fill ~/Pictures/i3_wallpaper/*
 
 # compton
 exec --no-startup-id compton
@@ -276,15 +276,20 @@ focus_follows_mouse no
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
-border_radius 7
+# Add ssh key for github
+exec  ssh-add ~/.ssh/github
+
+
+
+border_radius 3
 
 #############################
 ### settings for i3-gaps: ###
 #############################
 
 # Set inner/feher gaps
-gaps inner 30
-gaps outer -10
+gaps inner 20
+gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -292,7 +297,7 @@ gaps outer -10
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -336,7 +341,9 @@ mode "$mode_gaps_outer" {
 }
 
 # Dual Display setting 
-exec_always --no-startup-id xrandr --output HDMI-0 --left-of eDP-1-1 --auto
+exec_always --no-startup-id xrandr --output eDP-1-1 --right-of HDMI-0 --auto
 
 # Startup apps 
-exec --no-startup-id megasync
+exec --no-startup-id nextcloud
+
+# vim:filetype=i3config
