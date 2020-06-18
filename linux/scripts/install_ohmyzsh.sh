@@ -2,8 +2,6 @@
 
 clear
 
-# Setup Scripts
-
 UBUNTU_VERSION="20.04"
 
 function check_system {
@@ -59,11 +57,6 @@ function tell_location {
 
 
 # Install Scripts
-
-function clone_config_files {
-    cd ~/Documents/Github
-    git clone https://github.com/ishaan26/config_files.git
-}
 
 function install_dependencies {
     sudo apt install zsh zsh-doc curl wget neofetch python3 git font-manager
