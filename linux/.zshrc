@@ -145,6 +145,9 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 #Sources
 source ~/.ubuntu_aliases
 
+# Go Path
+export GOPATH="/home/ishaan/go"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/ishaan/.sdkman"
 [[ -s "/home/ishaan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ishaan/.sdkman/bin/sdkman-init.sh"
