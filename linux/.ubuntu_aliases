@@ -14,7 +14,7 @@ function gitupload() {
 	
 	if [ -n "$1" ]; then
 		git add .
-		git commit -m "$1"
+		git commit -am "$1"
 		git push
 	else
 		echo "Provide a commit message"
