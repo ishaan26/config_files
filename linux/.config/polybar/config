@@ -97,7 +97,7 @@ height = 40
 
 bottom = true
 
-modules-left = files mail chrome firefox whatsapp libreoffice appstore vscode atom androidstudio gitkraken terminal info-trash
+modules-left = files mail chrome firefox whatsapp libreoffice appstore spotify_app vscode atom androidstudio gitkraken terminal info-trash
 modules-center = i3
 modules-right = system-uptime-pretty wlan filesystem memory cpu temperature powermenu
 
@@ -465,6 +465,15 @@ content = 
 content-padding = 3
 content-foreground = ${colors.fg-alt}
 click-left = exec kitty &
+
+
+[module/spotify_app]
+
+type = custom/text
+content =  
+content-padding = 3
+content-foreground = ${colors.fg-alt}
+click-left = snap run spotify
 
 
 [module/rofi]
