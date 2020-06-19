@@ -41,6 +41,8 @@ primary = #aa0D47A1
 secondary = #e60053
 alert = #bd2c40
 
+spotify_green = #1DB954
+
 [bar/top_bar]
 
 width = 100%
@@ -97,7 +99,7 @@ height = 40
 
 bottom = true
 
-modules-left = files mail chrome firefox whatsapp libreoffice appstore spotify_app vscode atom androidstudio gitkraken terminal info-trash
+modules-left = files mail chrome firefox whatsapp libreoffice appstore spotify_app vscode atom androidstudio terminal separator google.com youtube.com reddit.com github.com separator info-trash
 modules-center = i3
 modules-right = system-uptime-pretty wlan filesystem memory cpu temperature powermenu
 
@@ -144,8 +146,7 @@ ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
-ws-icon-8 = 9;連
-ws-icon-10 = 0;ﱘ
+ws-icon-8 = 9;ﱘ
 ; ws-icon-default = ♟
 
 ; Only show workspaces on the same output as the bar
@@ -374,7 +375,7 @@ menu-2-1-exec = poweroff
 
 type = custom/text
 content = 甆
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec whatsdesk &
 
@@ -382,7 +383,7 @@ click-left = exec whatsdesk &
 
 type = custom/text
 content = 
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec google-chrome-stable &
 
@@ -390,7 +391,7 @@ click-left = exec google-chrome-stable &
 
 type = custom/text
 content = 
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec mailspring &
 
@@ -398,7 +399,7 @@ click-left = exec mailspring &
 
 type = custom/text
 content = 
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec firefox &
 
@@ -406,7 +407,7 @@ click-left = exec firefox &
 
 type = custom/text
 content = 率
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec gnome-software &
 
@@ -414,7 +415,7 @@ click-left = exec gnome-software &
 
 type = custom/text
 content = 
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec code &
 
@@ -422,7 +423,7 @@ click-left = exec code &
 
 type = custom/text
 content = ﱦ
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec atom &
 
@@ -430,7 +431,7 @@ click-left = exec atom &
 
 type = custom/text
 content = 
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec libreoffice &
 
@@ -438,23 +439,15 @@ click-left = exec libreoffice &
 
 type = custom/text
 content = 
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = flatpak run com.google.AndroidStudio &
-
-[module/gitkraken]
-
-type = custom/text
-content = 
-content-padding = 3
-content-foreground = ${colors.fg-alt}
-click-left = exec gitkraken &
 
 [module/files]
 
 type = custom/text
 content = 
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec nautilus &
 
@@ -462,7 +455,7 @@ click-left = exec nautilus &
 
 type = custom/text
 content = 
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec kitty &
 
@@ -471,16 +464,56 @@ click-left = exec kitty &
 
 type = custom/text
 content =  
-content-padding = 3
+content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = snap run spotify
+click-left = exec snap run spotify &
 
+
+[module/separator]
+
+type = custom/text
+content = |
+content-padding = 2
+
+[module/google.com]
+
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${colors.fg-alt}
+click-left = exec google-chrome google.com & 
+
+[module/youtube.com]
+
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${colors.fg-alt}
+click-left = exec google-chrome youtube.com & 
+
+
+[module/reddit.com]
+
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${colors.fg-alt}
+click-left = exec google-chrome reddit.com & 
+
+
+[module/github.com]
+
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${colors.fg-alt}
+click-left = exec google-chrome github.com & 
 
 [module/rofi]
 
 type = custom/text
-content = 
-content-padding = 2
+content =  
+content-padding = 3
 content-foreground = ${colors.fg}
 content-background = ${colors.primary}
 ; content-background = ${colors-primary}
@@ -490,8 +523,11 @@ click-left = rofi -show drun -show-icons -icon-theme MY_ICON_THEME
 type = custom/script
 interval = 1
 format-prefix = " "
+format-prefix-foreground = ${colors.spotify_green}
+format-padding = 2
 format = <label>
 exec = python ~/Documents/OtherGits/polybar_plugins/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
+
 
 [module/info-trash]
 type = custom/script
@@ -499,7 +535,7 @@ exec = ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/inf
 format = <label>
 format-padding = 2
 format-foreground = ${colors.fg-alt}
-format-prefix = "|    "
+format-prefix = "  "
 interval = 60
 click-left =  nautilus ~/.local/share/Trash/files/ &
 
