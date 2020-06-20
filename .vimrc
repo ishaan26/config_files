@@ -24,6 +24,9 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'frazrepo/vim-rainbow'
+Plugin '907th/vim-auto-save'
 
 " Git Support
 Plugin 'kablamo/vim-git-log'
@@ -68,20 +71,23 @@ autocmd BufEnter * :syntax sync fromstart
 """" Configuration Section
 """""""""""""""""""""""""""""""""""""
 
-" Show linenumbers
+"""""" Show linenumbers
 set number
 set ruler
 
-" Set Proper Tabs
+
+"""""" Set Proper Tabs
 set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
 
-" Bar Settings
+
+"""""" Bar Settings
 set laststatus=2
 
-" Python Settings
+
+"""""" Python Settings
     \ set tabstop=4
     \ set softtabstop=4
     \ set shiftwidth=4
@@ -92,16 +98,64 @@ set laststatus=2
 
 let python_highlight_all=1
 
-" You complete me settings
-""" The first line ensures that the auto-complete window goes away when you’re done with it, 
-""" and the second defines a shortcut for goto definition.
+"""""" JavaScript Settigns
+let g:javascript_plugin_jsdoc = 1
+
+
+"""""" You complete me settings
+" The first line ensures that the auto-complete window goes away when you’re done with it, and the second defines a shortcut for goto definition.
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" Vim-Airline Configuration
+
+"""""" Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1 
 let g:airline_theme='hybrid'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 
+
+
+"""""" Rainbow brackets Settings
+let g:rainbow_active = 1
+
+let g:rainbow_load_separately = [
+    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+    \ ]
+
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+
+
+"""""" NerdTree Settings 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-n> :NERDTreeToggle<CR>
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
 
