@@ -124,13 +124,11 @@ mount-0 = /
 
 fixed-values = true
 
-;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 format-mounted-background =
 format-mounted-padding = 2
 label-mounted =  %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.fg-alt}
-
 
 [module/i3]
 type = internal/i3
@@ -147,10 +145,6 @@ ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;ﱘ
-; ws-icon-default = ♟
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = ${colors.fg}
@@ -221,7 +215,6 @@ format-padding = 2
 format-prefix-foreground = ${colors.fg}
 format-background =
 label = %percentage:2%%
-click-left = exec xfce4-taskmanager &
 
 [module/memory]
 type = internal/memory

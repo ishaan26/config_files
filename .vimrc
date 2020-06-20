@@ -41,6 +41,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'mboughaba/i3config.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ap/vim-css-color'
+Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
