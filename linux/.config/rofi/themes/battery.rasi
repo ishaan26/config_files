@@ -1,0 +1,150 @@
+/*
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Mail : adi1090x@gmail.com
+ * Github : @adi1090x
+ * Reddit : @adi1090x
+ *
+ */
+
+@import "colors.rasi"
+
+/** Configured For Applets **/
+
+
+/* ########### */  
+
+* {
+	/* General */
+	text-font: "GoogleSans Nerd Font 12";
+	icon-font: "GoogleSans Nerd Font 28";
+	icon-font-small: "GoogleSans Nerd Font 28";
+
+	option-6-listview-spacing: 0px;
+
+	menu-window-padding: 0px 0px;
+	menu-inputbar-margin: 0px 0px;
+	menu-prompt-padding: 10px 55px 10px 20px;
+	menu-prompt-padding-2: 10px 20px 10px 20px;
+	menu-prompt-margin: 0px 0px 0px -2px;
+	menu-element-border: 0px;
+	menu-element-padding: 10px 15px 15px -35px;
+}
+
+/* ########### */
+
+#window {
+  width: 12.75%;
+  height: 11%;
+  transparency: "real";
+  border-radius: 3px;
+}
+
+/* ########### */
+
+* {
+  background-color: @background;
+  text-color: @foreground;
+  font: @icon-font;
+}
+
+#horibox {
+  children: [listview];
+}
+
+#listview {
+  layout: horizontal;
+}
+
+#element {
+  padding: @option-element-padding;
+  background-color: @background-light;
+}
+
+#element.selected {
+  background-color: @accent;
+  text-color: @foreground;
+}
+
+/* ########### */
+
+* {
+  font: @text-font;
+}
+
+#window {
+  padding: @menu-window-padding;
+  children: [ inputbar, horibox];
+}
+
+#inputbar {
+  children: [ textbox-prompt-colon, prompt];
+  margin: @menu-inputbar-margin;
+}
+
+prompt,
+textbox-prompt-colon {
+  padding: @menu-prompt-padding;
+  border: 2px;
+  border-color: @background-light;
+}
+
+#prompt {
+  margin: @menu-prompt-margin;
+  padding: @menu-prompt-padding-2;
+  background-color: @background-light;
+  text-color: @foreground;
+  /* str: "\b"; */
+}
+
+#textbox-prompt-colon {
+  expand: false;
+  str: "\tBattery";
+  background-color: @accent;
+  text-color: @foreground;
+}
+
+#horibox {
+  padding: 0px;
+}
+
+#listview {
+  spacing: @option-6-listview-spacing;
+  lines: 3;
+}
+
+#element {
+  font: @icon-font;
+  border: @menu-element-border;
+  padding: @menu-element-padding;
+  border-color: @background-light;
+}
+
+#element.selected {
+  border-color: @accent;
+}
+
+element.active {
+  /* background-color: @on; */
+  text-color: @on;
+  border-color: @on;
+}
+
+element.selected.urgent {
+  /* background-color: @off; */
+  text-color: @foreground;
+  border-color: @accent;
+}
+
+element.urgent,
+element.selected.active {
+  /* background-color: @off; */
+  text-color: @foreground;
+  border-color: @off;
+}
+
+element.selected.active {
+  /* background-color: @on; */
+  text-color: @on;
+  border-color: @accent;
+}

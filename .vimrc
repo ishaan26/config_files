@@ -25,7 +25,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'frazrepo/vim-rainbow'
 Plugin '907th/vim-auto-save'
 
 " Git Support
@@ -34,17 +33,21 @@ Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
 
 " Themes
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Intellisense like
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'mattn/emmet-vim'
 
 " Syntax 
 Plugin 'mboughaba/i3config.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ap/vim-css-color'
 Plugin 'pangloss/vim-javascript'
+Plugin 'othree/html5-syntax.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -108,26 +111,9 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
-"""""" Vim-Airline Configuration
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1 
-let g:airline_theme='hybrid'
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 
-
-
-"""""" Rainbow brackets Settings
-let g:rainbow_active = 1
-
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+"""""" Emmet Settings
+let g:user_emmet_mode='a'    "enable all function in all mode.
+let g:user_emmet_leader_key=','
 
 
 """""" NerdTree Settings 

@@ -6,6 +6,10 @@ alias config_files='cd ~/Documents/Github/config_files && git fetch'
 
 alias myip="ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 
+function zsh_colors(){ 
+    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+}
+
 #Git stuff
 alias githistory="git log --oneline --graph --decorate --all"
 alias kraken='eval "gitkraken --new-window -p \"`pwd`\" -l /dev/null >/dev/null 2>&1 &"'
@@ -29,3 +33,5 @@ function ocrall() {
         ocrmypdf --force-ocr $i $i
     done
 }
+
+# vi:syntax=sh

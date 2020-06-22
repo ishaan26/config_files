@@ -73,6 +73,7 @@ function install_dependencies() {
         libxinerama-dev libconfig-dev libdbus-1-dev mesa-common-dev asciidoc lxappearance \
         gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
 
+    sudo apt install viewnoir scrot mpc acpi dunst filelight gnome-disk-utility gnome-system-monitor -y
 }
 
 function install_i3() {
@@ -154,6 +155,9 @@ function install_polybar_plugins() {
 
     sudo apt install yad xdotool
 
+    #usb notifire
+    sudo cp ~/.config/polybar/scripts/system-usb-udev/95-usb.rules /etc/udev/rules.d/
+
 }
 
 function install_compton() {
@@ -176,6 +180,11 @@ function setup_config_files() {
         ln -s ~/Documents/Github/config_files/linux/.config/$filename $filename
         echo "Linked $filename config files"
     done
+
+    # permissions for scripts
+    chmod 755 ~/.config/rofi/scripts/*
+    chmod 755 ~/.config/polybar/scripts/*
+
 }
 
 function install_addons() {

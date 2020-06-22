@@ -69,14 +69,16 @@ function install_oh_my_zsh {
 }
 
 function install_addons {
-    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 
 function soft_link_zshrc {
+    cd ~
     rm .zshrc .ubuntu_aliases
-    ln -s ~/Documents/Github/config_files/linux/.zshrc .zshrc
-    ln -s ~/Documents/Github/config_files/linux/.ubuntu_aliases .ubuntu_aliases
+    ln -s ~/Documents/Github/config_files/.zshrc
+    ln -s ~/Documents/Github/config_files/linux/.ubuntu_aliases
+    ln -s ~/Documents/Github/config_files/.vimrc
+    ln -s ~/Documents/Github/config_files/.p10k.zsh
 }
 
 

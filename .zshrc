@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
@@ -10,27 +17,34 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-# Themeing zsh
-ZSH_THEME="powerlevel9k/powerlevel9k"
 
-POWERLEVEL9K_MODE='nerdfont-complete'
+# (OLD) POWER LEVEL 9K THEME
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+#
+#POWERLEVEL9K_MODE='nerdfont-complete'
+#
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
+#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+#
+#POWERLEVEL9K_CUSTOM_MANJARO_ICON="echo  "
+#POWERLEVEL9K_CUSTOM_MANJARO_ICON_BACKGROUND=077
+##POWERLEVEL9K_CUSTOM_FEDORA_ICON_FOREGROUND=015
+#
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_manjaro_icon dir vcs)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
 
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 
-POWERLEVEL9K_CUSTOM_MANJARO_ICON="echo  "
-POWERLEVEL9K_CUSTOM_MANJARO_ICON_BACKGROUND=077
-#POWERLEVEL9K_CUSTOM_FEDORA_ICON_FOREGROUND=015
+####################################################
+#########                                  #########        
+#########          POWERLEVEL10K           #########
+#########                                  #########
+####################################################
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_manjaro_icon dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -151,3 +165,6 @@ export GOPATH="/home/ishaan/go"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/ishaan/.sdkman"
 [[ -s "/home/ishaan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ishaan/.sdkman/bin/sdkman-init.sh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
