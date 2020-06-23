@@ -3,15 +3,18 @@ alias update="brew update &&
               brew upgrade &&
               brew cask upgrade"
 
-alias pycoding="cd ~/MegaSync/Coding/Python/ &&
-                open ."
-
-alias ccoding="cd ~/MegaSync/Coding/C &&
-	      open ."
-
-alias config_files="cd ~/Documents/Github/config_files && git fetch"
-
 alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
+
+function zsh_colors() {
+    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+}
+
+function cf() {
+    cd ~/Documents/Github/config_files
+    if [[ $1 == "-f"  ]]; then
+        git fetch
+    fi
+}
 
 # Git Stuff
 alias githistory="git log --oneline --graph --decorate --all"
@@ -34,3 +37,5 @@ function ocrall() {
         ocrmypdf --force-ocr $i $i
     done
 }
+
+# vi:syntax=bash

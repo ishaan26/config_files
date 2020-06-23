@@ -75,7 +75,7 @@ function install_addons {
 function soft_link_zshrc {
     cd ~
     rm .zshrc .ubuntu_aliases
-    ln -s ~/Documents/Github/config_files/.zshrc
+    ln -s ~/Documents/Github/config_files/linux/.zshrc
     ln -s ~/Documents/Github/config_files/linux/.ubuntu_aliases
     ln -s ~/Documents/Github/config_files/.vimrc
     ln -s ~/Documents/Github/config_files/.p10k.zsh

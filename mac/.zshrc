@@ -12,21 +12,26 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 # Themeing zsh
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ #ZSH_THEME="powerlevel9k/powerlevel9k"
+ #
+ #POWERLEVEL9K_MODE='nerdfont-complete'
+ #
+ #POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+ #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
+ #POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+ #
+ #POWERLEVEL9K_OS_ICON_BACKGROUND=green
+ #POWERLEVEL9K_OS_ICON_FOREGROUND=black
+ #
+ #POWERLEVEL9K_VIRTUALENV_BACKGROUND=green
+ #
+ #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir virtualenv vcs)
+ #POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
+ 
 
-POWERLEVEL9K_MODE='nerdfont-complete'
 
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-POWERLEVEL9K_OS_ICON_BACKGROUND=green
-POWERLEVEL9K_OS_ICON_FOREGROUND=black
-
-POWERLEVEL9K_VIRTUALENV_BACKGROUND=green
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -146,3 +151,6 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 #Sources
 source ~/.mac_aliases
+
+ # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+ [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
