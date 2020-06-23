@@ -179,7 +179,7 @@
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=016
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=238
   typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=041
   # Custom icon.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
@@ -211,7 +211,7 @@
   # Current directory background color.
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=39
   # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=016
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=238
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
