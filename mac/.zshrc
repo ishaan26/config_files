@@ -34,7 +34,7 @@ export ZSH="$HOME/.oh-my-zsh"
  #
  #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir virtualenv vcs)
  #POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
- 
+
 
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -108,9 +108,10 @@ plugins=(
   ruby
   python
   zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
-
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
 
 source $ZSH/oh-my-zsh.sh
 

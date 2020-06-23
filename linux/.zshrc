@@ -38,7 +38,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 
 ####################################################
-#########                                  #########        
+#########                                  #########
 #########          POWERLEVEL10K           #########
 #########                                  #########
 ####################################################
@@ -110,8 +110,10 @@ plugins=(
   ruby
   python
   zsh-syntax-highlighting
-)
+  zsh-autosuggestions
+  )
 
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
 
 
 source $ZSH/oh-my-zsh.sh
