@@ -110,7 +110,6 @@ plugins=(
   ruby
   python
   zsh-syntax-highlighting
-  zsh-autosuggestions
   )
 
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
