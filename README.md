@@ -47,5 +47,4 @@ These are all my config files from different systems I use and also some patched
 ##### Steps to install
 
 - Place the `linux/.zshrc` and `.p10k.zsh` files in your home folder
-
 - run ```source ~/.zshrc```
