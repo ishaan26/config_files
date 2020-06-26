@@ -115,6 +115,10 @@ plugins=(
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
 
 
+# Globbing
+setopt extended_glob
+
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

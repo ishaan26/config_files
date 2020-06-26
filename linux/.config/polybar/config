@@ -446,7 +446,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec nautilus &
+click-left = exec dolphin &
 
 [module/terminal]
 
@@ -454,7 +454,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec kitty &
+click-left = exec konsole &
 
 
 [module/spotify_app]

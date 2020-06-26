@@ -68,12 +68,16 @@ function install_dependencies() {
         python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev \
         libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev \
         libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev \
-        libnl-genl-3-dev fonts-materialdesignicons-webfont kitty rofi indent libanyevent-i3-perl \
+        libnl-genl-3-dev fonts-materialdesignicons-webfont kitty indent libanyevent-i3-perl \
         libx11-dev libxcomposite-dev libxdamage-dev libxfixes-dev libxrandr-dev \
         libxinerama-dev libconfig-dev libdbus-1-dev mesa-common-dev asciidoc lxappearance \
         gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
 
-    sudo apt install viewnoir scrot mpc acpi dunst filelight gnome-disk-utility gnome-system-monitor -y
+    sudo apt install viewnoir scrot mpc acpi dunst filelight texinfo \
+        gnome-disk-utility gnome-system-monitor aptitude texinfo dolpin konsole -y
+
+    # Rofi dependencies
+    sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 }
 
 function install_i3() {
@@ -140,17 +144,16 @@ function install_polybar_plugins() {
 
     cd OtherGits/ploybar_plugins
 
-    #spotify plugin 
+    #spotify plugin
     git clone https://github.com/Jvanrhijn/polybar-spotify.git ~/Documents/OtherGits/polybar_plugins/polybar-spotify
     sudo apt install python-dbus
     #polybar-scripts
     git clone https://github.com/polybar/polybar-scripts.git ~/Documents/OtherGits/polybar_plugins/polybar-scripts
 
-
     cd Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts
     #Execute permissions are not set in the git
-    for i in $(find | grep "\.sh"); do 
-        chmod 755 $i 
+    for i in $(find | grep "\.sh"); do
+        chmod 755 $i
     done
 
     sudo apt install yad xdotool
@@ -169,6 +172,31 @@ function install_compton() {
         make docs
         sudo make install
     fi
+}
+
+function install_rofi() {
+    cd /tmp
+
+    # First install the latest version of check
+    git clone https://github.com/libcheck/check.git
+    cd /tmp/check
+    autoreconf --install
+    ./configure
+    make
+    make check
+    sudo make install
+    sudo ldconfig
+
+    cd /tmp
+    # Install latest version of rofi
+    git clone --recursive https://github.com/DaveDavenport/rofi
+    cd /tmp/rofi/
+    autoreconf -i
+    mkdir build && cd build
+    ../configure
+    make
+    sudo make install
+
 }
 
 function setup_config_files() {
@@ -190,7 +218,6 @@ function setup_config_files() {
 function install_addons() {
     pip3 install flashfocus
 }
-
 
 
 # Let it RUN!
@@ -225,19 +252,24 @@ if test -f ~/Documents/polybar/version.txt; then
     fi
 else
     download_polybar
-    
+
 fi
 
 install_polybar
 install_polybar_plugins
-
 
 clear
 pause "Press [Enter] to install compton"
 install_compton
 
 clear
+pause "Press [Enter] to install rofi"
+install_rofi
+
+clear
 pause "Press [Enter] to Setup config files"
 setup_config_files
 
+clear
+pause "Press [Enter] to Install final Addons"
 install_addons
