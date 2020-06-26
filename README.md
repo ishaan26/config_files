@@ -34,8 +34,8 @@ These are all my config files from different systems I use and also some patched
 
 ### Terminal Theme
 
-![p10k-showcase](img/p10k-showcase.png)
-![neofetch-p10k-showcase](img/neofetch-p10k-showcase.png)
+![p10k-showcase](img/linux/p10k-showcase.png)
+![neofetch-p10k-showcase](img/linux/neofetch-p10k-showcase.png)
 
 ##### Dependencies
 
