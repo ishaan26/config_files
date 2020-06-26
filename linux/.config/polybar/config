@@ -446,7 +446,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec dolphin &
+click-left = dolphin >/dev/null 2>&1 &
 
 [module/terminal]
 
@@ -454,12 +454,12 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec konsole &
+click-left = konsole >/dev/null 2>&1 &
 
 
 [module/spotify_app]
 
-type = custom/text
+type = custom/tex t
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
@@ -549,7 +549,7 @@ format-padding = 2
 format-foreground = ${colors.fg-alt}
 format-prefix = "  "
 interval = 60
-click-left =  nautilus ~/.local/share/Trash/files/ &
+click-left =  dolphin ~/.local/share/Trash/files/ >/dev/null 2>&1 &
 
 [module/popup-calendar]
 type = custom/script
