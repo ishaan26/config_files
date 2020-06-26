@@ -1,15 +1,5 @@
-/*
- *
- * Author : Aditya Shakya (adi1090x)
- * Mail : adi1090x@gmail.com
- * Github : @adi1090x
- * Reddit : @adi1090x
- *
- */
-
 @import "colors.rasi"
 
-/* ########### */
 
 * {
 	/* General */
@@ -25,20 +15,18 @@
 	menu-prompt-padding-2: 10px 20px 10px 20px;
 	menu-prompt-margin: 0px 0px 0px -4px;
 	menu-element-border: 0px;
-	menu-element-padding: 10px 15px 15px -35px;
+	menu-element-padding: 10px 15px 15px -15px;
 }
 
-/* ########### */
 
 
 #window {
-	width: 12.25%;
+	width: 11.95%;
 	height: 10.6%;
 	transparency: "real";
 	border-radius: 3px;
   }
 
-/* ########### */
 
 * {
 	background-color: @background;
@@ -64,11 +52,6 @@
 	text-color: @foreground;
 }
 
-/* ########### */
-
-* {
-	font: @text-font;
-}
 
 #window {
 	padding: @menu-window-padding;
@@ -80,17 +63,18 @@
 	margin: @menu-inputbar-margin;
 }
 
-prompt,
-textbox-prompt-colon {
+prompt, textbox-prompt-colon {
 	padding: @menu-prompt-padding;
 	border: 0px;
 	border-color: @accent;
+	font: @text-font;
 }
 
 #prompt {
 	margin: @menu-prompt-margin;
 	background-color: @background;
 	text-color: @foreground;
+	font: @text-font;
 }
 
 #textbox-prompt-colon {
@@ -98,6 +82,7 @@ textbox-prompt-colon {
 	str: "Screenshot";
 	background-color: @accent;
 	text-color: @foreground;
+	font: @text-font;
 }
 
 #horibox {
@@ -120,8 +105,7 @@ textbox-prompt-colon {
 	border-color: @accent;
 }
 
-element.active,
-element.selected.urgent {
+element.active, element.selected.urgent {
 	background-color: @on;
 	text-color: @foreground;
 	border-color: @on;
@@ -131,8 +115,7 @@ element.selected.urgent {
 	border-color: @accent;
 }
 
-element.urgent,
-element.selected.active {
+element.urgent, element.selected.active {
 	background-color: @off;
 	text-color: @background;
 	border-color: @off;

@@ -1,15 +1,4 @@
-/*
- *
- * Author : Aditya Shakya (adi1090x)
- * Mail : adi1090x@gmail.com
- * Github : @adi1090x
- * Reddit : @adi1090x
- *
- */
-
 @import "colors.rasi"
-
-/* ########### */
 
 * {
 	text-font: "GoogleSans Nerd Font 12";
@@ -24,19 +13,17 @@
 	menu-prompt-padding-2: 10px 20px 10px 20px;
 	menu-prompt-margin: 0px 0px 0px -4px;
 	menu-element-border: 0px;
-	menu-element-padding: 10px 15px 15px -35px;
+	menu-element-padding: 10px 15px 15px -15px;
 }
 
-/* ########### */
 
 #window {
-	width: 313px;
+	width: 305px;
 	height: 10.7%;
 	transparency: "real";
 	border-radius: 3px;
   }
 
-/* ########### */
 
 * {
 	background-color: @background;
@@ -62,11 +49,6 @@
 	text-color: @foreground;
 }
 
-/* ########### */
-
-* {
-	font: @text-font;
-}
 
 #window {
 	padding: @menu-window-padding;
@@ -76,19 +58,21 @@
 #inputbar {
 	children: [ textbox-prompt-colon, prompt];
 	margin: @menu-inputbar-margin;
+	font: @text-font;
 }
 
-prompt,
-textbox-prompt-colon {
+prompt, textbox-prompt-colon {
 	padding: @menu-prompt-padding;
 	border: 0px;
 	border-color: @accent;
+	font: @text-font;
 }
 
 #prompt {
 	margin: @menu-prompt-margin;
 	background-color: @background-light;
 	text-color: @foreground;
+	font: @text-font;
 }
 
 #textbox-prompt-colon {
@@ -96,6 +80,7 @@ textbox-prompt-colon {
 	str: "\tVolume";
 	background-color: @accent;
 	text-color: @foreground;
+	font: @text-font;
 }
 
 #horibox {
