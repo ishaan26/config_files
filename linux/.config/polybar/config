@@ -288,7 +288,7 @@ format-charging = %{A1:exec ~/.config/rofi/scripts/battery.sh:}<animation-chargi
 format-charging-foreground = #8BC34A
 format-charging-padding = 2
 
-format-discharging = %{A1:exec ~/.config/rofi/scripts/battery.sh:}<animation-discharging> <label-discharging> %{A}
+format-discharging = %{A1:exec ~/.config/rofi/scripts/battery.sh:}<ramp-capacity> <label-discharging> %{A}
 format-discharging-padding = 2
 format-discharging-foreground =
 
@@ -299,7 +299,7 @@ format-full-background =
 
 
 ramp-capacity-0 = 
-ramp-capacity-1 = 
+ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = #ffb52a
 
@@ -309,11 +309,11 @@ animation-charging-2 = 
 animation-charging-foreground = #8BC34A
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = #ffb52a
-animation-discharging-framerate = 750
+; animation-discharging-0 = 
+; animation-discharging-1 = 
+; animation-discharging-2 = 
+; animation-discharging-foreground = #ffb52a
+; animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
