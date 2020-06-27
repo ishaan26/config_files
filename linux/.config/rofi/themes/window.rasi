@@ -82,7 +82,7 @@ element {
     background-color: @background;
     text-color: @foreground;
     orientation: vertical;
-    border-radius: 10%;
+    border-radius: 7px;
     padding: 1% 0% 1% 0%;
 }
 
