@@ -37,14 +37,14 @@ These are all my config files from different systems I use and also some patched
 ![p10k-showcase](img/p10k-showcase.png)
 ![neofetch-p10k-showcase](img/neofetch-p10k-showcase.png)
 
-##### Dependencies
+#### Dependencies
 
 - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) (For the zsh shell replacing bash)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) (For syntax highlighting in the terminal!)
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (For the theme)
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) (For the glyphs)
 
-##### Steps to install
+#### Steps to install
 
 - Place the `linux/.zshrc` and `.p10k.zsh` files in your home folder
 

@@ -81,7 +81,7 @@ font-8 = "Ionicons:style=Regular"
 
 modules-left = rofi-apps xwindow separator spotify
 modules-center = popup-calendar
-modules-right =  system-usb-udev separator backlight pulseaudio battery
+modules-right = backlight pulseaudio battery
 
 tray-position = right
 tray-padding = 5
@@ -459,7 +459,7 @@ click-left = konsole >/dev/null 2>&1 &
 
 [module/spotify_app]
 
-type = custom/tex t
+type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
