@@ -167,7 +167,7 @@ Remove it if you use a single display or change it according to your screens.
 
 #### Steps to install
 
-- complie and intstall compton from<https://github.com/tryone144/compton.git>
+- complie and intstall compton from <https://github.com/tryone144/compton.git>
 - Soft link or copy the `linux/.config/compton.conf` to `~/.config`
 - Reboot
 
@@ -178,7 +178,7 @@ Remove it if you use a single display or change it according to your screens.
 
 #### Steps to install
 
-- complie and intstall polybar from<https://github.com/polybar/polybar>
+- complie and intstall polybar from <https://github.com/polybar/polybar>
 - Make sure the 'GoogleSans Nerd Font' is installed from the patched fonts folder
 - Soft link or copy the `linux/.config/polybar` folder to `~/.config`
 - Refer to [Polybar Wiki](https://github.com/polybar/polybar/wiki) to configure the moduels according to your hardware.
