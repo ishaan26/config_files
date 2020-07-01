@@ -538,12 +538,12 @@ format-prefix = " "
 format-prefix-foreground = ${colors.spotify_green}
 format-padding = 2
 format = <label>
-exec = python ~/Documents/OtherGits/polybar_plugins/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
+exec = python ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
 
 
 [module/info-trash]
 type = custom/script
-exec = ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/info-trash/info-trash.sh
+exec = ~/.config/polybar/scripts/polybar-scripts/info-trash.sh
 format = <label>
 format-padding = 2
 format-foreground = ${colors.fg-alt}
@@ -553,29 +553,20 @@ click-left =  dolphin ~/.local/share/Trash/files/ >/dev/null 2>&1 &
 
 [module/popup-calendar]
 type = custom/script
-exec =  ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh
+exec =  ~/.config/polybar/scripts/polybar-scripts/popup-calendar.sh
 interval = 5
-click-left = ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh --popup &
+click-left = ~/.config/polybar/scripts/polybar-scripts/popup-calendar.sh --popup &
 format = <label>
 format-padding = 2
 format-prefix = "  "
 
 [module/system-uptime-pretty]
 type = custom/script
-exec = ~/Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts/system-uptime-pretty/system-uptime-pretty.sh
+exec = ~/.config/polybar/scripts/polybar-scripts/system-uptime-pretty.sh
 interval = 30
 format = <label>
 format-padding = 2
 format-prefix = 祥
-
-[module/system-usb-udev]
-type = custom/script
-exec = ~/.config/polybar/scripts/system-usb-udev/system-usb-udev.sh
-tail = true
-click-left = ~/.config/polybar/scripts/system-usb-udev/system-usb-udev.sh --mount &
-click-right = ~/.config/polybar/scripts/system-usb-udev/system-usb-udev.sh --unmount &
-format = <lable>
-format-prefix = "hi"
 
 [settings]
 screenchange-reload = true

@@ -139,27 +139,9 @@ function install_polybar() {
 }
 
 function install_polybar_plugins() {
-    cd ~/Documents
-    mkdir -p OtherGits/polybar_plugins
 
-    cd OtherGits/ploybar_plugins
-
-    #spotify plugin
-    git clone https://github.com/Jvanrhijn/polybar-spotify.git ~/Documents/OtherGits/polybar_plugins/polybar-spotify
     sudo apt install python-dbus
-    #polybar-scripts
-    git clone https://github.com/polybar/polybar-scripts.git ~/Documents/OtherGits/polybar_plugins/polybar-scripts
-
-    cd Documents/OtherGits/polybar_plugins/polybar-scripts/polybar-scripts
-    #Execute permissions are not set in the git
-    for i in $(find | grep "\.sh"); do
-        chmod 755 $i
-    done
-
     sudo apt install yad xdotool
-
-    #usb notifire
-    sudo cp ~/.config/polybar/scripts/system-usb-udev/95-usb.rules /etc/udev/rules.d/
 
 }
 
