@@ -41,16 +41,20 @@ else
     VER=$(uname -r)
 fi
 
-if [[ "$OS" != "Ubuntu" ]]; then
-    echo -e "Scripts is only for Ubuntu-inux"
+if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" ]]; then
+    echo ""
+else 
+    echo "Scripts is not for $OS"
     exit
-elif [[ "$VER" != "$UBUNTU_VERSION" ]]; then
-    echo -e "\n Script is only tested on Ubuntu 20.04 LTS"
+fi
+
+if [[ "$VER" != "20.04" ]]; then
+    echo "\n Script is not tested on version $VER"
     pause "Press [Enter] still proceed"
 fi
 
 
- if ! sudo -nv 2>/dev/null; then
+if ! sudo -nv 2>/dev/null; then
     echo 'Root privlages are required'
     sudo -v
 fi
@@ -139,7 +143,7 @@ function install_software() {
         sudo apt-get install sublime-text -y
 
     elif [[ $app_name == "vlc" ]]; then
-        sudo apt instal vlc
+        sudo apt install vlc
 
     elif [[ $app_name == "timeshift" ]]; then
         sudo apt install timeshift

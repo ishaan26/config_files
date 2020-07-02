@@ -1,48 +1,47 @@
 #!/usr/bin/env bash
 clear
 
-UBUNTU_VERSION="20.04"
+if [ -f /etc/os-release ]; then
+    # freedesktop.org and systemd
+    . /etc/os-release
+    OS=$NAME
+    VER=$VERSION_ID
+elif type lsb_release >/dev/null 2>&1; then
+    # linuxbase.org
+    OS=$(lsb_release -si)
+    VER=$(lsb_release -sr)
+elif [ -f /etc/lsb-release ]; then
+    # For some versions of Debian/Ubuntu without lsb_release command
+    . /etc/lsb-release
+    OS=$DISTRIB_ID
+    VER=$DISTRIB_RELEASE
+elif [ -f /etc/debian_version ]; then
+    # Older Debian/Ubuntu/etc.
+    OS=Debian
+    VER=$(cat /etc/debian_version)
+else
+    # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
+    OS=$(uname -s)
+    VER=$(uname -r)
+fi
 
-function check_system() {
-    if [ -f /etc/os-release ]; then
-        # freedesktop.org and systemd
-        . /etc/os-release
-        OS=$NAME
-        VER=$VERSION_ID
-    elif type lsb_release >/dev/null 2>&1; then
-        # linuxbase.org
-        OS=$(lsb_release -si)
-        VER=$(lsb_release -sr)
-    elif [ -f /etc/lsb-release ]; then
-        # For some versions of Debian/Ubuntu without lsb_release command
-        . /etc/lsb-release
-        OS=$DISTRIB_ID
-        VER=$DISTRIB_RELEASE
-    elif [ -f /etc/debian_version ]; then
-        # Older Debian/Ubuntu/etc.
-        OS=Debian
-        VER=$(cat /etc/debian_version)
-    else
-        # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
-        OS=$(uname -s)
-        VER=$(uname -r)
-    fi
+if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" ]]; then
+    echo ""
+else 
+    echo "Scripts is not for $OS"
+    exit
+fi
 
-    if [[ "$OS" != "Ubuntu" ]]; then
-        echo -e "Scripts is only for Ubuntu-inux"
-        exit
-    elif [[ "$VER" != "$UBUNTU_VERSION" ]]; then
-        echo -e "\n Script is only tested on Ubuntu 20.04 LTS"
-        pause "Press [Enter] still proceed"
-    fi
-}
+if [[ "$VER" != "20.04" ]]; then
+    echo "\n Script is not tested on version $VER"
+    pause "Press [Enter] still proceed"
+fi
 
-function check_root() {
-    if ! sudo -nv 2>/dev/null; then
-        echo 'Root privlages are required'
-        sudo -v
-    fi
-}
+
+if ! sudo -nv 2>/dev/null; then
+    echo 'Root privlages are required'
+    sudo -v
+fi
 
 function pause() {
     read -ep "$*"
@@ -63,7 +62,7 @@ function install_dependencies() {
         libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev -y
 
     sudo apt install libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev build-essential \
-        git cmake cmake-data pkg-config python3-sphinx \
+        git cmake cmake-data pkg-config python3-sphinx bison flex\
         libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
         python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev \
         libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev \
@@ -73,8 +72,8 @@ function install_dependencies() {
         libxinerama-dev libconfig-dev libdbus-1-dev mesa-common-dev asciidoc lxappearance \
         gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
 
-    sudo apt install viewnoir scrot mpc acpi dunst filelight texinfo \
-        gnome-disk-utility gnome-system-monitor aptitude texinfo dolpin konsole -y
+    sudo apt install viewnior scrot mpc acpi dunst filelight texinfo \
+        gnome-disk-utility gnome-system-monitor aptitude texinfo dolphin konsole -y
 
     # Rofi dependencies
     sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
@@ -142,6 +141,7 @@ function install_polybar_plugins() {
 
     sudo apt install python-dbus
     sudo apt install yad xdotool
+    sudo apt install python3-pip
 
 }
 
@@ -151,7 +151,8 @@ function install_compton() {
         git clone https://github.com/tryone144/compton.git
         cd compton
         make
-        make docs
+        make docs    sudo apt install python3-pip
+
         sudo make install
     fi
 }
@@ -204,12 +205,8 @@ function install_addons() {
 
 # Let it RUN!
 
-check_system
-
 cd ~/Documents
 echo -e "\nDirectory set to $(pwd)\n"
-
-check_root
 
 clear
 pause "Press [Enter] to install dependencies"
