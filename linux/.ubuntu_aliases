@@ -16,6 +16,12 @@ function cf() {
     fi 
 }
 
+function pjt() {
+    cd ~/Documents/Github/Learning-Projects
+    if [[ $1 == "-f"  ]]; then
+       git fetch 
+    fi  
+}
 
 #Git stuff
 alias githistory="git log --oneline --graph --decorate --all"

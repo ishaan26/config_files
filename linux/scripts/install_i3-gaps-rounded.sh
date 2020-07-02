@@ -151,7 +151,7 @@ function install_compton() {
         git clone https://github.com/tryone144/compton.git
         cd compton
         make
-        make docs    sudo apt install python3-pip
+        make docs 
 
         sudo make install
     fi

@@ -463,7 +463,8 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec snap run spotify &
+click-left = /usr/share/spotify/spotify &
+
 
 [module/screenshot]
 
@@ -538,7 +539,7 @@ format-prefix = " "
 format-prefix-foreground = ${colors.spotify_green}
 format-padding = 2
 format = <label>
-exec = python ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
+exec = python3 ~/.config/polybar/scripts/polybar-spotify/spotify_status.py -f '{artist} - {song}' -t 50
 
 
 [module/info-trash]
