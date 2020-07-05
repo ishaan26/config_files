@@ -51,7 +51,7 @@ These are all my config files from different systems I use and also some patched
 
 Terminal: [Konsole](https://github.com/KDE/konsole)
 
-*The blur comes from compton-trypne*
+*The blur comes from compton-tryone*
 
 #### Steps to install
 
