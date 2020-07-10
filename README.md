@@ -1,4 +1,4 @@
-# Ubuntu, Mac, Termux and WSL Configuration files
+# Ubuntu/Pop!Os, Mac, Termux and WSL Configuration files
 
 These are all my config files from different systems I use and also some patched nerdfonts. I try to keep this repo updated and add more stuff regularly.
 
@@ -20,8 +20,8 @@ These are all my config files from different systems I use and also some patched
 ## Important Notes
 
 1. The Polybar config file has only been tested on Acer Predator Helios 300 G-572. Therefore, many modules in it correspond to its hardware only. You will need to change hardware module settings to match your hardware. (see the polybar section for more info)
-2. The linux  and i3 config files have been tested on a fresh install of Ubuntu and XUbuntu 20.04.
-3. The mac config files have been tested on Mac Os Catalinia 10.15.4.
+2. The linux  and i3 config files have been tested on a fresh install of Ubuntu and Pop!Os 20.04.
+3. The mac config files have been tested on macOS Catalina 10.15.4.
 
 ### Pro Tip
 
