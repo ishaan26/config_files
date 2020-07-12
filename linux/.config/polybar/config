@@ -76,7 +76,7 @@ font-4 = "FontAwesome5Free:style=Solid:size=14;2"
 font-5 = "FontAwesome:style=Regular:size=14;2"
 font-6 = "FontAwesome5Free:style=Regular:size=14;2"
 font-7 = "FontAwesome5Brands:style=Regular:size=14;2"
-font-8 = "Ionicons:style=Regular"
+font-8 = "icomoon:style=Regular:size=14;2"
 
 
 modules-left = rofi-apps xwindow separator spotify
@@ -180,7 +180,7 @@ type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
 host = 127.0.0.1
-port = 6600
+port = 6600 
 
 icon-prev = 
 icon-stop = 
@@ -406,7 +406,7 @@ type = custom/text
 content = 率
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec gnome-software &
+click-left = exec io.elementary.appcenter &
 
 [module/vscode]
 
@@ -427,7 +427,7 @@ click-left = exec atom &
 [module/libreoffice]
 
 type = custom/text
-content = 
+content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec libreoffice &
