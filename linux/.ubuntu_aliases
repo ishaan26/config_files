@@ -1,8 +1,10 @@
 # Ubuntu stuff
-alias update='sudo apt update && sudo apt upgrade -y'
+alias update='sudo apt update && sudo apt upgrade -y && flatpak update -y'
 alias autoremove='sudo apt autoremove'
 
 alias myip="ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
+
+alias pip='pip3'
 
 function zsh_colors(){ 
     for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
