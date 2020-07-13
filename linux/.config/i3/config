@@ -278,7 +278,7 @@ focus_follows_mouse no
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
 
-border_radius 1
+#border_radius 1
 
 #############################
 ### settings for i3-gaps: ###
