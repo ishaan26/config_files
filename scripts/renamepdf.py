@@ -4,6 +4,7 @@ import subprocess as sp
 import os
 import sys
 
+
 class COLORS:
     HEADER = '\033[95m'
     WHITE = '\033[97m'
@@ -15,23 +16,24 @@ class COLORS:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+
 # Check if pdftitle exists
 try:
-    sp.run(['pdftitlfe'], stderr=sp.PIPE)
+    sp.run(['pdftitle'], stderr=sp.PIPE)
 except FileNotFoundError:
     print("\nFirst install pdftitle 'pip3 install pdftitle'")
     install_ans = input("\nDo you want to? [y/N]: ").lower()
     if install_ans == "y":
-       sp.run(['pip3', 'install', 'pdftitle'])
+        sp.run(['pip3', 'install', 'pdftitle'])
 
 
 def rename_that_shiz(pdf):
-    
+
     proc = sp.run(['pdftitle', '-p', pdf], stdout=sp.PIPE)
     rename_output = proc.stdout.decode('utf-8').replace('\n', '').replace(':', " -") + ".pdf"
 
     if rename_output == '' or rename_output == ".pdf":
-        print(f"\n{COLORS.WARNING}Cant Find the name for {COLORS.BOLD}{COLORS.UNDERLINE}{pdf}{COLORS.ENDC}{COLORS.WARNING}... Sorry{COLORS.ENDC}")
+        print(f"\n{COLORS.FAIL}Cant Find the name for {COLORS.BOLD}{COLORS.UNDERLINE}{pdf}{COLORS.ENDC}{COLORS.WARNING}... Sorry{COLORS.ENDC}")
     elif rename_output == pdf:
         print(f"\n{COLORS.HEADER}You have the name for {COLORS.BOLD}{COLORS.UNDERLINE}{pdf}{COLORS.ENDC}{COLORS.HEADER} already!{COLORS.ENDC}")
     else:
@@ -58,4 +60,3 @@ elif len(sys.argv) == 1:
             rename_that_shiz(fl)
 else:
     print(f"{COLORS.FAIL}\nYou are doing it worng{COLORS.ENDC}")
-
