@@ -72,7 +72,7 @@ function install_dependencies() {
         libxinerama-dev libconfig-dev libdbus-1-dev mesa-common-dev asciidoc lxappearance \
         gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
 
-    sudo apt install viewnior scrot mpc acpi dunst filelight texinfo \
+    sudo apt install viewnior scrot mpc acpi dunst filelight texinfo policykit-1-gnome\
         gnome-disk-utility gnome-system-monitor aptitude texinfo dolphin konsole -y
 
     # Rofi dependencies

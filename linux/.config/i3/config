@@ -6,6 +6,8 @@
 #
 
 # i3 config file (v4)
+# Focus Colors
+client.focused #55555599 #55555599 #ffffff #0078FF   #0098FF
 
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -172,9 +174,10 @@ for_window [class="Klipper"] floating enable, border none
 for_window [class="Plasmoidviewer"] floating enable, border none
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [class="MEGAsync"] floating enable
+for_window [class="repoman"] floating enable
 
 # Assign workspaces 
-assign [class="Spotify Free"] $ws9
+assign [class="spotify"] $ws9
 
 
 # reload the configuration file
@@ -230,9 +233,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
@@ -241,7 +241,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # No Title bars
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 
 # Set BG
 exec_always feh --bg-fill ~/Pictures/i3_wallpaper/*
@@ -277,12 +277,8 @@ focus_follows_mouse no
 # Keyring issue Solve for manjaro i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
-# Add ssh key for github
-exec  ssh-add ~/.ssh/github
 
-
-
-border_radius 3
+border_radius 1
 
 #############################
 ### settings for i3-gaps: ###
