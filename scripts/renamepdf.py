@@ -31,16 +31,15 @@ except FileNotFoundError:
 
 def get_pdf_title(pdf):
     proc = sp.run(['pdftitle', '-p', pdf], stdout=sp.PIPE)
-    output = proc.stdout.decode('utf-8').replace('\n', '').replace(':', " -") + ".pdf"
-    print({pdf: output})
+    output = proc.stdout.decode('utf-8').replace('\n', '').replace(':', " -").replace('/', ' - ') + ".pdf"
     return {pdf: output}
 
+
 def rename_pdf(pdf, new_name):
-    
     if new_name == '' or new_name == ".pdf":
         print(f"\n{Fore.YELLOW}Cant Find the name for {FORMAT.BOLD}{FORMAT.UNDERLINE}{pdf}{FORMAT.ENDC}{Fore.YELLOW}{FORMAT.ENDC}")
     elif new_name == pdf:
-        print(f"\n{Fore.WHITE}You have the name for {FORMAT.BOLD}{FORMAT.UNDERLINE}{pdf}{FORMAT.ENDC}{Fore.WHITE} already!{FORMAT.ENDC}")
+        print(f"\n{Fore.WHITE}You already have the name for {FORMAT.BOLD}{FORMAT.UNDERLINE}{pdf}{FORMAT.ENDC}{Fore.WHITE} already!{FORMAT.ENDC}")
     else:
         usr_input = input(f"\n{FORMAT.UNDERLINE}Do you want to Rename:{FORMAT.ENDC} \n{Fore.BLUE}{pdf} -> {Fore.GREEN}{new_name}{FORMAT.ENDC} {FORMAT.BOLD}[y/N/r]: {FORMAT.ENDC}").lower()
 
@@ -56,16 +55,27 @@ def rename_pdf(pdf, new_name):
         elif usr_input == "n":
             print("Cool")
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     if len(sys.argv) == 2:
         pdf = sys.argv[1]
         new_name = get_pdf_title(pdf)
+        new_name = list(new_name.values())[0]
         rename_pdf(pdf, new_name)
+        
     elif len(sys.argv) == 1:
         print("Scanning all pdfs in the current directory...\n" )
-        pdfs = [pdf for pdf in os.listdir() if pdf.endswith(".pdf")]
+        pdfs_curr_dir = [pdf for pdf in os.listdir() if pdf.endswith(".pdf")]
+        
+        # Process all pdfs first using all the cores on the machine
+        # By doing this, there is only an inital waiting time and not in between confirmations 
         with Pool(os.cpu_count()) as pool:
-            list(pool.map(get_pdf_title, pdfs))
+            renamed_pdfs_dicts = list(pool.map(get_pdf_title, pdfs_curr_dir)) # list of dictionaries
+        
+        for n, data in enumerate(renamed_pdfs_dicts):
+            pdf = list(data.keys())[0]
+            new_name= list(data.values())[0]
+
+            rename_pdf(pdf, new_name)
     else:
         print(f"{Fore.RED}\nYou are doing it worng{FORMAT.ENDC}")
