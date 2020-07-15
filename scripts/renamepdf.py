@@ -13,6 +13,15 @@ except ImportError:
     if colorama_ans == "y":
         sp.run(['pip3', 'install', 'colorama'])
     from colorama import Fore, Style
+
+try:
+    import tqdm
+except ImportError:
+    print("you need to install tqdm python module")
+    tqdm_ans = input("Do you want to?: [y/N]").lower()
+    if tqdm_ans == "y":
+        sp.run(['pip3', 'install', 'tqdm'])
+    import tqdm
     
 class FORMAT:
     ENDC = '\033[0m'
@@ -71,7 +80,7 @@ if __name__ == '__main__':
         # Process all pdfs first using all the cores on the machine
         # By doing this, there is only an inital waiting time and not in between confirmations 
         with Pool(os.cpu_count()) as pool:
-            renamed_pdfs_dicts = list(pool.map(get_pdf_title, pdfs_curr_dir)) # list of dictionaries
+            renamed_pdfs_dicts = list(tqdm.tqdm(pool.imap(get_pdf_title, pdfs_curr_dir), total=len(pdfs_curr_dir))) # list of dictionaries
         
         for n, data in enumerate(renamed_pdfs_dicts):
             pdf = list(data.keys())[0]
