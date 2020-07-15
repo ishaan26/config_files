@@ -10,7 +10,8 @@ except ImportError:
     colorama_ans = input("Do you want to?: [y/N]").lower()
     if colorama_ans == "y":
         sp.run(['pip3', 'install', 'colorama'])
-
+    from colorama import Fore, Style
+    
 class FORMAT:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
