@@ -177,7 +177,7 @@ for_window [class="MEGAsync"] floating enable
 for_window [class="repoman"] floating enable
 
 # Assign workspaces 
-assign [class="spotify"] $ws9
+assign [class="Spotify Free"] $ws9
 
 
 # reload the configuration file
@@ -275,7 +275,7 @@ bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -f
 focus_follows_mouse no
 
 # Keyring issue Solve for manjaro i3
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 
 #border_radius 1
