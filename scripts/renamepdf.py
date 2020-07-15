@@ -3,6 +3,8 @@
 import subprocess as sp
 import os
 import sys
+from multiprocessing import Pool, Process
+
 try:
     from colorama import Fore, Style
 except ImportError:
@@ -28,20 +30,22 @@ except FileNotFoundError:
         sp.run(['pip3', 'install', 'pdftitle'])
 
 
-def rename_that_shiz(pdf):
-
+def get_pdf_title(pdf):
     proc = sp.run(['pdftitle', '-p', pdf], stdout=sp.PIPE)
-    rename_output = proc.stdout.decode('utf-8').replace('\n', '').replace(':', " -") + ".pdf"
+    output = proc.stdout.decode('utf-8').replace('\n', '').replace(':', " -").replace('/', ' - ') + ".pdf"
+    return {pdf: output}
 
-    if rename_output == '' or rename_output == ".pdf":
+
+def rename_pdf(pdf, new_name):
+    if new_name == '' or new_name == ".pdf":
         print(f"\n{Fore.YELLOW}Cant Find the name for {FORMAT.BOLD}{FORMAT.UNDERLINE}{pdf}{FORMAT.ENDC}{Fore.YELLOW}{FORMAT.ENDC}")
-    elif rename_output == pdf:
-        print(f"\n{Fore.WHITE}You have the name for {FORMAT.BOLD}{FORMAT.UNDERLINE}{pdf}{FORMAT.ENDC}{Fore.WHITE} already!{FORMAT.ENDC}")
+    elif new_name == pdf:
+        print(f"\n{Fore.WHITE}You already have the name for {FORMAT.BOLD}{FORMAT.UNDERLINE}{pdf}{FORMAT.ENDC}{Fore.WHITE} already!{FORMAT.ENDC}")
     else:
-        usr_input = input(f"\n{FORMAT.UNDERLINE}Do you want to Rename:{FORMAT.ENDC} \n{Fore.BLUE}{pdf} -> {Fore.GREEN}{rename_output}{FORMAT.ENDC} {FORMAT.BOLD}[y/N/r]: {FORMAT.ENDC}").lower()
+        usr_input = input(f"\n{FORMAT.UNDERLINE}Do you want to Rename:{FORMAT.ENDC} \n{Fore.BLUE}{pdf} -> {Fore.GREEN}{new_name}{FORMAT.ENDC} {FORMAT.BOLD}[y/N/r]: {FORMAT.ENDC}").lower()
 
         if usr_input == "y":
-            os.rename(pdf, rename_output)
+            os.rename(pdf, new_name)
             print("Done hai boss!")
         elif usr_input == "r":
             usr_rename = input("Enter the name: ")
@@ -53,11 +57,26 @@ def rename_that_shiz(pdf):
             print("Cool")
 
 
-if len(sys.argv) == 2:
-    rename_that_shiz(sys.argv[1])
-elif len(sys.argv) == 1:
-    for fl in os.listdir():
-        if fl.endswith(".pdf"):
-            rename_that_shiz(fl)
-else:
-    print(f"{Fore.RED}\nYou are doing it worng{FORMAT.ENDC}")
+if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        pdf = sys.argv[1]
+        new_name = get_pdf_title(pdf)
+        new_name = list(new_name.values())[0]
+        rename_pdf(pdf, new_name)
+        
+    elif len(sys.argv) == 1:
+        print("Scanning all pdfs in the current directory...\n" )
+        pdfs_curr_dir = [pdf for pdf in os.listdir() if pdf.endswith(".pdf")]
+        
+        # Process all pdfs first using all the cores on the machine
+        # By doing this, there is only an inital waiting time and not in between confirmations 
+        with Pool(os.cpu_count()) as pool:
+            renamed_pdfs_dicts = list(pool.map(get_pdf_title, pdfs_curr_dir)) # list of dictionaries
+        
+        for n, data in enumerate(renamed_pdfs_dicts):
+            pdf = list(data.keys())[0]
+            new_name= list(data.values())[0]
+
+            rename_pdf(pdf, new_name)
+    else:
+        print(f"{Fore.RED}\nYou are doing it worng{FORMAT.ENDC}")
