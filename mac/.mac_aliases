@@ -16,6 +16,13 @@ function cf() {
     fi
 }
 
+function pjt() {
+    cd ~/Documents/Github/Learning-Projects
+    if [[ $1 == "-f"  ]]; then
+        git fetch
+    fi
+}
+
 # Git Stuff
 alias githistory="git log --oneline --graph --decorate --all"
 alias kraken='open -na "GitKraken" --args -p $(pwd)'
