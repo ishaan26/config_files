@@ -6,15 +6,24 @@ import sys
 import multiprocessing
 import os
 import subprocess as sp
-from tqdm import tqdm
+
+try:
+    import tqdm
+except ImportError:
+    print("You need to install tqdm python module")
+    tqdm_ans = input("Do you want to?: [y/N]").lower()
+    if tqdm_ans == "y":
+        sp.run(['pip3', 'install', 'tqdm'])
+    import tqdm
 
 try:
     from colorama import Fore, Style
 except ImportError:
-    print("you need to install colorama python module")
+    print("You need to install colorama python module")
     colorama_ans = input("Do you want to?: [y/N]").lower()
     if colorama_ans == "y":
         sp.run(['pip3', 'install', 'colorama'])
+    from colorama import Fore, Style
 
 
 LETTERS = string.printable
@@ -46,7 +55,7 @@ def gen_function(num, bar_position):
             for i in tqdm(range(num), position=bar_position, leave=False):
                 txt.write(random.choice(LETTERS))
     else: 
-        generated_text = ''.join(tqdm(random.choices(LETTERS, k=num), position=bar_position))
+        generated_text = ''.join(tqdm.tqdm(random.choices(LETTERS, k=num), position=bar_position))
         with open("rand.txt", "a") as txt:
             txt.write(generated_text)
 
@@ -62,10 +71,10 @@ if __name__ == '__main__':
         print("Starting genrating porcess. Please Wait...\n")
 
         if num_to_generate > MEMORY_LIMIT:
-            print(f"""{Fore.YELLOW}The number to generate is out of memory range. Therefore, a slower method will be used to generate random text.
+            print(f"""{Fore.YELLOW}The number to generate is out of memory range. 
+            Therefore, a slower method will be used to generate random text.""")
 
-    Use randtxt without any arguments to generate fast random txt with no limit.{Fore.WHITE}
-            """)
+            print(f"Use randtxt without any arguments to generate fast random txt with no limit.{Fore.WHITE}")
 
         processes = []
         for i in range(0, cpus):

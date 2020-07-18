@@ -3,16 +3,16 @@
 import subprocess as sp
 import os
 import sys
-from multiprocessing import Pool, Process
+from multiprocessing import Pool
 
 try:
-    from colorama import Fore, Style
+    from colorama import Fore
 except ImportError:
     print("you need to install colorama python module")
     colorama_ans = input("Do you want to?: [y/N]").lower()
     if colorama_ans == "y":
         sp.run(['pip3', 'install', 'colorama'])
-    from colorama import Fore, Style
+    from colorama import Fore
 
 try:
     import tqdm
@@ -22,12 +22,6 @@ except ImportError:
     if tqdm_ans == "y":
         sp.run(['pip3', 'install', 'tqdm'])
     import tqdm
-    
-class FORMAT:
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
 
 # Check if pdftitle exists
 try:
@@ -39,9 +33,16 @@ except FileNotFoundError:
         sp.run(['pip3', 'install', 'pdftitle'])
 
 
+class FORMAT:
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
 def get_pdf_title(pdf):
     proc = sp.run(['pdftitle', '-p', pdf], stdout=sp.PIPE)
-    output = proc.stdout.decode('utf-8').replace('\n', '').replace(':', " -").replace('/', ' - ') + ".pdf"
+    output = proc.stdout.decode('utf-8')
+    output = output.replace('\n', '').replace(':', " -").replace('/', ' - ') + ".pdf"
     return {pdf: output}
 
 
@@ -72,20 +73,20 @@ if __name__ == '__main__':
         new_name = get_pdf_title(pdf)
         new_name = list(new_name.values())[0]
         rename_pdf(pdf, new_name)
-        
+
     elif len(sys.argv) == 1:
         print("Scanning all pdfs in the current directory...\n" )
         pdfs_curr_dir = [pdf for pdf in os.listdir() if pdf.endswith(".pdf")]
-        
+
         # Process all pdfs first using all the cores on the machine
         # By doing this, there is only an inital waiting time and not in between confirmations 
         with Pool(os.cpu_count()) as pool:
             renamed_pdfs_dicts = list(tqdm.tqdm(pool.imap(get_pdf_title, pdfs_curr_dir), total=len(pdfs_curr_dir))) # list of dictionaries
-        
+
         for n, data in enumerate(renamed_pdfs_dicts):
             pdf = list(data.keys())[0]
             new_name= list(data.values())[0]
-
             rename_pdf(pdf, new_name)
     else:
         print(f"{Fore.RED}\nYou are doing it worng{FORMAT.ENDC}")
+
