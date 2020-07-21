@@ -11,7 +11,7 @@ except ImportError:
     print("you need to install colorama python module")
     colorama_ans = input("Do you want to?: [y/N]").lower()
     if colorama_ans == "y":
-        sp.run(['pip3', 'install', 'colorama'])
+        sp.run(['pip3', 'install', 'colorama', '--user'])
     from colorama import Fore
 
 try:
@@ -20,7 +20,7 @@ except ImportError:
     print("you need to install tqdm python module")
     tqdm_ans = input("Do you want to?: [y/N]").lower()
     if tqdm_ans == "y":
-        sp.run(['pip3', 'install', 'tqdm'])
+        sp.run(['pip3', 'install', 'tqdm', '--user'])
     import tqdm
 
 # Check if pdftitle exists
