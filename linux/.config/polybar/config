@@ -454,7 +454,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = kitty >/dev/null 2>&1 &
+click-left = konsole >/dev/null 2>&1 &
 
 
 [module/spotify_app]
