@@ -30,31 +30,31 @@ LETTERS = string.printable
 MEMORY_LIMIT = 100000000
 
 
-def split(x, n): 
+def split(x, n):
     result = []
-    if (x < n):  
+    if (x < n):
         return -1
-    elif (x % n == 0): 
-        for i in range(n): 
+    elif (x % n == 0):
+        for i in range(n):
             result.append(x//n)
         return result
-    else: 
-        zp = n - (x % n) 
-        pp = x//n 
-        for i in range(n): 
-            if(i>= zp): 
-                result.append(pp + 1) 
-            else: 
-                result.append(pp) 
+    else:
+        zp = n - (x % n)
+        pp = x//n
+        for i in range(n):
+            if(i>= zp):
+                result.append(pp + 1)
+            else:
+                result.append(pp)
         return result
 
 
 def gen_function(num, bar_position):
     if num > MEMORY_LIMIT:
         with open ("rand.txt", "a") as txt:
-            for i in tqdm(range(num), position=bar_position, leave=False):
+            for i in tqdm.tqdm(range(num), position=bar_position, leave=False):
                 txt.write(random.choice(LETTERS))
-    else: 
+    else:
         generated_text = ''.join(tqdm.tqdm(random.choices(LETTERS, k=num), position=bar_position))
         with open("rand.txt", "a") as txt:
             txt.write(generated_text)
@@ -71,7 +71,7 @@ if __name__ == '__main__':
         print("Starting genrating porcess. Please Wait...\n")
 
         if num_to_generate > MEMORY_LIMIT:
-            print(f"""{Fore.YELLOW}The number to generate is out of memory range. 
+            print(f"""{Fore.YELLOW}The number to generate is out of memory range.
             Therefore, a slower method will be used to generate random text.""")
 
             print(f"Use randtxt without any arguments to generate fast random txt with no limit.{Fore.WHITE}")
