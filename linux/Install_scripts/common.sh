@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 
 check_os() {
@@ -39,4 +39,8 @@ check_root() {
         echo 'Root privlages are required'
         sudo -v
     fi
+}
+
+tell_location() {
+    echo -e "Location changed to $(pwd)\n"
 }
