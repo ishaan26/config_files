@@ -2,7 +2,7 @@
 clear
 
 SCRIPT_DIR="$(dirname "$0")"
-LOCATION="~/Downloads"
+LOCATION=~/Downloads
 
 cd $SCRIPT_DIR
 source ../common.sh
