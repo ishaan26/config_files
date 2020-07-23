@@ -18,7 +18,7 @@ else
 fi
 
 if [[ "$VER" != "32" ]]; then
-    echo "\n Script is not tested on version $VER"
+    echo "\nScript is not tested on version $VER"
     pause "Press [Enter] still proceed"
 fi
 
@@ -27,13 +27,14 @@ check_root # Checks sudo privlages of the shell from common.sh
 clear
 cd $LOCATION
 tell_location
-pause "/nPress [Enter] to continue installing apps"
+echo ""
+pause "Press [Enter] to continue installing apps"
 
-echo "Updating system"
+echo -e "\nUpdating system"
 sudo dnf update -y
 clear
 
-echo "configuring Repositorires"
+echo -e "Configuring Repositorires\n"
 # Rpm Fusion 
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf groupupdate core
