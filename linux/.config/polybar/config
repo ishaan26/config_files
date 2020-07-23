@@ -319,7 +319,9 @@ animation-charging-framerate = 750
 type = internal/temperature
 thermal-zone = 2
 warn-temperature = 90
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
+
+; for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
 
 format = <label>
 format-padding = 4
@@ -460,10 +462,10 @@ click-left = konsole >/dev/null 2>&1 &
 [module/spotify_app]
 
 type = custom/text
-content = 
+content =  
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = /usr/share/spotify/spotify &
+click-left = spotify >/dev/null 2>&1 &
 
 
 [module/screenshot]

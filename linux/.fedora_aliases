@@ -2,7 +2,7 @@
 alias update='sudo dnf update && flatpak update -y'
 alias cleanup='sudo dnf clean all'
 
-alias myip="ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
+alias myip="ip -4 addr show wlp2s0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 
 
 function zsh_colors(){ 

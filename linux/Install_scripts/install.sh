@@ -44,12 +44,13 @@ read_options(){
 	case $choice in
 		1) bash $SCRIPT_DIR/$OS/install_apps.sh ;;
 		2) bash $SCRIPT_DIR/$OS/install_ohmyzsh.sh ;;
-		3) bash $SCRIPT_DIR/$OS/setup_ohmyzsh.sh;;
-        4) bash $SCRIPT_DIR/$OS/install_i3-gaps.sh;;
+		3) bash $SCRIPT_DIR/$OS/setup_ohmyzsh.sh ;;
+        4) bash $SCRIPT_DIR/$OS/install_i3-gaps.sh ;;
         5) exit 0 ;;
 		*) echo -e "${RED}Error...${STD}" && sleep 1
 	esac
 }
+
 
 while true
 do

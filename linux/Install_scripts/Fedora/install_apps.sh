@@ -2,18 +2,13 @@
 clear
 
 SCRIPT_DIR="$(dirname "$0")"
-LOCATION=$1
-if ! [ "$LOCATION" ]; then
-    echo "Please specify a directory as the argument"
-    exit
-fi
+LOCATION="~/Downloads"
 
 cd $SCRIPT_DIR
 source ../common.sh
 
 # Check System as the script only works on Ubintu 20.04 based OSs
 check_os # Produces $OS and $VER from common.sh
-check_root # Checks sudo privlages of the shell from common.sh
 
 if [[ "$OS" == "Fedora" ]]; then
     echo ""
@@ -66,7 +61,8 @@ pause "\nPress [Enter] to continue"
 echo "Installing other apps"
 sleep 1
 
-echo "Installing Visual Studio Code"
+echo "Installing Visual Studio Codecheck_root # Checks sudo privlages of the shell from common.sh
+"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 sudo dnf check-update
