@@ -36,20 +36,20 @@ clear
 
 echo -e "Configuring Repositorires\n"
 # Rpm Fusion 
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf groupupdate core
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf groupupdate core -y
 sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 sudo dnf groupupdate sound-and-video
-sudo dnf install rpmfusion-free-release-tainted
-sudo dnf install libdvdcss
-sudo dnf install rpmfusion-nonfree-release-tainted
-sudo dnf install \*-firmware
+sudo dnf install -y rpmfusion-free-release-tainted
+sudo dnf install -y libdvdcss
+sudo dnf install -y rpmfusion-nonfree-release-tainted 
+sudo dnf install -y \*-firmware
 echo -e "\nConfigured rpm fusion\n"
 pause "Press [Enter] to continue"
 
 
 echo "Installing dnf apps"
-sudo dnf install -y vlc mono-complete goland qt-devel cmake gnome-tweak-tool xfce4-terminal kvantum qt5ct lxappearance 
+sudo dnf install -y vlc mono-complete golang qt-devel cmake gnome-tweak-tool xfce4-terminal kvantum qt5ct lxappearance 
 echo -e "\nInstalled many apps\n"
 pause "Press [Enter] to continue"
 
