@@ -1,29 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
 clear
 
-if [ -f /etc/os-release ]; then
-    # freedesktop.org and systemd
-    . /etc/os-release
-    OS=$NAME
-    VER=$VERSION_ID
-elif type lsb_release >/dev/null 2>&1; then
-    # linuxbase.org
-    OS=$(lsb_release -si)
-    VER=$(lsb_release -sr)
-elif [ -f /etc/lsb-release ]; then
-    # For some versions of Debian/Ubuntu without lsb_release command
-    . /etc/lsb-release
-    OS=$DISTRIB_ID
-    VER=$DISTRIB_RELEASE
-elif [ -f /etc/debian_version ]; then
-    # Older Debian/Ubuntu/etc.
-    OS=Debian
-    VER=$(cat /etc/debian_version)
-else
-    # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
-    OS=$(uname -s)
-    VER=$(uname -r)
-fi
+SCRIPT_DIR="$(dirname "$0")"
+
+
+cd $SCRIPT_DIR
+source ../common.sh
+
+# Check System as the script only works on Ubintu 20.04 based OSs
+check_os # Produces $OS and $VER from common.sh
 
 if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" ]]; then
     echo ""
@@ -38,46 +24,36 @@ if [[ "$VER" != "20.04" ]]; then
 fi
 
 
-if ! sudo -nv 2>/dev/null; then
-    echo 'Root privlages are required'
-    sudo -v
-fi
 
-function pause() {
-    read -ep "$*"
-    clear
-}
+echo -e "\nInstalling dependencies\n"
 
-function install_dependencies() {
-    echo -e "\nInstalling dependencies\n"
+sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
+    libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
+    libstartup-notification0-dev xbacklight libxcb-randr0-dev \
+    libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+    libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+    autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev gcc make dh-autoreconf libxcb-keysyms1-dev \
+    libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev \
+    libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev \
+    libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev -y
 
-    sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
-        libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
-        libstartup-notification0-dev xbacklight libxcb-randr0-dev \
-        libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
-        libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
-        autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev gcc make dh-autoreconf libxcb-keysyms1-dev \
-        libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev \
-        libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev \
-        libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev -y
+sudo apt install libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev build-essential \
+    git cmake cmake-data pkg-config python3-sphinx bison flex\
+    libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
+    python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev \
+    libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev \
+    libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev \
+    libnl-genl-3-dev fonts-materialdesignicons-webfont kitty indent libanyevent-i3-perl \
+    libx11-dev libxcomposite-dev libxdamage-dev libxfixes-dev libxrandr-dev \
+    libxinerama-dev libconfig-dev libdbus-1-dev mesa-common-dev asciidoc lxappearance \
+    gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
 
-    sudo apt install libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev build-essential \
-        git cmake cmake-data pkg-config python3-sphinx bison flex\
-        libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
-        python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev \
-        libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev \
-        libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev \
-        libnl-genl-3-dev fonts-materialdesignicons-webfont kitty indent libanyevent-i3-perl \
-        libx11-dev libxcomposite-dev libxdamage-dev libxfixes-dev libxrandr-dev \
-        libxinerama-dev libconfig-dev libdbus-1-dev mesa-common-dev asciidoc lxappearance \
-        gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
+sudo apt install viewnior scrot mpc acpi dunst filelight texinfo policykit-1-gnome\
+    gnome-disk-utility gnome-system-monitor aptitude texinfo dolphin konsole -y
 
-    sudo apt install viewnior scrot mpc acpi dunst filelight texinfo policykit-1-gnome\
-        gnome-disk-utility gnome-system-monitor aptitude texinfo dolphin konsole -y
+# Rofi dependencies
+sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 
-    # Rofi dependencies
-    sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
-}
 
 function install_i3() {
     # clone repo
