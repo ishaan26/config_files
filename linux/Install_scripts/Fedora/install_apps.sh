@@ -57,7 +57,8 @@ pause "Press [Enter] to continue"
 echo "Installing Fedy"
 sudo dnf copr enable kwizart/fedy
 sudo dnf install fedy -y
-pause "\nPress [Enter] to continue"
+echo ""
+pause "Press [Enter] to continue"
 
 echo "Installing other apps"
 sleep 1
@@ -67,8 +68,8 @@ echo "Installing Visual Studio Codecheck_root # Checks sudo privlages of the she
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 sudo dnf check-update
-sudo dnf install code
-
+sudo dnf install -y code
+clear
 
 echo "Installing MailSpring"
 cd $LOCATION
@@ -85,7 +86,7 @@ pause "Press [Enter] to continue"
 clear
 
 echo "Installing and setting up vim"
-sudo dnf install vim
+sudo dnf install -y vim
 if [[ ! -f "~/.vimrc" ]]; then
     cd ~
     ln -s ~/Documents/Github/config_files/.vimrc
