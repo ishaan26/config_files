@@ -63,12 +63,17 @@ pause "Press [Enter] to continue"
 echo "Installing other apps"
 sleep 1
 
-echo "Installing Visual Studio Codecheck_root # Checks sudo privlages of the shell from common.sh
-"
+echo "Installing Visual Studio Code"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 sudo dnf check-update
 sudo dnf install -y code
+clear
+
+echo "Installing Atom"
+sudo rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
+sudo sh -c 'echo -e "[Atom]\nname=Atom Editor\nbaseurl=https://packagecloud.io/AtomEditor/atom/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/AtomEditor/atom/gpgkey" > /etc/yum.repos.d/atom.repo'
+sudo dnf install -y atom
 clear
 
 echo "Installing MailSpring"
