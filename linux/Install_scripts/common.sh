@@ -1,8 +1,6 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(dirname "$0")"
-FONTS="$(realpath $SCRIPT_DIR/../../patched\ fonts/fonts/)"
-
 
 check_os() {
     if [ -f /etc/os-release ]; then
@@ -51,6 +49,8 @@ tell_location() {
 
 
 install_fonts_common() {
+    FONTS="$(realpath $SCRIPT_DIR/../../patched\ fonts/fonts/)"
+
     sudo mkdir /usr/share/fonts/
 
     cd "$FONTS/"
