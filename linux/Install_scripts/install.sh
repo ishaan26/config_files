@@ -36,7 +36,7 @@ show_menus() {
     echo "3. Setup oh-my-zsh"
     echo "4. Install and setup i3-gaps"
 	echo "5. Install Fonts from patched fonts folder"
-	echo "5. Exit"
+	echo "6. Exit"
 }
 
 read_options(){
