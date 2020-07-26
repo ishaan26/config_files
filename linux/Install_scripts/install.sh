@@ -47,7 +47,7 @@ read_options(){
 		2) bash $SCRIPT_DIR/$OS/install_ohmyzsh.sh ;;
 		3) bash $SCRIPT_DIR/$OS/setup_ohmyzsh.sh ;;
         4) bash $SCRIPT_DIR/$OS/install_i3-gaps.sh ;;
-        5) install_fonts_common
+        5) install_fonts_common ;;
 		6) exit 0 ;;
 		*) echo -e "${RED}Please select a valid option${STD}" && sleep 1
 	esac
