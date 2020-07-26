@@ -25,6 +25,7 @@ fi
 
 check_root # Checks sudo privlages of the shell from common.sh
 
+sudo dnf install -y zsh
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
