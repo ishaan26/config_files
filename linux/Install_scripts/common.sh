@@ -55,7 +55,7 @@ install_fonts_common() {
 
     cd "$FONTS/"
     for font in ./* ; do
-        sudo cp $font /usr/share/fonts/
+        sudo cp "$font" /usr/share/fonts/
         echo "installed $font"
     done
 
