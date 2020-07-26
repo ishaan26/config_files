@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(dirname "$0")"
+FONTS="$(realpath $SCRIPT_DIR/../../patched\ fonts/fonts/*)"
 
 check_os() {
     if [ -f /etc/os-release ]; then
@@ -48,7 +50,7 @@ tell_location() {
 install_fonts_common() {
     sudo mkdir /usr/share/fonts/robofont
 
-    for font in ../../../patched\ fonts/fonts/*; do
+    for font in $FONTS; do
         sudo cp $font /usr/share/fonts/
         echo "installed $font"
     done
