@@ -42,5 +42,5 @@ ln -s ~/Documents/Github/config_files/linux/.fedora_aliases .aliases
 ln -s ~/Documents/Github/config_files/.vimrc
 ln -s ~/Documents/Github/config_files/.p10k.zsh
 
-echo "\nAll Done"
+echo -e "\nAll Done\n"
 pause "Press [Enter] to continue to main menu"
