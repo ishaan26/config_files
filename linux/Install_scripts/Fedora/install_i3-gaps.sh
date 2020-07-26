@@ -2,9 +2,9 @@
 clear
 
 SCRIPT_DIR="$(dirname "$0")"
-GIT_CLONE_DIR="~/Documents/Github/OtherGits"
+GIT_CLONE_DIR="/home/$(whoami)/Documents/Github/OtherGits"
 
-cd $SCRIPT_DIR
+cd "$SCRIPT_DIR"
 source ../common.sh
 
 # Check System as the script only works on Ubintu 20.04 based OSs
@@ -18,7 +18,7 @@ else
 fi
 
 if [[ "$VER" != "32" ]]; then
-    echo "\n Script is not tested on version $VER"
+    echo -e "\nScript is not tested on version $VER"
     pause "Press [Enter] still proceed"
 fi
 
@@ -29,8 +29,9 @@ mkdir -p "$GIT_CLONE_DIR"
 cd "$GIT_CLONE_DIR"
 tell_location
 
+pause "Press [Enter] to continue installing dependencies"
 
-echo -e "\nInstalling Dependencies"
+echo -e "\nInstalling Dependencies..."
 sudo dnf install -y yad xdotool bison polkit-gnome.x86_64 xbacklight flex libxcb-devel check-devel.x86_64 libjpeg-turbo-devel.x86_64 librsvg2-devel.x86_64 xcb-util-keysyms-devel xcb-util-devel xcb-util-wm-devel xcb-util-xrm-devel yajl-devel libXrandr-devel startup-notification-devel libev-devel xcb-util-cursor-devel libXinerama-devel libxkbcommon-devel libxkbcommon-x11-devel pcre-devel pango-devel git gcc automake i3status i3lock feh libXcomposite-devel libXdamage-devel libXrandr-devel libXinerama-devel libconfig-devel mesa-libGL-devel dbus-devel asciidoc check
 sudo pip install flashfocus
 pause "Press [Enter] to install i3-gaps"
@@ -38,7 +39,7 @@ clear
 
 
 echo -e "\nInstalling i3-gaps"
-git clone https://www.github.com/Airblader/i3 i3-gaps
+git clone https://www.github.com/Airblader/i3.git i3-gaps
 cd i3-gaps
 autoreconf --force --install
 rm -rf build/
@@ -79,8 +80,8 @@ cd ~/.config
 tell_location
 
 for file in ~/Documents/Github/config_files/linux/.config/*; do
-    filename="$(basename $file)"
-    ln -s ~/Documents/Github/config_files/linux/.config/$filename
+    filename="$(basename "$file")"
+    ln -s ~/Documents/Github/config_files/linux/.config/"$filename" .
     echo "Linked $filename config files"
 done
 
