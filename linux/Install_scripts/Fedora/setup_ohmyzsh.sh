@@ -34,7 +34,7 @@ clear
 echo -e "\nInstalling Powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
-pause "\nPress [Enter] to continue setting up config files"
+pause "Press [Enter] to continue setting up config files"
 cd ~
 rm .zshrc
 ln -s ~/Documents/Github/config_files/linux/.zshrc
@@ -43,4 +43,4 @@ ln -s ~/Documents/Github/config_files/.vimrc
 ln -s ~/Documents/Github/config_files/.p10k.zsh
 
 echo "\nAll Done"
-pause "\nPress [Enter] to continue to main menu"
+pause "Press [Enter] to continue to main menu"
