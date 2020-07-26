@@ -408,7 +408,7 @@ type = custom/text
 content = 率
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec io.elementary.appcenter &
+click-left = exec gnome-software &
 
 [module/vscode]
 
