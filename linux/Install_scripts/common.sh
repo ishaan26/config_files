@@ -50,7 +50,7 @@ tell_location() {
 install_fonts_common() {
     sudo mkdir /usr/share/fonts/robofont
 
-    for font in $FONTS; do
+    for font in "$FONTS"; do
         sudo cp $font /usr/share/fonts/
         echo "installed $font"
     done
