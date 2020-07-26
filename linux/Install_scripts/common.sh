@@ -62,7 +62,7 @@ install_fonts_common() {
     cd ~
 
     echo -e "\nBuilding font cache..."
-    sudo fc-cache -v
+    sudo fc-cache
 
     echo -e "\nAll Done\n"
     pause "Press [Enter] to continue to main menu"
