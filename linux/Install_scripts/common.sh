@@ -1,7 +1,8 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(dirname "$0")"
-FONTS="$(realpath $SCRIPT_DIR/../../patched\ fonts/fonts/*)"
+FONTS="$(realpath $SCRIPT_DIR/../../patched\ fonts/fonts/)"
+
 
 check_os() {
     if [ -f /etc/os-release ]; then
@@ -43,17 +44,22 @@ check_root() {
     fi
 }
 
+
 tell_location() {
     echo -e "Location changed to $(pwd)\n"
 }
 
-install_fonts_common() {
-    sudo mkdir /usr/share/fonts/robofont
 
-    for font in "$FONTS"; do
+install_fonts_common() {
+    sudo mkdir /usr/share/fonts/
+
+    cd "$FONTS/"
+    for font in ./* ; do
         sudo cp $font /usr/share/fonts/
         echo "installed $font"
     done
+
+    cd ~
 
     echo -e "\nBuilding font cache..."
     sudo fc-cache -v
