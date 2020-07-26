@@ -13,7 +13,7 @@ check_os # Produces $OS and $VER from common.sh
 
 if [[ "$OS" == "Fedora" ]]; then
     echo ""
-else 
+else
     echo "Scripts is not for $OS"
     exit
 fi
@@ -41,6 +41,8 @@ ln -s ~/Documents/Github/config_files/linux/.zshrc
 ln -s ~/Documents/Github/config_files/linux/.fedora_aliases .aliases
 ln -s ~/Documents/Github/config_files/.vimrc
 ln -s ~/Documents/Github/config_files/.p10k.zsh
+
+source /home/$(whoami)/.zshrc
 
 echo -e "\nAll Done\n"
 pause "Press [Enter] to continue to main menu"
