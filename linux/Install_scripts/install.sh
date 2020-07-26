@@ -35,6 +35,7 @@ show_menus() {
 	echo "2. Install oh-my-zsh"
     echo "3. Setup oh-my-zsh"
     echo "4. Install and setup i3-gaps"
+	echo "5. Install Fonts from patched fonts folder"
 	echo "5. Exit"
 }
 
@@ -46,8 +47,9 @@ read_options(){
 		2) bash $SCRIPT_DIR/$OS/install_ohmyzsh.sh ;;
 		3) bash $SCRIPT_DIR/$OS/setup_ohmyzsh.sh ;;
         4) bash $SCRIPT_DIR/$OS/install_i3-gaps.sh ;;
-        5) exit 0 ;;
-		*) echo -e "${RED}Error...${STD}" && sleep 1
+        5) install_fonts_common
+		6) exit 0 ;;
+		*) echo -e "${RED}Please select a valid option${STD}" && sleep 1
 	esac
 }
 

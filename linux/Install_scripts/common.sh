@@ -44,3 +44,19 @@ check_root() {
 tell_location() {
     echo -e "Location changed to $(pwd)\n"
 }
+
+install_fonts_common() {
+    sudo mkdir /usr/share/fonts/robofont
+
+    for font in ../../../patched\ fonts/fonts/*; do
+        sudo cp $font /usr/share/fonts/
+        echo "installed $font"
+    done
+
+    echo -e "\nBuilding font cache..."
+    sudo fc-cache -v
+
+    echo -e "\nAll Done\n"
+    pause "Press [Enter] to continue to main menu"
+
+}
