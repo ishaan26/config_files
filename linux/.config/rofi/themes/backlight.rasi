@@ -1,139 +1,135 @@
-/*
- *
- * Author : Aditya Shakya (adi1090x)
- * Mail : adi1090x@gmail.com
- * Github : @adi1090x
- * Reddit : @adi1090x
- *
- */
 
 @import "colors.rasi"
 
-/* ########### */
+/** Configured For Applets **/
+
+
+/* ########### */  
 
 * {
 	/* General */
 	text-font: "GoogleSans Nerd Font 12";
-	icon-font: "GoogleSans Nerd Font 32";
-	icon-font-small: "GoogleSans Nerd Font 24";
+	icon-font: "GoogleSans Nerd Font 28";
+	icon-font-small: "GoogleSans Nerd Font 28";
 
-	option-6-listview-spacing: 5px;
+	option-6-listview-spacing: 0px;
 
-	menu-window-padding: 5px 15px;
-	menu-inputbar-margin: 10px 0px;
-	menu-prompt-padding: 10px 20px 10px 20px;
+	menu-window-padding: 0px 0px;
+	menu-inputbar-margin: 0px 0px;
+	menu-prompt-padding: 10px 45px 10px 20px;
+	menu-prompt-padding-2: 10px 20px 10px 20px;
 	menu-prompt-margin: 0px 0px 0px -2px;
-	menu-element-border: 10px;
-	menu-element-padding: 3px 8px -1px -40px;
+	menu-element-border: 0px;
+	menu-element-padding: 10px 15px 15px -15px;
 }
 
-/* ########### */
 
 #window {
-	width: 18%;
-	height: 20%;
+  width: 12%;
+  height: 11%;
+  transparency: "real";
+  border-radius: 3px;
 }
 
-/* ########### */
-
 * {
-	background-color: @background;
-	text-color: @foreground;
-	font: @icon-font;
+  background-color: @background;
+  text-color: @foreground;
+  font: @icon-font;
 }
 
 #horibox {
-	children: [ listview];
+  children: [listview];
 }
 
 #listview {
-	layout: horizontal;
+  layout: horizontal;
 }
 
 #element {
-	padding: @option-element-padding;
-	background-color: @background;
+  padding: @option-element-padding;
+  background-color: @background-light;
 }
 
 #element.selected {
-	background-color: @accent;
-	text-color: @background;
+  background-color: @accent;
+  text-color: @foreground;
 }
 
-/* ########### */
-
-* {
-	font: @text-font;
-}
 
 #window {
-	padding: @menu-window-padding;
-	children: [ inputbar, horibox];
+  padding: @menu-window-padding;
+  children: [ inputbar, horibox];
 }
 
 #inputbar {
-	children: [ textbox-prompt-colon, prompt];
-	margin: @menu-inputbar-margin;
+  children: [ textbox-prompt-colon, prompt];
+  margin: @menu-inputbar-margin;
 }
 
-prompt,
-textbox-prompt-colon {
-	padding: @menu-prompt-padding;
-	border: 2px;
-	border-color: @accent;
+prompt, textbox-prompt-colon {
+  padding: @menu-prompt-padding;
+  border: 2px;
+  border-color: @background-light;
+  font: @text-font;
 }
 
 #prompt {
-	margin: @menu-prompt-margin;
-	background-color: @background;
-	text-color: @accent;
+  margin: @menu-prompt-margin;
+  padding: @menu-prompt-padding-2;
+  background-color: @background-light;
+  text-color: @foreground;
+  font: @text-font;
+
 }
 
 #textbox-prompt-colon {
-	expand: false;
-	str: "Brightness";
-	background-color: @accent;
-	text-color: @background;
+  expand: false;
+  str: "    Backlight";
+  background-color: @accent;
+  text-color: @foreground;
+  font: @text-font;
 }
 
 #horibox {
-	padding: 0px;
+  padding: 0px;
 }
 
 #listview {
-	spacing: @option-6-listview-spacing;
-	lines: 3;
+  spacing: @option-6-listview-spacing;
+  lines: 3;
 }
 
 #element {
-	font: @icon-font;
-	border: @menu-element-border;
-	padding: @menu-element-padding;
-	border-color: @background;
+  font: @icon-font;
+  border: @menu-element-border;
+  padding: @menu-element-padding;
+  border-color: @background-light;
 }
 
 #element.selected {
-	border-color: @accent;
+  border-color: @accent;
 }
 
-element.active,
+element.active {
+  /* background-color: @on; */
+  text-color: @on;
+  border-color: @on;
+}
+
 element.selected.urgent {
-	background-color: @on;
-	text-color: @background;
-	border-color: @on;
+  /* background-color: @off; */
+  text-color: @foreground;
+  border-color: @accent;
 }
 
-element.selected.urgent {
-	border-color: @accent;
-}
-
-element.urgent,
-element.selected.active {
-	background-color: @off;
-	text-color: @background;
-	border-color: @off;
+element.urgent, element.selected.active {
+  /* background-color: @off; */
+  text-color: @foreground;
+  border-color: @off;
 }
 
 element.selected.active {
-	border-color: @accent;
+  /* background-color: @on; */
+  text-color: @on;
+  border-color: @accent;
 }
