@@ -2,8 +2,6 @@
 
 SCRIPT_DIR="$(dirname "$0")"
 
-EDITOR=vim
-PASSWD=/etc/passwd
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
 
