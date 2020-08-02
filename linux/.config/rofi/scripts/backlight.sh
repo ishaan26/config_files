@@ -1,44 +1,27 @@
 #!/usr/bin/env bash
 
-## Author : Aditya Shakya (adi1090x)
-## Mail : adi1090x@gmail.com
-## Github : @adi1090x
-## Reddit : @adi1090x
-
 rofi_command="rofi -theme themes/backlight.rasi"
 
 ## Get Brightness
-VAR="$(xbacklight -get)"
+VAR="$(brightnessctl i | grep "[0-9]*%" -o)"
 BLIGHT="$(printf "%.0f\n" "$VAR")"
 
-if [[ $BLIGHT -ge 1 ]] && [[ $BLIGHT -le 29 ]]; then
-    MSG="Low"
-elif [[ $BLIGHT -ge 30 ]] && [[ $BLIGHT -le 49 ]]; then
-    MSG="Optimal"
-elif [[ $BLIGHT -ge 50 ]] && [[ $BLIGHT -le 69 ]]; then
-    MSG="High"
-elif [[ $BLIGHT -ge 70 ]] && [[ $BLIGHT -le 99 ]]; then
-    MSG="Too Much"
-fi
 
 ## Icons
-ICON_UP=""
-ICON_DOWN=""
-ICON_OPT=""
+ICON_UP=""
+ICON_DOWN=""
+ICON_MAX=""
 
-options="$ICON_UP\n$ICON_OPT\n$ICON_DOWN"
+options="$ICON_UP\n$ICON_DOWN\n$ICON_MAX"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "$BLIGHT%" -dmenu -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p "$BLIGHT%" -dmenu -selected-row 1 -location 3 -yoffset 35 -xoffset -150)"
 case $chosen in
     $ICON_UP)
-        xbacklight -inc 10 && notify-send -u low -t 1500 "Brightness Up $ICON_UP"
-        ;;
+        brightnessctl set +10% > /dev/null  "$ICON_UP" ;;
     $ICON_DOWN)
-        xbacklight -dec 10 && notify-send -u low -t 1500 "Brightness Down $ICON_DOWN"
-        ;;
-    $ICON_OPT)
-        xbacklight -set 35 && notify-send -u low -t 1500 "Optimal Brightness $ICON_OPT"
-        ;;
+        brightnessctl set 10%- > /dev/null "$ICON_DOWN" ;;
+    $ICON_MAX)
+        brightnessctl set 1500 > /dev/null "$ICON_MAX" ;;
 esac
 
