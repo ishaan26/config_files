@@ -81,7 +81,7 @@ font-8 = "icomoon:style=Regular:size=14;2"
 
 modules-left = rofi-apps xwindow separator spotify
 modules-center = popup-calendar
-modules-right = backlight pulseaudio battery
+modules-right = system-uptime-pretty separator backlight pulseaudio battery
 
 tray-position = right
 tray-padding = 5
@@ -99,9 +99,9 @@ height = 40
 
 bottom = true
 
-modules-left = rofi-window files mail chrome firefox whatsapp libreoffice appstore spotify_app vscode atom androidstudio terminal separator google.com youtube.com reddit.com github.com separator info-trash  
+modules-left = rofi-window files mail chrome firefox whatsapp libreoffice appstore spotify_app vscode atom androidstudio terminal separator google.com youtube.com reddit.com github.com separator info-trash screenshot
 modules-center = i3
-modules-right = screenshot separator system-uptime-pretty wlan separator filesystem memory cpu temperature powermenu 
+modules-right = wlan eth separator filesystem-root filesystem-home separator memory cpu temperature powermenu
 
 
 scroll-up = i3wm-wsnext
@@ -116,17 +116,29 @@ label-padding = 2
 label-font = 3
 
 
-[module/filesystem]
+[module/filesystem-root]
 type = internal/fs
-interval = 25
+interval = 10
 
 mount-0 = /
 
 fixed-values = true
 
-format-mounted-background =
-format-mounted-padding = 2
-label-mounted = %{A1:gnome-disks &:}  %free% %{A}
+format-mounted-padding = 1
+label-mounted = %{A1:filelight >/dev/null 2>&1 &:} %{A} %{A1:filelight / >/dev/null 2>&1 &:} %free% %{A}
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.fg-alt}
+
+[module/filesystem-home]
+type = internal/fs
+interval = 10
+
+mount-0 = /home
+
+fixed-values = true
+
+format-mounted-padding = 1
+label-mounted = %{A1:filelight /home >/dev/null 2>&1 &:}  %free% %{A}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.fg-alt}
 
@@ -180,7 +192,7 @@ type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
 host = 127.0.0.1
-port = 6600 
+port = 6600
 
 icon-prev = 
 icon-stop = 
@@ -204,7 +216,7 @@ format = <label>
 
 format-background =
 format-padding = 2
-label =  %percentage%%
+label = %{A1:exec ~/.config/rofi/scripts/backlight.sh:} %percentage%% %{A}
 
 
 [module/cpu]
@@ -240,13 +252,13 @@ format-disconnected =
 
 [module/eth]
 type = internal/network
-interface = enp3s0f1
+interface = enp0s20f0u2
 interval = 3.0
 
 format-connected-background =
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.fg-alt}
-label-connected = %essid%
+label-connected =  %downspeed%  %upspeed%
 
 format-disconnected =
 
@@ -318,11 +330,10 @@ animation-charging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 2
-warn-temperature = 90
+warn-temperature = 97
 
 ; for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
-
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
 format = <label>
 format-padding = 4
 format-background =
@@ -376,7 +387,8 @@ type = custom/text
 content = 甆
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec whatsdesk &
+click-left = google-chrome-stable --app=https://web.whatsapp.com/
+
 
 [module/chrome]
 
@@ -462,7 +474,7 @@ click-left = konsole >/dev/null 2>&1 &
 [module/spotify_app]
 
 type = custom/text
-content =  
+content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = spotify >/dev/null 2>&1 &
@@ -523,7 +535,7 @@ content = 
 content-padding = 3
 content-foreground = ${colors.fg}
 content-background = ${colors.primary}
-click-left = rofi -show drun -show-icons -theme ~/.config/rofi/themes/drun.rasi 
+click-left = rofi -show drun -show-icons -theme ~/.config/rofi/themes/drun.rasi
 
 [module/rofi-window]
 
@@ -532,7 +544,7 @@ content = 
 content-padding = 3
 content-foreground = ${colors.fg}
 content-background = ${colors.primary}
-click-left = rofi -show window -show-icons -theme ~/.config/rofi/themes/window.rasi 
+click-left = rofi -show window -show-icons -theme ~/.config/rofi/themes/window.rasi
 
 [module/spotify]
 type = custom/script
