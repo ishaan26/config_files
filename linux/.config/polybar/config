@@ -387,7 +387,7 @@ type = custom/text
 content = 甆
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = google-chrome-stable --app=https://web.whatsapp.com/
+click-left = google-chrome-stable --app=https://web.whatsapp.com/ &
 
 
 [module/chrome]
