@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-## Author : Aditya Shakya (adi1090x)
-## Mail : adi1090x@gmail.com
-## Github : @adi1090x
-## Reddit : @adi1090x
-
 rofi_command="rofi -theme themes/screenshot.rasi"
 
 # Options
@@ -12,18 +7,19 @@ screen=""
 area=""
 window=""
 
+# vars
+DATE="$(date +%d-%b-%H_%M_%S)"
+DEST_FOLDER="$(xdg-user-dir PICTURES)"
+
 # Variable passed to rofi
 options="$screen\n$area\n$window"
 
-chosen="$(echo -e "$options" | $rofi_command -p '' -dmenu -selected-row 1 -location 5 -yoffset -50 -xoffset -550)"
+chosen="$(echo -e "$options" | $rofi_command -p '' -dmenu -selected-row 1 -location 5 -yoffset -50 -xoffset -1100)"
 case $chosen in
     $screen)
-        sleep 1; scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f' &
-        ;;
+       sleep 1; maim "$DEST_FOLDER"/"screen_$DATE".png && eog "$DEST_FOLDER"/"screen_$DATE".png & ;;
     $area)
-        scrot -s 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f' &
-        ;;
+        maim -s "$DEST_FOLDER"/"area_$DATE".png && eog "$DEST_FOLDER"/"area_$DATE".png & ;;
     $window)
-        sleep 1; scrot -u 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f' &
-        ;;
+        maim -st 9999999 "$DEST_FOLDER"/"window_$DATE".png && eog "$DEST_FOLDER"/"window_$DATE".png &
 esac
