@@ -23,12 +23,12 @@ white = #FFFFFF
 black = #000000
 
 bg = #77333333
-fg = #e0e0e0
+fg = #cccccc
 fg-alt = #A9ABB0
 
-shade1 = #0D47A1
-shade2 = #1565C0
-shade3 = #1976D2
+shade1 = #f67e3f
+shade2 = #f67e5f
+shade3 = #f67e7f
 shade4 = #1E88E5
 shade5 = #2196F3
 shade6 = #42A5F5
@@ -37,7 +37,7 @@ shade8 = #90CAF9
 ashade8 = #2C2C2C
 
 
-primary = #aa0D47A1
+primary = #f67e7f
 secondary = #e60053
 alert = #bd2c40
 
@@ -533,7 +533,7 @@ click-left = exec google-chrome github.com &
 type = custom/text
 content = 
 content-padding = 3
-content-foreground = ${colors.fg}
+content-foreground = ${colors.black}
 content-background = ${colors.primary}
 click-left = rofi -show drun -show-icons -theme ~/.config/rofi/themes/drun.rasi
 
@@ -542,7 +542,7 @@ click-left = rofi -show drun -show-icons -theme ~/.config/rofi/themes/drun.rasi
 type = custom/text
 content = 
 content-padding = 3
-content-foreground = ${colors.fg}
+content-foreground = ${colors.black}
 content-background = ${colors.primary}
 click-left = rofi -show window -show-icons -theme ~/.config/rofi/themes/window.rasi
 
