@@ -54,12 +54,6 @@ echo -e "\nInstalled many apps\n"
 pause "Press [Enter] to continue"
 
 
-echo "Installing Fedy"
-sudo dnf copr enable kwizart/fedy
-sudo dnf install fedy -y
-echo ""
-pause "Press [Enter] to continue"
-
 echo "Installing other apps"
 sleep 1
 
