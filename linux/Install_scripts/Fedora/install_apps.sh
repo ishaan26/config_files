@@ -49,13 +49,32 @@ pause "Press [Enter] to continue"
 
 
 echo "Installing dnf apps"
-sudo dnf install -y vlc mono-complete golang qt-devel cmake gnome-tweak-tool xfce4-terminal kvantum qt5ct lxappearance 
+sudo dnf install -y vlc mono-complete filelight golang qt-devel cmake gnome-tweak-tool xfce4-terminal kvantum qt5ct lxappearance 
 echo -e "\nInstalled many apps\n"
 pause "Press [Enter] to continue"
 
 
 echo "Installing other apps"
 sleep 1
+
+echo "Installing Google Chrome"
+sudo dnf install fedora-workstation-repositories -y
+sudo dnf config-manager --set-enabled google-chrome
+dnf install google-chrome-stable -y
+clear
+
+echo "Installing Spotify"
+sudo dnf install lpf-spotify-client
+lpf update spotify-client
+clear
+
+echo "Installing snap"
+sudo dnf install snapd
+sudo ln -s /var/lib/snapd/snap /snap
+echo -e "\nSnap will be available after reboot"
+pause "Press [Enter] to continue"
+clear
+
 
 echo "Installing Visual Studio Code"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
