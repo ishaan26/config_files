@@ -7,7 +7,7 @@
 
 # i3 config file (v4)
 # Focus Colors
-client.focused #55555599 #55555599 #ffffff #0078FF   #0098FF
+client.focused #55555599 #55555599 #ffffff #f67e6d   #f67e4f
 
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
