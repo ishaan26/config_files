@@ -444,7 +444,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec libreoffice &
+click-left = exec libreoffice7.0 &
 
 [module/androidstudio]
 
@@ -452,7 +452,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = flatpak run com.google.AndroidStudio &
+click-left = exec android-studio &
 
 [module/files]
 
@@ -477,7 +477,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = spotify >/dev/null 2>&1 &
+click-left = flatpak run com.spotify.Client > /dev/null 2>&1 &
 
 
 [module/screenshot]
