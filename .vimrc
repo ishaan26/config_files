@@ -40,6 +40,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'rust-lang/rust.vim'
 
 " Syntax 
 Plugin 'mboughaba/i3config.vim'
