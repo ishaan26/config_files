@@ -4,24 +4,22 @@ alias cleanup='sudo dnf clean all'
 
 alias myip="ip -4 addr show wlp2s0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 
-
-function zsh_colors(){ 
-    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
-}
-
-
-function cf() {    
+function cf() {
     cd ~/Documents/Github/config_files
     if [[ $1 == "-f"  ]]; then
-       git fetch 
-    fi 
+		git fetch
+    elif [[ $1 == "-o" ]]; then
+		google-chrome-stable "https://github.com/ishaan26/config_files" > /dev/null 2>&1 &
+    fi
 }
 
 function pjt() {
     cd ~/Documents/Github/Learning-Projects
     if [[ $1 == "-f"  ]]; then
-       git fetch 
-    fi  
+		git fetch
+	elif [[ $1 == "-o" ]]; then
+		google-chrome-stable "https://github.com/ishaan26/Learning-Projects" > /dev/null 2>&1 &
+    fi
 }
 
 #Git stuff
@@ -29,7 +27,7 @@ alias githistory="git log --oneline --graph --decorate --all"
 alias kraken='eval "gitkraken --new-window -p \"`pwd`\" -l /dev/null >/dev/null 2>&1 &"'
 
 function gitupload() {
-	
+
 	if [ -n "$1" ]; then
 		git add .
 		git commit -am "$1"
@@ -37,7 +35,7 @@ function gitupload() {
 	else
 		echo "Provide a commit message"
 	fi
-		
+
 }
 
 # PDF stuff
@@ -46,6 +44,11 @@ function ocrall() {
         echo -e "\nRescannig $i"
         ocrmypdf --force-ocr $i $i
     done
+}
+
+
+function zsh_colors(){
+    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f" ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
 # vi:syntax=sh
