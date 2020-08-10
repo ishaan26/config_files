@@ -175,6 +175,7 @@ for_window [class="Plasmoidviewer"] floating enable, border none
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [class="MEGAsync"] floating enable
 for_window [class="repoman"] floating enable
+for_window [title="Sign in - Google Accounts - Google Chrome"] floating enable 
 
 # Assign workspaces 
 assign [class="Spotify Free"] $ws9
@@ -338,7 +339,7 @@ mode "$mode_gaps_outer" {
 }
 
 # Dual Display setting 
-exec_always --no-startup-id xrandr --output eDP-1-1 --right-of HDMI-0 --auto
+exec_always --no-startup-id xrandr --output eDP-1-1 --left-of HDMI-0 --auto
 
 # Startup apps 
 exec --no-startup-id nextcloud
