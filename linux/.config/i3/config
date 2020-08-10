@@ -250,6 +250,9 @@ exec_always feh --bg-fill ~/Pictures/i3_wallpaper/*
 # compton
 exec --no-startup-id compton
 
+# Dunst
+exec --no-startup-id dunst
+
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
