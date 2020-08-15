@@ -22,6 +22,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   python
+  rust
+  rustup
+  cargo
   zsh-syntax-highlighting
   )
 
