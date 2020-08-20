@@ -1,7 +1,8 @@
-# Ubuntu stuff
+# Fedora stuff
 alias update='sudo dnf update && flatpak update -y'
 alias cleanup='sudo dnf clean all'
 
+# General
 alias myip="ip -4 addr show wlp2s0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 
 function cf() {
@@ -20,6 +21,10 @@ function pjt() {
 	elif [[ $1 == "-o" ]]; then
 		google-chrome-stable "https://github.com/ishaan26/Learning-Projects" > /dev/null 2>&1 &
     fi
+}
+
+function zsh_colors(){
+    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f" ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
 #Git stuff
@@ -46,9 +51,19 @@ function ocrall() {
     done
 }
 
+# Rust Stuff 
+function rustfmt() {
+    # Format all the rust projects in a directory tree.
+    L=$(pwd)
+    for location in $(find . -name src); do 
+        A=$(realpath $location) 
+        cd $A 
+        cd .. 
+        cargo fmt 
+        echo "Formated $(pwd)" 
+        cd $L
+    done
 
-function zsh_colors(){
-    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f" ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
 # vi:syntax=sh
