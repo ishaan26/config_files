@@ -49,4 +49,19 @@ function ocrall() {
     done
 }
 
+# Rust Stuff 
+function rustfmt() {
+    # Format all the rust projects in a directory tree.
+    O=$(pwd)
+    for location in $(find . -name src); do 
+        A=$(realpath $location) 
+        cd $A 
+        cd .. 
+        cargo fmt 
+        echo "Formated $(pwd)" 
+        cd $O
+    done
+
+}
+
 # vi:syntax=sh
