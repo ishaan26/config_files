@@ -2,7 +2,7 @@
 
 clear
 
-LOCATION=$1
+LOCATION=~/Downloads
 SCRIPT_DIR="$(dirname "$0")"
 
 UBUNTU_VERSION="20.04"
