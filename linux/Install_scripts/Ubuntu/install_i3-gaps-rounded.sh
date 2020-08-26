@@ -65,7 +65,7 @@ function install_i3() {
 
         rm -rf i3
 
-        git clone https://github.com/resloved/i3.git
+        git clone https://www.github.com/Airblader/i3 i3-gaps
         cd i3
 
         # compile & install
