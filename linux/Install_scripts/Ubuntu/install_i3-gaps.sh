@@ -49,7 +49,8 @@ sudo apt install libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libx
     gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
 
 sudo apt install viewnior scrot mpc acpi dunst filelight texinfo policykit-1-gnome\
-    gnome-disk-utility gnome-system-monitor aptitude texinfo dolphin konsole -y
+    gnome-disk-utility gnome-system-monitor aptitude texinfo dolphin konsole \
+    maim gwenview -y
 
 # Rofi dependencies
 sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
