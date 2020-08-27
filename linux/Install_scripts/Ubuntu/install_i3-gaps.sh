@@ -56,7 +56,7 @@ sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 
 
 function install_i3() {
-    # clone repo
+    # clone repo 
     cd ~/Documents
 
     if ! type i3 >>/dev/null; then
