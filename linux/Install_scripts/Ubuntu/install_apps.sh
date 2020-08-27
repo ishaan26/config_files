@@ -5,13 +5,6 @@ clear
 LOCATION=~/Downloads
 SCRIPT_DIR="$(dirname "$0")"
 
-UBUNTU_VERSION="20.04"
-
-if ! [ "$LOCATION" ]; then
-    echo "Please specify a directory as the argument"
-    exit
-fi
-
 cd $SCRIPT_DIR
 source ../common.sh
 
@@ -26,7 +19,7 @@ else
 fi
 
 if [[ "$VER" != "20.04" ]]; then
-    echo "\n This Script is not tested on version $VER"
+    echo -e "\n This Script is not tested on version $VER"
     pause "Press [Enter] still proceed"
 fi
 
@@ -99,7 +92,7 @@ install_software() {
         flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
         
     elif [[ $app_name == 'libreoffice' ]]; then
-        sudo add-apt-repository ppa:libreoffice/ppa
+        sudo add-apt-repository ppa:libreoffice/libreoffice-7-0
         sudo apt install libreoffice -y
         sudo apt install libreoffice-style-papirus -y
         
