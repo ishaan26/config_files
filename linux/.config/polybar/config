@@ -222,7 +222,7 @@ label = %{A1:exec ~/.config/rofi/scripts/backlight.sh:} %percentage%% %{A}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = %{A1:gnome-system-monitor -r &:} %{A}
+format-prefix = %{A1:ksysguard >/dev/null 2>&1 &:} %{A}
 format-padding = 2
 format-prefix-foreground = ${colors.fg}
 format-background =
@@ -231,7 +231,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = %{A1:gnome-system-monitor -r &:}  %{A}
+format-prefix = %{A1:ksysguard >/dev/null 2>&1 &:}  %{A}
 format-padding = 2
 format-prefix-foreground = ${colors.fg}
 format-background =
@@ -444,7 +444,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec libreoffice7.0 &
+click-left = exec libreoffice &
 
 [module/androidstudio]
 
