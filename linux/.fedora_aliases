@@ -52,7 +52,7 @@ function ocrall() {
 }
 
 # Rust Stuff 
-function rustfmt() {
+function rsfa {
     # Format all the rust projects in a directory tree.
     L=$(pwd)
     for location in $(find . -name src); do 
