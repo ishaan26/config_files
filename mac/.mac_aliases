@@ -1,7 +1,7 @@
 # Mac Stuff
 alias update="brew update &&
               brew upgrade &&
-              brew cask upgrade"
+              brew upgrade --cask"
 
 alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
 
