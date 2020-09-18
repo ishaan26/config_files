@@ -288,10 +288,12 @@ bindsym $mod+Shift+s exec --no-startup-id xfce4-screenshooter -f
 focus_follows_mouse no
 
 # Keyring issue Solve for manjaro i3
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
+# Ubuntu
+#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-#border_radius 1
+# Fedora
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
 #############################
 ### settings for i3-gaps: ###
