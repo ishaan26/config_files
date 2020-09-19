@@ -1,12 +1,21 @@
 # Mac Stuff
-alias update="brew update &&
-              brew upgrade &&
-              brew upgrade --cask"
+function update() {
+    echo -e "\n----------- Updating homebrew --------------\n"
+    brew update
+    brew upgrade
+    brew upgrade --cask
+    echo -e "\n----------- Updating cartes --------------\n" 
+    cargo install-update -a
+    echo -e "\n----------- Updating node packages --------------\n"
+    npm update -g
+}
 
 alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
 
 function zsh_colors() {
-    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+    for i in {0..255}; do 
+    print -Pn "%K{$i}  %k%F{$i}${(l:7::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; 
+    done
 }
 
 function cf() {
