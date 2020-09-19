@@ -1,5 +1,15 @@
 # Fedora stuff
-alias update='sudo dnf update && flatpak update -y'
+function update() {
+    echo -e "\n----------- Updating rpms ----------------------\n" 
+    sudo dnf upgrade 
+    echo -e "\n----------- Updating flatpaks ------------------\n" 
+    flatpak update -y
+    echo -e "\n----------- Updating cartes --------------------\n" 
+    cargo install-update -a
+    echo -e "\n----------- Updating node packages--------------\n" 
+    npm update -g
+}
+
 alias cleanup='sudo dnf clean all'
 
 # General
@@ -24,7 +34,9 @@ function pjt() {
 }
 
 function zsh_colors(){
-    for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f" ${${(M)$((i%6)):#3}:+$'\n'}; done
+    for i in {0..255}; do 
+    print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f" ${${(M)$((i%6)):#3}:+$'\n'}; 
+    done
 }
 
 #Git stuff
