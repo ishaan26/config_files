@@ -1,13 +1,15 @@
 # Fedora stuff
 function update() {
-    echo -e "\n----------- Updating rpms ----------------------\n" 
-    sudo dnf upgrade 
-    echo -e "\n----------- Updating flatpaks ------------------\n" 
+    echo -e "\n----------- Updating rpms ----------------------\n"
+    sudo dnf upgrade
+    echo -e "\n----------- Updating flatpaks ------------------\n"
     flatpak update -y
-    echo -e "\n----------- Updating cartes --------------------\n" 
+    echo -e "\n----------- Updating cartes --------------------\n"
     cargo install-update -a
-    echo -e "\n----------- Updating node packages--------------\n" 
+    echo -e "\n----------- Updating node packages--------------\n"
     npm update -g
+	echo -e "\n----------- Updating python packages------------\n"
+	pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U --user || echo "Done\!"
 }
 
 alias cleanup='sudo dnf clean all'
@@ -34,8 +36,8 @@ function pjt() {
 }
 
 function zsh_colors(){
-    for i in {0..255}; do 
-    print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f" ${${(M)$((i%6)):#3}:+$'\n'}; 
+    for i in {0..255}; do
+    print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f" ${${(M)$((i%6)):#3}:+$'\n'};
     done
 }
 
@@ -63,16 +65,16 @@ function ocrall() {
     done
 }
 
-# Rust Stuff 
+# Rust Stuff
 function rsfa {
     # Format all the rust projects in a directory tree.
     L=$(pwd)
-    for location in $(find . -name src); do 
-        A=$(realpath $location) 
-        cd $A 
-        cd .. 
-        cargo fmt 
-        echo "Formated $(pwd)" 
+    for location in $(find . -name src); do
+        A=$(realpath $location)
+        cd $A
+        cd ..
+        cargo fmt
+        echo "Formated $(pwd)"
         cd $L
     done
 
