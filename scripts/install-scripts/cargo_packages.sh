@@ -13,6 +13,10 @@ cargo install\
     cargo-update \
     cargo-watch \
     cargo-generate \
+    ytop \
+    tealdeer \
+    viu \
+    
 
 cargo install\
     tokei --features all
