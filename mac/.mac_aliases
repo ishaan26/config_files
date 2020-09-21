@@ -1,15 +1,13 @@
 # Mac Stuff
 function update() {
     echo -e "\n----------- Updating homebrew -------------------\n"
-    brew update
-    brew upgrade
-    brew upgrade --cask
+    brew update && brew upgrade && brew upgrade --cask
     echo -e "\n----------- Updating cartes ---------------------\n"
     cargo install-update -a
     echo -e "\n----------- Updating node packages --------------\n"
     npm update -g
 	echo -e "\n----------- Updating python packages-------------\n"
-	pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U --user || echo "Done\!"
+	pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U --user || echo "Done\!"
 }
 
 alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
