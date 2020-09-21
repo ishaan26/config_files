@@ -42,7 +42,8 @@ class FORMAT:
 def get_pdf_title(pdf):
     proc = sp.run(['pdftitle', '-p', pdf], stdout=sp.PIPE)
     output = proc.stdout.decode('utf-8')
-    output = output.replace('\n', '').replace(':', " -").replace('/', ' - ') + ".pdf"
+    output = output.replace('\n', '').replace(
+        ':', " -").replace('/', ' - ') + ".pdf"
     return {pdf: output}
 
 
@@ -52,7 +53,8 @@ def rename_pdf(pdf, new_name):
     elif new_name == pdf:
         print(f"\n{Fore.WHITE}You already have the name for {FORMAT.BOLD}{FORMAT.UNDERLINE}{pdf}{FORMAT.ENDC}{Fore.WHITE} already!{FORMAT.ENDC}")
     else:
-        usr_input = input(f"\n{FORMAT.UNDERLINE}Do you want to Rename:{FORMAT.ENDC} \n{Fore.BLUE}{pdf} -> {Fore.GREEN}{new_name}{FORMAT.ENDC} {FORMAT.BOLD}[y/N/r]: {FORMAT.ENDC}").lower()
+        usr_input = input(
+            f"\n{FORMAT.UNDERLINE}Do you want to Rename:{FORMAT.ENDC} \n{Fore.BLUE}{pdf} -> {Fore.GREEN}{new_name}{FORMAT.ENDC} {FORMAT.BOLD}[y/N/r]: {FORMAT.ENDC}").lower()
 
         if usr_input == "y":
             os.rename(pdf, new_name)
@@ -61,7 +63,8 @@ def rename_pdf(pdf, new_name):
             usr_rename = input("Enter the name: ")
             if ".pdf" not in usr_rename:
                 usr_rename = usr_rename + ".pdf"
-                print(f"Renamed to {FORMAT.BOLD}{FORMAT.UNDERLINE}{usr_rename}{FORMAT.ENDC}")
+                print(
+                    f"Renamed to {FORMAT.BOLD}{FORMAT.UNDERLINE}{usr_rename}{FORMAT.ENDC}")
             os.rename(pdf, usr_input)
         elif usr_input == "n":
             print("Cool")
@@ -75,18 +78,18 @@ if __name__ == '__main__':
         rename_pdf(pdf, new_name)
 
     elif len(sys.argv) == 1:
-        print("Scanning all pdfs in the current directory...\n" )
+        print("Scanning all pdfs in the current directory...\n")
         pdfs_curr_dir = [pdf for pdf in os.listdir() if pdf.endswith(".pdf")]
 
         # Process all pdfs first using all the cores on the machine
-        # By doing this, there is only an inital waiting time and not in between confirmations 
+        # By doing this, there is only an inital waiting time and not in between confirmations
         with Pool(os.cpu_count()) as pool:
-            renamed_pdfs_dicts = list(tqdm.tqdm(pool.imap(get_pdf_title, pdfs_curr_dir), total=len(pdfs_curr_dir))) # list of dictionaries
+            renamed_pdfs_dicts = list(tqdm.tqdm(pool.imap(
+                get_pdf_title, pdfs_curr_dir), total=len(pdfs_curr_dir)))  # list of dictionaries
 
         for n, data in enumerate(renamed_pdfs_dicts):
             pdf = list(data.keys())[0]
-            new_name= list(data.values())[0]
+            new_name = list(data.values())[0]
             rename_pdf(pdf, new_name)
     else:
         print(f"{Fore.RED}\nYou are doing it worng{FORMAT.ENDC}")
-
