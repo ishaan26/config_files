@@ -477,7 +477,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = flatpak run com.spotify.Client > /dev/null 2>&1 &
+click-left = spotify > /dev/null 2>&1 &
 
 
 [module/screenshot]
