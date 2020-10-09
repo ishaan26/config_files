@@ -1,7 +1,8 @@
 #!/bin/bash
 
 cargo install\
-    exa \
+    lsd \
+    onefetch \
     bat \
     procs \
     ripgrep \
@@ -16,6 +17,7 @@ cargo install\
     ytop \
     tealdeer \
     viu \
+    git-delta \
     
 
 cargo install\
