@@ -8,6 +8,12 @@ function update() {
     npm update -g
 	echo -e "\n----------- Updating python packages-------------\n"
 	pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U --user || echo "Done\!"
+    echo -e "\n----------- Updating package managers------------\n"
+    rustup update
+    nvm install-latest-npm
+    nvm install node
+    nvm install --lts
+    pip3 install --upgrade pip
 }
 
 alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'

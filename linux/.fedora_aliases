@@ -10,6 +10,12 @@ function update() {
     npm update -g
 	echo -e "\n----------- Updating python packages------------\n"
 	pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U --user 2> /dev/null
+    echo -e "\n----------- Updating package managers------------\n"
+    rustup update
+    nvm install-latest-npm
+    nvm install node
+    nvm install --lts
+    pip3 install --upgrade pip
     echo -e "\nDone!"
 }
 
