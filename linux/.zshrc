@@ -26,7 +26,8 @@ plugins=(
   rustup
   cargo
   zsh-syntax-highlighting
-  )
+  nvm  
+)
 
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
 

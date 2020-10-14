@@ -16,7 +16,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
-  dotenv
   osx
   python
   zsh-syntax-highlighting
@@ -24,6 +23,7 @@ plugins=(
   rustup
   cargo
   brew
+  nvm
 )
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
