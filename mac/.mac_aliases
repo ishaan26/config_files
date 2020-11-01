@@ -4,10 +4,6 @@ function update() {
     brew update && brew upgrade && brew upgrade --cask
     echo -e "\n----------- Updating cartes ---------------------\n"
     cargo install-update -a
-    echo -e "\n----------- Updating node packages --------------\n"
-    npm update -g
-	echo -e "\n----------- Updating python packages-------------\n"
-	pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U --user || echo "Done\!"
     echo -e "\n----------- Updating other stuff------------\n"
     rustup update
     nvm install --lts
@@ -31,9 +27,11 @@ function cf() {
 }
 
 function pjt() {
-    cd ~/Documents/Github/Learning-Projects
+    cd ~/Documents/Github/Learning
     if [[ $1 == "-f"  ]]; then
         git fetch
+    elif [[ $1 == "-rust" ]]; then
+        cd ~/Documents/Github/Learning/Languages/Rust
     fi
 }
 
@@ -59,4 +57,4 @@ function ocrall() {
     done
 }
 
-# vi:syntax=bash
+# vi:syntax=sh

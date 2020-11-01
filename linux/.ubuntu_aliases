@@ -6,10 +6,6 @@ function update() {
     flatpak update -y
     echo -e "\n----------- Updating cartes --------------------\n"
     cargo install-update -a
-    echo -e "\n----------- Updating node packages--------------\n"
-    npm update -g
-	echo -e "\n----------- Updating python packages------------\n"
-    pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U --user 2> /dev/null
     echo -e "\n----------- Updating other stuff------------\n"
     rustup update
     nvm install --lts
@@ -39,10 +35,12 @@ function cf() {
 }
 
 function pjt() {
-    cd ~/Documents/Github/Learning-Projects
+    cd ~/Documents/Github/Learning
     if [[ $1 == "-f"  ]]; then
-       git fetch 
-    fi  
+        git fetch
+    if [[ $1 == "-rust" ]]; then
+        cd ~/Documents/Github/Learning/Languages/Rust
+    fi 
 }
 
 #Git stuff
