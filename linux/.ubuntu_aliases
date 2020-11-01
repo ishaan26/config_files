@@ -38,7 +38,7 @@ function pjt() {
     cd ~/Documents/Github/Learning
     if [[ $1 == "-f"  ]]; then
         git fetch
-    if [[ $1 == "-rust" ]]; then
+    elif [[ $1 == "-rust" ]]; then
         cd ~/Documents/Github/Learning/Languages/Rust
     fi 
 }
