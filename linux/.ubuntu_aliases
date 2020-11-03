@@ -8,8 +8,8 @@ function update() {
     cargo install-update -a
     echo -e "\n----------- Updating other stuff------------\n"
     rustup update
-    nvm install --lts
     nvm install node
+    nvm install --lts
     pip3 install --upgrade pip
     echo -e "\nDone!"
 }
