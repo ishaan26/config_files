@@ -1,19 +1,19 @@
 [user]
-	email = ishaangoel.99@gmail.com
-	name = Ishaan Goel
+email = ishaangoel.99@gmail.com
+name = Ishaan Goel
 
 [core]
-    pager = delta
+pager = delta
 
 [delta]
-    plus-color = "#0DA10944"
-    minus-color = "#A1000044"
-    syntax-theme = Nord
-    line-numbers = true
-    side-by-side = true
+plus-color = "#0DA10944"
+minus-color = "#A1000044"
+syntax-theme = Nord
+line-numbers = true
+side-by-side = true 
 
 [interactive]
-    diffFilter = delta --color-only 
+diffFilter = delta --color-only
 
 [help]
-	autocorrect = 1
+autocorrect = 1
