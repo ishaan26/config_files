@@ -18,7 +18,8 @@ cargo install\
     tealdeer \
     viu \
     git-delta \
-    
+    gping \
+
 
 cargo install\
     tokei --features all
