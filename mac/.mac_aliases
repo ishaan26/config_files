@@ -57,4 +57,7 @@ function ocrall() {
     done
 }
 
-# vi:syntax=sh
+# Custom Aliases
+alias l="lsd -lah"
+
+# vi:syntax=bash
