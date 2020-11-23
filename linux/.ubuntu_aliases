@@ -82,4 +82,12 @@ function rsfa() {
 
 }
 
+# Cusstom Aliases
+alias l="lsd -lah"
+
+
+
+
+
+
 # vi:syntax=sh
