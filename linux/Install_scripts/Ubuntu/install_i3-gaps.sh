@@ -38,7 +38,7 @@ sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
     libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev -y
 
 sudo apt install libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev build-essential \
-    git cmake cmake-data pkg-config python3-sphinx bison flex\
+    git cmake cmake-data pkg-config python3-sphinx bison flex pavucontrol\
     libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
     python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev \
     libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev \
@@ -116,9 +116,9 @@ function install_polybar() {
 
 function install_polybar_plugins() {
 
-    sudo apt install python-dbus
-    sudo apt install yad xdotool
-    sudo apt install python3-pip
+    sudo apt install python-dbus -y
+    sudo apt install yad xdotool -y
+    sudo apt install python3-pip -y
 
 }
 
