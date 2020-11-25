@@ -396,7 +396,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome-stable &
+click-left = exec google-chrome-stable --password-store=gnome &
 
 [module/mail]
 
