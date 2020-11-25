@@ -16,7 +16,7 @@
 
 	menu-window-padding: 0px 0px;
 	menu-inputbar-margin: 0px 0px;
-	menu-prompt-padding: 10px 55px 10px 20px;
+	menu-prompt-padding: 10px 60px 10px 20px;
 	menu-prompt-padding-2: 10px 20px 10px 20px;
 	menu-prompt-margin: 0px 0px 0px -2px;
 	menu-element-border: 0px;
@@ -26,7 +26,7 @@
 
 #window {
   width: 12.4%;
-  height: 11%;
+  height: 13.5%;
   transparency: "real";
   border-radius: 3px;
 }

@@ -19,7 +19,7 @@
 
 #window {
 	width: 305px;
-	height: 10.7%;
+	height: 13.2%;
 	transparency: "real";
 	border-radius: 3px;
   }

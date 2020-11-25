@@ -22,7 +22,7 @@
 
 #window {
 	width: 11.95%;
-	height: 10.6%;
+	height: 13.2%;
 	transparency: "real";
 	border-radius: 3px;
   }
