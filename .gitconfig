@@ -16,4 +16,11 @@ side-by-side = true 
 diffFilter = delta --color-only
 
 [help]
-autocorrect = 1
+autocorrect = 50
+
+[alias]
+	st = status -sb
+	history = log --oneline --graph --decorate --all
+	last = log -1 HEAD --stat
+	cm = commit -m
+	rv = remote -v
