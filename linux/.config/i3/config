@@ -353,7 +353,7 @@ mode "$mode_gaps_outer" {
 }
 
 # Dual Display setting 
-exec_always --no-startup-id xrandr --output eDP-1-1 --primary --left-of HDMI-0 --auto
+exec_always --no-startup-id xrandr --output eDP-1-1 --left-of HDMI-0 --auto --primary
 
 # Startup apps 
 exec --no-startup-id nextcloud

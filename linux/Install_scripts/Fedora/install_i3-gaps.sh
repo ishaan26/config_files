@@ -33,11 +33,10 @@ pause "Press [Enter] to continue installing dependencies"
 
 echo -e "\nInstalling Dependencies..."
 sudo dnf install -y dunst xfce4-power-manager maim brightnessctl pavucontrol acpi yad xdotool bison polkit-gnome.x86_64 xbacklight flex libxcb-devel check-devel.x86_64 libjpeg-turbo-devel.x86_64 librsvg2-devel.x86_64 xcb-util-keysyms-devel xcb-util-devel xcb-util-wm-devel xcb-util-xrm-devel yajl-devel libXrandr-devel startup-notification-devel libev-devel xcb-util-cursor-devel libXinerama-devel libxkbcommon-devel libxkbcommon-x11-devel pcre-devel pango-devel git gcc automake i3status i3lock feh libXcomposite-devel libXdamage-devel libXrandr-devel libXinerama-devel libconfig-devel mesa-libGL-devel dbus-devel asciidoc check polybar konsole dolphin qt5ct lxappearance 
-
 sudo pip install flashfocus
+
 pause "Press [Enter] to install i3-gaps"
 clear
-
 
 echo -e "\nInstalling i3-gaps"
 git clone https://www.github.com/Airblader/i3.git i3-gaps
