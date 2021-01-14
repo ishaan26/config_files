@@ -45,6 +45,9 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 #Sources
 source ~/.aliases
 
+# thefuck tool
+eval $(thefuck --alias)
+
 # Go Path
 export GOPATH="/home/ishaan/go"
 
@@ -57,3 +60,8 @@ export SDKMAN_DIR="/home/ishaan/.sdkman"
 
 export NVM_DIR="/home/ishaan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
