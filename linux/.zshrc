@@ -45,9 +45,6 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 #Sources
 source ~/.aliases
 
-# thefuck tool
-eval $(thefuck --alias)
-
 # Go Path
 export GOPATH="/home/ishaan/go"
 
