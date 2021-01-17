@@ -20,7 +20,6 @@ fi
 
 
 
-
 # function to display menus
 show_menus() {
 	clear

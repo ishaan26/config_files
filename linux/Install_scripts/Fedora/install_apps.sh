@@ -49,7 +49,7 @@ pause "Press [Enter] to continue"
 
 
 echo "Installing dnf apps"
-sudo dnf install -y vlc mono-complete filelight golang qt-devel cmake gnome-tweak-tool xfce4-terminal kvantum qt5ct lxappearance Virtualbox 
+sudo dnf install -y vlc mono-complete filelight golang qt-devel cmake xfce4-terminal kvantum qt5ct lxappearance Virtualbox 
 echo -e "\nInstalled many apps\n"
 pause "Press [Enter] to continue"
 
