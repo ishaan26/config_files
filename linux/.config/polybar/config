@@ -99,7 +99,7 @@ height = 40
 
 bottom = true
 
-modules-left = rofi-window files mail chrome firefox whatsapp libreoffice appstore spotify_app vscode atom androidstudio terminal separator google.com youtube.com reddit.com github.com separator info-trash screenshot
+modules-left = rofi-window files mail chrome firefox whatsapp libreoffice appstore spotify_app vscode atom androidstudio terminal separator google youtube reddit github separator info-trash screenshot
 modules-center = i3
 modules-right = wlan eth separator filesystem-root filesystem-home separator memory cpu temperature powermenu
 
@@ -494,7 +494,7 @@ type = custom/text
 content = |
 content-padding = 2
 
-[module/google.com]
+[module/google]
 
 type = custom/text
 content = 
@@ -502,7 +502,7 @@ content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec google-chrome google.com &
 
-[module/youtube.com]
+[module/youtube]
 
 type = custom/text
 content = 
@@ -511,7 +511,7 @@ content-foreground = ${colors.fg-alt}
 click-left = exec google-chrome youtube.com &
 
 
-[module/reddit.com]
+[module/reddit]
 
 type = custom/text
 content = 
@@ -520,7 +520,7 @@ content-foreground = ${colors.fg-alt}
 click-left = exec google-chrome reddit.com &
 
 
-[module/github.com]
+[module/github]
 
 type = custom/text
 content = 
