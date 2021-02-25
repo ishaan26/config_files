@@ -20,7 +20,7 @@ else
 fi
 
 if [[ "$VER" != "20.04" ]]; then
-    echo "\n Script is not tested on version $VER"
+    echo "\nScript is not tested on version $VER"
     pause "Press [Enter] still proceed"
 fi
 
@@ -36,7 +36,7 @@ pause "Press [Enter] to continue installing dependencies"
 echo -e "\nInstalling dependencies\n"
 
 sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
-    libxcb-util0-dev libxcb-icccm4-dev libyajl-dev meson\
+    libxcb-util0-dev libxcb-icccm4-dev libyajl-dev meson brightnessctl\
     libstartup-notification0-dev xbacklight libxcb-randr0-dev \
     libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
     libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
@@ -66,18 +66,18 @@ sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 pause "Press [Enter] to install i3-gaps"
 clear
 
-echo -e "\nInstalling i3-gaps"
-git clone https://www.github.com/Airblader/i3.git i3-gaps
-cd i3-gaps
-mkdir -p build && cd build
-meson ..
-ninja
-meson install
-cd "$GIT_CLONE_DIR"
+echo "Installing i3-gaps"
+sudo add-apt-repository ppa:dennis-kruyt/ricebuilder
+sudo apt install i3-gaps
 echo -e "\ni3-gaps installed"
-pause "Press [Enter] to install compton-tryone"
+pause "Press [Enter] to continue"
 clear
 
+echo "Installing Polybar"
+sudo apt install polybar
+echo -e "\nPolybar installed"
+pause "Press [Enter] to continue"
+clear
 
 echo -e "Installing compton-tryone"
 git clone https://github.com/tryone144/compton
@@ -87,14 +87,14 @@ make docs
 sudo make install
 cd "$GIT_CLONE_DIR"
 echo -e "\ncompton-tryone installed"
-pause "Press [Enter] to install rofi"
+pause "Press [Enter] to continue"
 
 echo -e "Installing rofi"
 git clone --recursive https://github.com/DaveDavenport/rofi
 cd rofi
 meson setup build
 ninja -C build
-ninja -C build install
+sudo ninja -C build install
 cd "$GIT_CLONE_DIR"
 echo -e "\nRofi installed"
 pause "Press [Enter] to setup config files"

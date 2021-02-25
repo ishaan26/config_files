@@ -44,9 +44,9 @@ alert = #bd2c40
 spotify_green = #1DB954
 
 [bar/top_bar]
+monitor = HDMI-0
 
 width = 100%
-
 height = 30
 
 radius-bottom = 1.0
