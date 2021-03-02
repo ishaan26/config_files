@@ -19,7 +19,7 @@ cargo install\
     viu \
     git-delta \
     gping \
-
+    cargo-outdated \
 
 cargo install\
     tokei --features all
