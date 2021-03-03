@@ -28,6 +28,7 @@ plugins=(
   zsh-syntax-highlighting
   nvm
   zsh-autosuggestions
+  autojump
 )
 
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
@@ -66,4 +67,4 @@ fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
 compinit
 # <<<<  Vagrant command completion (end)
 
-source /usr/share/autojump/autojump.zsh
+# source /usr/share/autojump/autojump.zsh
