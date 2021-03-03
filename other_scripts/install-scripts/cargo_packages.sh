@@ -20,6 +20,8 @@ cargo install\
     git-delta \
     gping \
     cargo-outdated \
+    cargo-tree \
+    
 
 cargo install\
     tokei --features all
