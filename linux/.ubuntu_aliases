@@ -85,7 +85,7 @@ function rsfa() {
 # Cusstom Aliases
 alias l="lsd -lah"
 alias ls="lsd"
-alias tree="lsd -tree"
+alias tree="lsd --tree"
 
 
 
