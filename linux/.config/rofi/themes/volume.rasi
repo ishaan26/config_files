@@ -16,12 +16,11 @@
 	menu-element-padding: 10px 15px 15px -15px;
 }
 
-
 #window {
 	width: 305px;
-	height: 13.2%;
+	height: 10.9%;
 	transparency: "real";
-	border-radius: 3px;
+	border-radius: 7px;
   }
 
 

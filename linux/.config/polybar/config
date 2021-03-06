@@ -1,4 +1,4 @@
-;://github.com/ishaan26/config_files.git==========================================================
+;=========================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -8,16 +8,9 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
 ;==========================================================
 
 [colors]
-
 trans = #00000000
 white = #FFFFFF
 black = #000000
@@ -99,7 +92,7 @@ height = 40
 
 bottom = true
 
-modules-left = rofi-window files mail chrome firefox whatsapp libreoffice appstore spotify_app vscode atom androidstudio terminal separator google youtube reddit github separator info-trash screenshot
+modules-left = rofi-window files mail chrome firefox whatsapp libreoffice spotify_app vscode terminal separator google youtube reddit github separator info-trash screenshot
 modules-center = i3
 modules-right = wlan eth separator filesystem-root filesystem-home separator memory cpu temperature powermenu
 
@@ -477,7 +470,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = spotify > /dev/null 2>&1 &
+click-left = flatpak run com.spotify.Client > /dev/null 2>&1 &
 
 
 [module/screenshot]

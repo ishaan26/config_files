@@ -2,6 +2,9 @@ set nocompatible
 syntax on
 set encoding=utf8
 
+" set mouse recording
+set mouse=a
+
 """""""""""""""""""""""""""""""""
 """     Vundle Config 
 """""""""""""""""""""""""""""""""

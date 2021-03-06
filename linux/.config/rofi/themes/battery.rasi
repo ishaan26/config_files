@@ -26,9 +26,9 @@
 
 #window {
   width: 12.4%;
-  height: 13.5%;
+  height:11.2%;
   transparency: "real";
-  border-radius: 3px;
+  border-radius: 7px;
 }
 
 * {
