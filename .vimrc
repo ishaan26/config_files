@@ -94,6 +94,17 @@ set expandtab
 set laststatus=2
 
 
+"""""" Undo Dir
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
+set undofile
+
+
 """""" Python Settings
     \ set tabstop=4
     \ set softtabstop=4
