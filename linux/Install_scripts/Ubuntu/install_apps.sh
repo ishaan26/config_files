@@ -29,6 +29,9 @@ if ! sudo -nv 2>/dev/null; then
     sudo -v
 fi
 
+# Update
+sudo apt update
+sudo apt upgrade -y
 
 cd $DOWNLOADS_LOCATION
 # Install Essentials
