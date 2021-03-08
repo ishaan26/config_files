@@ -38,7 +38,7 @@ show_menus() {
 
 read_options(){
 	local choice
-	read -p "Enter choice [ 1 - 5]: " choice
+	read -p "Enter choice [ 1 - 6]: " choice
 	case $choice in
 		1) bash $SCRIPT_DIR/$OS/install_apps.sh ;;
 		2) bash $SCRIPT_DIR/$OS/install_ohmyzsh.sh ;;
