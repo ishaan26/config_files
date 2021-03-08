@@ -2,7 +2,7 @@
 
 clear
 
-LOCATION=~/Downloads
+DOWNLOADS_LOCATION=~/Downloads
 SCRIPT_DIR="$(dirname "$0")"
 
 cd $SCRIPT_DIR
@@ -19,7 +19,7 @@ else
 fi
 
 if [[ "$VER" != "20.04" ]]; then
-    echo -e "\n This Script is not tested on version $VER"
+    echo -e "\nThis Script is not tested on version $VER"
     pause "Press [Enter] still proceed"
 fi
 
@@ -29,178 +29,73 @@ if ! sudo -nv 2>/dev/null; then
     sudo -v
 fi
 
+# Update
+sudo apt update
+sudo apt upgrade -y
 
-INSTALL_SOFTWARE=(
-    'papirus' \
-    'flatpak' \
-    'libreoffice' \
-    'vlc' \
-    'timeshift'
-    'sublimetext' \
-    'etcher'
-)
+cd $DOWNLOADS_LOCATION
+# Install Essentials
+sudo apt install -y vlc timeshift vim gdebi neofetch curl wget git
 
-DOWNLOAD_SOFTWARE=(
-    'vscode' \
-    'google-chrome' \
-    'simplenote' \
-    'atom' \
-    'gitkraken' \
-    'mailspring' \
-)
+# Install Papirus Icon Pack
+sudo add-apt-repository ppa:papirus/papirus -y
+sudo apt-get update
+sudo apt-get install papirus-icon-theme -y
 
-get_package_name() {
-    local deb=$1
-    
-    pkg_name=$(dpkg-deb -I $deb | grep -Po "Package: \K[^ ]+")
-}
-
-
-check_if_pkg_installed() {
-    local pkg=$1
-    
-    if [[ $(dpkg -l $pkg | grep -io desired) == 'Desired' ]]; then
-        echo "$pkg is already installed"
-        pkg_not_installed=false
-    else
-        pkg_not_installed=true
-    fi
-}
-
-
-# Downloads:
-question() {
-    local app_name=$1
-    echo -e "\nDo you want to download and install $app_name? [y/n]:"
-    read answer
-}
-
-
-install_software() {
-    cd $LOCATION
-    
-    local app_name=$1
-    
-    if [[ $app_name == 'papirus' ]]; then
-        sudo add-apt-repository ppa:papirus/papirus
-        sudo apt-get update
-        sudo apt-get install papirus-icon-theme -y
+# Install Flatpak
+sudo apt install flatpak -y
+sudo apt install gnome-software-plugin-flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
         
-    elif [[ $app_name == 'flatpak' ]]; then
-        sudo apt install flatpak -y
-        sudo apt install gnome-software-plugin-flatpak -y
-        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# Install LibreOffice
+sudo add-apt-repository ppa:libreoffice/libreoffice-7-0 -y
+sudo apt install libreoffice -y
+sudo apt install libreoffice-style-papirus -y
         
-    elif [[ $app_name == 'libreoffice' ]]; then
-        sudo add-apt-repository ppa:libreoffice/libreoffice-7-0
-        sudo apt install libreoffice -y
-        sudo apt install libreoffice-style-papirus -y
-        
-    elif [[ $app_name == "sublimetext" ]]; then
-        wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-        sudo apt-get install apt-transport-https
-        echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-        sudo apt-get update
-        sudo apt-get install sublime-text -y
-        
-    elif [[ $app_name == "vlc" ]]; then
-        sudo apt install vlc
-        
-    elif [[ $app_name == "timeshift" ]]; then
-        sudo apt install timeshift
-    fi    
-}
+# Install VS Code
+wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868 -q --show-progress
+sudo gdebi code.deb -n
 
-download_software() {
-    cd ~/Downloads
-    
-    local app_name=$1
+# Install Google Chrome
+wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -q --show-progress
+sudo gdebi google-chrome.deb -n
+        
+# Install Mailspring
+wget -O mailspring.deb https://updates.getmailspring.com/download?platform=linuxDeb -q --show-progress
+sudo gdebi mailspring.deb -n        
 
-    if [[ $app_name == 'vscode' ]]; then
-        wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868 -q --show-progress
-        
-    elif [[ $app_name == 'google-chrome' ]]; then
-        wget -O google-chorme.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -q --show-progress
-        
-    elif [[ $app_name == 'atom' ]]; then
-        wget -O atom.deb https://atom.io/download/deb -q --show-progress
-        
-    elif [[ $app_name == 'gitkraken' ]]; then
-        wget -O gitkraken.deb https://release.gitkraken.com/linux/gitkraken-amd64.deb -q --show-progress
-        
-    elif [[ $app_name == 'mailspring' ]]; then
-        wget -O mailspring.deb https://updates.getmailspring.com/download?platform=linuxDeb -q --show-progress
-        
-    elif [[ $app_name == "simplenote" ]]; then
-        curl -s https://api.github.com/repos/Automattic/simplenote-electron/releases/latest \
-        | grep "browser_download_url.*amd64.deb" \
-        | cut -d : -f 2,3 \
-        | tr -d \" \
-        | wget -qi - --show-progress
-    fi
-    
-}
+# Install Alacritty
+mkdir -p ~/Documents/Github/OtherGits
+cd ~/Documents/Github/OtherGits
 
-install_addons() {
-    # Vundle
-    if [[ ! -f "~/.vimrc" ]]; then
-        ln -s ~/Documents/Github/config_files/.vimrc ~/.vimrc
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    fi
-}
+git clone https://github.com/alacritty/alacritty.git
+cd alacritty
+
+sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+cargo build --release
+sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+
+sudo cp target/release/alacritty /usr/local/bin
+sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+sudo desktop-file-install extra/linux/Alacritty.desktop
+sudo update-desktop-database
+
+sudo mkdir -p /usr/local/share/man/man1
+gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+
+mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
+cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+
+# Install Ulauncher 
+sudo add-apt-repository ppa:agornostal/ulauncher -y
+sudo apt install ulauncher -y
+
+# Install Vundle
+ln -sf ~/Documents/Github/config_files/.vimrc ~/.vimrc
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Install nvm 
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 
-# Run functions
-
-
-echo -e "\nInstalling dependencies\n"
-sudo apt install curl wget gdebi vim git neofetch
-
-echo -e "\nSome software will be downloaded as .deb files in the direcotry you specified and installed later"
-
-pause "\nPress [Enter] to continue"
-
-read -p "Do you wish to install all the software available? [y/n] : " install_ans
-
-case $install_ans in
-    [Yy]*)
-        
-        echo "Installing software..."
-        for app in ${INSTALL_SOFTWARE[@]}; do
-            echo "\n Installing $app \n\n"
-            install_software $app
-            
-        done
-        
-        echo "Downlading Software in $LOCATION"
-        for app in ${DOWNLOAD_SOFTWARE[@]}; do
-            download_software $app
-        done
-        
-        echo ""
-        pause 'Press [Enter] key to continue installing the downloading files.'
-        echo ""
-        
-        for deb_file in $LOCATION/*deb; do
-            if test -f $deb_file; then
-                get_package_name $deb_file
-                check_if_pkg_installed $pkg_name
-                if $pkg_not_installed; then
-                    sudo gdebi $deb_file -n
-                fi
-            else
-                echo 'No deb file found in this directory'
-            fi
-        done
-        
-        clear
-        echo "Installing Vundle"
-        install_addons
-        
-    ;;
-    
-    [Nn]*)
-        
-        echo "Install it manually then"
-    ;;
-esac
