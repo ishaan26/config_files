@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# dependencies 
+if [[ $(lsb_release -si) == "Ubuntu" ]]; then
+    sudo apt install libssl-dev build-essential -y 
+fi
+
 cargo install\
     lsd \
     onefetch \
