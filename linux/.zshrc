@@ -66,3 +66,4 @@ export NVM_DIR="/home/ishaan/.nvm"
 fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
 compinit
 
+fpath+=${ZDOTDIR:-~}/.zsh_functions
