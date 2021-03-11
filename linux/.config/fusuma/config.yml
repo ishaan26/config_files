@@ -1,0 +1,21 @@
+swipe:
+  3:
+    left:
+      command: 'xdotool key alt+Shift+Tab'
+    right:
+      command: 'xdotool key alt+Tab'
+    up:
+      command: 'xdotool key super'
+    down:
+      command: 'xdotool key Escape'
+  4:
+    up:
+      command: 'xdotool key alt+Down'
+    down:
+      command: 'xdotool key alt+Up'  
+
+pinch:
+  in:
+    command: 'xdotool key ctrl+plus'
+  out:
+    command: 'xdotool key ctrl+minus'
