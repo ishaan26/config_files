@@ -31,12 +31,10 @@ plugins=(
   autojump
 )
 
-  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
-
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241,bold,underline"
 
 # Globbing
 setopt extended_glob
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,9 +48,6 @@ source ~/.aliases
 # Go Path
 export GOPATH="/home/ishaan/go"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/ishaan/.sdkman"
-[[ -s "/home/ishaan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ishaan/.sdkman/bin/sdkman-init.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -67,3 +62,7 @@ fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
 compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/ishaan/.sdkman"
+[[ -s "/home/ishaan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/ishaan/.sdkman/bin/sdkman-init.sh"
