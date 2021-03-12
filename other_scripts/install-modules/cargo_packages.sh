@@ -26,7 +26,6 @@ cargo install\
     gping \
     cargo-outdated \
     cargo-tree \
-    
+    gitui \
+    tokei --features all \
 
-cargo install\
-    tokei --features all
