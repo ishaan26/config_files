@@ -1,6 +1,6 @@
-# Ubuntu/Pop!Os, Mac, Termux and WSL Configuration files
+# Ubuntu, Mac, Termux and WSL Configuration files
 
-These are all my config files from different systems I use and also some patched nerdfonts. I try to keep this repo updated and add more stuff regularly.
+These are all my config files from different systems I use and also some patched nerdfonts. 
 
 ## Table of Contents
 
@@ -19,20 +19,22 @@ These are all my config files from different systems I use and also some patched
 
 ## Important Notes
 
-1. The Polybar config file has only been tested on Acer Predator Helios 300 G-572. Therefore, many modules in it correspond to its hardware only. You will need to change hardware module settings to match your hardware. (see the polybar section for more info)
-2. The linux  and i3 config files have been tested on a fresh install of Ubuntu and Pop!Os 20.04.
+1. The Polybar config file has been configured for Acer Predator Helios 300 G-572. Therefore, many module configurations correspond to its hardware only. You will need to change hardware module settings to match your hardware. (See the [polybar](#Polybar) section for more info)
+
+2. The linux and i3 config files have been tested on a fresh install of Ubuntu.
+
 3. The mac config files have been tested on macOS Catalina 10.15.4.
 
 ### Pro Tip
 
- You can soft link the config files and aliases files to the desired location directly from the git repo so that your changes can be directly uploaded to your github if you choose to do so.
+You can soft link the config files and aliases files to the desired location directly from the git repo so that your changes can be directly uploaded to your github if you choose to do so.
 
- *In any case, the files will still work if you just copy them to there supposed location*.
+*In any case, the files will still work if you just copy them to there supposed location*.
 
-  ```shell
-  cd <location to where the file is supposed to be linked>
-  ln -sf <location of original files> <name of the linked file>
-  ```
+ ```shell
+ cd <location to where the file is supposed to be linked>
+ ln -sf <location of original files> <name of the linked file>
+ ```
 
 ## Terminal Themes
 
@@ -40,9 +42,10 @@ These are all my config files from different systems I use and also some patched
 
 - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) (For the zsh shell replacing bash)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) (For syntax highlighting in the terminal!)
-- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (For the theme)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) (For fish shell like autosuggestions)
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (For shell the theme)
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) (For the glyphs)
-  - I am using modified [NovaMono](https://fonts.google.com/specimen/Nova+Mono) font available in the patched fonts folder
+  - I am using the modified [NovaMono](https://fonts.google.com/specimen/Nova+Mono) font available in the [patched fonts](https://github.com/ishaan26/config_files/tree/master/patched%20fonts) folder.
 
 ### Ubuntu
 
@@ -51,13 +54,13 @@ These are all my config files from different systems I use and also some patched
 
 Terminal: [Konsole](https://github.com/KDE/konsole)
 
-*The blur comes from compton-tryone*
+*The blur comes from [compton-tryone](#Compton-tryone)
 
 #### Steps to install
 
-- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in your `$HOME` folder
-- run ```source ~/.zshrc```
-- make sure the font of the terminal is set to a Nerd Font
+- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME` 
+- Run `source ~/.zshrc`
+- Make sure the font of the terminal is set to a Nerd Font
 
 ### Mac
 
@@ -68,9 +71,9 @@ Terminal: [iTerm2](https://www.iterm2.com/)
 
 #### Steps to install
 
-- Soft Link or copy the `mac/.zshrc` and `.p10k.zsh` files in your `$HOME` folder
-- run ```source ~/.zshrc```
-- make sure the font of the terminal is set to a Nerd Font
+- Soft Link or copy the `mac/.zshrc` and `.p10k.zsh` files in `$HOME` 
+- Run `source ~/.zshrc`
+- Make sure the font of the terminal is set to a Nerd Font
 
 ### WSL
 
@@ -80,9 +83,9 @@ Terminal: [Windows Terminal](https://github.com/microsoft/terminal)
 
 #### Steps to install
 
-- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in your `$HOME` folder
-- run `source ~/.zshrc`
-- make sure the font of the terminal is set to a Nerd Font
+- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME` 
+- Run `source ~/.zshrc`
+- Make sure the font of the terminal is set to a Nerd Font
 - For acrylic background, copy the properties from `wsl/Windows Terminal/profiles.json` to the settings of windows terminal
 
 ### Termux
@@ -93,8 +96,8 @@ Terminal: [Termux](https://github.com/termux/termux-app)
 
 #### Steps to install
 
-- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in your `$HOME` folder
-- run `source ~/.zshrc`
+- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME` 
+- Run `source ~/.zshrc`
 - To set a custom font, copy the .termux folder from `termux/.termux` to `$HOME`
   - You can change the font by placing a .ttf file in this folder, but it has to be named "font.ttf"
 
@@ -104,7 +107,7 @@ Terminal: [Termux](https://github.com/termux/termux-app)
 
 [Wallpaper](https://www.wallpapermaiden.com/wallpaper/8457/no-man-s-sky-landscape-artwork-planet-spacecraft/download/1280x800)
 
-#### Dependencies
+#### Dependencies *(I don't know if all of them are relevant)*
 
 ```shell
 sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
@@ -139,6 +142,8 @@ sudo apt install viewnior scrot mpc acpi dunst filelight texinfo \
 sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 ```
 
+
+
 ### i3-gaps-rounded-corners
 
 ![3](img/linux/i3-windows_gapps.png)
@@ -146,7 +151,7 @@ sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 #### Steps to install
 
 - Make sure the above dependencies are installed
-- complie and intstall i3 from <https://github.com/resloved/i3>
+- Install i3-gaps from [ppa:dennis-kruyt/ricebuilder](https://launchpad.net/~dennis-kruyt/+archive/ubuntu/ricebuilder)
 - Soft link or copy the `linux/.config/i3/config` to `~/.config/i3`
 - Reboot
 
@@ -161,15 +166,19 @@ exec_always --no-startup-id xrandr --output eDP-1-1 --right-of HDMI-0 --auto`
 
 Remove it if you use a single display or change it according to your screens.
 
+
+
 ### Compton-tryone
 
 ![2](img/linux/i3-windows_floating.png)
 
 #### Steps to install
 
-- complie and intstall compton from <https://github.com/tryone144/compton.git>
+- Compile and install Compton from <https://github.com/tryone144/compton.git>
 - Soft link or copy the `linux/.config/compton.conf` to `~/.config`
 - Reboot
+
+
 
 ### Polybar
 
@@ -178,15 +187,17 @@ Remove it if you use a single display or change it according to your screens.
 
 #### Steps to install
 
-- complie and intstall polybar from <https://github.com/polybar/polybar>
+- Compile and install polybar from <https://github.com/polybar/polybar>
 - Make sure the 'GoogleSans Nerd Font' is installed from the patched fonts folder
 - Soft link or copy the `linux/.config/polybar` folder to `~/.config`
-- Refer to [Polybar Wiki](https://github.com/polybar/polybar/wiki) to configure the moduels according to your hardware.
-- Reload i3 window or run it from `linux/.config/polybar/launch.sh`
+- Refer to the [Polybar Wiki](https://github.com/polybar/polybar/wiki) to configure the modules according to your hardware.
+- Reload i3 window or run `$HOME/.config/polybar/launch.sh`
+
+
 
 ### Rofi
 
-The rofi themes are heavily influenced from <https://github.com/adi1090x/rofi>
+The rofi themes are based on - <https://github.com/adi1090x/rofi>
 
 ![6](img/linux/Rofi-apps.gif)
 
@@ -194,8 +205,7 @@ The rofi themes are heavily influenced from <https://github.com/adi1090x/rofi>
 
 #### Steps to install
 
-- complie and intstall rofi from <https://github.com/DaveDavenport/rofi>
-  - **The apt package of rofi is an older version and doesnot work with the config files provided**
-  - **You would need to complie and install the latest version of check from <https://github.com/libcheck/check.git> to install rofi. The version included in apt is old.**
+- Compile and install rofi from <https://github.com/DaveDavenport/rofi>
+  - ***The apt package of rofi is an older version and does not work with the config files provided*** **Therefore you should compile and install the latest version of check from <https://github.com/libcheck/check.git> to install rofi. The version included in apt is old.**
 - Make sure polybar is installed properly
 - Soft link or copy the `linux/.config/rofi` folder to `~/.config`
