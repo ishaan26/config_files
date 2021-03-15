@@ -20,16 +20,15 @@ These are all my config files from different systems I use and also some patched
 ## Important Notes
 
 1. The Polybar config file has been configured for Acer Predator Helios 300 G-572. Therefore, many module configurations correspond to its hardware only. You will need to change hardware module settings to match your hardware. (See the [polybar](#Polybar) section for more info)
-
 2. The linux and i3 config files have been tested on a fresh install of Ubuntu.
-
 3. The mac config files have been tested on macOS Catalina 10.15.4.
+4. The example images are a bit dated. 
 
 ### Pro Tip
 
 You can soft link the config files and aliases files to the desired location directly from the git repo so that your changes can be directly uploaded to your github if you choose to do so.
 
-*In any case, the files will still work if you just copy them to there supposed location*.
+*In any case, the files will still work if you just copy them to their supposed location*.
 
  ```shell
  cd <location to where the file is supposed to be linked>
@@ -54,7 +53,7 @@ You can soft link the config files and aliases files to the desired location dir
 
 Terminal: [Konsole](https://github.com/KDE/konsole)
 
-*The blur comes from [compton-tryone](#Compton-tryone)
+*The blur comes from [compton-tryone](#Compton-tryone)*
 
 #### Steps to install
 
