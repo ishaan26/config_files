@@ -1,6 +1,7 @@
 set nocompatible
 syntax on
 set encoding=utf8
+set clipboard+=unnamedplus
 
 " set mouse recording
 set mouse=a
