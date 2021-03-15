@@ -64,6 +64,10 @@ sudo gdebi google-chrome.deb -n
 wget -O mailspring.deb https://updates.getmailspring.com/download?platform=linuxDeb -q --show-progress
 sudo gdebi mailspring.deb -n        
 
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.cargo/env
+
 # Install Alacritty
 mkdir -p ~/Documents/Github/OtherGits
 cd ~/Documents/Github/OtherGits
