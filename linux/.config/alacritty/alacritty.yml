@@ -31,7 +31,7 @@ window:
   # fall back to the window manager's recommended size.
   dimensions:
     columns: 110 
-    lines: 30
+    lines: 25
 
   # Window position (changes require restart)
   #
