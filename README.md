@@ -20,7 +20,7 @@ These are all my config files from different systems I use and also some patched
 ## Important Notes
 
 1. The Polybar config file has been configured for Acer Predator Helios 300 G-572. Therefore, many module configurations correspond to its hardware only. You will need to change hardware module settings to match your hardware. (See the [polybar](#Polybar) section for more info)
-2. The linux and i3 config files have been tested on a fresh install of Ubuntu.
+2. The linux and i3 config files have been tested on a fresh install of Ubuntu 20.04 LTS.
 3. The mac config files have been tested on macOS Catalina 10.15.4.
 4. The example images are a bit dated. 
 
@@ -205,6 +205,6 @@ The rofi themes are based on - <https://github.com/adi1090x/rofi>
 #### Steps to install
 
 - Compile and install rofi from <https://github.com/DaveDavenport/rofi>
-  - ***The apt package of rofi is an older version and does not work with the config files provided*** **Therefore you should compile and install the latest version of check from <https://github.com/libcheck/check.git> to install rofi. The version included in apt is old.**
+  - ***The apt package of rofi is an older version and does not work with the config files provided.*** Therefore you should compile and install the latest version of Rofi from <https://github.com/davatorium/rofi>
 - Make sure polybar is installed properly
 - Soft link or copy the `linux/.config/rofi` folder to `~/.config`
