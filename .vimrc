@@ -103,8 +103,7 @@ set undofile
 """""" You complete me settings
 " The first line ensures that the auto-complete window goes away when you’re done with it, and the second defines a shortcut for goto definition.
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+nnoremap <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """""" NerdTree Settings 
 autocmd StdinReadPre * let s:std_in=1
