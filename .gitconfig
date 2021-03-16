@@ -19,8 +19,9 @@ diffFilter = delta --color-only
 autocorrect = 50
 
 [alias]
-	st = status -sb
-	history = log --oneline --graph --decorate --all
-	last = log -1 HEAD --stat
-	cm = commit -m
-	rv = remote -v
+st = status -sb
+history = log --oneline --graph --decorate --all
+last = log -1 HEAD --stat
+cm = commit -m
+rv = remote -v
+
