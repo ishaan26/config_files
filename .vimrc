@@ -24,7 +24,6 @@ Plugin 'VundleVim/Vundle.vim'
 """"""""" Plugins """"""""""
 
 " Utility
-Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin '907th/vim-auto-save'
@@ -33,6 +32,7 @@ Plugin 'tpope/vim-repeat'
 
 " Git Support
 Plugin 'kablamo/vim-git-log'
+Plugin 'airblade/vim-gitgutter'
 
 " Themes
 Plugin 'vim-airline/vim-airline'
@@ -50,6 +50,12 @@ Plugin 'mboughaba/i3config.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ap/vim-css-color'
 Plugin 'luochen1990/rainbow'
+
+" Nerd Tree
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -103,7 +109,11 @@ endif
 set undodir=~/.vim/undo-dir
 set undofile
 
-
+"""""" Window Navigation with Ctrl-[hjkl]
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
 
 """""" You complete me settings
 " The first line ensures that the auto-complete window goes away when you’re done with it, and the second defines a shortcut for goto definition.
