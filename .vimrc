@@ -28,6 +28,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin '907th/vim-auto-save'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 
 " Git Support
 Plugin 'kablamo/vim-git-log'
@@ -38,7 +40,10 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Intellisense like
 Bundle 'Valloric/YouCompleteMe'
+
+" Rust 
 Plugin 'rust-lang/rust.vim'
+Plugin 'arzg/vim-rust-syntax-ext'
 
 " Syntax 
 Plugin 'mboughaba/i3config.vim'
