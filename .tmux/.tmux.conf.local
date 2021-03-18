@@ -115,7 +115,7 @@ tmux_conf_theme_message_attr="bold"
 
 # status line command style (<prefix> : Escape)
 tmux_conf_theme_message_command_fg="$tmux_conf_theme_colour_5"
-tmux_conf_theme_message_command_bg="$tmux_conf_theme_colour_1"
+#tmux_conf_theme_message_command_bg="$tmux_conf_theme_colour_1"
 tmux_conf_theme_message_command_attr="bold"
 
 # window modes style
@@ -138,7 +138,7 @@ tmux_conf_theme_status_attr="none"
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
+tmux_conf_theme_terminal_title="#h   #S  #I #W"
 
 # window status style
 #   - built-in variables are:
@@ -226,7 +226,7 @@ tmux_conf_theme_right_separator_sub='\uE0B3'
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=" ❐ #S"
+tmux_conf_theme_status_left="  #S"
 tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}"
 
 # status left style
@@ -240,13 +240,13 @@ tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_15,$tmux_conf_theme_col
 tmux_conf_theme_status_right_attr="none,none,bold"
 
 # pairing indicator
-tmux_conf_theme_pairing="⚇"                 # U+2687
+tmux_conf_theme_pairing="⚇ "                 # U+2687
 tmux_conf_theme_pairing_fg="none"
 tmux_conf_theme_pairing_bg="none"
 tmux_conf_theme_pairing_attr="none"
 
 # prefix indicator
-tmux_conf_theme_prefix="⌨"                  # U+2328
+tmux_conf_theme_prefix="⌨i "                  # U+2328
 tmux_conf_theme_prefix_fg="none"
 tmux_conf_theme_prefix_bg="none"
 tmux_conf_theme_prefix_attr="none"
