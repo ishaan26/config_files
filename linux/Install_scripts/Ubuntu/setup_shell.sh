@@ -50,4 +50,13 @@ sudo apt install -y tmux
 ln -sf ~/Documents/Github/config_files/.tmux/.tmux.conf 
 ln -sf ~/Documents/Github/config_files/.tmux/.tmux.conf.local
 
+# Link config files
+cd ~
+rm .zshrc
+ln -s ~/Documents/Github/config_files/linux/.zshrc
+ln -s ~/Documents/Github/config_files/linux/.ubuntu_aliases .aliases
+ln -s ~/Documents/Github/config_files/.vimrc
+ln -s ~/Documents/Github/config_files/.p10k.zsh
+
+echo "\nAll Done\n"
 pause "Press [Enter] to contiunue to main menu"
