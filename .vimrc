@@ -29,6 +29,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin '907th/vim-auto-save'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'mbbill/undotree'
 
 " Git Support
 Plugin 'kablamo/vim-git-log'
