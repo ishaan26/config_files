@@ -45,56 +45,6 @@ bindsym $mod+d exec rofi -show drun -show-icons -theme ~/.config/rofi/themes/dru
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -130,11 +80,59 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
-# Quasi Alternating(Fibonacci) Layout
+# i3-Layouts 
+exec_always --no-startup-id i3-layouts
 
-default_orientation vertical
-for_window [class=".*"] split toggle 
- 
+set $i3l spiral 0.6 to workspace $ws1
+set $i3l spiral 0.6 to workspace $ws2
+set $i3l spiral to workspace $ws3
+set $i3l spiral to workspace $ws4
+set $i3l spiral to workspace $ws5
+set $i3l spiral to workspace $ws6
+set $i3l spiral to workspace $ws7
+set $i3l spiral to workspace $ws8
+set $i3l spiral to workspace $ws9
+
+# change focus
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j exec i3l move up
+bindsym $mod+Shift+k exec i3l move down
+bindsym $mod+Shift+l exec i3l move right
+bindsym $mod+Shift+h exec i3l move left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left exec i3l move left
+bindsym $mod+Shift+Down exec i3l move down
+bindsym $mod+Shift+Up exec i3l move up
+bindsym $mod+Shift+Right exec i3l move right
+
+## enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -268,7 +266,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # App bindings
 bindsym $mod+Ctrl+a exec atom
 bindsym $mod+Ctrl+p exec gnome-software
-bindsym $mod+Ctrl+c exec google-chrome-stable
+bindsym $mod+Ctrl+c exec google-chrome-stable --password-store=gnome
 bindsym $mod+Ctrl+t exec nautilus
 
 # network applet
@@ -291,7 +289,7 @@ focus_follows_mouse no
 
 # Ubuntu
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 # Fedora
 #exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
