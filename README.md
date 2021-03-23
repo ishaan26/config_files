@@ -110,7 +110,7 @@ Terminal: [Termux](https://github.com/termux/termux-app)
 
 ```shell
 sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
-	libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
+	libxcb-util0-dev libxcb-icccm4-dev libyajl-dev xdotool python3-pip\
 	libstartup-notification0-dev xbacklight libxcb-randr0-dev \
 	libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
 	libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
@@ -143,14 +143,14 @@ sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 
 
 
-### i3-gaps-rounded-corners
-
+### i3-gaps
 ![3](img/linux/i3-windows_gapps.png)
 
 #### Steps to install
 
 - Make sure the above dependencies are installed
 - Install i3-gaps from [ppa:dennis-kruyt/ricebuilder](https://launchpad.net/~dennis-kruyt/+archive/ubuntu/ricebuilder)
+- Install [i3-layouts](https://pypi.org/project/i3-layouts/#:~:text=i3%2Dlayouts%20is%20a%20small,an%20horizontal%20stack%20of%20windows.)
 - Soft link or copy the `linux/.config/i3/config` to `~/.config/i3`
 - Reboot
 
