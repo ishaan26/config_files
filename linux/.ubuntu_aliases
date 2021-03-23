@@ -86,7 +86,7 @@ function rsfa() {
 alias l="lsd -lah"
 alias ls="lsd"
 alias tree="lsd --tree"
-
+alias tk="tmux kill-session -a"
 
 
 
