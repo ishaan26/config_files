@@ -104,10 +104,21 @@ tray-position = none
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:125:...%
-label-padding = 2
-label-font = 3
+; Available tags:
+;   <label> (default)
+format = <label>
+format-padding = 4
 
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = Desktop
 
 [module/filesystem-root]
 type = internal/fs
@@ -380,7 +391,7 @@ type = custom/text
 content = 甆
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = google-chrome-stable --app=https://web.whatsapp.com/ &
+click-left = google-chrome-stable --app=https://web.whatsapp.com/ --password-store=gnome &
 
 
 [module/chrome]
@@ -493,7 +504,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome google.com &
+click-left = exec google-chrome google.com --password-store=gnome &
 
 [module/youtube]
 
@@ -501,7 +512,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome youtube.com &
+click-left = exec google-chrome youtube.com --password-store=gnome &
 
 
 [module/reddit]
@@ -519,7 +530,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome github.com &
+click-left = exec google-chrome github.com --password-store=gnome &
 
 [module/rofi-apps]
 
