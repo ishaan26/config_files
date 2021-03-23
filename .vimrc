@@ -51,6 +51,8 @@ Plugin 'mboughaba/i3config.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ap/vim-css-color'
 Plugin 'luochen1990/rainbow'
+Plugin 'preservim/nerdcommenter'
+Plugin 'wolfgangmehner/lua-support'
 
 " Nerd Tree
 Plugin 'scrooloose/nerdtree'
@@ -152,3 +154,10 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 """""""""" Rainbow Brackets
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+"""""""""" Nerd Commenter 
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
