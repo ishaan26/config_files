@@ -21,7 +21,7 @@ fg-alt = #A9ABB0
 
 shade1 = #f67e3f
 shade2 = #f67e5f
-shade3 = #f67e7f
+shade3 = #f67e6f
 shade4 = #1E88E5
 shade5 = #2196F3
 shade6 = #42A5F5
@@ -30,7 +30,7 @@ shade8 = #90CAF9
 ashade8 = #2C2C2C
 
 
-primary = #f67e7f
+primary = #f67e5f
 secondary = #e60053
 alert = #bd2c40
 
@@ -169,7 +169,7 @@ label-mode-background = ${colors.bg}
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
 label-focused-background = ${colors.bg}
-label-focused-underline= ${colors.shade5}
+label-focused-underline= ${colors.shade1}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
