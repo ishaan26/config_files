@@ -161,3 +161,7 @@ let g:NERDCreateDefaultMappings = 1
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
+
+"""""""""" set syntax for files with odd extensions
+autocmd BufNewFile,BufRead *.rasi set syntax=css
+
