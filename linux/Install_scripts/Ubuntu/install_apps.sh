@@ -104,6 +104,13 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 # Install gh
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-sudo apt-add-repository https://cli.github.com/packages
-sudo apt update
-sudo apt install gh
+sudo apt-add-repository https://cli.github.com/packages -y
+sudo apt install gh -y
+
+# Install appimagelauncher
+sudo add-apt-repository ppa:appimagelauncher-team/stable -y
+sudo apt install appimagelauncher -y
+
+# Install foliate
+sudo add-apt-repository ppa:apandada1/foliate -y
+sudp apt install foliate -y
