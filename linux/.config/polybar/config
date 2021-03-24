@@ -92,7 +92,7 @@ height = 40
 
 bottom = true
 
-modules-left = rofi-window files mail chrome firefox whatsapp libreoffice spotify_app vscode terminal separator google youtube reddit github separator info-trash screenshot
+modules-left = rofi-window files mail chrome firefox whatsapp libreoffice spotify_app vscode terminal separator google youtube reddit office github separator info-trash screenshot
 modules-center = i3
 modules-right = wlan eth separator filesystem-root filesystem-home separator memory cpu temperature powermenu
 
@@ -521,7 +521,15 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome reddit.com &
+click-left = exec google-chrome reddit.com --password-store=gnome &
+
+
+[module/office]
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${colors.fg-alt}
+click-left = exec google-chrome office.com --password-store=gnome &
 
 
 [module/github]
