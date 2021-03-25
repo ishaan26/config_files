@@ -27,5 +27,7 @@ cargo install\
     cargo-outdated \
     cargo-tree \
     gitui \
+
+cargo install \
     tokei --features all \
 
