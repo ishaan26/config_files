@@ -5,10 +5,15 @@ swipe:
     right:
       command: 'xdotool key Super_L+ctrl+Left'
     up:
+      command: 'xdotool key ctrl+F9'
+    down:
+      command: 'xdotool key ctrl+F9'
+  4:
+    up:
       command: 'xdotool key ctrl+F8'
     down:
       command: 'xdotool key ctrl+F8'
-  
+    
 pinch:
   in:
     command: 'xdotool key ctrl+plus'
