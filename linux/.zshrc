@@ -1,8 +1,3 @@
-if command -v tmux >/dev/null 2>&1 && [ "${DISPLAY}" ]; then
-    # if not inside a tmux session, and if no session is started, start a new session
-    [ -z "${TMUX}" ] && (tmux new-session) >/dev/null 2>&1
-fi
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
