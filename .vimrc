@@ -60,6 +60,10 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" Color Schemes
+Plugin 'joshdick/onedark.vim'
+Plugin 'rakr/vim-one'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -165,3 +169,7 @@ let g:NERDSpaceDelims = 1
 """""""""" set syntax for files with odd extensions
 autocmd BufNewFile,BufRead *.rasi set syntax=css
 
+"""""""""" Set Color scheme
+colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
+let g:airline_theme='onedark'
