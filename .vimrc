@@ -53,6 +53,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'luochen1990/rainbow'
 Plugin 'preservim/nerdcommenter'
 Plugin 'wolfgangmehner/lua-support'
+Plugin 'nvie/vim-flake8'
 
 " Nerd Tree
 Plugin 'scrooloose/nerdtree'
@@ -96,6 +97,7 @@ set laststatus=2
 set wildmenu
 set title
 set background=dark
+let python_highlight_all=1
 
 """""" Set Proper Tabs
 set tabstop=4
