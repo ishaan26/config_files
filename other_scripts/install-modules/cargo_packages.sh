@@ -27,7 +27,14 @@ cargo install\
     cargo-outdated \
     cargo-tree \
     gitui \
+    hexyl \
 
 cargo install \
     tokei --features all \
 
+# Install bat-extras
+mkdir -p ~/Documents/OtherGits 
+cd ~/Documents/OtherGits
+git clone https://github.com/eth-p/bat-extras.git
+cd bat-extras
+sudo ./build.sh --install --manuals
