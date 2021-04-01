@@ -161,6 +161,10 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 """""""""" Rainbow Brackets
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
+let g:rainbow_conf = {
+\	'ctermfgs': ['blue', 'yellow', 'DarkGreen', 'magenta'],
+\}
+
 """""""""" Nerd Commenter 
 " Create default mappings
 let g:NERDCreateDefaultMappings = 1
