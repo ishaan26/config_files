@@ -18,7 +18,6 @@ cargo install\
     cargo-cache \
     cargo-update \
     cargo-watch \
-    cargo-generate \
     ytop \
     tealdeer \
     viu \
