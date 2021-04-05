@@ -99,7 +99,7 @@ type = internal/xwindow
 ; Available tags:
 ;   <label> (default)
 format = <label>
-format-padding = 4
+format-padding = 2
 
 ; Available tokens:
 ;   %title%
