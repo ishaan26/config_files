@@ -353,7 +353,7 @@ autocmd BufNewFile,BufRead *.rasi set syntax=css
 """""""""" Set Color scheme
 colorscheme onedark
 hi Normal guibg=NONE ctermbg=NONE
-let g:airline_theme='onedark'
+" let g:airline_theme='onedark'
 
 """""""""" Rust Configuration
 let g:rustfmt_autosave = 1
