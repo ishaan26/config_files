@@ -89,7 +89,7 @@ autocmd BufEnter * :syntax sync fromstart
 """" Coc Configuration
 """"""""""""""""""""""""""""""""""""""
 """""""" Install Extentionsw
-let g:coc_global_extensions = ['coc-json', 'coc-rust-analyzer', 'coc-pyright', 'coc-snippets' ]
+let g:coc_global_extensions = ['coc-json', 'coc-rust-analyzer', 'coc-pyright', 'coc-snippets', 'coc-tsserver', 'coc-sh', 'coc-vetur', 'coc-html']
 
 
 
