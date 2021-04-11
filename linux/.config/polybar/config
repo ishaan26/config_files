@@ -496,7 +496,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome google.com --password-store=gnome &
+click-left = exec firefox google.com &
 
 [module/youtube]
 
@@ -504,7 +504,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome youtube.com --password-store=gnome &
+click-left = exec firefox.com youtube.com &
 
 
 [module/reddit]
@@ -513,7 +513,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome reddit.com --password-store=gnome &
+click-left = exec firefox reddit.com &
 
 
 [module/office]
@@ -521,19 +521,17 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome office.com --password-store=gnome &
+click-left = exec firefox office.com & 
 
 
 [module/github]
-
 type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec google-chrome github.com --password-store=gnome &
+click-left = exec firefox github.com &
 
 [module/rofi-apps]
-
 type = custom/text
 content = 
 content-padding = 3
@@ -542,7 +540,6 @@ content-background = ${colors.primary}
 click-left = rofi -show drun -show-icons -theme ~/.config/rofi/themes/drun.rasi
 
 [module/rofi-window]
-
 type = custom/text
 content = 
 content-padding = 3
