@@ -64,7 +64,10 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'joshdick/onedark.vim'
 Plugin 'rakr/vim-one'
 
-" All of your Plugins must be added before the following line
+" Code Formatters
+Plugin 'Chiel92/vim-autoformat'
+
+" " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -357,3 +360,6 @@ hi Normal guibg=NONE ctermbg=NONE
 
 """""""""" Rust Configuration
 let g:rustfmt_autosave = 1
+
+"""""""""" Python config
+au BufWrite * :Autoformat
