@@ -1,38 +1,38 @@
 # Mac Stuff
 function update() {
     echo -e "\n----------- Updating homebrew -------------------\n"
-    brew update && brew upgrade && brew upgrade --cask
-    echo -e "\n----------- Updating cartes ---------------------\n"
-    cargo install-update -a
-    echo -e "\n----------- Updating other stuff------------\n"
-    rustup update
-    nvm install --lts
-    nvm install node
-    pip3 install --upgrade pip
+        brew update && brew upgrade && brew upgrade --cask
+        echo -e "\n----------- Updating cartes ---------------------\n"
+        cargo install-update -a
+        echo -e "\n----------- Updating other stuff------------\n"
+        rustup update
+        nvm install --lts
+        nvm install node
+        pip3 install --upgrade pip
 }
 
 alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
 
 function zsh_colors() {
     for i in {0..255}; do
-    print -Pn "%K{$i}  %k%F{$i}${(l:7::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
+        print -Pn "%K{$i}  %k%F{$i}${(l:7::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
     done
 }
 
 function cf() {
     cd ~/Documents/Github/config_files
-    if [[ $1 == "-f"  ]]; then
-        git fetch
-    fi
+        if [[ $1 == "-f"  ]]; then
+            git fetch
+                fi
 }
 
 function pjt() {
     cd ~/Documents/Github/Learning
-    if [[ $1 == "-f"  ]]; then
-        git fetch
-    elif [[ $1 == "-rust" ]]; then
-        cd ~/Documents/Github/Learning/Languages/Rust
-    fi
+        if [[ $1 == "-f"  ]]; then
+            git fetch
+                elif [[ $1 == "-rust" ]]; then
+                cd ~/Documents/Github/Learning/Languages/Rust
+                fi
 }
 
 # Git Stuff
@@ -40,24 +40,25 @@ alias githistory="git log --oneline --graph --decorate --all"
 alias kraken='open -na "GitKraken" --args -p $(pwd)'
 
 function gitupload() {
-	if [ -n "$1" ]; then
-		git add .
-		git commit -m "$1"
-		git push
-	else
-		echo "Provide a commit message"
-	fi
+    if [ -n "$1" ]; then
+        git add .
+            git commit -m "$1"
+            git push
+    else
+        echo "Provide a commit message"
+            fi
 }
 
 # PDF stuff
 function ocrall() {
     for i in ./*.pdf; do
-        echo "Rescannig $i"
-        ocrmypdf --force-ocr $i $i
-    done
-}
+                echo "Rescannig $i"
+                ocrmypdf --force-ocr $i $i
+                done
+                }
 
 # Custom Aliases
 alias l="lsd -lah"
-
+alias ls="lsd"
+alias vim="nvim"
 # vi:syntax=bash

@@ -1,11 +1,15 @@
+if command -v tmux >/dev/null 2>&1;  then
+    # if not inside a tmux session, and if no session is started, start a new session
+    [ -z "${TMUX}" ] && (tmux new -s "Hack") >/dev/null 2>&1
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source $HOME/.profile
 
 export TERM="xterm-256color"
 
@@ -17,18 +21,20 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 plugins=(
-  git
-  osx
-  python
-  zsh-syntax-highlighting
-  rust
-  rustup
-  cargo
-  brew
-  nvm
+    git
+    osx
+    python
+    zsh-syntax-highlighting
+    rust
+    rustup
+    cargo
+    brew
+    nvm
+    autojump
+    zsh-autosuggestions
 )
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=051,bold,underline"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241,bold,underline"
 
 source $ZSH/oh-my-zsh.sh
 
