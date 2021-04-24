@@ -18,39 +18,35 @@ else
     exit
 fi
 
-
-
 # function to display menus
 show_menus() {
-	clear
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo " I N S T A L L - S T U F F"
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    clear
+    echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    echo " I N S T A L L - S T U F F"
+    echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     echo "For $OS"
     echo ""
-	echo "1. Install Apps"
-	echo "2. Setup Shell"
+    echo "1. Install Apps"
+    echo "2. Setup Shell"
     echo "3. Install and setup i3-gaps"
-	echo "4. Install Fonts from patched fonts folder"
-	echo "5. Exit"
+    echo "4. Install Fonts from patched fonts folder"
+    echo "5. Exit"
 }
 
-read_options(){
-	local choice
-	read -p "Enter choice [1 - 5]: " choice
-	case $choice in
-		1) bash $SCRIPT_DIR/$OS/install_apps.sh ;;
-		2) bash $SCRIPT_DIR/$OS/setup_shell.sh ;;
-        3) bash $SCRIPT_DIR/$OS/install_i3-gaps.sh ;;
-        4) install_fonts_common ;;
-		5) exit 0 ;;
-		*) echo -e "${RED}Please select a valid option${STD}" && sleep 1
-	esac
+read_options() {
+    local choice
+    read -p "Enter choice [1 - 5]: " choice
+    case $choice in
+    1) bash $SCRIPT_DIR/$OS/install_apps.sh ;;
+    2) bash $SCRIPT_DIR/$OS/setup_shell.sh ;;
+    3) bash $SCRIPT_DIR/$OS/install_i3-gaps.sh ;;
+    4) install_fonts_common ;;
+    5) exit 0 ;;
+    *) echo -e "${RED}Please select a valid option${STD}" && sleep 1 ;;
+    esac
 }
 
-
-while true
-do
-	show_menus
-	read_options
+while true; do
+    show_menus
+    read_options
 done

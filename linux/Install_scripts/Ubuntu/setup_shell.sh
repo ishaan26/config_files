@@ -4,7 +4,6 @@ clear
 
 SCRIPT_DIR="$(dirname "$0")"
 
-
 cd $SCRIPT_DIR
 source ../common.sh
 
@@ -26,10 +25,12 @@ fi
 # Install Dependencies
 sudo apt install zsh zsh-doc curl wget neofetch python3 git font-manager
 
-
 # Install Oh my zsh
 cd ~
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {   echo "Could not install Oh My Zsh" >/dev/stderr;   exit 1; }
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
+    echo "Could not install Oh My Zsh" >/dev/stderr
+    exit 1
+}
 
 # Install custom Plugins
 cd ~
