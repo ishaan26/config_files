@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # dependencies
-if [[ $(lsb_release -si) == "Ubuntu" ]]; then
+if [[ $(lsb_release -si > /dev/null 2>&1) == "Ubuntu" ]]; then
     sudo apt install libssl-dev build-essential -y
 fi
 
