@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# dependencies 
+# dependencies
 if [[ $(lsb_release -si) == "Ubuntu" ]]; then
-    sudo apt install libssl-dev build-essential -y 
+    sudo apt install libssl-dev build-essential -y
 fi
 
 cargo install\
@@ -32,7 +32,7 @@ cargo install \
     tokei --features all \
 
 # Install bat-extras
-mkdir -p ~/Documents/OtherGits 
+mkdir -p ~/Documents/OtherGits
 cd ~/Documents/OtherGits
 git clone https://github.com/eth-p/bat-extras.git
 cd bat-extras

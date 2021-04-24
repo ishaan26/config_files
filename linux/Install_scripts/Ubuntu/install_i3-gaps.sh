@@ -14,7 +14,7 @@ check_os # Produces $OS and $VER from common.sh
 
 if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" ]]; then
     echo ""
-else 
+else
     echo "Scripts is not for $OS"
     exit
 fi
@@ -70,7 +70,7 @@ echo "Installing i3-gaps"
 sudo add-apt-repository ppa:dennis-kruyt/ricebuilder
 sudo apt install i3-gaps
 echo -e "\ni3-gaps installed"
-pip3 install --user i3-layouts 
+pip3 install --user i3-layouts
 pause "Press [Enter] to continue"
 clear
 

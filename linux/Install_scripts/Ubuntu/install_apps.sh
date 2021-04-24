@@ -46,12 +46,12 @@ sudo apt-get install papirus-icon-theme -y
 sudo apt install flatpak -y
 sudo apt install gnome-software-plugin-flatpak -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-        
+
 # Install LibreOffice
 sudo add-apt-repository ppa:libreoffice/libreoffice-7-0 -y
 sudo apt install libreoffice -y
 sudo apt install libreoffice-style-papirus -y
-        
+
 # Install VS Code
 wget -O code.deb https://go.microsoft.com/fwlink/?LinkID=760868 -q --show-progress
 sudo gdebi code.deb -n
@@ -59,10 +59,10 @@ sudo gdebi code.deb -n
 # Install Google Chrome
 wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -q --show-progress
 sudo gdebi google-chrome.deb -n
-        
+
 # Install Mailspring
 wget -O mailspring.deb https://updates.getmailspring.com/download?platform=linuxDeb -q --show-progress
-sudo gdebi mailspring.deb -n        
+sudo gdebi mailspring.deb -n
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -91,7 +91,7 @@ mkdir -p ${ZDOTDIR:-~}/.zsh_functions
 echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
 cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
 
-# Install Ulauncher 
+# Install Ulauncher
 sudo add-apt-repository ppa:agornostal/ulauncher -y
 sudo apt install ulauncher -y
 
@@ -99,7 +99,7 @@ sudo apt install ulauncher -y
 ln -sf ~/Documents/Github/config_files/.vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# Install nvm 
+# Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 # Install gh

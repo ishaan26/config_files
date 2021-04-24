@@ -20,18 +20,18 @@ alias myip="ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 
 alias pip='pip3'
 
-function zsh_colors(){ 
-    for i in {0..255}; do 
-        print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'} 
+function zsh_colors(){
+    for i in {0..255}; do
+        print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}
     done
 }
 
 
-function cf() {    
+function cf() {
     cd ~/Documents/Github/config_files
     if [[ $1 == "-f"  ]]; then
-       git fetch 
-    fi 
+       git fetch
+    fi
 }
 
 function pjt() {
@@ -40,7 +40,7 @@ function pjt() {
         git fetch
     elif [[ $1 == "-rust" ]]; then
         cd ~/Documents/Github/Learning/Languages/Rust
-    fi 
+    fi
 }
 
 #Git stuff
@@ -48,7 +48,7 @@ alias githistory="git log --oneline --graph --decorate --all"
 alias kraken='eval "gitkraken --new-window -p \"`pwd`\" -l /dev/null >/dev/null 2>&1 &"'
 
 function gitupload() {
-	
+
 	if [ -n "$1" ]; then
 		git add .
 		git commit -am "$1"
@@ -56,7 +56,7 @@ function gitupload() {
 	else
 		echo "Provide a commit message"
 	fi
-		
+
 }
 
 # PDF stuff
@@ -67,16 +67,16 @@ function ocrall() {
     done
 }
 
-# Rust Stuff 
+# Rust Stuff
 function rsfa() {
     # Format all the rust projects in a directory tree.
     O=$(pwd)
-    for location in $(find . -name src); do 
-        A=$(realpath $location) 
-        cd $A 
-        cd .. 
-        cargo fmt 
-        echo "Formated $(pwd)" 
+    for location in $(find . -name src); do
+        A=$(realpath $location)
+        cd $A
+        cd ..
+        cargo fmt
+        echo "Formated $(pwd)"
         cd $O
     done
 

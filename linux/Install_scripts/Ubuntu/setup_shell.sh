@@ -13,7 +13,7 @@ check_os # Produces $OS and $VER from common.sh
 
 if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" ]]; then
     echo ""
-else 
+else
     echo "Scripts is not for $OS"
     exit
 fi
@@ -27,7 +27,7 @@ fi
 sudo apt install zsh zsh-doc curl wget neofetch python3 git font-manager
 
 
-# Install Oh my zsh 
+# Install Oh my zsh
 cd ~
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {   echo "Could not install Oh My Zsh" >/dev/stderr;   exit 1; }
 
@@ -36,7 +36,7 @@ cd ~
 echo -e "\nInstalling zsh syntax highlighting"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-clear 
+clear
 echo -e "\nInstalling zsh autosuggestions"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
@@ -47,7 +47,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 # Install tmux
 cd ~
 sudo apt install -y tmux
-ln -sf ~/Documents/Github/config_files/.tmux/.tmux.conf 
+ln -sf ~/Documents/Github/config_files/.tmux/.tmux.conf
 ln -sf ~/Documents/Github/config_files/.tmux/.tmux.conf.local
 
 # Link config files

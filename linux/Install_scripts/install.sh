@@ -13,7 +13,7 @@ check_os # Produces $OS and $VER from common.sh
 
 if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" || "$OS" == "Fedora" ]]; then
     echo ""
-else 
+else
     echo "Scripts is not for $OS"
     exit
 fi
@@ -23,7 +23,7 @@ fi
 # function to display menus
 show_menus() {
 	clear
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"	
+	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo " I N S T A L L - S T U F F"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     echo "For $OS"
