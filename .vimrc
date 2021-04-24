@@ -360,3 +360,7 @@ hi Normal guibg=NONE ctermbg=NONE
 """""""""" Rust Configuration
 let g:rustfmt_autosave = 1
 
+"""""""" Autoformat
+noremap <F3> :Autoformat<CR>
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
