@@ -1,27 +1,38 @@
 [user]
-email = ishaangoel.99@gmail.com
-name = Ishaan Goel
+    email = ishaangoel.99@gmail.com
+    name = Ishaan Goel
 
 [core]
-pager = delta
+    pager = delta
 
 [delta]
-plus-color = "#0DA10944"
-minus-color = "#A1000044"
-syntax-theme = Nord
-line-numbers = true
-side-by-side = true 
+    features = side-by-side line-numbers decorations
+    syntax-theme = Dracula
+    plus-style = syntax "#003800"
+    minus-style = syntax "#3f0001"
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = cyan box ul
+
+[delta "line-numbers"]
+    line-numbers-left-style = cyan
+    line-numbers-right-style = cyan
+    line-numbers-minus-style = 124
+    line-numbers-plus-style = 28
 
 [interactive]
-diffFilter = delta --color-only
+    diffFilter = delta --color-only
 
 [help]
-autocorrect = 50
+    autocorrect = 50
 
 [alias]
-st = status -sb
-history = log --oneline --graph --decorate --all
-last = log -1 HEAD --stat
-cm = commit -m
-rv = remote -v
+    st = status -sb
+    history = log --oneline --graph --decorate --all
+    last = log -1 HEAD --stat
+    cm = commit -m
+    rv = remote -v
 
