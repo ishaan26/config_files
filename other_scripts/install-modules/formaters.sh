@@ -20,5 +20,3 @@ npm install -g js-beautify
 
 # typescript
 npm install -g typescript-formatter
-
-
