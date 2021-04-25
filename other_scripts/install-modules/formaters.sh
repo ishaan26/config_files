@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [[ $(lsb_release -si >/dev/null 2>&1) == "Ubuntu" ]]; then
+if [[ $(lsb_release -si 2>/dev/null) == "Ubuntu" ]]; then
     # shell
     sudo snap install shfmt
     # C, C++, C#, Java
     sudo apt install astyle
-elif [[ $(sw_vers -productName >/dev/null 2>&1) == "Mac OS X" ]]; then
+elif [[ $(sw_vers -productName 2>/dev/null) == "Mac OS X" ]]; then
     # shell,
     brew install shfmt
     # C, C++, C#, Java
@@ -18,7 +18,7 @@ pip install yapf
 # JavaScript, CSS, HTML
 npm install -g js-beautify
 
-# typescript 
+# typescript
 npm install -g typescript-formatter
 
 
