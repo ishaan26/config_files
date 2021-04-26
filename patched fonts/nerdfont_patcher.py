@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!python3
 # coding=utf8
 # Nerd Fonts Version: 2.1.0
 # script version: 3.0.1
