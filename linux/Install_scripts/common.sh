@@ -28,12 +28,10 @@ check_os() {
     fi
 }
 
-
 pause() {
     read -p "$*"
     clear
 }
-
 
 check_root() {
     if ! sudo -nv 2>/dev/null; then
@@ -42,11 +40,9 @@ check_root() {
     fi
 }
 
-
 tell_location() {
     echo -e "Location changed to $(pwd)\n"
 }
-
 
 install_fonts_common() {
     FONTS="$(realpath $SCRIPT_DIR/../../patched\ fonts/fonts/)"
@@ -54,7 +50,7 @@ install_fonts_common() {
     sudo mkdir /usr/share/fonts/
 
     cd "$FONTS/"
-    for font in ./* ; do
+    for font in ./*; do
         sudo cp "$font" /usr/share/fonts/
         echo "installed $font"
     done

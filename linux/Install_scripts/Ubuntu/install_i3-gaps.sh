@@ -5,7 +5,6 @@ clear
 SCRIPT_DIR="$(dirname "$0")"
 GIT_CLONE_DIR="/home/$(whoami)/Documents/Github/OtherGits"
 
-
 cd $SCRIPT_DIR
 source ../common.sh
 
@@ -36,8 +35,7 @@ pause "Press [Enter] to continue installing dependencies"
 echo -e "\nInstalling dependencies\n"
 
 sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
-    libxcb-util0-dev libxcb-icccm4-dev libyajl-dev meson brightnessctl\
-    libstartup-notification0-dev xbacklight libxcb-randr0-dev \
+    libxcb-util0-dev libxcb-icccm4-dev libyajl-dev meson brightnessctl libstartup-notification0-dev xbacklight libxcb-randr0-dev \
     libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
     libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
     autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev gcc make dh-autoreconf libxcb-keysyms1-dev \
@@ -46,18 +44,14 @@ sudo apt install curl cmake libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
     libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev -y
 
 sudo apt install libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev build-essential \
-    git cmake cmake-data pkg-config python3-sphinx bison flex pavucontrol\
-    libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
+    git cmake cmake-data pkg-config python3-sphinx bison flex pavucontrol libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
     python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev \
-    libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev python3-pip\
-    libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev xdotool\
-    libnl-genl-3-dev fonts-materialdesignicons-webfont kitty indent libanyevent-i3-perl \
+    libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev python3-pip libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev xdotool libnl-genl-3-dev fonts-materialdesignicons-webfont kitty indent libanyevent-i3-perl \
     libx11-dev libxcomposite-dev libxdamage-dev libxfixes-dev libxrandr-dev \
     libxinerama-dev libconfig-dev libdbus-1-dev mesa-common-dev asciidoc lxappearance \
     gtk-chtheme qt5ct freeglut3-dev feh jq libxcb-render0-dev libffi-dev python-dev python-cffi -y
 
-sudo apt install viewnior scrot mpc acpi dunst filelight texinfo policykit-1-gnome\
-    gnome-disk-utility gnome-system-monitor aptitude texinfo dolphin konsole \
+sudo apt install viewnior scrot mpc acpi dunst filelight texinfo policykit-1-gnome gnome-disk-utility gnome-system-monitor aptitude texinfo dolphin konsole \
     maim gwenview -y
 
 # Rofi dependencies
@@ -99,7 +93,6 @@ sudo ninja -C build install
 cd "$GIT_CLONE_DIR"
 echo -e "\nRofi installed"
 pause "Press [Enter] to setup config files"
-
 
 cd ~/.config
 tell_location
