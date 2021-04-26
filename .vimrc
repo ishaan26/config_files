@@ -67,6 +67,7 @@ Plugin 'rakr/vim-one'
 " Code Formatters
 Plugin 'Chiel92/vim-autoformat'
 Bundle 'chase/vim-ansible-yaml'
+Plugin 'mvdan/sh'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -277,6 +278,8 @@ set wildmenu
 set title
 set background=dark
 let python_highlight_all=1
+
+noremap <F12> :noh<CR>
 
 """""" Set Proper Tabs
 set tabstop=4
