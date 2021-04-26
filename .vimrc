@@ -265,6 +265,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
+noremap <F2> :CocAction<CR>
 
 """""""""""""""""""""""""""""""""""""
 """" Configuration Section
