@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Rust toolchain
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+if ! command -v rustup &>/dev/null; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
 # Node version manager
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
@@ -26,7 +28,16 @@ fi
 pip install yapf
 
 # JavaScript, CSS, HTML
-npm install -g js-beautify
+if ! npm list -g js-beautify >/dev/null 2>&1; then
+    npm install -g js-beautify
+fi
 
 # typescript
-npm install -g typescript-formatter
+if ! npm list -g typescript-formatter >/dev/null 2>&1; then
+    npm install -g typescript-formatter
+fi
+
+# Markdown
+if ! npm list -g remark-cli >/dev/null 2>&1; then
+    npm install -g remark-cli
+fi
