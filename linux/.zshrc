@@ -70,5 +70,3 @@ compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# use xmodmap key bindings
-xmodmap ~/.xmodmap-`uname -n`
