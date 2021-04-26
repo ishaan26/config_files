@@ -1,28 +1,28 @@
 # Ubuntu, Mac, Termux and WSL Configuration files
 
-These are all my config files from different systems I use and also some patched nerdfonts. 
+These are all my config files from different systems I use and also some patched nerdfonts.
 
 ## Table of Contents
 
-1. [Important Notes](#Important-Notes)
-2. [Pro Tip](#Pro-Tip)
-3. [Terminal Theme](#Terminal-Theme)
-    1. [Ubuntu](#Ubuntu)
-    2. [Mac](#Mac)
-    3. [WSL](#WSL)
-    4. [Termux](#Termux)
-4. [i3](#i3)
-    1. [i3-gaps-rounded-corners](#i3-gaps-rounded-corners)
-    2. [Compton-tryone](#Compton-tryone)
-    3. [Polybar](#Polybar)
-    4. [Rofi](#Rofi)
+1.  [Important Notes](#Important-Notes)
+2.  [Pro Tip](#Pro-Tip)
+3.  [Terminal Theme](#Terminal-Theme)
+    1.  [Ubuntu](#Ubuntu)
+    2.  [Mac](#Mac)
+    3.  [WSL](#WSL)
+    4.  [Termux](#Termux)
+4.  [i3](#i3)
+    1.  [i3-gaps-rounded-corners](#i3-gaps-rounded-corners)
+    2.  [Compton-tryone](#Compton-tryone)
+    3.  [Polybar](#Polybar)
+    4.  [Rofi](#Rofi)
 
 ## Important Notes
 
-1. The Polybar config file has been configured for Acer Predator Helios 300 G-572. Therefore, many module configurations correspond to its hardware only. You will need to change hardware module settings to match your hardware. (See the [polybar](#Polybar) section for more info)
-2. The linux and i3 config files have been tested on a fresh install of Ubuntu 20.04 LTS.
-3. The mac config files have been tested on macOS Catalina 10.15.4.
-4. The example images are a bit dated. 
+1.  The Polybar config file has been configured for Acer Predator Helios 300 G-572. Therefore, many module configurations correspond to its hardware only. You will need to change hardware module settings to match your hardware. (See the [polybar](#Polybar) section for more info)
+2.  The linux and i3 config files have been tested on a fresh install of Ubuntu 20.04 LTS.
+3.  The mac config files have been tested on macOS Catalina 10.15.4.
+4.  The example images are a bit dated.
 
 ### Pro Tip
 
@@ -30,21 +30,21 @@ You can soft link the config files and aliases files to the desired location dir
 
 *In any case, the files will still work if you just copy them to their supposed location*.
 
- ```shell
- cd <location to where the file is supposed to be linked>
- ln -sf <location of original files> <name of the linked file>
- ```
+```shell
+cd <location to where the file is supposed to be linked>
+ln -sf <location of original files> <name of the linked file>
+```
 
 ## Terminal Themes
 
 ##### Dependencies
 
-- [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) (For the zsh shell replacing bash)
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) (For syntax highlighting in the terminal!)
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) (For fish shell like autosuggestions)
-- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (For shell the theme)
-- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) (For the glyphs)
-  - I am using the modified [NovaMono](https://fonts.google.com/specimen/Nova+Mono) font available in the [patched fonts](https://github.com/ishaan26/config_files/tree/master/patched%20fonts) folder.
+*   [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) (For the zsh shell replacing bash)
+*   [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) (For syntax highlighting in the terminal!)
+*   [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) (For fish shell like autosuggestions)
+*   [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (For shell the theme)
+*   [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) (For the glyphs)
+    *   I am using the modified [NovaMono](https://fonts.google.com/specimen/Nova+Mono) font available in the [patched fonts](https://github.com/ishaan26/config_files/tree/master/patched%20fonts) folder.
 
 ### Ubuntu
 
@@ -57,9 +57,9 @@ Terminal: [Konsole](https://github.com/KDE/konsole)
 
 #### Steps to install
 
-- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME` 
-- Run `source ~/.zshrc`
-- Make sure the font of the terminal is set to a Nerd Font
+*   Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME`
+*   Run `source ~/.zshrc`
+*   Make sure the font of the terminal is set to a Nerd Font
 
 ### Mac
 
@@ -70,9 +70,9 @@ Terminal: [iTerm2](https://www.iterm2.com/)
 
 #### Steps to install
 
-- Soft Link or copy the `mac/.zshrc` and `.p10k.zsh` files in `$HOME` 
-- Run `source ~/.zshrc`
-- Make sure the font of the terminal is set to a Nerd Font
+*   Soft Link or copy the `mac/.zshrc` and `.p10k.zsh` files in `$HOME`
+*   Run `source ~/.zshrc`
+*   Make sure the font of the terminal is set to a Nerd Font
 
 ### WSL
 
@@ -82,10 +82,10 @@ Terminal: [Windows Terminal](https://github.com/microsoft/terminal)
 
 #### Steps to install
 
-- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME` 
-- Run `source ~/.zshrc`
-- Make sure the font of the terminal is set to a Nerd Font
-- For acrylic background, copy the properties from `wsl/Windows Terminal/profiles.json` to the settings of windows terminal
+*   Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME`
+*   Run `source ~/.zshrc`
+*   Make sure the font of the terminal is set to a Nerd Font
+*   For acrylic background, copy the properties from `wsl/Windows Terminal/profiles.json` to the settings of windows terminal
 
 ### Termux
 
@@ -95,10 +95,10 @@ Terminal: [Termux](https://github.com/termux/termux-app)
 
 #### Steps to install
 
-- Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME` 
-- Run `source ~/.zshrc`
-- To set a custom font, copy the .termux folder from `termux/.termux` to `$HOME`
-  - You can change the font by placing a .ttf file in this folder, but it has to be named "font.ttf"
+*   Soft Link or copy the `linux/.zshrc` and `.p10k.zsh` files in  `$HOME`
+*   Run `source ~/.zshrc`
+*   To set a custom font, copy the .termux folder from `termux/.termux` to `$HOME`
+    *   You can change the font by placing a .ttf file in this folder, but it has to be named "font.ttf"
 
 ## i3
 
@@ -141,18 +141,17 @@ sudo apt install viewnior scrot mpc acpi dunst filelight texinfo \
 sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 ```
 
-
-
 ### i3-gaps
+
 ![3](img/linux/i3-windows_gapps.png)
 
 #### Steps to install
 
-- Make sure the above dependencies are installed
-- Install i3-gaps from [ppa:dennis-kruyt/ricebuilder](https://launchpad.net/~dennis-kruyt/+archive/ubuntu/ricebuilder)
-- Install [i3-layouts](https://pypi.org/project/i3-layouts/#:~:text=i3%2Dlayouts%20is%20a%20small,an%20horizontal%20stack%20of%20windows.)
-- Soft link or copy the `linux/.config/i3/config` to `~/.config/i3`
-- Reboot
+*   Make sure the above dependencies are installed
+*   Install i3-gaps from [ppa:dennis-kruyt/ricebuilder](https://launchpad.net/~dennis-kruyt/+archive/ubuntu/ricebuilder)
+*   Install [i3-layouts](https://pypi.org/project/i3-layouts/#:~:text=i3%2Dlayouts%20is%20a%20small,an%20horizontal%20stack%20of%20windows.)
+*   Soft link or copy the `linux/.config/i3/config` to `~/.config/i3`
+*   Reboot
 
 ##### Note
 
@@ -165,19 +164,15 @@ exec_always --no-startup-id xrandr --output eDP-1-1 --right-of HDMI-0 --auto`
 
 Remove it if you use a single display or change it according to your screens.
 
-
-
 ### Compton-tryone
 
 ![2](img/linux/i3-windows_floating.png)
 
 #### Steps to install
 
-- Compile and install Compton from <https://github.com/tryone144/compton.git>
-- Soft link or copy the `linux/.config/compton.conf` to `~/.config`
-- Reboot
-
-
+*   Compile and install Compton from <https://github.com/tryone144/compton.git>
+*   Soft link or copy the `linux/.config/compton.conf` to `~/.config`
+*   Reboot
 
 ### Polybar
 
@@ -186,13 +181,11 @@ Remove it if you use a single display or change it according to your screens.
 
 #### Steps to install
 
-- Compile and install polybar from <https://github.com/polybar/polybar>
-- Make sure the 'GoogleSans Nerd Font' is installed from the patched fonts folder
-- Soft link or copy the `linux/.config/polybar` folder to `~/.config`
-- Refer to the [Polybar Wiki](https://github.com/polybar/polybar/wiki) to configure the modules according to your hardware.
-- Reload i3 window or run `$HOME/.config/polybar/launch.sh`
-
-
+*   Compile and install polybar from <https://github.com/polybar/polybar>
+*   Make sure the 'GoogleSans Nerd Font' is installed from the patched fonts folder
+*   Soft link or copy the `linux/.config/polybar` folder to `~/.config`
+*   Refer to the [Polybar Wiki](https://github.com/polybar/polybar/wiki) to configure the modules according to your hardware.
+*   Reload i3 window or run `$HOME/.config/polybar/launch.sh`
 
 ### Rofi
 
@@ -204,7 +197,7 @@ The rofi themes are based on - <https://github.com/adi1090x/rofi>
 
 #### Steps to install
 
-- Compile and install rofi from <https://github.com/DaveDavenport/rofi>
-  - ***The apt package of rofi is an older version and does not work with the config files provided.*** Therefore you should compile and install the latest version of Rofi from <https://github.com/davatorium/rofi>
-- Make sure polybar is installed properly
-- Soft link or copy the `linux/.config/rofi` folder to `~/.config`
+*   Compile and install rofi from <https://github.com/DaveDavenport/rofi>
+    *   ***The apt package of rofi is an older version and does not work with the config files provided.*** Therefore you should compile and install the latest version of Rofi from <https://github.com/davatorium/rofi>
+*   Make sure polybar is installed properly
+*   Soft link or copy the `linux/.config/rofi` folder to `~/.config`
