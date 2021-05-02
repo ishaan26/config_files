@@ -287,11 +287,14 @@ focus_follows_mouse no
 
 # Keyring issue Solve for manjaro i3
 
-# Ubuntu
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
-# Fedora
-#exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+## Ubuntu
+# exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+## Fedora
+# exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+## Arch
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &  
+
 
 #############################
 ### settings for i3-gaps: ###
@@ -351,7 +354,10 @@ mode "$mode_gaps_outer" {
 }
 
 # Dual Display setting
-exec_always --no-startup-id xrandr --output eDP-1-1 --left-of HDMI-0 --auto --primary
+## Ubuntu
+# exec_always --no-startup-id xrandr --output eDP-1-1 --left-of HDMI-0 --auto --primary
+## Arch
+exec_always --no-startup-id xrandr --output HDMI-1-0 --right-of eDP-1 --auto --primary
 
 # Startup apps
 exec --no-startup-id nextcloud
