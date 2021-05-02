@@ -4,6 +4,7 @@
 
 [core]
     pager = delta
+	editor = nvim
 
 [delta]
     features = side-by-side line-numbers decorations
