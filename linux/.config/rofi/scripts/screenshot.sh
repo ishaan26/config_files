@@ -17,9 +17,9 @@ options="$screen\n$area\n$window"
 chosen="$(echo -e "$options" | $rofi_command -p '' -dmenu -selected-row 1 -location 5 -yoffset -50 -xoffset -1100)"
 case $chosen in
     $screen)
-       sleep 1; maim "$DEST_FOLDER"/"screen_$DATE".png && viewnior "$DEST_FOLDER"/"screen_$DATE".png & ;;
+       sleep 1; maim "$DEST_FOLDER"/"screen_$DATE".png && gwenview "$DEST_FOLDER"/"screen_$DATE".png & ;;
     $area)
-        maim -s "$DEST_FOLDER"/"area_$DATE".png && viewnior "$DEST_FOLDER"/"area_$DATE".png & ;;
+        maim -s "$DEST_FOLDER"/"area_$DATE".png && gwenview "$DEST_FOLDER"/"area_$DATE".png & ;;
     $window)
-        maim -st 9999999 "$DEST_FOLDER"/"window_$DATE".png && viewnior "$DEST_FOLDER"/"window_$DATE".png &
+        maim -st 9999999 "$DEST_FOLDER"/"window_$DATE".png && gwenview "$DEST_FOLDER"/"window_$DATE".png &
 esac
