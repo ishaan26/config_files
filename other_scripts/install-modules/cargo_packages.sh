@@ -32,8 +32,8 @@ cargo install \
     tokei --features all \
 
 # Install bat-extras
-mkdir -p ~/Documents/OtherGits
-cd ~/Documents/OtherGits
+mkdir -p ~/Documents/Github/OtherGits/
+cd ~/Documents/Github/OtherGits/
 git clone https://github.com/eth-p/bat-extras.git
 cd bat-extras
 sudo ./build.sh --install --manuals
