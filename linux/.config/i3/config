@@ -81,7 +81,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
 # i3-Layouts
-exec_always --no-startup-id i3-layouts
+exec ~/.layouts.sh
 
 set $i3l spiral 0.6 to workspace $ws1
 set $i3l spiral 0.6 to workspace $ws2
