@@ -47,7 +47,7 @@ fixed-center = true
 
 line-size = 5
 
-background = #44111122
+background = #b41a1e21
 foreground = ${colors.fg}
 
 border-color = ${colors.trans}
@@ -86,7 +86,7 @@ bottom = true
 
 modules-left = rofi-window files mail chrome firefox whatsapp libreoffice spotify_app vscode terminal separator google youtube reddit office github separator info-trash screenshot
 modules-center = i3
-modules-right = wlan eth separator filesystem-root filesystem-home separator memory cpu temperature powermenu
+modules-right = wlan eth separator filesystem-root separator memory cpu temperature powermenu
 
 
 scroll-up = i3wm-wsnext
@@ -155,12 +155,12 @@ ws-icon-7 = 8;
 ws-icon-8 = 9;ﱘ
 
 label-mode-padding = 2
-label-mode-foreground = ${colors.fg}
-label-mode-background = ${colors.bg}
+label-mode-foreground = #1a1e21
+label-mode-background = #1a1e21
+
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.bg}
 label-focused-underline= ${colors.shade1}
 label-focused-padding = 2
 
@@ -181,23 +181,6 @@ label-urgent-padding = 2
 
 ; Separator in between workspaces
 ;label-separator = |
-
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-host = 127.0.0.1
-port = 6600
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
 
 [module/backlight]
 type = internal/backlight
@@ -311,17 +294,12 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = #ffb52a
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = #8BC34A
 animation-charging-framerate = 750
 
-; animation-discharging-0 = 
-; animation-discharging-1 = 
-; animation-discharging-2 = 
-; animation-discharging-foreground = #ffb52a
-; animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
