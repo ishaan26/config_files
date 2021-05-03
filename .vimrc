@@ -33,6 +33,8 @@ Plugin '907th/vim-auto-save'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'mbbill/undotree'
+Plugin 'machakann/vim-highlightedyank'
+Plugin 'airblade/vim-rooter'
 
 " Git Support
 Plugin 'kablamo/vim-git-log'
