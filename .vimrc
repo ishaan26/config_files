@@ -1,11 +1,11 @@
 set nocompatible
 syntax on
 set encoding=utf8
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " set mouse recording
 set mouse=a
-
+    
 " Linting with ale
 let g:ale_disable_lsp = 1
 
@@ -269,10 +269,54 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-
+""""""""""""""""""""""""""""""""""
+"""""" Keyboard Configuration
+""""""""""""""""""""""""""""""""""
 noremap <F2> :CocAction<CR>
+noremap <F3> :Autoformat<CR>
+noremap <F12> :noh<CR>
 
-"""""""""""""""""""""""""""""""""""""
+"""""" Window Navigation with Ctrl-[hjkl]
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
+
+" ; as :
+nnoremap ; :
+
+" Ctrl+j and Ctrl+k as Esc
+" Ctrl-j is a little awkward unfortunately:
+" https://github.com/neovim/neovim/issues/5916
+" So we also map Ctrl+k
+nnoremap <C-j> <Esc>
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
+snoremap <C-j> <Esc>
+xnoremap <C-j> <Esc>
+cnoremap <C-j> <C-c>
+onoremap <C-j> <Esc>
+lnoremap <C-j> <Esc>
+tnoremap <C-j> <Esc>
+
+nnoremap <C-k> <Esc>
+inoremap <C-k> <Esc>
+vnoremap <C-k> <Esc>
+snoremap <C-k> <Esc>
+xnoremap <C-k> <Esc>
+cnoremap <C-k> <C-c>
+onoremap <C-k> <Esc>
+lnoremap <C-k> <Esc>
+tnoremap <C-k> <Esc>
+
+" Neat X clipboard integration
+" ,p will paste clipboard into buffer
+" ,c will copy entire buffer into clipboard
+noremap <leader>p :read !xsel --clipboard --output<cr>
+noremap <leader>c :w !xsel -ib<cr><cr>
+
+
+""""""""""""""""""""""""""""""""""""""
 """" Configuration Section
 """""""""""""""""""""""""""""""""""""
 
@@ -285,7 +329,6 @@ set title
 set background=dark
 let python_highlight_all=1
 
-noremap <F12> :noh<CR>
 
 """""" Set Proper Tabs
 set tabstop=4
@@ -294,6 +337,13 @@ set smarttab
 set expandtab
 set autoindent
 set linebreak
+
+" Center search results
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
 
 
 """""" Undo Dir
@@ -306,16 +356,6 @@ endif
 set undodir=~/.vim/undo-dir
 set undofile
 
-"""""" Window Navigation with Ctrl-[hjkl]
-noremap <C-J> <C-W>j
-noremap <C-K> <C-W>k
-noremap <C-H> <C-W>h
-noremap <C-L> <C-W>l
-
-"""""" You complete me settings
-" The first line ensures that the auto-complete window goes away when you’re done with it, and the second defines a shortcut for goto definition.
-let g:ycm_autoclose_preview_window_after_completion=1
-nnoremap <C-g>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """""" NerdTree Settings
 autocmd StdinReadPre * let s:std_in=1
@@ -370,6 +410,5 @@ hi Normal guibg=NONE ctermbg=NONE
 let g:rustfmt_autosave = 1
 
 """""""" Autoformat
-noremap <F3> :Autoformat<CR>
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
