@@ -70,5 +70,3 @@ compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# Run i3-layouts
-~/.layouts.sh
