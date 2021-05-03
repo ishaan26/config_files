@@ -81,10 +81,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
 # i3-Layouts
-exec ~/.layouts.sh
+exec i3-layouts
 
-set $i3l spiral 0.6 to workspace $ws1
-set $i3l spiral 0.6 to workspace $ws2
+set $i3l spiral to workspace $ws1
+set $i3l spiral to workspace $ws2
 set $i3l spiral to workspace $ws3
 set $i3l spiral to workspace $ws4
 set $i3l spiral to workspace $ws5
@@ -295,6 +295,9 @@ focus_follows_mouse no
 ## Arch
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &  
 
+## Optimus Manager
+exec --no-startup-id optimus-manager-qt
+
 
 #############################
 ### settings for i3-gaps: ###
@@ -357,8 +360,7 @@ mode "$mode_gaps_outer" {
 ## Ubuntu
 # exec_always --no-startup-id xrandr --output eDP-1-1 --left-of HDMI-0 --auto --primary
 ## Arch
-exec_always --no-startup-id xrandr --output HDMI-1-0 --right-of eDP-1 --auto --primary
-
+exec_always --no-startup-id xrandr --output HDMI-0 --right-of eDP-1-1 --auto --primary
 # Startup apps
 exec --no-startup-id nextcloud
 
