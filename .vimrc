@@ -6,6 +6,9 @@ set clipboard+=unnamedplus
 " set mouse recording
 set mouse=a
 
+" Linting with ale
+let g:ale_disable_lsp = 1
+
 """""""""""""""""""""""""""""""""
 """     Vundle Config
 """""""""""""""""""""""""""""""""
@@ -24,7 +27,7 @@ Plugin 'VundleVim/Vundle.vim'
 """"""""" Plugins """"""""""
 
 " Utility
-Plugin 'vim-syntastic/syntastic'
+Plugin 'dense-analysis/ale'
 Plugin 'jiangmiao/auto-pairs'
 Plugin '907th/vim-auto-save'
 Plugin 'tpope/vim-surround'

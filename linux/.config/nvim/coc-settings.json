@@ -1,3 +1,4 @@
 {
-    "rust-analyzer.inlayHints.typeHints":  false
+    "rust-analyzer.inlayHints.typeHints":  false,
+    "diagnostic.displayByAle": true
 }
