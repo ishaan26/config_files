@@ -3,6 +3,9 @@ syntax on
 set encoding=utf8
 " set clipboard+=unnamedplus
 
+" set leader key
+let mapleader = "\<Space>"
+
 " set mouse recording
 set mouse=a
     
@@ -315,8 +318,25 @@ noremap <leader>p :read !xsel --clipboard --output<cr>
 noremap <leader>c :w !xsel -ib<cr><cr>
 
 
+" Move by line
+nnoremap j gj
+nnoremap k gk
+
+
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
+
+
+" Quick-save
+nmap <leader>w :w<CR>
+
+" Qick-exit
+nmap <leader>q :q<CR>
+
+
+
 """"""""""""""""""""""""""""""""""""""
-"""" Configuration Section
+"""" Vim Configuration
 """""""""""""""""""""""""""""""""""""
 
 """""" UI Settings
@@ -345,6 +365,14 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
 
+" Jump to last edit position on opening file
+if has("autocmd")
+  " https://stackoverflow.com/questions/31449496/vim-ignore-specifc-file-in-autocommand
+  au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+
+
 """""" Undo Dir
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0770)
@@ -354,6 +382,7 @@ if !isdirectory($HOME."/.vim/undo-dir")
 endif
 set undodir=~/.vim/undo-dir
 set undofile
+
 
 
 """""" NerdTree Settings
@@ -384,30 +413,56 @@ call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
-
-"""""""""" Rainbow Brackets
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-let g:rainbow_conf = {'ctermfgs': ['DarkCyan', 'DarkYellow', 'DarkGreen', 'magenta']}
-
-"""""""""" Nerd Commenter
+" Nerd Commenter
 " Create default mappings
 let g:NERDCreateDefaultMappings = 1
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
-"""""""""" set syntax for files with odd extensions
-autocmd BufNewFile,BufRead *.rasi set syntax=css
 
-"""""""""" Set Color scheme
+
+" Rainbow Brackets
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+let g:rainbow_conf = {'ctermfgs': ['DarkCyan', 'DarkYellow', 'DarkGreen', 'magenta']}
+
+
+
+
+" Set Color scheme
 colorscheme onedark
 hi Normal guibg=NONE ctermbg=NONE
 " let g:airline_theme='onedark'
 
-"""""""""" Rust Configuration
-let g:rustfmt_autosave = 1
 
-"""""""" Autoformat
+" Autoformat
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""
+"""""""" Language Configuration
+""""""""""""""""""""""""""""""""""""""""""""""
+
+
+" set syntax for files with odd extensions
+autocmd BufNewFile,BufRead *.rasi set syntax=css
+autocmd BufRead *.plot set filetype=gnuplot
+autocmd BufRead *.md set filetype=markdown
+autocmd BufRead *.lds set filetype=ld
+autocmd BufRead *.tex set filetype=tex
+autocmd BufRead *.trm set filetype=c
+autocmd BufRead *.xlsx.axlsx set filetype=ruby
+
+
+" Rust Configuration
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+let g:rust_clip_command = 'xclip -selection clipboard'
+
+" Golang
+let g:go_play_open_browser = 0
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:go_bin_path = expand("~/dev/go/bin")
