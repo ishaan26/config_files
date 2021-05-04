@@ -79,9 +79,9 @@ function rsfa() {
 alias l="lsd -lah"
 alias ls="lsd"
 alias tree="lsd --tree"
-alias tk="tmux kill-session -a"
 alias vim="nvim"
-
+alias tk="tmux kill-session -a"
+alias ta="tmux attach-session -t Hack"
 
 
 
