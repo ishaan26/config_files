@@ -47,7 +47,7 @@ tell_location() {
 install_fonts_common() {
     FONTS="$(realpath $SCRIPT_DIR/../../patched\ fonts/fonts/)"
 
-    sudo mkdir /usr/share/fonts/
+    sudo mkdir -p /usr/share/fonts/
 
     cd "$FONTS/"
     for font in ./*; do
