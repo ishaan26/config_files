@@ -4,7 +4,7 @@ clear
 
 SCRIPT_DIR="$(dirname "$0")"
 
-cd $SCRIPT_DIR
+cd "${SCRIPT_DIR}"
 source ../common.sh
 
 # Check System as the script only works on Ubintu 20.04 based OSs

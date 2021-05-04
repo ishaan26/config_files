@@ -4,7 +4,7 @@ clear
 
 SCRIPT_DIR="$(dirname "$0")"
 
-cd $SCRIPT_DIR
+cd "${SCRIPT_DIR}"
 source ../common.sh
 
 # Check System as the script only works on Ubintu 20.04 based OSs
@@ -35,7 +35,7 @@ cd $HOME/Documents/Github/OtherGits
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-cd $SCRIPT_DIR
 
+cd "$HOME/Documents/Github/config_files/linux/Install_scripts/Arch Linux/"
 # Install aur packages
 yay -S --needed - <./pkglist_aur.txt
