@@ -78,6 +78,7 @@ cursor-scroll = ns-resize
 
 [bar/bottom_bar]
 
+content = %{A1:exec ~/.config/rofi/scripts/powermenu.sh:} %{A}
 inherit = bar/top_bar
 
 height = 40
@@ -324,36 +325,22 @@ label-warn-foreground = ${colors.alert}
 ; ramp-2 = 
 ; ramp-foreground = ${colors.fg}
 
+[module/screenshot]
+
+type = custom/text
+content-padding = 2
+content = %{A1:exec ~/.config/rofi/scripts/screenshot.sh:}%{A}
+content-foreground = ${colors.fg-alt}
+
+
 [module/powermenu]
-type = custom/menu
+type = custom/text
 
-expand-right = true
+content = %{A1:exec ~/.config/rofi/scripts/powermenu.sh:} %{A}
+content-padding = 2
+content-background = ${colors.primary}
+content-foreground = ${colors.alert}
 
-format-spacing = 3
-format-padding = 3amixer get Master | tail -n 1 | awk -F ' ' '{print $5}' | tr -d '[]%'
-format-background = ${colors.primary}
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close = 
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.fg-alt}
-
-menu-0-0 = ﰇ
-menu-0-0-exec = menu-open-1
-menu-0-1 = 
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
-
-menu-2-0 = cancel
-menu-2-0-exec = menu-open-0
-menu-2-1 = power off
-menu-2-1-exec = poweroff
 
 [module/whatsapp]
 
@@ -453,13 +440,6 @@ content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = spotify > /dev/null 2>&1 &
 
-
-[module/screenshot]
-
-type = custom/text
-content-padding = 2
-content = %{A1:exec ~/.config/rofi/scripts/screenshot.sh:}%{A}
-content-foreground = ${colors.fg-alt}
 
 
 [module/separator]
