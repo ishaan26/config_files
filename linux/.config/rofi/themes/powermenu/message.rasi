@@ -1,0 +1,23 @@
+
+@import "../colors.rasi"
+
+* {
+    background-color:       @background;
+    text-color:             @foreground;
+	font:				 	"GoogleSans Nerd Font 12";
+}
+
+window {
+    width:      			340px;
+    padding:    			25px;
+    border:					1px;
+    border-radius:          0px;
+    border-color:           @accent;
+    location:               center;
+    y-offset:               -2em;
+}
+
+entry {
+    expand: 				true;
+    text-color:				@accent;
+}

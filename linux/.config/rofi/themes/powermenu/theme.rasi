@@ -1,0 +1,113 @@
+configuration {
+	font:							"GoogleSans Nerd Font 12";
+    show-icons:                     false;
+	icon-theme: 					"Papirus";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
+@import "../colors.rasi"
+
+window {
+    transparency:                   "real";
+    background-color:               @background;
+    text-color:                     @foreground;
+    height:                         31.5%;
+    width:                          47%;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+prompt {
+    enabled: 						true;
+    padding:                        0.5% 0.5% 0.5% 0%;
+	background-color: 				#00000000;
+	text-color: 					@foreground;
+}
+
+textbox-prompt-colon {
+	expand: 						false;
+	str: 							"System |";
+	background-color: 				#00000000;
+	text-color: 					@foreground;
+    padding:                        0.5% 0.5% 0.5% 0%;
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon, prompt ];
+    background-color:               #00000033;
+    text-color:                     @foreground;
+    expand:                         false;
+    border:                  		0.2% 0% 0.2% 0%;
+    border-radius:                  12px;
+    border-color:                  	@border;
+    margin:                         0% 33% 0% 0%;
+    padding:                        0.5%;
+    position:                       center;
+}
+
+listview {
+    background-color:               #00000000;
+    margin:                         0% 0% 0% 0%;
+    spacing:                        2%;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         horizontal;
+}
+
+mainbox {
+    background-color:               @background;
+    children:                       [ inputbar, listview ];
+    spacing:                        3.5%;
+    padding:                        4% 0% 0% 2%;
+}
+
+element {
+    background-color:               #00000033;
+    text-color:                     @foreground;
+    orientation:                    horizontal;
+    border-radius:                  25px;
+}
+
+element-text {
+	font:							"feather 32";
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         4.7% 2.7% 7.5% 2.7%;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @off;
+    text-color:                     @foreground;
+    border-radius:                  0.2%;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @background;
+    text-color:                     @foreground;
+}
+
+element selected {
+    background-color:               @accent;
+    text-color:                     @foreground;
+    border:                  		0.2% 0% 0.2% 0%;
+    border-radius:                  25px;
+    border-color:                  	@accent;
+}
+
+element selected.urgent {
+    background-color:               @accent;
+    text-color:                     @foreground;
+}
+
+element selected.active {
+    background-color:               @background;
+    color:                          @foreground;
+}
