@@ -65,7 +65,7 @@ font-0 = "GoogleSans Nerd Font:style=Regular;3"
 
 
 modules-left = rofi-apps xwindow separator spotify
-modules-center = popup-calendar
+modules-center = rofi-time
 modules-right = system-uptime-pretty separator backlight pulseaudio battery
 
 tray-position = right
@@ -241,16 +241,6 @@ format-connected-prefix-foreground = ${colors.fg-alt}
 label-connected =  %downspeed%  %upspeed%
 
 format-disconnected =
-
-[module/date]
-
-type = custom/script
-exec = date +" %H:%M"
-interval = 5
-
-format-padding = 2
-format-background =
-
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -525,11 +515,11 @@ format-prefix = "  "
 interval = 60
 click-left =  dolphin ~/.local/share/Trash/files/ >/dev/null 2>&1 &
 
-[module/popup-calendar]
+[module/rofi-time]
 type = custom/script
-exec =  ~/.config/polybar/scripts/polybar-scripts/popup-calendar.sh
+exec =  ~/.config/polybar/scripts/polybar-scripts/time.sh
 interval = 5
-click-left = ~/.config/polybar/scripts/polybar-scripts/popup-calendar.sh --popup &
+click-left = ~/.config/rofi/scripts/time.sh
 format = <label>
 format-padding = 2
 format-prefix = "  "
