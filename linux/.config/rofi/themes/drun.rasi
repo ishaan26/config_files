@@ -1,16 +1,6 @@
-/*
- *
- * Author : Aditya Shakya (adi1090x)
- * Mail : adi1090x@gmail.com
- * Github : @adi1090x
- * Reddit : @adi1090x
- *
- */
-
 configuration {
 	font: "GoogleSans Nerd Font 10";
 	show-icons: true;
-	icon-theme: "Papirus";
 	display-drun: " ";
 	drun-display-format: "{name}";
 	threads: 0;
@@ -22,43 +12,31 @@ configuration {
 	
 }
 
-* {
-	background: #19172700;
-	background-color: #00000066;
-	background-entry: #00000033;
-	background-alt: #f2f2f215;
-	foreground: #f2f2f2EE;
-	foreground-selected: #ffffffFF;
-	urgent: #E91E6366;
-	urgent-selected: #E91E6377;
-	border-radius: 7px;
-}
+@import "colors.rasi"
+
+/* ########### */
 
 window {
 	transparency: "real";
 	background-color: @background;
 	text-color: @foreground;
-	border-radius: 0px;
+	border-radius: 12px;
 	height: 60%;
 	width: 50%;
 	location: center;
 	anchor: center;
-	x-offset: 0;
-	y-offset: 0;
-	
 }
 
 prompt {
 	enabled: true;
 	padding: 0px 0px 0px 0px;
-	background-color: @background;
+	background-color: @transparent;
 	text-color: @foreground;
-	font: "NovaMono Nerd Font 16";
 }
 
 inputbar {
-	background-color: @background-alt;
-	text-color: rgb(105, 105, 105);
+	background-color: @background-dark;
+	text-color: @foreground;
 	expand: false;
 	border-radius: 6px;
 	margin: 0px 0px 0px 0px;
@@ -68,11 +46,12 @@ inputbar {
 
 
 entry {
-	background-color: @background;
+	background-color: @transparent;
 	text-color: @foreground;
 	placeholder-color: @foreground;
 	expand: true;
-	horizontal-align: 0;
+	horizontal-align: 0.02;
+    vertical-align: 0.5;
 	placeholder: "Search";
 	blink: true;
 }
@@ -85,23 +64,23 @@ case-indicator {
 
 
 listview {
-	background-color: @background;
+	background-color: @transparent;
 	columns: 5;
-	spacing: 4px;
+	spacing: 12px;
 	cycle: false;
 	dynamic: true;
 	layout: vertical;
 }
 
 mainbox {
-	background-color: @background-color;
+	background-color: @transparent;
 	children: [ inputbar, listview];
 	spacing: 15px;
 	padding: 30px 25px 15px 25px;
 }
 
 element {
-	background-color: @background;
+	background-color: @transparent;
 	text-color: @foreground;
 	orientation: vertical;
 	border-radius: 6px;
@@ -120,30 +99,8 @@ element-text {
 	margin: 5px 10px 0px 10px;
 }
 
-element normal.urgent,
-element alternate.urgent {
-	background-color: @urgent;
-	text-color: @foreground;
-	border-radius: 9px;
-}
-
-element normal.active,
-element alternate.active {
-	background-color: @background-alt;
-	text-color: @foreground;
-}
-
 element selected {
-	background-color: @background-alt;
-	text-color: @foreground-selected;
+	background-color: @background-dark;
+	text-color: @accent;
 }
 
-element selected.urgent {
-	background-color: @urgent-selected;
-	text-color: @foreground;
-}
-
-element selected.active {
-	background-color: @background-alt;
-	color: @foreground-selected;
-}

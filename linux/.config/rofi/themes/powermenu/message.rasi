@@ -2,7 +2,7 @@
 @import "../colors.rasi"
 
 * {
-    background-color:       @background;
+    background-color:       @transparent;
     text-color:             @foreground;
 	font:				 	"GoogleSans Nerd Font 12";
 }

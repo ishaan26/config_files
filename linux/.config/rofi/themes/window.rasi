@@ -1,5 +1,5 @@
 configuration {
-    font: "NovaMono Nerd Font 14";
+    font: "NovaMono Nerd Font 12";
     show-icons: true;
     icon-theme: "Papirus";
     drun-display-format: "{icon} {name}";
@@ -12,6 +12,8 @@ configuration {
 }
 
 @import "colors.rasi"
+
+/* ########### */
 
 window {
     transparency: "real";
@@ -27,15 +29,16 @@ window {
 
 prompt {
     enabled: true;
-    padding: 0% 0.5% 0% 0%;
-    background-color: @background-light;
-    text-color: @foreground;
-    font: "NovaMono Nerd Font 16";
+    padding: 1% 1% 1% 1%;
+    background-color: @transparent;
+    text-color: @accent;
+    font: "NovaMono Nerd Font 12";
 }
 
 
 inputbar {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: @background-dark;
+    border-radius: 12px;
     text-color: @foreground;
     expand: false;
     margin: 1% 0% 0% 0%;
@@ -45,7 +48,7 @@ inputbar {
 
 
 entry {
-    background-color: @background-light;
+    background-color: @transparent;
     text-color: @foreground;
     placeholder-color: @foreground;
     expand: true;
@@ -66,6 +69,7 @@ listview {
     background-color: @background-light;
     columns: 1;
     spacing: 1%;
+    background-color: @transparent;
     cycle: false;
     dynamic: true;
     layout: vertical;
@@ -82,13 +86,12 @@ element {
     background-color: @background;
     text-color: @foreground;
     orientation: vertical;
-    border-radius: 7px;
+    border-radius: 12px;
     padding: 1% 0% 1% 0%;
 }
 
 element-icon {
     size: 34px;
-    border: 0px;
     horizontal-align: 0.05;
 }
 
@@ -96,27 +99,23 @@ element-text {
     expand: true;
     horizontal-align: 0.05;
     vertical-align: 0.5;
-    margin: 2px;
+    margin: 5px;
 }
 
 element normal.urgent,
 element alternate.urgent {
     background-color: @on;
     text-color: @foreground;
-    border-radius: 1%;
 }
 
 element normal.active,
 element alternate.active {
-    background-color: @on;
-    text-color: @foreground;
-    border-radius: 3px;
+    text-color: @on;
 }
 
 element selected {
-    background-color: @accent;
-    text-color: @foreground;
-    border-radius: 3px;
+    background-color: @background-dark;
+    text-color: @accent;
 }
 
 element selected.urgent {
@@ -124,7 +123,4 @@ element selected.urgent {
     text-color: @foreground;
 }
 
-element selected.active {
-    background-color: @background-alt;
-    color: @foreground;
-}
+

@@ -28,9 +28,9 @@ else
 fi
 
 ## Icons
-ICON_UP="ﱛ"
-ICON_DOWN="ﱜ"
-ICON_MUTED="ﱝ"
+ICON_UP=" ﱛ"
+ICON_DOWN=" ﱜ"
+ICON_MUTED=" ﱝ"
 SETTINGS=""
 
 options="$ICON_UP\n$ICON_MUTED\n$ICON_DOWN\n$SETTINGS"

@@ -7,9 +7,9 @@ dir="$HOME/.config/rofi/themes/powermenu/"
 rofi_command="rofi -theme $dir/theme.rasi"
 
 # Options
-shutdown="⏻"
-reboot=" "
-lock=""
+shutdown=""
+reboot=""
+lock=""
 suspend="⏼"
 logout=""
 

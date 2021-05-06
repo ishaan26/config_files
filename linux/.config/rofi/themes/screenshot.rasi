@@ -1,125 +1,95 @@
+
+
+configuration {
+	font:                      		"GoogleSans Nerd Font 12";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
 @import "colors.rasi"
 
+/* ########### */
 
-* {
-	/* General */
-	text-font: "GoogleSans Nerd Font 12";
-	icon-font: "GoogleSans Nerd Font 28";
-	icon-font-small: "GoogleSans Nerd Font 28";
 
-	option-6-listview-spacing: 0px;
+window {
+    background-color:               @background;
+    transparency:                   "real";
+    border-radius:                  12px;
+	width:							350px;
+}
 
-	menu-window-padding: 0px 0px;
-	menu-inputbar-margin: 0px 0px;
-	menu-prompt-padding: 10px 250px 10px 20px;
-	menu-prompt-padding-2: 10px 20px 10px 20px;
-	menu-prompt-margin: 0px 0px 0px -4px;
-	menu-element-border: 0px;
-	menu-element-padding: 10px 15px 15px -15px;
+prompt {
+    enabled: 						true;
+    padding:                        10px;
+	text-color: 					@accent;
+    background-color:               @transparent;
+    border:                  		0px 0px 0px 0px;
+    border-radius:                  10px;
+    border-color:                  	@accent;
+}
+
+textbox-prompt-colon {
+	expand: 						false;
+	str: 							" Screenshot ";
+	text-color: 					@accent;
+    background-color:               @background-dark;
+    padding:                        10px 10px 0px 10px;
+    border-radius:                  10px;
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon, prompt ];
+    spacing:                        12px;
+    text-color:                     @foreground;
+    background-color:               @transparent;
+    expand:                         false;
+    border:                  		0px;
+    border-radius:                  10px;
+    border-color:                  	@accent;
+    margin:                         0px 165px 0px 0px;
+    padding:                        0px;
+    position:                       center;
+}
+
+listview {
+    columns:						3;
+    lines:							1;
+    spacing:                        12px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+    background-color:               @transparent;
+}
+
+mainbox {
+    children:                       [ inputbar, listview ];
+    spacing:                        12px;
+    margin:                         12px;
+    background-color:               @transparent;
+}
+
+element {
+    background-color:               @background;
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  12px;
+}
+
+element-text {
+	font:							"GoogleSans Nerd Font 32";
+    expand:                         true;
+    horizontal-align:               0.5;
+    margin:                         5px 10px 30px 10px;
+}
+
+element selected {
+    background-color:               @background-dark;
+    text-color:                     @accent;
+    border:                  		0px 0px 0px 0px;
+    border-radius:                  12px;
+    border-color:                  	@accent;
 }
 
 
-
-#window {
-  width: 12%;
-  height:11%;
-  transparency: "real";
-  border-radius: 7px;
-}
-
-* {
-	background-color: @background;
-	text-color: @foreground;
-	font: @icon-font;
-}
-
-#horibox {
-	children: [ listview];
-}
-
-#listview {
-	layout: horizontal;
-}
-
-#element {
-	padding: @option-element-padding;
-	background-color: @background-light;
-}
-
-#element.selected {
-	background-color: @accent;
-	text-color: @foreground;
-}
-
-
-#window {
-	padding: @menu-window-padding;
-	children: [ inputbar, horibox];
-}
-
-#inputbar {
-	children: [ textbox-prompt-colon, prompt];
-	margin: @menu-inputbar-margin;
-}
-
-prompt, textbox-prompt-colon {
-	padding: @menu-prompt-padding;
-	border: 0px;
-	border-color: @accent;
-	font: @text-font;
-}
-
-#prompt {
-	margin: @menu-prompt-margin;
-	background-color: @background;
-	text-color: @foreground;
-	font: @text-font;
-}
-
-#textbox-prompt-colon {
-	expand: false;
-	str: "Screenshot";
-	background-color: @accent;
-	text-color: @foreground;
-	font: @text-font;
-}
-
-#horibox {
-	padding: 0px;
-}
-
-#listview {
-	spacing: @option-6-listview-spacing;
-	lines: 3;
-}
-
-#element {
-	font: @icon-font;
-	border: @menu-element-border;
-	padding: @menu-element-padding;
-	border-color: @background-light;
-}
-
-#element.selected {
-	border-color: @accent;
-}
-
-element.active, element.selected.urgent {
-	background-color: @on;
-	text-color: @foreground;
-	border-color: @on;
-}
-
-element.selected.urgent {
-	border-color: @accent;
-}
-
-element.urgent, element.selected.active {
-	background-color: @off;
-	text-color: @background;
-	border-color: @off;
-}
-
-element.selected.active {
-	border-color: @accent;
-}
