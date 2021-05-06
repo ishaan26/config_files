@@ -1,19 +1,15 @@
 swipe:
   3:
     left:
-      command: 'xdotool key Super_L+ctrl+Right'
+     command: exec i3 workspace next
     right:
-      command: 'xdotool key Super_L+ctrl+Left'
+      command: exec i3 workspace prev
     up:
-      command: 'xdotool key ctrl+F9'
+      command: exec i3 fullscreen toggle
     down:
-      command: 'xdotool key ctrl+F9'
-  4:
-    up:
-      command: 'xdotool key ctrl+F8'
-    down:
-      command: 'xdotool key ctrl+F8'
-    
+      command: exec i3 floating toggle
+
+
 pinch:
   in:
     command: 'xdotool key ctrl+plus'
