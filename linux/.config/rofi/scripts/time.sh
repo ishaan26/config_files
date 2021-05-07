@@ -10,7 +10,6 @@ MN=$(date +"%B")
 DAY="$(date +"%d")"
 MONTH="$(date +"%m")"
 YEAR="$(date +"%Y")"
-DATE="$(date +"%a %d %H:%M")"
 
 options="$DAY\n$MONTH\n$YEAR"
 
