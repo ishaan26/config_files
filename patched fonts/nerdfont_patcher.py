@@ -1,4 +1,4 @@
-#!python3
+#!/usr/bin/env python
 # coding=utf8
 # Nerd Fonts Version: 2.1.0
 # script version: 3.0.1
@@ -85,7 +85,7 @@ class font_patcher:
                     if symfont:
                         symfont.close()
                         symfont = None
-                    symfont = fontforge.open(__dir__ + "/src/glyphs/" + patch['Filename'])
+                    symfont = fontforge.open(self.args.glyphdir + patch['Filename'])
 
                     # Match the symbol font size to the source font size
                     symfont.em = self.sourceFont.em
@@ -105,8 +105,12 @@ class font_patcher:
         print("\nDone with Patch Sets, generating font...")
 
         # the `PfEd-comments` flag is required for Fontforge to save '.comment' and '.fontlog'.
-        self.sourceFont.generate(self.args.outputdir + "/" + self.sourceFont.fullname + self.extension, flags=(str('opentype'), str('PfEd-comments')))
-        print("\nGenerated: {}".format(self.sourceFont.fullname))
+        if self.sourceFont.fullname != None:
+            self.sourceFont.generate(self.args.outputdir + "/" + self.sourceFont.fullname + self.extension, flags=(str('opentype'), str('PfEd-comments')))
+            print("\nGenerated: {}".format(self.sourceFont.fontname))
+        else:
+            self.sourceFont.generate(self.args.outputdir + "/" + self.sourceFont.cidfontname + self.extension, flags=(str('opentype'), str('PfEd-comments')))
+            print("\nGenerated: {}".format(self.sourceFont.fullname))
 
         if self.args.postprocess:
             subprocess.call([self.args.postprocess, self.args.outputdir + "/" + self.sourceFont.fullname + self.extension])
@@ -139,6 +143,7 @@ class font_patcher:
         parser.add_argument('--custom',                                  dest='custom',           default=False, type=str, nargs='?', help='Specify a custom symbol font. All new glyphs will be copied, with no scaling applied.')
         parser.add_argument('-ext', '--extension',                       dest='extension',        default="",    type=str, nargs='?', help='Change font file type to create (e.g., ttf, otf)')
         parser.add_argument('-out', '--outputdir',                       dest='outputdir',        default=".",   type=str, nargs='?', help='The directory to output the patched font file to')
+        parser.add_argument('--glyphdir',                                dest='glyphdir',         default=__dir__ + "/src/glyphs/", type=str, nargs='?', help='Path to glyphs to be used for patching')
 
         # progress bar arguments - https://stackoverflow.com/questions/15008758/parsing-boolean-values-with-argparse
         progressbars_group_parser = parser.add_mutually_exclusive_group(required=False)
@@ -264,7 +269,11 @@ class font_patcher:
         familyname = fontname
 
         # fullname (filename) can always use long/verbose font name, even in windows
-        fullname = self.sourceFont.fullname + verboseAdditionalFontNameSuffix
+        if self.sourceFont.fullname != None:
+            fullname = self.sourceFont.fullname + verboseAdditionalFontNameSuffix
+        else:
+            fullname = self.sourceFont.cidfontname + verboseAdditionalFontNameSuffix
+
         fontname = fontname + additionalFontNameSuffix.replace(" ", "")
 
         # let us try to get the 'style' from the font info in sfnt_names and fallback to the
@@ -285,6 +294,11 @@ class font_patcher:
         # some fonts have inaccurate 'SubFamily', if it is Regular let us trust the filename more:
         if subFamily == "Regular":
             subFamily = fallbackStyle
+
+        # This is meant to cover the case where the SubFamily is "Italic" and the filename is *-BoldItalic.
+        if  len(subFamily) < len(fallbackStyle):
+            subFamily = fallbackStyle
+
         if self.args.windows:
             maxFamilyLength = 31
             maxFontLength = maxFamilyLength - len('-' + subFamily)
@@ -309,26 +323,31 @@ class font_patcher:
         #
         # comply with SIL Open Font License (OFL)
         reservedFontNameReplacements = {
-            'source'    : 'sauce',
-            'Source'    : 'Sauce',
-            'hermit'    : 'hurmit',
-            'Hermit'    : 'Hurmit',
-            'hasklig'   : 'hasklug',
-            'Hasklig'   : 'Hasklug',
-            'Share'     : 'Shure',
-            'share'     : 'shure',
-            'IBMPlex'   : 'Blex',
-            'ibmplex'   : 'blex',
-            'IBM-Plex'  : 'Blex',
-            'IBM Plex'  : 'Blex',
-            'terminus'  : 'terminess',
-            'Terminus'  : 'Terminess',
-            'liberation': 'literation',
-            'Liberation': 'Literation',
-            'iAWriter'  : 'iMWriting',
-            'iA Writer' : 'iM Writing',
-            'iA-Writer' : 'iM-Writing',
-            'Anka/Coder': 'AnaConder'
+            'source'         : 'sauce',
+            'Source'         : 'Sauce',
+            'hermit'         : 'hurmit',
+            'Hermit'         : 'Hurmit',
+            'hasklig'        : 'hasklug',
+            'Hasklig'        : 'Hasklug',
+            'Share'          : 'Shure',
+            'share'          : 'shure',
+            'IBMPlex'        : 'Blex',
+            'ibmplex'        : 'blex',
+            'IBM-Plex'       : 'Blex',
+            'IBM Plex'       : 'Blex',
+            'terminus'       : 'terminess',
+            'Terminus'       : 'Terminess',
+            'liberation'     : 'literation',
+            'Liberation'     : 'Literation',
+            'iAWriter'       : 'iMWriting',
+            'iA Writer'      : 'iM Writing',
+            'iA-Writer'      : 'iM-Writing',
+            'Anka/Coder'     : 'AnaConder',
+            'anka/coder'     : 'anaconder',
+            'Cascadia Code'  : 'Caskaydia Cove',
+            'cascadia code'  : 'caskaydia cove',
+            'CascadiaCode'   : 'CaskaydiaCove',
+            'cascadiacode'   : 'caskaydiacove'
         }
 
         # remove overly verbose font names
@@ -374,7 +393,10 @@ class font_patcher:
 
         # TODO version not being set for all font types (e.g. ttf)
         # print("Version was {}".format(sourceFont.version))
-        self.sourceFont.version += ";" + projectName + " " + version
+        if self.sourceFont.version != None:
+            self.sourceFont.version += ";" + projectName + " " + version
+        else:
+            self.sourceFont.version = str(self.sourceFont.cidversion) + ";" + projectName + " " + version
         # print("Version now is {}".format(sourceFont.version))
 
 
@@ -497,7 +519,7 @@ class font_patcher:
         # Define the character ranges
         # Symbol font ranges
         self.patch_set = [
-            {'Enabled': True,                           'Name': "Seti-UI + Custom",        'Filename': "original-source.otf",              'Exact': False,                               'SymStart': 0xE4FA, 'SymEnd': 0xE52E, 'SrcStart': 0xE5FA, 'SrcEnd': 0xE62E, 'ScaleGlyph': None,             'Attributes': SYM_ATTR_DEFAULT},
+            {'Enabled': True,                           'Name': "Seti-UI + Custom",        'Filename': "original-source.otf",              'Exact': False,                               'SymStart': 0xE4FA, 'SymEnd': 0xE530, 'SrcStart': 0xE5FA, 'SrcEnd': 0xE630, 'ScaleGlyph': None,             'Attributes': SYM_ATTR_DEFAULT},
             {'Enabled': True,                           'Name': "Devicons",                'Filename': "devicons.ttf",                     'Exact': False,                               'SymStart': 0xE600, 'SymEnd': 0xE6C5, 'SrcStart': 0xE700, 'SrcEnd': 0xE7C5, 'ScaleGlyph': DEVI_SCALE_LIST,  'Attributes': SYM_ATTR_DEFAULT},
             {'Enabled': self.args.powerline,            'Name': "Powerline Symbols",       'Filename': "PowerlineSymbols.otf",             'Exact': True,                                'SymStart': 0xE0A0, 'SymEnd': 0xE0A2, 'SrcStart': None,   'SrcEnd': None,   'ScaleGlyph': None,             'Attributes': SYM_ATTR_POWERLINE},
             {'Enabled': self.args.powerline,            'Name': "Powerline Symbols",       'Filename': "PowerlineSymbols.otf",             'Exact': True,                                'SymStart': 0xE0B0, 'SymEnd': 0xE0B3, 'SrcStart': None,   'SrcEnd': None,   'ScaleGlyph': None,             'Attributes': SYM_ATTR_POWERLINE},
@@ -512,7 +534,7 @@ class font_patcher:
             {'Enabled': self.args.powersymbols,         'Name': "Power Symbols",           'Filename': "Unicode_IEC_symbol_font.otf",      'Exact': True,                                'SymStart': 0x2B58, 'SymEnd': 0x2B58, 'SrcStart': None,   'SrcEnd': None,   'ScaleGlyph': None,             'Attributes': SYM_ATTR_DEFAULT},  # Heavy Circle (aka Power Off)
             {'Enabled': self.args.material,             'Name': "Material",                'Filename': "materialdesignicons-webfont.ttf",  'Exact': False,                               'SymStart': 0xF001, 'SymEnd': 0xF847, 'SrcStart': 0xF500, 'SrcEnd': 0xFD46, 'ScaleGlyph': None,             'Attributes': SYM_ATTR_DEFAULT},
             {'Enabled': self.args.weather,              'Name': "Weather Icons",           'Filename': "weathericons-regular-webfont.ttf", 'Exact': False,                               'SymStart': 0xF000, 'SymEnd': 0xF0EB, 'SrcStart': 0xE300, 'SrcEnd': 0xE3EB, 'ScaleGlyph': None,             'Attributes': SYM_ATTR_DEFAULT},
-            {'Enabled': self.args.fontlinux,            'Name': "Font Logos (Font Linux)", 'Filename': "font-logos.ttf",                   'Exact': self.fontlinuxExactEncodingPosition, 'SymStart': 0xF100, 'SymEnd': 0xF11C, 'SrcStart': 0xF300, 'SrcEnd': 0xF31C, 'ScaleGlyph': None,             'Attributes': SYM_ATTR_DEFAULT},
+            {'Enabled': self.args.fontlinux,            'Name': "Font Logos (Font Linux)", 'Filename': "font-logos.ttf",                   'Exact': self.fontlinuxExactEncodingPosition, 'SymStart': 0xF100, 'SymEnd': 0xF12D, 'SrcStart': 0xF300, 'SrcEnd': 0xF32D, 'ScaleGlyph': None,             'Attributes': SYM_ATTR_DEFAULT},
             {'Enabled': self.args.octicons,             'Name': "Octicons",                'Filename': "octicons.ttf",                     'Exact': self.octiconsExactEncodingPosition,  'SymStart': 0xF000, 'SymEnd': 0xF105, 'SrcStart': 0xF400, 'SrcEnd': 0xF505, 'ScaleGlyph': OCTI_SCALE_LIST,  'Attributes': SYM_ATTR_DEFAULT},  # Magnifying glass
             {'Enabled': self.args.octicons,             'Name': "Octicons",                'Filename': "octicons.ttf",                     'Exact': self.octiconsExactEncodingPosition,  'SymStart': 0x2665, 'SymEnd': 0x2665, 'SrcStart': None,   'SrcEnd': None,   'ScaleGlyph': OCTI_SCALE_LIST,  'Attributes': SYM_ATTR_DEFAULT},  # Heart
             {'Enabled': self.args.octicons,             'Name': "Octicons",                'Filename': "octicons.ttf",                     'Exact': self.octiconsExactEncodingPosition,  'SymStart': 0X26A1, 'SymEnd': 0X26A1, 'SrcStart': None,   'SrcEnd': None,   'ScaleGlyph': OCTI_SCALE_LIST,  'Attributes': SYM_ATTR_DEFAULT},  # Zap
@@ -757,16 +779,15 @@ class font_patcher:
             align_matrix = psMat.translate(x_align_distance, y_align_distance)
             self.sourceFont.transform(align_matrix)
 
-            # Ensure after horizontal adjustments and centering that the glyph
-            # does not overlap the bearings (edges)
-            self.remove_glyph_neg_bearings(self.sourceFont[currentSourceFontGlyph])
-
             # Needed for setting 'advance width' on each glyph so they do not overlap,
             # also ensures the font is considered monospaced on Windows by setting the
             # same width for all character glyphs. This needs to be done for all glyphs,
             # even the ones that are empty and didn't go through the scaling operations.
-            # it should come after setting the glyph bearings
             self.set_glyph_width_mono(self.sourceFont[currentSourceFontGlyph])
+
+            # Ensure after horizontal adjustments and centering that the glyph
+            # does not overlap the bearings (edges)
+            self.remove_glyph_neg_bearings(self.sourceFont[currentSourceFontGlyph])
 
             # reset selection so iteration works properly @TODO fix? rookie misunderstanding?
             # This is likely needed because the selection was changed when the glyph was copy/pasted
@@ -784,17 +805,29 @@ class font_patcher:
         """ Makes self.sourceFont monospace compliant """
 
         for glyph in self.sourceFont.glyphs():
-            self.remove_glyph_neg_bearings(glyph)
+            if (glyph.width == self.font_dim['width']):
+                # Don't touch the (negative) bearings if the width is ok
+                # Ligartures will have these.
+                continue
+
+            if (glyph.width != 0):
+                # If the width is zero this glyph is intened to be printed on top of another one.
+                # In this case we need to keep the negative bearings to shift it 'left'.
+                # Things like &Auml; have these: composed of U+0041 'A' and U+0308 'double dot above'
+                #
+                # If width is not zero, correct the bearings such that they are within the width:
+                self.remove_glyph_neg_bearings(glyph)
+
             self.set_glyph_width_mono(glyph)
 
 
     def remove_glyph_neg_bearings(self, glyph):
-        """ Sets passed glyph's bearings 0.0 if they are negative. """
+        """ Sets passed glyph's bearings 0 if they are negative. """
         try:
-            if glyph.left_side_bearing < 0.0:
-                glyph.left_side_bearing = 0.0
-            if glyph.right_side_bearing < 0.0:
-                glyph.right_side_bearing = 0.0
+            if glyph.left_side_bearing < 0:
+                glyph.left_side_bearing = 0
+            if glyph.right_side_bearing < 0:
+                glyph.right_side_bearing = 0
         except:
             pass
 
