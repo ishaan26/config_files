@@ -1,5 +1,4 @@
 #!/bin/sh
 
-DATE="$(date +"%a %d %H:%M")"
+DATE="$(date +"%I:%M %p")"
 echo "$DATE"
-    
