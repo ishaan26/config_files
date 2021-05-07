@@ -85,7 +85,7 @@ height = 40
 
 bottom = true
 
-modules-left = rofi-window files mail chrome firefox whatsapp libreoffice spotify_app vscode terminal separator google youtube reddit office github separator info-trash screenshot
+modules-left = rofi-window files mail chrome firefox whatsapp libreoffice spotify_app pamac-manager vscode terminal separator google youtube reddit office github separator info-trash screenshot
 modules-center = i3
 modules-right = wlan eth separator filesystem-root separator memory cpu temperature powermenu
 
@@ -365,16 +365,15 @@ content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec firefox &
 
-[module/appstore]
+[module/pamac-manager]
 
 type = custom/text
 content = 率
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec gnome-software &
+click-left = exec pamac-manager > /dev/null 2>&1 &
 
-[module/vscode]
-
+[module/vscode] 
 type = custom/text
 content = 
 content-padding = 2
