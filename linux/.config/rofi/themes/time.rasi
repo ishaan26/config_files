@@ -21,7 +21,7 @@ window {
 
 prompt {
     enabled: 						true;
-    background-color:               @background;
+    background-color:               @transparent;
     padding:                        10px;
 	text-color: 					@accent;
     border:                  		0px 0px 0px 0px;
@@ -31,7 +31,7 @@ prompt {
 
 textbox-prompt-colon {
 	expand: 						false;
-    background-color:               @background;
+    background-color:               @background-dark;
 	str: 							" Time ";
 	text-color: 					@accent;
     padding:                        10px 10px 0px 10px;
@@ -80,7 +80,7 @@ element-text {
 	font:							"GoogleSans Nerd Font 32";
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         5px 10px 50px 10px;
+    margin:                         20px 10px 50px 10px;
 }
 
 element selected {
