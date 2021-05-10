@@ -280,6 +280,9 @@ noremap <F2> :CocAction<CR>
 noremap <F3> :Autoformat<CR>
 " remove highlighting
 noremap <F12> :noh<CR>
+" Toggle relative Line Numbers
+nmap <F4> :set invrelativenumber<CR>
+
 
 """""" Window Navigation with Ctrl-[hjkl]
 noremap <C-J> <C-W>j
@@ -371,6 +374,7 @@ let g:go_bin_path = expand("~/dev/go/bin")
 
 """""" UI Settings
 set number
+set nu rnu
 set ruler
 set laststatus=2
 set wildmenu
