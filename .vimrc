@@ -8,7 +8,7 @@ let mapleader = "\<Space>"
 
 " set mouse recording
 set mouse=a
-    
+
 " Linting with ale
 let g:ale_disable_lsp = 1
 
@@ -274,8 +274,11 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 """"""""""""""""""""""""""""""""""
 """""" Keyboard Configuration
 """"""""""""""""""""""""""""""""""
+" Show action on a coc error
 noremap <F2> :CocAction<CR>
+" Auto Format
 noremap <F3> :Autoformat<CR>
+" remove highlighting
 noremap <F12> :noh<CR>
 
 """""" Window Navigation with Ctrl-[hjkl]
@@ -334,6 +337,33 @@ nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
 
+""""""""""""""""""""""""""""""""""""""""""""""
+"""""""" Language Configuration
+""""""""""""""""""""""""""""""""""""""""""""""
+
+" set syntax for files with odd extensions
+autocmd BufNewFile,BufRead *.rasi set syntax=css
+autocmd BufRead *.plot set filetype=gnuplot
+autocmd BufRead *.md set filetype=markdown
+autocmd BufRead *.lds set filetype=ld
+autocmd BufRead *.tex set filetype=tex
+autocmd BufRead *.trm set filetype=c
+autocmd BufRead *.xlsx.axlsx set filetype=ruby
+
+
+" Rust Configuration
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+let g:rust_clip_command = 'xclip -selection clipboard'
+
+" Golang
+let g:go_play_open_browser = 0
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:go_bin_path = expand("~/dev/go/bin")
+
+
 
 """"""""""""""""""""""""""""""""""""""
 """" Vim Configuration
@@ -357,7 +387,7 @@ set expandtab
 set autoindent
 set linebreak
 
-" Center search results
+"""""""" Center search results
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
@@ -365,7 +395,7 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
 
-" Jump to last edit position on opening file
+"""""""" Jump to last edit position on opening file
 if has("autocmd")
   " https://stackoverflow.com/questions/31449496/vim-ignore-specifc-file-in-autocommand
   au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -421,48 +451,17 @@ let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 
 
-
-" Rainbow Brackets
+"""""""""" Rainbow Brackets
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
 let g:rainbow_conf = {'ctermfgs': ['DarkCyan', 'DarkYellow', 'DarkGreen', 'magenta']}
 
 
-
-
-" Set Color scheme
-colorscheme onedark
-hi Normal guibg=NONE ctermbg=NONE
-" let g:airline_theme='onedark'
-
-
-" Autoformat
+"""""""""""" Autoformat
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 
-""""""""""""""""""""""""""""""""""""""""""""""
-"""""""" Language Configuration
-""""""""""""""""""""""""""""""""""""""""""""""
 
-
-" set syntax for files with odd extensions
-autocmd BufNewFile,BufRead *.rasi set syntax=css
-autocmd BufRead *.plot set filetype=gnuplot
-autocmd BufRead *.md set filetype=markdown
-autocmd BufRead *.lds set filetype=ld
-autocmd BufRead *.tex set filetype=tex
-autocmd BufRead *.trm set filetype=c
-autocmd BufRead *.xlsx.axlsx set filetype=ruby
-
-
-" Rust Configuration
-let g:rustfmt_autosave = 1
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0
-let g:rust_clip_command = 'xclip -selection clipboard'
-
-" Golang
-let g:go_play_open_browser = 0
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "goimports"
-let g:go_bin_path = expand("~/dev/go/bin")
+"""""""" Set Color scheme
+colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
+" let g:airline_theme='onedark'
