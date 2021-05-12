@@ -1,5 +1,5 @@
 # Mac Stuff
-function update() {
+update() {
     echo -e "\n----------- Updating homebrew -------------------\n"
         brew update && brew upgrade && brew upgrade --cask
         echo -e "\n----------- Updating cartes ---------------------\n"
@@ -11,22 +11,21 @@ function update() {
         pip3 install --upgrade pip
 }
 
-alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
 
-function zsh_colors() {
+zsh_colors() {
     for i in {0..255}; do
         print -Pn "%K{$i}  %k%F{$i}${(l:7::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
     done
 }
 
-function cf() {
+cf() {
     cd ~/Documents/Github/config_files
         if [[ $1 == "-f"  ]]; then
             git fetch
                 fi
 }
 
-function pjt() {
+pjt() {
     cd ~/Documents/Github/Learning
         if [[ $1 == "-f"  ]]; then
             git fetch
@@ -35,11 +34,8 @@ function pjt() {
                 fi
 }
 
-# Git Stuff
-alias githistory="git log --oneline --graph --decorate --all"
-alias kraken='open -na "GitKraken" --args -p $(pwd)'
 
-function gitupload() {
+gitupload() {
     if [ -n "$1" ]; then
         git add .
             git commit -m "$1"
@@ -50,15 +46,22 @@ function gitupload() {
 }
 
 # PDF stuff
-function ocrall() {
+ocrall() {
     for i in ./*.pdf; do
                 echo "Rescannig $i"
                 ocrmypdf --force-ocr $i $i
                 done
-                }
+ }
+
 
 # Custom Aliases
 alias l="lsd -lah"
+alias ll="lsd -lh"
 alias ls="lsd"
+
 alias vim="nvim"
-# vi:syntax=bash
+
+alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
+
+
+# vim:syntax=bash
