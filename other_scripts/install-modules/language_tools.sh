@@ -48,3 +48,8 @@ fi
 if ! npm list -g remark-cli >/dev/null 2>&1; then
     npm install -g remark-cli
 fi
+
+# English
+if ! npm list -g write-good >/dev/null 2>&1; then
+    npm install -g write-good
+fi
