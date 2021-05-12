@@ -349,14 +349,6 @@ nmap <leader>q :q<CR>
 """""""" Language Configuration
 """"""""""""""""""""""""""""""""""""""""""""""
 
-"""""" ALE config 
-" Errors in airline bar
-let g:airline#extensions#ale#enabled = 1
-" Disbable highlighting
-let g:ale_set_highlights = 0
-
-
-
 " set syntax for files with odd extensions
 autocmd BufNewFile,BufRead *.rasi set syntax=css
 autocmd BufRead *.plot set filetype=gnuplot
@@ -479,6 +471,32 @@ let g:rainbow_conf = {'ctermfgs': ['DarkCyan', 'DarkYellow', 'DarkGreen', 'magen
 """""""""""" Autoformat
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
+
+
+"""""" ALE config
+" Errors in airline bar
+let g:airline#extensions#ale#enabled = 1
+" Disbable highlighting
+let g:ale_set_highlights = 0
+
+
+let g:ale_sign_error                  = '✘'
+let g:ale_sign_warning                = '⚠'
+highlight ALEErrorSign ctermbg        =NONE ctermfg=red
+highlight ALEWarningSign ctermbg      =NONE ctermfg=yellow
+let g:ale_linters_explicit            = 1
+let g:ale_lint_on_text_changed        = 'never'
+let g:ale_lint_on_enter               = 0
+let g:ale_lint_on_save                = 1
+let g:ale_fix_on_save                 = 1
+
+let g:ale_linters = {
+\   'markdown': ['remark', 'writegood'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
 
 
 """""""" Set Color scheme
