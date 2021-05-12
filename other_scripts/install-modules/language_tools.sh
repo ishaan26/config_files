@@ -12,19 +12,26 @@ if [[ $(lsb_release -si 2>/dev/null) == "Ubuntu" ]]; then
     # shell
     sudo snap install shfmt
     sudo apt install zsh
-    # C, C++, C#, Java
     sudo apt install gcc cmake clang
     sudo apt install default-jre
     sudo apt install default-jdk
     sudo apt install astyle
+elif [[ $(lsb_release -si 2>/dev/null) == "Arch" ]]; then
+    sudo pacman -S shfmt --needed --noconfirm
+    sudo pacman -S zsh  --needed --noconfirm
+    sudo pacman -S gcc cmake clang --needed --noconfirm
+    sudo pacman -S jdk-openjdk jre-openjdk --needed --noconfirm
+    sudo pacman -S astyle --needed --noconfirm
 elif [[ $(sw_vers -productName 2>/dev/null) == "Mac OS X" ]]; then
-    # shell,
     brew install shfmt
-    # C, C++, C#, Java
     brew install astyle
 fi
 
 # Python
+if [[ $(lsb_release -si 2>/dev/null) == "Arch" ]]; then
+    sudo pacman -S python --needed --noconfirm
+fi
+
 pip install yapf
 
 # JavaScript, CSS, HTML
