@@ -271,6 +271,8 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+
+
 """"""""""""""""""""""""""""""""""
 """""" Keyboard Configuration
 """"""""""""""""""""""""""""""""""
@@ -328,6 +330,9 @@ noremap <leader>c :w !xsel -ib<cr><cr>
 nnoremap j gj
 nnoremap k gk
 
+" ALE move to next error
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
@@ -343,6 +348,14 @@ nmap <leader>q :q<CR>
 """"""""""""""""""""""""""""""""""""""""""""""
 """""""" Language Configuration
 """"""""""""""""""""""""""""""""""""""""""""""
+
+"""""" ALE config 
+" Errors in airline bar
+let g:airline#extensions#ale#enabled = 1
+" Disbable highlighting
+let g:ale_set_highlights = 0
+
+
 
 " set syntax for files with odd extensions
 autocmd BufNewFile,BufRead *.rasi set syntax=css
