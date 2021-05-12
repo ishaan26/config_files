@@ -1,6 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
-set guifont=Iosevka\ Nerd\ Font:h15
+set guifont=FiraCode\ Nerd\ Font:h16
 source ~/.vimrc
 
 " Neovide settings
