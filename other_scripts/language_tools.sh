@@ -18,7 +18,7 @@ if [[ $(lsb_release -si 2>/dev/null) == "Ubuntu" ]]; then
     sudo apt install astyle
 elif [[ $(lsb_release -si 2>/dev/null) == "Arch" ]]; then
     sudo pacman -S shfmt --needed --noconfirm
-    sudo pacman -S zsh  --needed --noconfirm
+    sudo pacman -S zsh --needed --noconfirm
     sudo pacman -S gcc cmake clang --needed --noconfirm
     sudo pacman -S jdk-openjdk jre-openjdk --needed --noconfirm
     sudo pacman -S astyle --needed --noconfirm
@@ -42,14 +42,4 @@ fi
 # typescript
 if ! npm list -g typescript-formatter >/dev/null 2>&1; then
     npm install -g typescript-formatter
-fi
-
-# Markdown
-if ! npm list -g remark-cli >/dev/null 2>&1; then
-    npm install -g remark-cli
-fi
-
-# English
-if ! npm list -g write-good >/dev/null 2>&1; then
-    npm install -g write-good
 fi
