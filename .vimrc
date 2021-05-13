@@ -334,7 +334,7 @@ tnoremap <C-k> <Esc>
 " ,p will paste clipboard into buffer
 " ,c will copy entire buffer into clipboard
 noremap <leader>p :read !xsel --clipboard --output<cr>
-noremap <leader>c :w !xsel -ib<cr><cr>
+noremap <leader>y :w !xsel -ib<cr><cr>
 
 
 " Move by line
