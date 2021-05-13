@@ -19,7 +19,6 @@ elif [ "Darwin" == "$(uname -s)" ]; then
     brew install shfmt astyle
 fi
 
-clear
 echo "Installing python formatter"
 pip install yapf
 
