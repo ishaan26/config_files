@@ -1,8 +1,6 @@
 #!/bin/bash
 
-
 dir="$HOME/.config/rofi/themes/powermenu/"
-
 
 rofi_command="rofi -theme $dir/theme.rasi"
 

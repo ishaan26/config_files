@@ -15,8 +15,8 @@ options="$DAY\n$MONTH\n$YEAR"
 
 ## Main
 chosen="$(echo -e "$options" | $rofi_command -p "   $DN, $TIME" -dmenu selected-row 0 -location 3 -yoffset 35 -xoffset -700)"
-case $chosen in 
-    $DAY) gnome-calendar & ;; 
-    $MONTH) gnome-calendar & ;;
-    $YEAR) gnome-calendar & ;;
+case $chosen in
+$DAY) gnome-calendar & ;;
+$MONTH) gnome-calendar & ;;
+$YEAR) gnome-calendar & ;;
 esac
