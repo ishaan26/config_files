@@ -30,45 +30,51 @@ Plugin 'VundleVim/Vundle.vim'
 """"""""" Plugins """"""""""
 
 " Utility
-Plugin 'dense-analysis/ale'                         " Linter
-Plugin 'jiangmiao/auto-pairs'                       " Bracket pairs
-Plugin '907th/vim-auto-save'                        " Autosave
-Plugin 'tpope/vim-surround'                         " Creating surrounding characters
-Plugin 'tpope/vim-repeat'                           " The . command on steriod
-Plugin 'mbbill/undotree'                            " Show undo history
-Plugin 'machakann/vim-highlightedyank'              " Highlight the line yanked
+Plugin 'dense-analysis/ale'
+Plugin 'jiangmiao/auto-pairs'
+Plugin '907th/vim-auto-save'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'mbbill/undotree'
+Plugin 'machakann/vim-highlightedyank'
 
 " Git Support
-Plugin 'airblade/vim-gitgutter'                     " Show Git Modifications
+Plugin 'kablamo/vim-git-log'
+Plugin 'airblade/vim-gitgutter'
 
 " Themes
-Plugin 'vim-airline/vim-airline'                    " Vim bar theme
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Intellisense like
-Plugin 'neoclide/coc.nvim'                          " VS code like laguage server
+Plugin 'neoclide/coc.nvim'
 
 " Rust
-Plugin 'rust-lang/rust.vim'                         " Rust lang plugin
+Plugin 'rust-lang/rust.vim'
 
 " Syntax
-Plugin 'mboughaba/i3config.vim'                     " i3 config plugin
-Plugin 'sheerun/vim-polyglot'                       " Language packs
-Plugin 'ap/vim-css-color'                           " Show hex colors in vim
-Plugin 'luochen1990/rainbow'                        " Color bracket indents differently
-Plugin 'preservim/nerdcommenter'                    " Comment lines of code
+Plugin 'mboughaba/i3config.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'ap/vim-css-color'
+Plugin 'luochen1990/rainbow'
+Plugin 'preservim/nerdcommenter'
+Plugin 'wolfgangmehner/lua-support'
+Plugin 'nvie/vim-flake8'
 
 " Nerd Tree
-Plugin 'scrooloose/nerdtree'                        " Show file directory
-Plugin 'Xuyuanp/nerdtree-git-plugin'                " Show git modificatinos in nerdtree
-Plugin 'ryanoasis/vim-devicons'                     " Show icons in nerdtree
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'    " Show colors in nerdtree
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Color Schemes
-Plugin 'joshdick/onedark.vim'                       " Ondark sytax theme
+Plugin 'joshdick/onedark.vim'
+Plugin 'rakr/vim-one'
 
 " Code Formatters
-Plugin 'Chiel92/vim-autoformat'                     " Combines multiple language formatter
-Plugin 'mvdan/sh'                                   " Shell plugin for vim
+Plugin 'Chiel92/vim-autoformat'
+Bundle 'chase/vim-ansible-yaml'
+Plugin 'mvdan/sh'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -99,6 +105,7 @@ let g:coc_global_extensions = [
 \       'coc-html',
 \       'coc-markdownlint'
 \ ]
+
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -467,6 +474,9 @@ let g:autoformat_retab = 0
 """""" ALE config
 " Errors in airline bar
 let g:airline#extensions#ale#enabled = 1
+" Disbable highlighting
+let g:ale_set_highlights = 0
+
 
 let g:ale_sign_error                  = '✘'
 let g:ale_sign_warning                = '⚠'

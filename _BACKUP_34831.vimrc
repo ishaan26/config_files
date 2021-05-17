@@ -73,7 +73,10 @@ Plugin 'mvdan/sh'                                   " Shell plugin for vim
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+<<<<<<< HEAD
+=======
 " Put your non-Plugin stuff after this line
+>>>>>>> 1a9dcb7613825db7882fdcf2cd2ca5fe4a8be67a
 
 autocmd BufEnter * :syntax sync fromstart
 
@@ -100,6 +103,10 @@ let g:coc_global_extensions = [
 \       'coc-markdownlint'
 \ ]
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a9dcb7613825db7882fdcf2cd2ca5fe4a8be67a
 " TextEdit might fail if hidden is not set.
 set hidden
 

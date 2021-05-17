@@ -73,15 +73,12 @@ Plugin 'mvdan/sh'                                   " Shell plugin for vim
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" Put your non-Plugin stuff after this line
 
 autocmd BufEnter * :syntax sync fromstart
 
 """""""""""""""""""""""""""""""""""""
 """" END Vundle Configuration
 """""""""""""""""""""""""""""""""""""
-
-
 
 """"""""""""""""""""""""""""""""""""""
 """" Coc Configuration
