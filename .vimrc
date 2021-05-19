@@ -27,7 +27,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 
-""""""""" Plugins """"""""""
+""""""""" Plugins
 
 " Utility
 Plugin 'dense-analysis/ale'                         " Linter
