@@ -85,7 +85,7 @@ height = 40
 
 bottom = true
 
-modules-left = rofi-window files mail chrome firefox whatsapp libreoffice spotify_app pamac-manager vscode terminal separator google youtube reddit office github separator info-trash screenshot
+modules-left = rofi-window files mail bitwarden chrome firefox whatsapp libreoffice spotify_app pamac-manager vscode terminal separator google youtube reddit office github separator info-trash screenshot
 modules-center = i3
 modules-right = wlan eth separator filesystem-root separator memory cpu temperature powermenu
 
@@ -298,7 +298,7 @@ thermal-zone = 2
 warn-temperature = 97
 
 ; for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input 
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
 format = <label>
 format-padding = 4
 format-background =
@@ -373,20 +373,12 @@ content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec pamac-manager > /dev/null 2>&1 &
 
-[module/vscode] 
+[module/vscode]
 type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec code &
-
-[module/atom]
-
-type = custom/text
-content = ﱦ
-content-padding = 2
-content-foreground = ${colors.fg-alt}
-click-left = exec atom &
 
 [module/libreoffice]
 
@@ -396,13 +388,13 @@ content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = exec libreoffice &
 
-[module/androidstudio]
+[module/bitwarden]
 
 type = custom/text
-content = 
+content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec android-studio &
+click-left = exec bitwarden-desktop >/dev/null 2>&1 &
 
 [module/files]
 
@@ -468,7 +460,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec firefox office.com & 
+click-left = exec firefox office.com &
 
 
 [module/github]
