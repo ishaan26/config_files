@@ -13,14 +13,13 @@ logout=""
 
 # Confirmation
 confirm_exit() {
-    rofi -dmenu -i -no-fixed-num-lines -p "Are You Sure? : " \
+    confirm_yes="Yes"
+    confirm_no="No"
+    confirm_options="$confirm_yes\n$confirm_no"
+    echo -e $confirm_options | rofi -p "Are You Sure?" -dmenu -selected-row 1  \
         -theme $dir/confirm.rasi
 }
 
-# Message
-msg() {
-    rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
-}
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
@@ -31,22 +30,18 @@ chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -select
 case $chosen in
 $shutdown)
     ans=$(confirm_exit &)
-    if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+    if [[ $ans == "Yes" ]]; then
         systemctl poweroff
-    elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+    elif [[ $ans == "No" ]]; then
         exit 0
-    else
-        msg
     fi
     ;;
 $reboot)
     ans=$(confirm_exit &)
-    if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+    if [[ $ans == "Yes" ]]; then
         systemctl reboot
-    elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+    elif [[ $ans == "No" ]]; then
         exit 0
-    else
-        msg
     fi
     ;;
 $lock)
@@ -58,19 +53,17 @@ $lock)
     ;;
 $suspend)
     ans=$(confirm_exit &)
-    if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+    if [[ $ans == "Yes" ]]; then
         mpc -q pause
         amixer set Master mute
         systemctl suspend
-    elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+    elif [[ $ans == "No" ]]; then
         exit 0
-    else
-        msg
     fi
     ;;
 $logout)
     ans=$(confirm_exit &)
-    if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+    if [[ $ans == "Yes" ]]; then
         if [[ "$DESKTOP_SESSION" == "Openbox" ]]; then
             openbox --exit
         elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
@@ -78,10 +71,8 @@ $logout)
         elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
             i3-msg exit
         fi
-    elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+    elif [[ $ans == "No" ]]; then
         exit 0
-    else
-        msg
     fi
     ;;
 esac

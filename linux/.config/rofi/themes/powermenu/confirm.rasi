@@ -1,24 +1,95 @@
-/* Confirm Dialog */
+
+configuration {
+	font:							"GoogleSans Nerd Font 14";
+    show-icons:                     false;
+	icon-theme: 					"Papirus";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
 
 @import "colors.rasi"
 
-* {
-    background-color:       @transparent;
-    text-color:             @foreground;
-	font:				 	"GoogleSans Nerd Font 12";
-}
+/* ########### */
+
 
 window {
-    width:      			225px;
-    padding:    			25px;
-    border:					1px;
-    border-radius:          0px;
-    border-color:           @accent;
-    location:               center;
-    y-offset:               -2em;
+    background-color:               @background;
+    transparency:                   "real";
+    border-radius:                  12px;
+	width:							350px;
+    location:                       center;
 }
 
-entry {
-    expand: 				true;
-    text-color:				@foreground;
+prompt {
+    enabled: 						true;
+    padding:                        10px;
+	text-color: 					@accent;
+    background-color:               @transparent;
+    border:                  		0px 0px 0px 0px;
+    border-radius:                  10px;
+    border-color:                  	@accent;
+}
+
+textbox-prompt-colon {
+	expand: 						false;
+	text-color: 					@accent;
+    background-color:               @transparent;
+    padding:                        10px 10px 0px 10px;
+    border-radius:                  10px;
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon, prompt ];
+    spacing:                        12px;
+    text-color:                     @foreground;
+    background-color:               @transparent;
+    expand:                         false;
+    border:                  		0px;
+    border-radius:                  10px;
+    border-color:                  	@accent;
+    margin:                         0px 65px 0px 0px;
+    padding:                        0px;
+    position:                       center;
+}
+
+listview {
+    columns:						2;
+    lines:							1;
+    spacing:                        12px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+    background-color:               @transparent;
+}
+
+mainbox {
+    children:                       [ inputbar, listview ];
+    spacing:                        12px;
+    margin:                         12px;
+    background-color:               @transparent;
+}
+
+element {
+    background-color:               @background;
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  12px;
+}
+
+element-text {
+	font:							"GoogleSans Nerd Font 16";
+    expand:                         true;
+    horizontal-align:               0.5;
+    margin:                         20px 10px 30px 10px;
+}
+
+element selected {
+    background-color:               @background-dark;
+    text-color:                     @accent;
+    border:                  		0px 0px 0px 0px;
+    border-radius:                  12px;
+    border-color:                  	@accent;
 }
