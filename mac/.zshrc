@@ -1,8 +1,3 @@
-if command -v tmux >/dev/null 2>&1;  then
-    # if not inside a tmux session, and if no session is started, start a new session
-    [ -z "${TMUX}" ] && (tmux new -s "Hack") >/dev/null 2>&1
-fi
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -12,7 +7,7 @@ fi
 
 
 export TERM="xterm-256color"
-
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
