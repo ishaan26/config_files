@@ -443,7 +443,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
-click-left = exec firefox.com youtube.com &
+click-left = exec firefox youtube.com &
 
 
 [module/reddit]
