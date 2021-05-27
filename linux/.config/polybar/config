@@ -75,6 +75,7 @@ tray-background = ${colors.primary}
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+wm-restack = bspwm
 
 [bar/bottom_bar]
 
@@ -86,7 +87,7 @@ height = 40
 bottom = true
 
 modules-left = rofi-window files mail bitwarden chrome firefox whatsapp libreoffice spotify_app pamac-manager vscode terminal separator google youtube reddit office github separator info-trash screenshot
-modules-center = i3
+modules-center = bspwm i3
 modules-right = wlan eth separator filesystem-root separator memory cpu temperature powermenu
 
 
@@ -94,6 +95,7 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 tray-position = none
+wm-restack = bspwm
 
 [module/xwindow]
 type = internal/xwindow
@@ -138,6 +140,62 @@ label-unmounted-foreground = ${colors.fg-alt}
 ; label-mounted = %{A1:filelight /home >/dev/null 2>&1 &:}  %free% %{A}
 ; label-unmounted = %mountpoint% not mounted
 ; label-unmounted-foreground = ${colors.fg-alt}
+
+[module/bspwm]
+type = internal/bspwm
+
+; Only show workspaces defined on the same output as the bar
+; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
+; But if you rename your bspwm monitors with bspc -n this option will no longer
+; behave correctly.
+; Default: true
+pin-workspaces = true
+
+; Output mode flags after focused state label
+; Default: false
+inline-mode = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = true
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+; ws-icon-[0-9]+ = <label>;<icon>
+; Note that the <label> needs to correspond with the bspwm workspace name
+; Neither <label> nor <icon> can contain a semicolon ()
+; ws-icon-0 = I
+; ws-icon-1 = II
+; ws-icon-2 = III♜
+; ws-icon-3 = IV♝
+; ws-icon-4 = web♞
+; ws-icon-default = ♟
+
+label-monitor = %name%
+
+label-focused = %name%
+label-focused-foreground = #ffffff
+label-focused-underline = ${colors.shade1}
+
+label-focused-padding = 2
+
+label-dimmed = %name%
+
+label-occupied = %name%
+
 
 [module/i3]
 type = internal/i3
@@ -420,8 +478,6 @@ content = 
 content-padding = 2
 content-foreground = ${colors.fg-alt}
 click-left = spotify > /dev/null 2>&1 &
-
-
 
 [module/separator]
 
