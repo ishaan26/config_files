@@ -1,0 +1,50 @@
+#! /bin/sh
+
+pgrep -x sxhkd >/dev/null || sxhkd &
+
+bspc monitor -d    
+
+### bspwm config
+bspc config border_width 2
+bspc config window_gap 20
+
+bspc config active_border_color "#f67e3f"
+bspc config focused_border_color "#f67e3f"
+bspc config normal_border_color "#373d41"
+bspc config presel_feedback_color "#373d41"
+
+bspc config split_ratio 0.50
+bspc config borderless_monocle true
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true
+bspc config single_monocle true
+bspc config history_aware_focus true
+
+bspc config pointer_modifier super
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_sidie
+
+### window rules
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+### Startup
+# Wallpaper
+feh --bg-fill ~/Pictures/i3_wallpaper/*
+# Fusuma
+pgrep fusuma || fusuma -d
+# Compositor
+pgrep compton || compton &
+# Polybar
+$HOME/.config/polybar/launch.sh &
+# Network
+nm-applet &
+# Dual Screen
+xrandr --output HDMI-0 --right-of eDP-1-1 --auto --primary
+# Policy Kit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# Graphics manager
+optimus-manager-qt &
