@@ -27,6 +27,7 @@ cargo install\
     cargo-tree \
     gitui \
     hexyl \
+    broot \
 
 cargo install \
     tokei --features all \
