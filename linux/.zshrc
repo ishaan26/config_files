@@ -70,3 +70,5 @@ compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+
+source /home/ishaan/.config/broot/launcher/bash/br
