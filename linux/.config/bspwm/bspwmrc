@@ -30,6 +30,8 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 ### Startup
+# Dual Screen
+xrandr --output HDMI-0 --right-of eDP-1-1 --auto --primary
 # Wallpaper
 feh --bg-fill ~/Pictures/Wallpaper/*
 # Fusuma
@@ -40,8 +42,6 @@ pgrep compton || compton &
 $HOME/.config/polybar/launch.sh &
 # Network
 nm-applet &
-# Dual Screen
-xrandr --output HDMI-0 --right-of eDP-1-1 --auto --primary
 # Policy Kit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # Graphics manager
