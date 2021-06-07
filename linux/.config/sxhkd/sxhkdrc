@@ -135,13 +135,13 @@ super + {Left,Down,Up,Right}
 
 # increase sound volume
 XF86AudioRaiseVolume
-    pactl set-sink-volume 1 +5%
+    amixer -D pulse sset Master 5%+
 # decrease sound volume
 XF86AudioLowerVolume
-    pactl set-sink-volume 1 -5%
+    amixer -D pulse sset Master 5%-
 # mute sound
 XF86AudioMute
-    pactl set-sink-mute 1 toggle
+    amixer -D pulse set Master 1+ toggle
 
 # Sreen brightness controls
 XF86MonBrightnessUp
