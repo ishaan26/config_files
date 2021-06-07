@@ -81,7 +81,7 @@ super + bracket{left,right}
 
 # focus the last node/desktop
 super + {grave,Tab}
-	bspc {node,desktop} -f last
+	bspc {node,desktop} -f next
 
 # focus the older or newer node in the focus history
 super + {o,i}
@@ -128,6 +128,10 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Rotate tree
+super + shift + {d,a}
+    bspc node @/ -C {forward,backward}
 
 #############
 # Keyboard button controls
