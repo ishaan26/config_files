@@ -21,7 +21,8 @@ check_root # Checks sudo privlages of the shell from common.sh
 clear
 
 # Install i3-gaps
-sudo pacman -S i3-gaps
+sudo pacman -S bspwm
+sudo pacman -S sxhkd
 
 # Install Rofi
 yay -S rofi-git

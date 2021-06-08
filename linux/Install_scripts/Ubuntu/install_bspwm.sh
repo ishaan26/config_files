@@ -60,13 +60,9 @@ sudo aptitude install libjpeg-dev librsvg2-dev libglib2.0-dev -y
 pause "Press [Enter] to install i3-gaps"
 clear
 
-echo "Installing i3-gaps"
-sudo add-apt-repository ppa:dennis-kruyt/ricebuilder
-sudo apt install i3-gaps
-echo -e "\ni3-gaps installed"
-pip3 install --user i3-layouts
-pause "Press [Enter] to continue"
-clear
+echo "Installing bspwm"
+sudo apt install bspwmi -y
+sudo apt install sxhkd -y
 
 echo "Installing Polybar"
 sudo apt install polybar

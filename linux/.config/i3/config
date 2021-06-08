@@ -21,7 +21,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show drun -show-icons -theme ~/.config/rofi/themes/drun.rasi
 
-# Define Workspaces 
+# Define Workspaces
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -150,7 +150,7 @@ for_window [title="Sign in - Google Accounts - Google Chrome"] floating enable
 
 
 ##########################################################################
-#####  Resize Widows 
+#####  Resize Widows
 ##########################################################################
 
 
@@ -190,7 +190,7 @@ bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
 
 
 ##########################################################################
-#####  Hardware Controls 
+#####  Hardware Controls
 ##########################################################################
 
 # increase sound volume
@@ -198,7 +198,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
 # decrease sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
 # mute sound
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle 
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl set +10% # increase screen brightness
@@ -212,18 +212,18 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 ##########################################################################
-#####  Looks 
+#####  Looks
 ##########################################################################
 
 # No Title bars
 for_window [class="^.*"] border pixel 2
 
 # Set BG
-exec_always feh --bg-fill ~/Pictures/i3_wallpaper/*
+exec_always feh --bg-fill ~/Pictures/Wallpaper/*
 
 
 ##########################################################################
-#####  Startup 
+#####  Startup
 ##########################################################################
 
 # Fusuma (trakpad gestures)
@@ -267,14 +267,14 @@ exec --no-startup-id nextcloud
 ## Fedora
 # exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 ## Arch
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &  
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 ## Optimus Manager
 exec --no-startup-id optimus-manager-qt
 
 
 ##########################################################################
-#####  i3-Layouts 
+#####  i3-Layouts
 ##########################################################################
 
 

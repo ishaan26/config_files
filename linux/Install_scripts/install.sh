@@ -27,7 +27,7 @@ show_menus() {
     echo ""
     echo "1. Install Packages"
     echo "2. Setup Shell"
-    echo "3. Install and setup i3-gaps"
+    echo "3. Install and setup bspwm"
     echo "4. Install Fonts from patched fonts folder"
     echo "5. Exit"
 }
@@ -38,7 +38,7 @@ read_options() {
     case $choice in
     1) bash "$SCRIPT_DIR/${OS}/install_packages.sh" ;;
     2) bash "$SCRIPT_DIR/${OS}/setup_shell.sh";;
-    3) bash "$SCRIPT_DIR/${OS}/install_i3-gaps.sh";;
+    3) bash "$SCRIPT_DIR/${OS}/install_bspwm.sh";;
     4) install_fonts_common ;;
     5) exit 0 ;;
     *) echo -e "${RED}Please select a valid option${STD}" && sleep 1 ;;

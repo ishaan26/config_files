@@ -81,7 +81,11 @@ super + bracket{left,right}
 
 # focus the last node/desktop
 super + {grave,Tab}
-	bspc {node,desktop} -f last
+	bspc {node,desktop} -f next
+
+# focus the last node/desktop
+super + shift {grave,Tab}
+	bspc {node,desktop} -f prev
 
 # focus the older or newer node in the focus history
 super + {o,i}
@@ -129,19 +133,23 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# Rotate tree
+super + shift + {d,a}
+    bspc node @/ -C {forward,backward}
+
 #############
 # Keyboard button controls
 #############
 
 # increase sound volume
 XF86AudioRaiseVolume
-    pactl set-sink-volume 1 +5%
+    amixer -D pulse sset Master 5%+
 # decrease sound volume
 XF86AudioLowerVolume
-    pactl set-sink-volume 1 -5%
+    amixer -D pulse sset Master 5%-
 # mute sound
 XF86AudioMute
-    pactl set-sink-mute 1 toggle
+    amixer -D pulse set Master 1+ toggle
 
 # Sreen brightness controls
 XF86MonBrightnessUp
