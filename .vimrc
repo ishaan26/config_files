@@ -42,7 +42,8 @@ Plugin 'machakann/vim-highlightedyank'              " Highlight the line yanked
 Plugin 'airblade/vim-gitgutter'                     " Show Git Modifications
 
 " Themes
-Plugin 'vim-airline/vim-airline'                    " Vim bar theme
+Plugin 'vim-airline/vim-airline'                    " Vim bar
+Plugin 'vim-airline/vim-airline-themes'             " Themes for the bar
 
 " Intellisense like
 Plugin 'neoclide/coc.nvim'                          " VS code like laguage server
