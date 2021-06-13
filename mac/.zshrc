@@ -50,4 +50,5 @@ export NVM_DIR="$HOME/.nvm"
 
 #vi:syntax=sh
 
-source /Users/ishaangoel/.config/broot/launcher/bash/br
+
+source /Users/ishaan/.config/broot/launcher/bash/br
