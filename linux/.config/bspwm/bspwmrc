@@ -2,7 +2,8 @@
 
 pgrep -x sxhkd >/dev/null || sxhkd &
 
-bspc monitor -d    
+bspc monitor HDMI-0 -d    
+bspc monitor eDP-1-1 -d _
 
 ### bspwm config
 bspc config border_width 2
@@ -31,7 +32,7 @@ bspc rule -a Screenkey manage=off
 
 ### Startup
 # Dual Screen
-xrandr --output HDMI-0 --right-of eDP-1-1 --auto --primary
+xrandr --output HDMI-0 --primary --right-of eDP-1-1 --auto
 # Wallpaper
 feh --bg-fill ~/Pictures/Wallpaper/*
 # Fusuma
