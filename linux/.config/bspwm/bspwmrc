@@ -3,7 +3,7 @@
 pgrep -x sxhkd >/dev/null || sxhkd &
 
 bspc monitor HDMI-0 -d    
-bspc monitor eDP-1-1 -d _
+bspc monitor eDP-1-1 -d    
 
 ### bspwm config
 bspc config border_width 2
