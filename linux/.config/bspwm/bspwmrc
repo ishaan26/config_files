@@ -39,6 +39,8 @@ feh --bg-fill ~/Pictures/Wallpaper/*
 pgrep fusuma || fusuma -d
 # Compositor
 pgrep compton || compton &
+# Clipboard history
+pgrep clipit || clipit &
 # Polybar
 $HOME/.config/polybar/launch.sh &
 # Network
