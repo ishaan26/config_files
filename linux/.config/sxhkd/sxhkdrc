@@ -7,8 +7,12 @@ super + Return
 	alacritty
 
 # program launcher
-super + @space
+super + {d}
 	rofi -show drun -show-icons -theme ~/.config/rofi/themes/drun.rasi
+
+# reload polybar
+super + {p}
+    $HOME/.config/polybar/launch.sh &
 
 # make sxhkd reload its configuration files:
 super + Escape

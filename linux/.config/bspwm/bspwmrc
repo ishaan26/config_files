@@ -41,8 +41,6 @@ pgrep fusuma || fusuma -d
 pgrep compton || compton &
 # Clipboard history
 pgrep clipit || clipit &
-# Polybar
-$HOME/.config/polybar/launch.sh &
 # Network
 nm-applet &
 # Policy Kit
@@ -51,3 +49,5 @@ nm-applet &
 optimus-manager-qt &
 # Nvidia Setting (fix screen tear)
 nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')" > /dev/null
+# Polybar
+$HOME/.config/polybar/launch.sh &
