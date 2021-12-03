@@ -70,5 +70,4 @@ compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-
-source /home/ishaan/.config/broot/launcher/bash/br
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
