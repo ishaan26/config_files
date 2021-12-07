@@ -12,15 +12,15 @@ urgent=""
 
 if [[ $CHARGE = *"Charging"* ]]; then
     active="-a 1"
-    ICON_CHRG="      ﮣ"
+    ICON_CHRG="    ﮣ"
     MSG=$CHARGE
 elif [[ $CHARGE = *"Discharging"* ]]; then
     urgent="-u 1"
-    ICON_CHRG="      ﮤ"
+    ICON_CHRG="    ﮤ"
     MSG="Discharging"
 elif [[ $CHARGE = * ]]; then
     active="-a 1"
-    ICON_CHRG="      ﮣ"
+    ICON_CHRG="    ﮣ"
     MSG="Full"
 fi
 

@@ -21,6 +21,7 @@ window {
 
 prompt {
     enabled: 						true;
+	expand: 						true;
     padding:                        10px;
 	text-color: 					@accent;
     background-color:               @transparent;
@@ -65,24 +66,28 @@ mainbox {
 }
 
 element {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @background-dark;
     orientation:                    vertical;
     border-radius:                  12px;
 }
 
 element-text {
 	font:							"GoogleSans Nerd Font 32";
+    background-color:               @transparent;
+    text-color:                     @foreground;
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         5px 10px 30px 10px;
+    margin:                         5px 10px 20px 10px;
+}
+
+element-icon {
+    background-color:               @transparent;
+    border-radius:                  12px;
 }
 
 element selected {
     background-color:               @background-dark;
-    text-color:                     @accent;
-    border:                  		0px 0px 0px 0px;
+    border:                  		2px;
     border-radius:                  12px;
     border-color:                  	@accent;
 }
-

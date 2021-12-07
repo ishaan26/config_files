@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-rofi_command="rofi -theme themes/screenshot.rasi"
+rofi_command='rofi -theme themes/screenshot.rasi -color-window "#222222, #222222, #b1b4b3"'
+
+
+
 
 # Options
 screen=""

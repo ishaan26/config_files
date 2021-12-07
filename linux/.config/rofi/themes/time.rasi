@@ -32,7 +32,7 @@ prompt {
 textbox-prompt-colon {
 	expand: 						false;
     background-color:               @background-dark;
-	str: 							" Time ";
+	str: 							" Clock ";
 	text-color: 					@accent;
     padding:                        10px 10px 0px 10px;
     border-radius:                  10px;
@@ -70,25 +70,21 @@ mainbox {
 }
 
 element {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @background-dark;
     orientation:                    vertical;
     border-radius:                  12px;
 }
 
 element-text {
+    background-color:               @transparent;
+    text-color:                     @foreground;
 	font:							"GoogleSans Nerd Font 32";
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         20px 10px 50px 10px;
+    margin:                         5px 10px 20px 10px;
 }
 
-element selected {
-    background-color:               @background-dark;
-    text-color:                     @accent;
-    border:                  		0px 0px 0px 0px;
+element-icon {
+    background-color:               @transparent;
     border-radius:                  12px;
-    border-color:                  	@accent;
 }
-
-

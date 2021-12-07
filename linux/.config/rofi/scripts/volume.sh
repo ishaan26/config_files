@@ -24,7 +24,7 @@ fi
 if [[ $MUTE == *"on"* ]]; then
     VOLUME="$(amixer get Master | tail -n 1 | awk -F ' ' '{print $5}' | tr -d '[]%')%"
 else
-    VOLUME="Mu..."
+    VOLUME="Please install alsa-utils"
 fi
 
 ## Icons

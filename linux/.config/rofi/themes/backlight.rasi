@@ -1,15 +1,9 @@
-
 configuration {
 	font:                      		"GoogleSans Nerd Font 12";
-    disable-history:                false;
-    fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
 }
 
 @import "colors.rasi"
 
-/* ########### */
 
 
 window {
@@ -24,9 +18,6 @@ prompt {
     padding:                        10px;
 	text-color: 					@accent;
     background-color:               @transparent;
-    border:                  		0px 0px 0px 0px;
-    border-radius:                  10px;
-    border-color:                  	@accent;
 }
 
 textbox-prompt-colon {
@@ -70,25 +61,29 @@ mainbox {
 }
 
 element {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @background-dark;
     orientation:                    vertical;
     border-radius:                  12px;
 }
 
 element-text {
+    background-color:               @transparent;
+    text-color:                     @foreground;
 	font:							"GoogleSans Nerd Font 32";
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         5px 10px 30px 10px;
+    margin:                         5px 10px 20px 10px;
+}
+
+element-icon {
+    background-color:               @transparent;
+    border-radius:                  12px;
 }
 
 element selected {
     background-color:               @background-dark;
     text-color:                     @accent;
-    border:                  		0px 0px 0px 0px;
+    border:                  		2px;
     border-radius:                  12px;
     border-color:                  	@accent;
 }
-
-

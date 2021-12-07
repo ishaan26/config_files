@@ -1,29 +1,21 @@
 
-
 configuration {
-	font:                      		"GoogleSans Nerd Font 12";
-    disable-history:                false;
-    fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+    font : "GoogleSans Nerd Font 12";
 }
 
 @import "colors.rasi"
-
-/* ########### */
-
 
 window {
     background-color:               @background;
     transparency:                   "real";
     border-radius:                  12px;
-	width:							350px;
+    width:							350px;
 }
 
 prompt {
     enabled: 						true;
     padding:                        10px;
-	text-color: 					@accent;
+    text-color: 					@accent;
     background-color:               @transparent;
     border:                  		0px 0px 0px 0px;
     border-radius:                  10px;
@@ -31,16 +23,16 @@ prompt {
 }
 
 textbox-prompt-colon {
-	expand: 						false;
-	str: 							" Screenshot ";
-	text-color: 					@accent;
+    expand: 						false;
+    str: 							" Screenshot ";
+    text-color: 					@accent;
     background-color:               @background-dark;
     padding:                        10px 10px 0px 10px;
     border-radius:                  10px;
 }
 
 inputbar {
-	children: 						[ textbox-prompt-colon, prompt ];
+    children: 						[ textbox-prompt-colon, prompt ];
     spacing:                        12px;
     text-color:                     @foreground;
     background-color:               @transparent;
@@ -60,7 +52,8 @@ listview {
     cycle:                          true;
     dynamic:                        true;
     layout:                         vertical;
-    background-color:               @transparent;
+    background-color:               @background;
+    foreground-color:               @transparent;
 }
 
 mainbox {
@@ -68,28 +61,35 @@ mainbox {
     spacing:                        12px;
     margin:                         12px;
     background-color:               @transparent;
+    foreground-color:               @transparent;
+    border-radius:                  10px;
 }
 
 element {
-    background-color:               @background;
-    text-color:                     @foreground;
+    foreground-color:               @transparent;
     orientation:                    vertical;
     border-radius:                  12px;
+    background-color:               @background-dark;
 }
 
 element-text {
-	font:							"GoogleSans Nerd Font 32";
+    font:							"GoogleSans Nerd Font 32";
+    text-color:                     @foreground;
+    background-color:               @transparent;
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         5px 10px 30px 10px;
+    margin:                         5px 10px 20px 10px;
+}
+
+element-icon {
+    background-color:               @transparent;
+    border-radius:                  12px;
 }
 
 element selected {
     background-color:               @background-dark;
     text-color:                     @accent;
-    border:                  		0px 0px 0px 0px;
+    border:                  		2px;
     border-radius:                  12px;
     border-color:                  	@accent;
 }
-
-

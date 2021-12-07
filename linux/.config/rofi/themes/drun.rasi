@@ -1,5 +1,5 @@
 configuration {
-	font: "GoogleSans Nerd Font 10";
+	font: "GoogleSans Nerd Font 12";
 	show-icons: true;
 	display-drun: " ";
 	drun-display-format: "{name}";
@@ -9,7 +9,7 @@ configuration {
 	fullscreen: false;
 	hide-scrollbar: true;
 	sidebar-mode: false;
-	
+
 }
 
 @import "colors.rasi"
@@ -83,24 +83,28 @@ element {
 	background-color: @transparent;
 	text-color: @foreground;
 	orientation: vertical;
-	border-radius: 6px;
+	border-radius: 12px;
 	padding: 10px 0px 10px 0px;
 }
 
 element-icon {
-	size: 65px;
+	size: 50px;
 	border: 0px;
+    background-color:               @transparent;
+    border-radius:                  12px;
+    horizontal-align: 0.5;
+	vertical-align: 0.5;
 }
 
 element-text {
 	expand: true;
+    background-color:               @transparent;
+    text-color: @foreground;
 	horizontal-align: 0.5;
 	vertical-align: 0.5;
-	margin: 5px 10px 0px 10px;
+	margin: 10px 10px 0px 10px;
 }
 
 element selected {
 	background-color: @background-dark;
-	text-color: @accent;
 }
-

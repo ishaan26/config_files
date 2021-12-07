@@ -1,5 +1,5 @@
 configuration {
-    font: "NovaMono Nerd Font 12";
+    font: "GoogleSans Nerd Font 12";
     show-icons: true;
     icon-theme: "Papirus";
     drun-display-format: "{icon} {name}";
@@ -32,7 +32,6 @@ prompt {
     padding: 1% 1% 1% 1%;
     background-color: @transparent;
     text-color: @accent;
-    font: "NovaMono Nerd Font 12";
 }
 
 
@@ -93,10 +92,13 @@ element {
 element-icon {
     size: 34px;
     horizontal-align: 0.05;
+    background-color: @transparent;
 }
 
 element-text {
     expand: true;
+    background-color: @transparent;
+    text-color: @foreground;
     horizontal-align: 0.05;
     vertical-align: 0.5;
     margin: 5px;
@@ -115,12 +117,11 @@ element alternate.active {
 
 element selected {
     background-color: @background-dark;
-    text-color: @accent;
+    border: 2px;
+    border-color: @accent;
 }
 
 element selected.urgent {
     background-color: @on;
     text-color: @foreground;
 }
-
-

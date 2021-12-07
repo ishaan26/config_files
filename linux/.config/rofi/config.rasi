@@ -3,8 +3,7 @@
 configuration {
 	modi: "window,drun,run,ssh";
 	show-icons: true;
-	icon-theme: "Papirus";
+	icon-theme: "Candy-icons";
 	terminal: "alacritty";
 	drun-match-fields: "name,generic,exec,categories";
-	
 }
