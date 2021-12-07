@@ -23,7 +23,7 @@ nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -
 $HOME/.config/polybar/launch.sh &
 
 # bspwm stuff
-bspc monitor HDMI-1-0 -d    
+bspc monitor HDMI-1-0 -d      
 bspc monitor eDP-1 -d    
 
 ### bspwm config
