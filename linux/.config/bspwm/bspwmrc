@@ -17,8 +17,6 @@ pgrep clipit || clipit &
 nm-applet &
 # Policy Kit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-# Graphics manager
-optimus-manager-qt &
 # Nvidia Setting (fix screen tear)
 nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')" > /dev/null
 # Polybar
