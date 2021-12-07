@@ -30,11 +30,14 @@ sudo pacman -S --needed - <./pkglist.txt
 
 # Install yay
 pacman -S --needed git base-devel
-mkdir -p $HOME/Documents/Github/OtherGits
-cd $HOME/Documents/Github/OtherGits
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+
+if ! hash 2>/dev/null; then
+    mkdir -p $HOME/Documents/Github/OtherGits
+    cd $HOME/Documents/Github/OtherGits
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+fi
 
 cd "$HOME/Documents/Github/config_files/linux/Install_scripts/Arch Linux/"
 # Install aur packages

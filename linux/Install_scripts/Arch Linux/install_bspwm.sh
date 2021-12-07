@@ -20,12 +20,9 @@ fi
 check_root # Checks sudo privlages of the shell from common.sh
 clear
 
-# Install i3-gaps
+# Install bspwm
 sudo pacman -S bspwm
 sudo pacman -S sxhkd
-
-# Install Rofi
-yay -S rofi-git
 
 # Install Polybar
 yay -S polybar

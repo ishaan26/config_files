@@ -45,9 +45,10 @@ ln -sf ~/Documents/Github/config_files/.tmux.conf
 cd $HOME
 rm .zshrc
 ln -s ~/Documents/Github/config_files/linux/.zshrc
-ln -s ~/Documents/Github/config_files/linux/.ubuntu_aliases .aliases
+ln -s ~/Documents/Github/config_files/linux/.arch_aliases .aliases
 ln -s ~/Documents/Github/config_files/.vimrc
 ln -s ~/Documents/Github/config_files/.p10k.zsh
+ln -s ~/Documents/Github/config_files/.tmux.conf
 
-echo "\nAll Done\n"
+echo -e "\nAll Done\n"
 pause "Press [Enter] to contiunue to main menu"

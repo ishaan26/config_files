@@ -2,8 +2,31 @@
 
 pgrep -x sxhkd >/dev/null || sxhkd &
 
-bspc monitor HDMI-0 -d    
-bspc monitor eDP-1-1 -d    
+### Startup
+# Dual Screen
+xrandr --output HDMI-1-0 --primary --right-of eDP-1 --auto
+# Wallpaper
+feh --bg-fill ~/Pictures/Wallpapers/*
+# Fusuma
+pgrep fusuma || fusuma -d
+# Compositor
+pgrep compton || compton &
+# Clipboard history
+pgrep clipit || clipit &
+# Network
+nm-applet &
+# Policy Kit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# Graphics manager
+optimus-manager-qt &
+# Nvidia Setting (fix screen tear)
+nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')" > /dev/null
+# Polybar
+$HOME/.config/polybar/launch.sh &
+
+# bspwm stuff
+bspc monitor HDMI-1-0 -d    
+bspc monitor eDP-1 -d    
 
 ### bspwm config
 bspc config border_width 2
@@ -29,25 +52,3 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-
-### Startup
-# Dual Screen
-xrandr --output HDMI-0 --primary --right-of eDP-1-1 --auto
-# Wallpaper
-feh --bg-fill ~/Pictures/Wallpaper/*
-# Fusuma
-pgrep fusuma || fusuma -d
-# Compositor
-pgrep compton || compton &
-# Clipboard history
-pgrep clipit || clipit &
-# Network
-nm-applet &
-# Policy Kit
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-# Graphics manager
-optimus-manager-qt &
-# Nvidia Setting (fix screen tear)
-nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')" > /dev/null
-# Polybar
-$HOME/.config/polybar/launch.sh &
