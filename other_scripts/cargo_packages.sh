@@ -18,16 +18,14 @@ cargo install\
     cargo-cache \
     cargo-update \
     cargo-watch \
-    ytop \
     tealdeer \
     viu \
     git-delta \
     gping \
     cargo-outdated \
     cargo-tree \
-    gitui \
     hexyl \
-    broot \
+    bottom \
 
 cargo install \
     tokei --features all \
