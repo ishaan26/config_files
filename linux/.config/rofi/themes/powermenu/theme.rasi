@@ -1,17 +1,8 @@
 configuration {
 	font:							"GoogleSans Nerd Font 12";
-    show-icons:                     false;
-	icon-theme: 					"Papirus";
-    drun-display-format:            "{name}";
-    disable-history:                false;
-    fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
 }
 
 @import "colors.rasi"
-
-/* ########### */
 
 
 window {
@@ -36,7 +27,7 @@ textbox-prompt-colon {
 	expand: 						false;
 	str: 							" System ";
 	text-color: 					@accent;
-    background-color:               @transparent;
+    background-color:               @background-dark;
     padding:                        10px 10px 0px 10px;
     border-radius:                  10px;
 }
@@ -73,25 +64,29 @@ mainbox {
 }
 
 element {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @background-dark;
     orientation:                    vertical;
     border-radius:                  12px;
 }
 
 element-text {
 	font:							"GoogleSans Nerd Font 32";
+    background-color:               @transparent;
+    text-color:                     @foreground;
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         20px 10px 30px 10px;
+    margin:                         5px 10px 20px 10px;
+}
+
+element-icon {
+    background-color:               @transparent;
+    border-radius:                  12px;
 }
 
 element selected {
     background-color:               @background-dark;
     text-color:                     @accent;
-    border:                  		0px 0px 0px 0px;
+    border:                  		2px;
     border-radius:                  12px;
     border-color:                  	@accent;
 }
-
-

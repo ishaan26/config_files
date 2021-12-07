@@ -45,10 +45,11 @@ $reboot)
     fi
     ;;
 $lock)
-    if [[ -f /usr/bin/i3lock ]]; then
-        i3lock
-    elif [[ -f /usr/bin/betterlockscreen ]]; then
+    ans=$(confirm_exit &)
+    if [[ $ans == "Yes" ]]; then
         betterlockscreen -l
+    elif [[ $ans == "No" ]]; then
+        exit 0
     fi
     ;;
 $suspend)

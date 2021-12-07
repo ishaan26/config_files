@@ -1,25 +1,14 @@
-
 configuration {
 	font:							"GoogleSans Nerd Font 14";
-    show-icons:                     false;
-	icon-theme: 					"Papirus";
-    drun-display-format:            "{name}";
-    disable-history:                false;
-    fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
 }
 
 @import "colors.rasi"
-
-/* ########### */
-
 
 window {
     background-color:               @background;
     transparency:                   "real";
     border-radius:                  12px;
-	width:							350px;
+	width:							250px;
     location:                       center;
 }
 
@@ -50,7 +39,7 @@ inputbar {
     border:                  		0px;
     border-radius:                  10px;
     border-color:                  	@accent;
-    margin:                         0px 65px 0px 0px;
+    margin:                         0px 25px 0px 0px;
     padding:                        0px;
     position:                       center;
 }
@@ -73,23 +62,29 @@ mainbox {
 }
 
 element {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @background-dark;
     orientation:                    vertical;
     border-radius:                  12px;
 }
 
 element-text {
 	font:							"GoogleSans Nerd Font 16";
+    background-color:               @transparent;
+    text-color:                     @foreground;
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         20px 10px 30px 10px;
+    margin:                         5px 10px 20px 10px;
+}
+
+element-icon {
+    background-color:               @transparent;
+    border-radius:                  12px;
 }
 
 element selected {
     background-color:               @background-dark;
     text-color:                     @accent;
-    border:                  		0px 0px 0px 0px;
+    border:                  		2px;
     border-radius:                  12px;
     border-color:                  	@accent;
 }
