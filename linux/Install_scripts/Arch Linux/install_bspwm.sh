@@ -20,9 +20,27 @@ fi
 check_root # Checks sudo privlages of the shell from common.sh
 clear
 
+# Install dependencies
+sudo pacman -S --needed --noconfirm alsa-utils \
+                                    brightnessctl \
+                                    feh \
+                                    dunst \
+                                    acpi \
+                                    maim \
+                                    pavucontrol-qt \
+                                    network-manager-applet \
+                                    polkit-gnome \
+                                    python-dbus \
+                                    qt5ct \
+                                    lxappearance
+
+
 # Install bspwm
-sudo pacman -S bspwm
-sudo pacman -S sxhkd
+sudo pacman -S --noconfirm bspwm
+sudo pacman -S --noconfirm sxhkd
+
+# Install rofi
+sudo pacman -S rofi
 
 # Install Polybar
 yay -S polybar

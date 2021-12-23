@@ -25,13 +25,17 @@ fi
 # Update
 sudo pacman -Syyu
 
-# Install pacman packages
-sudo pacman -S --needed - <./pkglist.txt
+# Install basic packages
+sudo pacman -S --needed git \
+                        base-devel \
+                        inetutils \
+                        net-tools \
+                        neovim \
+                        zsh \
+                        vlc \
 
 # Install yay
-pacman -S --needed git base-devel
-
-if ! hash 2>/dev/null; then
+if ! hash yay 2>/dev/null; then
     mkdir -p $HOME/Documents/Github/OtherGits
     cd $HOME/Documents/Github/OtherGits
     git clone https://aur.archlinux.org/yay.git
@@ -39,6 +43,14 @@ if ! hash 2>/dev/null; then
     makepkg -si
 fi
 
-cd "$HOME/Documents/Github/config_files/linux/Install_scripts/Arch Linux/"
-# Install aur packages
-yay -S --needed - <./pkglist_aur.txt
+# Install pamac
+if ! hash pamac 2>/dev/null; then
+    yay -S --needed pamac-all
+fi
+
+# Vim setup
+# link config files
+ln -sf $HOME/Documents/Github/config_files/.vimrc $HOME/.vimrc
+ln -sf $HOME/Documents/Github/config_files/linux/.config/nvim $HOME/.config/nvim
+## Install vunle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

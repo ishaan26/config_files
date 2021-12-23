@@ -48,6 +48,6 @@ $ICON_MUTED)
     amixer -q set Master toggle
     ;;
 $SETTINGS)
-    pavucontrol &
+    pavucontrol-qt &
     ;;
 esac
