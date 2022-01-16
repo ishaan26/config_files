@@ -29,8 +29,7 @@ plugins=(
     git
     python
     rust
-    rustup
-    cargo
+    rust
     zsh-syntax-highlighting
     nvm
     zsh-autosuggestions
