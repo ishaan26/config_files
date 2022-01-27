@@ -5,20 +5,27 @@ if ! command -v rustup &>/dev/null; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-# Node version manager
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+# Node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.nvm/nvm.sh
+nvm install node
 
 # language packages and utilities
+#Ubuntu
 if hash 2>/dev/null apt-get; then
     sudo snap install shfmt
     sudo apt install zsh gcc cmake clang default-jre default-jdk astyle
+#Arch
 elif hash 2>/dev/null pacman; then
     arch_packages="shfmt zsh gcc cmake clang jdk-openjdk jre-openjdk astyle python"
     sudo pacman -S $arch_packages --needed --noconfirm
+#Mac Os
 elif [ "Darwin" == "$(uname -s)" ]; then
     brew install shfmt astyle
 fi
 
+# Other language tools
 echo "Installing python formatter"
 pip install yapf
 
