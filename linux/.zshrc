@@ -61,6 +61,7 @@ export GOPATH="/home/ishaan/go"
 
 export NVM_DIR="/home/ishaan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # >>>> Vagrant command completion (start)
@@ -69,4 +70,3 @@ compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
