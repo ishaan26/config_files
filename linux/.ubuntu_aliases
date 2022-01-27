@@ -1,17 +1,32 @@
-# Ubuntu stuff
+# Font stuff
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+WHITE='\033[01;37m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+
+# Programs stuff
 function update() {
-    echo -e "\n----------- Updating ppas ----------------------\n"
+    echo -e "\n=> ${UNDERLINE}${GREEN}Updating packages${NONE} \n"  
     sudo apt update && sudo apt upgrade -y
-    echo -e "\n----------- Updating flatpaks ------------------\n"
+
+    echo -e "\n=> ${UNDERLINE}${GREEN}Updating flatpaks${NONE} \n"
     flatpak update -y
-    echo -e "\n----------- Updating cartes --------------------\n"
+
+    cho -e "\n=> ${UNDERLINE}${GREEN}Updating cartes${NONE} \n"
     cargo install-update -a
-    echo -e "\n----------- Updating other stuff------------\n"
+
+    echo -e "\n=> ${UNDERLINE}${GREEN}Updating other stuff${NONE} \n"
+    echo -e "=> ${CYAN}Rustup:${NONE}"
     rustup update
+    echo -e "\n=> ${CYAN}Node Version Manager:${NONE}"
     nvm install --lts
     nvm install node
-    pip3 install --upgrade pip
-    echo -e "\nDone!"
+    echo -e "\n${BOLD}Done${NONE}!"
 }
 
 alias autoremove='sudo apt autoremove'
@@ -88,7 +103,4 @@ alias ls="lsd"
 alias tree="lsd --tree"
 alias tk="tmux kill-session -a"
 
-
-
-
-# vi:syntax=sh
+ # vi:syntax=sh
