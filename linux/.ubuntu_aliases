@@ -11,16 +11,16 @@ UNDERLINE='\033[4m'
 
 # Programs stuff
 function update() {
-    echo -e "\n=> ${UNDERLINE}${GREEN}Updating packages${NONE} \n"  
+    echo -e "\n=> ${BOLD}${GREEN}Updating packages${NONE} \n"
     sudo apt update && sudo apt upgrade -y
 
-    echo -e "\n=> ${UNDERLINE}${GREEN}Updating flatpaks${NONE} \n"
+    echo -e "\n=> ${BOLD}${GREEN}Updating flatpaks${NONE} \n"
     flatpak update -y
 
-    cho -e "\n=> ${UNDERLINE}${GREEN}Updating cartes${NONE} \n"
+    echo -e "\n=> ${BOLD}${GREEN}Updating cartes${NONE} \n"
     cargo install-update -a
 
-    echo -e "\n=> ${UNDERLINE}${GREEN}Updating other stuff${NONE} \n"
+    echo -e "\n=> ${BOLD}${GREEN}Updating other stuff${NONE} \n"
     echo -e "=> ${CYAN}Rustup:${NONE}"
     rustup update
     echo -e "\n=> ${CYAN}Node Version Manager:${NONE}"
@@ -60,7 +60,6 @@ function pjt() {
 
 #Git stuff
 alias githistory="git log --oneline --graph --decorate --all"
-alias kraken='eval "gitkraken --new-window -p \"`pwd`\" -l /dev/null >/dev/null 2>&1 &"'
 
 function gitupload() {
 
@@ -99,8 +98,11 @@ function rsfa() {
 
 # Cusstom Aliases
 alias l="lsd -lah"
+alias ll="lsd -lh"
 alias ls="lsd"
 alias tree="lsd --tree"
+alias vim="nvim"
 alias tk="tmux kill-session -a"
+alias ta="tmux attach-session -t Hack"
 
- # vi:syntax=sh
+# vi:syntax=sh
