@@ -329,13 +329,16 @@ nmap <silent> <leader>j <Plug>(ale_next_wrap)
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
 
-
 " Quick-save
 nmap <leader>w :w<CR>
 
 " Qick-exit
 nmap <leader>q :q<CR>
 
+" Quickly add blank lines in normal mode without moving the cursor
+
+nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""
 """""""" Language Configuration
