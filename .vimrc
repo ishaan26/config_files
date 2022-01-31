@@ -38,6 +38,8 @@ Plug 'tpope/vim-surround'                         " Creating surrounding charact
 Plug 'tpope/vim-repeat'                           " The . command on steriod
 Plug 'mbbill/undotree'                            " Show undo history
 Plug 'machakann/vim-highlightedyank'              " Highlight the line yanked
+Plug 'andymass/vim-matchup'                       " Visualize, navigate, and operate on sets of matching text
+Plug 'voldikss/vim-floaterm'                      " Use (neo)vim terminal in the floating/popup window
 
 " Git Support
 Plug 'airblade/vim-gitgutter'                     " Show Git Modifications
@@ -449,6 +451,15 @@ let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 
 
+"""""""""" Floterm Configuration
+" Toggle Floaterm
+let g:floaterm_keymap_toggle = '<F5>'
+
+" Window Size
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.9
+
+
 """""""""" Rainbow Brackets
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 let g:rainbow_conf = {'ctermfgs': ['DarkCyan', 'DarkYellow', 'DarkGreen', 'magenta']}
@@ -463,12 +474,12 @@ let g:autoformat_retab = 0
 " Errors in airline bar
 let g:airline#extensions#ale#enabled = 1
 
-let g:ale_sign_error                  = '✘'
-let g:ale_sign_warning                = '⚠'
+let g:ale_sign_error                  = ''
+let g:ale_sign_warning                = ''
 highlight ALEErrorSign ctermbg        =NONE ctermfg=red
 highlight ALEWarningSign ctermbg      =NONE ctermfg=yellow
 let g:ale_linters_explicit            = 1
-let g:ale_lint_on_text_changed        = 'never'
+" let g:ale_lint_on_text_changed        = 'never'
 let g:ale_lint_on_enter               = 0
 let g:ale_lint_on_save                = 1
 let g:ale_fix_on_save                 = 1
