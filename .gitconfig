@@ -6,6 +6,15 @@
     pager = delta
 	editor = nvim
 
+[ui "color"]
+	ui = always
+
+[color]
+	ui = true
+
+[merge]
+	tool = nvim -d
+
 [delta]
     features = side-by-side line-numbers decorations
     syntax-theme = Dracula
@@ -27,15 +36,16 @@
 [interactive]
     diffFilter = delta --color-only
 
-[help]
-    autocorrect = 50
-
 [alias]
     st = status -sb
     history = log --oneline --graph --decorate --all
     last = log -1 HEAD --stat
     cm = commit -m
+    c = commit
     rv = remote -v
 
 [init]
 	defaultBranch = main
+
+[github]
+    user = ishaan26
