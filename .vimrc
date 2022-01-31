@@ -13,75 +13,66 @@ set mouse=a
 let g:ale_disable_lsp = 1
 
 """""""""""""""""""""""""""""""""
-"""     Vundle Config
+"""     vim-plug Config
 """""""""""""""""""""""""""""""""
 
-filetype off
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
 """"""""" Plugins
+call plug#begin('~/.vim/plugged')
 
 " Utility
-Plugin 'dense-analysis/ale'                         " Linter
-Plugin 'jiangmiao/auto-pairs'                       " Bracket pairs
-Plugin '907th/vim-auto-save'                        " Autosave
-Plugin 'tpope/vim-surround'                         " Creating surrounding characters
-Plugin 'tpope/vim-repeat'                           " The . command on steriod
-Plugin 'mbbill/undotree'                            " Show undo history
-Plugin 'machakann/vim-highlightedyank'              " Highlight the line yanked
+Plug 'dense-analysis/ale'                         " Linter
+Plug 'jiangmiao/auto-pairs'                       " Bracket pairs
+Plug '907th/vim-auto-save'                        " Autosave
+Plug 'tpope/vim-surround'                         " Creating surrounding characters
+Plug 'tpope/vim-repeat'                           " The . command on steriod
+Plug 'mbbill/undotree'                            " Show undo history
+Plug 'machakann/vim-highlightedyank'              " Highlight the line yanked
 
 " Git Support
-Plugin 'airblade/vim-gitgutter'                     " Show Git Modifications
+Plug 'airblade/vim-gitgutter'                     " Show Git Modifications
 
 " Themes
-Plugin 'vim-airline/vim-airline'                    " Vim bar
-Plugin 'vim-airline/vim-airline-themes'             " Themes for the bar
+Plug 'vim-airline/vim-airline'                    " Vim bar
+Plug 'vim-airline/vim-airline-themes'             " Themes for the bar
 
 " Intellisense like
-Plugin 'neoclide/coc.nvim'                          " VS code like laguage server
+Plug 'neoclide/coc.nvim'                          " VS code like laguage server
 
 " Rust
-Plugin 'rust-lang/rust.vim'                         " Rust lang plugin
+Plug 'rust-lang/rust.vim'                         " Rust lang plugin
 
 " Syntax
-Plugin 'mboughaba/i3config.vim'                     " i3 config plugin
-Plugin 'sheerun/vim-polyglot'                       " Language packs
-Plugin 'ap/vim-css-color'                           " Show hex colors in vim
-Plugin 'luochen1990/rainbow'                        " Color bracket indents differently
-Plugin 'preservim/nerdcommenter'                    " Comment lines of code
+Plug 'mboughaba/i3config.vim'                     " i3 config plugin
+Plug 'sheerun/vim-polyglot'                       " Language packs
+Plug 'ap/vim-css-color'                           " Show hex colors in vim
+Plug 'luochen1990/rainbow'                        " Color bracket indents differently
+Plug 'preservim/nerdcommenter'                    " Comment lines of code
 
 " Nerd Tree
-Plugin 'scrooloose/nerdtree'                        " Show file directory
-Plugin 'Xuyuanp/nerdtree-git-plugin'                " Show git modificatinos in nerdtree
-Plugin 'ryanoasis/vim-devicons'                     " Show icons in nerdtree
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'    " Show colors in nerdtree
+Plug 'scrooloose/nerdtree'                        " Show file directory
+Plug 'Xuyuanp/nerdtree-git-plugin'                " Show git modificatinos in nerdtree
+Plug 'ryanoasis/vim-devicons'                     " Show icons in nerdtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'    " Show colors in nerdtree
 
 " Color Schemes
-Plugin 'joshdick/onedark.vim'                       " Ondark sytax theme
+Plug 'joshdick/onedark.vim'                       " Ondark sytax theme
 
 " Code Formatters
-Plugin 'Chiel92/vim-autoformat'                     " Combines multiple language formatter
-Plugin 'mvdan/sh'                                   " Shell plugin for vim
+Plug 'Chiel92/vim-autoformat'                     " Combines multiple language formatter
+Plug 'mvdan/sh'                                   " Shell plugin for vim
 
-" " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" Put your non-Plugin stuff after this line
-
-autocmd BufEnter * :syntax sync fromstart
-
-"""""""""""""""""""""""""""""""""""""
-"""" END Vundle Configuration
-"""""""""""""""""""""""""""""""""""""
-
+call plug#end()
 
 
 """"""""""""""""""""""""""""""""""""""
