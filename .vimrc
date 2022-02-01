@@ -269,6 +269,8 @@ noremap <F3> :Autoformat<CR>
 noremap <F12> :noh<CR>
 " Toggle relative Line Numbers
 nmap <F4> :set invrelativenumber<CR>
+" Add semicolon to the end to the line
+inoremap <leader>; <C-o>A;
 
 
 """""" Window Navigation with Ctrl-[hjkl]
