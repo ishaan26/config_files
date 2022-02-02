@@ -3,24 +3,36 @@
 pgrep -x sxhkd >/dev/null || sxhkd &
 
 ### Startup
+
 # Dual Screen
 xrandr --output HDMI-1-0 --primary --right-of eDP-1 --auto
+
 # Wallpaper
 feh --bg-fill ~/Pictures/Wallpapers/*
+
 # Fusuma
 pgrep fusuma || fusuma -d
+
 # Compositor
 pgrep compton || compton &
+
 # Clipboard history
 pgrep clipit || clipit &
+
 # Network
 nm-applet &
+
 # Policy Kit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # Nvidia Setting (fix screen tear)
 nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')" > /dev/null
+
 # Polybar
 $HOME/.config/polybar/launch.sh &
+
+# Map capslock to esc
+setxkbmap -option caps:escape
 
 # bspwm stuff
 bspc monitor HDMI-1-0 -d      
