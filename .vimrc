@@ -494,4 +494,6 @@ let g:ale_fixers = {
 """""""" Set Color scheme
 colorscheme onedark
 hi Normal guibg=NONE ctermbg=NONE
-" let g:airline_theme='onedark'
+
+" Set line number color
+highlight LineNr ctermfg=243
