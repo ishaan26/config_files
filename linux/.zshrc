@@ -38,6 +38,9 @@ plugins=(
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241,bold,underline"
 
+# Set Editor
+export VISUAL=nvim;
+export EDITOR=nvim;
 
 # Globbing
 setopt extended_glob
@@ -69,4 +72,3 @@ fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
 compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-
