@@ -54,6 +54,9 @@ source ~/.aliases
 # Go Path
 export GOPATH="/home/ishaan/go"
 
+# Cargo Variables
+export CARGO_TARGET_DIR=$HOME/.cargo/target_dump
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -69,4 +72,3 @@ fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
 compinit
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-
