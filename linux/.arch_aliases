@@ -16,7 +16,7 @@ function update() {
     yay
 
     echo -e "\n=> ${BOLD}${GREEN}Updating flatpaks${NONE} \n"
-    flatpak update -y
+    sudo flatpak update -y
 
     echo -e "\n=> ${BOLD}${GREEN}Updating cartes${NONE} \n"
     cargo install-update -a
