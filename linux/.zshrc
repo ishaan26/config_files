@@ -33,6 +33,7 @@ plugins=(
     python
     rust
     zsh-syntax-highlighting
+    deno
     nvm
     zsh-autosuggestions
     autojump
@@ -74,6 +75,10 @@ export CARGO_TARGET_DIR=$HOME/.cargo/target_dump
 export NVM_DIR="/home/ishaan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Deno
+export DENO_INSTALL="/home/ishaan/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 ###############################
 # P10K ZSH THEME
