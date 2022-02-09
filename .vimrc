@@ -40,6 +40,8 @@ Plug 'mbbill/undotree'                            " Show undo history
 Plug 'machakann/vim-highlightedyank'              " Highlight the line yanked
 Plug 'andymass/vim-matchup'                       " Visualize, navigate, and operate on sets of matching text
 Plug 'voldikss/vim-floaterm'                      " Use (neo)vim terminal in the floating/popup window
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Git Support
 Plug 'airblade/vim-gitgutter'                     " Show Git Modifications
@@ -329,6 +331,10 @@ nmap <leader>w :w<CR>
 
 " Qick-exit
 nmap <leader>q :q<CR>
+
+" Fuzzy finder
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
 
 " Quickly add blank lines in normal mode without moving the cursor
 
