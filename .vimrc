@@ -176,7 +176,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>r <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -327,7 +327,7 @@ nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nnoremap <leader><leader> <c-^>
 
 " Quick-save
-nmap <leader>w :w<CR>
+nmap <leader>w :wa<CR>
 
 " Qick-exit
 nmap <leader>q :q<CR>
