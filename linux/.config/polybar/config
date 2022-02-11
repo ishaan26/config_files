@@ -61,7 +61,7 @@ height = 40
 
 bottom = true
 
-modules-left = rofi-window files mail bitwarden chrome firefox whatsapp libreoffice spotify_app pamac-manager vscode terminal separator google youtube reddit office github separator info-trash screenshot
+modules-left = rofi-window files mail bitwarden chrome firefox discord whatsapp libreoffice spotify_app pamac-manager vscode terminal separator google youtube reddit office github separator info-trash screenshot
 modules-center = bspwm i3
 modules-right = wlan eth separator filesystem-root separator memory cpu temperature powermenu
 
