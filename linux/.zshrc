@@ -61,6 +61,9 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 ## qt5ct Environment Variable
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
+## Set mouse scrolling with less
+export LESS='--mouse --wheel-lines=3'
+
 ## Set Editor
 export VISUAL=nvim;
 export EDITOR=nvim;
