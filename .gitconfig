@@ -20,6 +20,8 @@
     features = line-numbers decorations
     syntax-theme = OneHalfDark
     line-numers = true
+    plus-style = syntax "#146329"
+    minus-style = syntax "#3f0001"
 
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
