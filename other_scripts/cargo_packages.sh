@@ -15,17 +15,19 @@ cargo install\
     du-dust \
     fd-find \
     hyperfine \
-    cargo-cache \
-    cargo-update \
-    cargo-watch \
     tealdeer \
     viu \
     git-delta \
     gping \
-    cargo-outdated \
-    cargo-tree \
     hexyl \
     bottom \
+    cargo-outdated \
+    cargo-cache \
+    cargo-update \
+    cargo-watch \
+    cargo-tree \
+    cargo-audit \
+    cargo-nextest \
 
 cargo install \
     tokei --features all \
