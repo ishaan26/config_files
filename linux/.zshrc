@@ -64,6 +64,10 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 ## Set mouse scrolling with less
 export LESS='--mouse --wheel-lines=3'
 
+## Github Folders
+export CF="$HOME/Documents/Github/config_files"
+export PJT="$HOME/Documents/Github/Learning"
+
 ## Set Editor
 export VISUAL=nvim;
 export EDITOR=nvim;
