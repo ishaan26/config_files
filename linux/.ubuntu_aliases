@@ -27,6 +27,12 @@ function update() {
     nvm install --lts
     nvm install node
     echo -e "\n${BOLD}Done${NONE}!"
+
+    echo -e "\n=> ${BOLD}${GREEN}Updating Github Directories${NONE} \n"
+    echo -e "=> ${CYAN}config_files:${NONE}"
+    git -C $CF pull
+    echo -e "=> ${CYAN}Learning:${NONE}"
+    git -C $PJT pull
 }
 
 alias autoremove='sudo apt autoremove'
