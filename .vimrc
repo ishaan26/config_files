@@ -461,6 +461,11 @@ let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 
 
+"""""""""" Fuzzy Finder Configuration
+let $FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+let $FZF_DEFAULT_OPTS='--height 70%  --border --inline-info'
+
+
 """""""""" Floterm Configuration
 " Toggle Floaterm
 let g:floaterm_keymap_toggle = '<F5>'

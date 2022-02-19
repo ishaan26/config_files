@@ -37,6 +37,7 @@ plugins=(
     nvm
     zsh-autosuggestions
     autojump
+    fzf
 )
 
 # Globbing
@@ -88,10 +89,12 @@ export DENO_INSTALL="/home/ishaan/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # fzf
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files'
-  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+if type fd &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    # export FZF_DEFAULT_COMMAND='rg --hidden --files'
+    export FZF_DEFAULT_OPTS='-m --height 50% --border --inline-info'
 fi
+
 
 ###############################
 # P10K ZSH THEME
