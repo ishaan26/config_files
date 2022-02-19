@@ -11,28 +11,36 @@ UNDERLINE='\033[4m'
 
 # Programs stuff
 function update() {
-    echo -e "\n=> ${BOLD}${GREEN}Updating packages${NONE} \n"
+    echo -e "=> ${BOLD}${GREEN}Updating packages${NONE} \n"
     sudo apt update && sudo apt upgrade -y
+    echo -e "\n\n"
 
-    echo -e "\n=> ${BOLD}${GREEN}Updating flatpaks${NONE} \n"
+    echo -e "=> ${BOLD}${GREEN}Updating flatpaks${NONE} \n"
     flatpak update -y
+    echo -e "\n\n"
 
-    echo -e "\n=> ${BOLD}${GREEN}Updating cartes${NONE} \n"
+    echo -e "=> ${BOLD}${GREEN}Updating cartes${NONE} \n"
     cargo install-update -a
+    echo -e "\n\n"
 
-    echo -e "\n=> ${BOLD}${GREEN}Updating other stuff${NONE} \n"
+    echo -e "=> ${BOLD}${GREEN}Updating other stuff${NONE} \n"
     echo -e "=> ${CYAN}Rustup:${NONE}"
     rustup update
-    echo -e "\n=> ${CYAN}Node Version Manager:${NONE}"
+    echo -e "\n"
+    echo -e "=> ${CYAN}Node Version Manager:${NONE}"
     nvm install --lts
     nvm install node
-    echo -e "\n${BOLD}Done${NONE}!"
+    echo -e "\n\n"
 
-    echo -e "\n=> ${BOLD}${GREEN}Updating Github Directories${NONE} \n"
+    echo -e "=> ${BOLD}${GREEN}Updating Github Directories${NONE} \n"
     echo -e "=> ${CYAN}config_files:${NONE}"
     git -C $CF pull
+    echo -e "\n"
     echo -e "=> ${CYAN}Learning:${NONE}"
     git -C $PJT pull
+    echo -e "\n\n"
+
+    echo -e "${BOLD}Done${NONE}!"
 }
 
 alias autoremove='sudo apt autoremove'
