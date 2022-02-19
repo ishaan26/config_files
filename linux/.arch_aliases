@@ -28,6 +28,12 @@ function update() {
     nvm install --lts
     nvm install node
 
+    echo -e "\n=> ${BOLD}${GREEN}Updating Github Directories${NONE} \n"
+    echo -e "=> ${CYAN}config_files:${NONE}"
+    git -C $CF pull
+    echo -e "=> ${CYAN}Learning:${NONE}"
+    git -C $PJT pull
+
     echo -e "\n${BOLD}Done${NONE}!"
 }
 
@@ -100,6 +106,7 @@ alias ll="lsd -lh"
 alias ls="lsd"
 alias tree="lsd --tree"
 alias vim="nvim"
+alias vimf='nvim $(fzf --height 40% --reverse)'
 alias tk="tmux kill-session -a"
 alias ta="tmux attach-session -t Hack"
 
