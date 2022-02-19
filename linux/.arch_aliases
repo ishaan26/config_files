@@ -57,8 +57,6 @@ function pjt() {
     cd ~/Documents/Github/Learning
     if [[ $1 == "-f"  ]]; then
         git fetch
-    elif [[ $1 == "-rust" ]]; then
-        cd ~/Documents/Github/Learning/Languages/Rust
     fi
 }
 
@@ -83,21 +81,6 @@ function ocrall() {
         echo -e "\nRescannig $i"
         ocrmypdf --force-ocr $i $i
     done
-}
-
-# Rust Stuff
-function rsfa() {
-    # Format all the rust projects in a directory tree.
-    O=$(pwd)
-    for location in $(find . -name src); do
-        A=$(realpath $location)
-        cd $A
-        cd ..
-        cargo fmt
-        echo "Formated $(pwd)"
-        cd $O
-    done
-
 }
 
 # Custom Aliases
