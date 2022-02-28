@@ -12,15 +12,15 @@ source ~/.nvm/nvm.sh
 nvm install node
 
 # language packages and utilities
-#Ubuntu
+# Ubuntu
 if hash 2>/dev/null apt-get; then
     sudo snap install shfmt
     sudo apt install zsh gcc cmake clang default-jre default-jdk astyle
-#Arch
+# Arch
 elif hash 2>/dev/null pacman; then
     arch_packages="shfmt zsh gcc cmake clang jdk-openjdk jre-openjdk astyle python"
     sudo pacman -S $arch_packages --needed --noconfirm
-#Mac Os
+# Mac Os
 elif [ "Darwin" == "$(uname -s)" ]; then
     brew install shfmt astyle
 fi
