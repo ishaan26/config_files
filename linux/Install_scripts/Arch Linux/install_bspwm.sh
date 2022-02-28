@@ -7,14 +7,18 @@ SCRIPT_DIR="$(dirname "$0")"
 cd "${SCRIPT_DIR}"
 source ../common.sh
 
-# Check System as the script only works on Ubintu 20.04 based OSs
-check_os # Produces $OS and $VER from common.sh
+check_os
 
-if [[ "$OS" == "Arch Linux" ]]; then
+if hash 2>/dev/null pacman; then
     echo ""
 else
     echo "Scripts is not for $OS"
     exit
+fi
+
+if ! sudo -nv 2>/dev/null; then
+    echo 'Root privlages are required'
+    sudo -v
 fi
 
 check_root # Checks sudo privlages of the shell from common.sh

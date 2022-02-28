@@ -11,11 +11,16 @@ source ./common.sh
 # Check System as the script only works on Ubintu 20.04 based OSs
 check_os # Produces $OS and $VER from common.sh
 
-if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" || "$OS" == "Fedora" || "$OS" == "Arch Linux" ]]; then
+if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" || "$OS" == "Fedora" || "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
     echo ""
 else
     echo "Scripts is not for $OS"
     exit
+fi
+
+# Hack to make the arch linux sctripts to work with manjaro
+if [[ "$OS" == "Manjaro Linux" ]]; then
+    OS='Arch Linux'
 fi
 
 # function to display menus

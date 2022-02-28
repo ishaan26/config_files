@@ -7,10 +7,9 @@ SCRIPT_DIR="$(dirname "$0")"
 cd "${SCRIPT_DIR}"
 source ../common.sh
 
-# Check System as the script only works on Ubintu 20.04 based OSs
 check_os
 
-if [[ "$OS" == "Arch Linux" ]]; then
+if hash 2>/dev/null pacman; then
     echo ""
 else
     echo "Scripts is not for $OS"
@@ -49,8 +48,5 @@ if ! hash pamac 2>/dev/null; then
 fi
 
 # Vim setup
-# link config files
 ln -sf $HOME/Documents/Github/config_files/.vimrc $HOME/.vimrc
 ln -sf $HOME/Documents/Github/config_files/linux/.config/nvim $HOME/.config/nvim
-## Install vunle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
