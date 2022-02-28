@@ -25,6 +25,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/snap/bin
 
+# Language
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8
+
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
