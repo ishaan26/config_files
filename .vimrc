@@ -51,7 +51,7 @@ Plug 'vim-airline/vim-airline'                    " Vim bar
 Plug 'vim-airline/vim-airline-themes'             " Themes for the bar
 
 " Intellisense like
-Plug 'neoclide/coc.nvim'                          " VS code like laguage server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Node extentions for vim
 
 " Rust
 Plug 'rust-lang/rust.vim'                         " Rust lang plugin
@@ -115,11 +115,11 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-    " Recently vim can merge signcolumn and number column into one
-    set signcolumn=number
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
 else
-    set signcolumn=yes
+  set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
