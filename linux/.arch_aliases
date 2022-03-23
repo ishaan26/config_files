@@ -28,11 +28,13 @@ function update() {
     nvm install --lts
     nvm install node
 
-    echo -e "\n=> ${BOLD}${GREEN}Updating Github Directories${NONE} \n"
-    echo -e "=> ${CYAN}config_files:${NONE}"
+    echo -e "\n=> ${BOLD}${GREEN}Updating Github Directories${NONE}"
+    echo -e "\n=> ${CYAN}config_files:${NONE}"
     git -C $CF pull
-    echo -e "=> ${CYAN}Learning:${NONE}"
+    echo -e "\n=> ${CYAN}Learning:${NONE}"
     git -C $PJT pull
+    echo -e "\n=> ${CYAN}implementor:${NONE}"
+    git -C $RS pull
 
     echo -e "\n${BOLD}Done${NONE}!"
 }
@@ -47,14 +49,21 @@ function zsh_colors(){
 
 
 function cf() {
-    cd ~/Documents/Github/config_files
+    cd $CF
     if [[ $1 == "-f"  ]]; then
        git fetch
     fi
 }
 
 function pjt() {
-    cd ~/Documents/Github/Learning
+    cd $PJT
+    if [[ $1 == "-f"  ]]; then
+        git fetch
+    fi
+}
+
+function rs() {
+    cd $RS
     if [[ $1 == "-f"  ]]; then
         git fetch
     fi
