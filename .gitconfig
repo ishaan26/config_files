@@ -1,6 +1,7 @@
 [user]
     email = ishaangoel.99@gmail.com
     name = Ishaan Goel
+	signingkey = 0E6951900DED125D
 
 [core]
     pager = delta
@@ -58,3 +59,5 @@
 
 [github]
     user = ishaan26
+[commit]
+	gpgsign = true
