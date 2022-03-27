@@ -100,6 +100,7 @@ if type fd &> /dev/null; then
     export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
     # export FZF_DEFAULT_COMMAND='rg --hidden --files'
     export FZF_DEFAULT_OPTS='-m --height 50% --border --inline-info'
+    export FZF_ALT_C_COMMAND='fd --type d --type l --hidden --follow --exclude .git'
 fi
 
 
