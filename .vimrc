@@ -62,6 +62,7 @@ Plug 'sheerun/vim-polyglot'                       " Language packs
 Plug 'ap/vim-css-color'                           " Show hex colors in vim
 Plug 'luochen1990/rainbow'                        " Color bracket indents differently
 Plug 'preservim/nerdcommenter'                    " Comment lines of code
+Plug 'lervag/vimtex'                              " Vim Latex
 
 " Nerd Tree
 Plug 'scrooloose/nerdtree'                        " Show file directory
@@ -93,7 +94,8 @@ let g:coc_global_extensions = [
 \       'coc-sh',
 \       'coc-vetur',
 \       'coc-html',
-\       'coc-markdownlint'
+\       'coc-markdownlint',
+\       'coc-vimtex'
 \ ]
 
 " TextEdit might fail if hidden is not set.
@@ -494,6 +496,10 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
+"""""" Vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
 
 """""""" Set Color scheme
 colorscheme onedark
