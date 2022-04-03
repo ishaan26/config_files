@@ -1,0 +1,1 @@
+syntax spell toplevel
