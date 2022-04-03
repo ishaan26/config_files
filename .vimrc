@@ -42,6 +42,7 @@ Plug 'andymass/vim-matchup'                       " Visualize, navigate, and ope
 Plug 'voldikss/vim-floaterm'                      " Use (neo)vim terminal in the floating/popup window
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'sirver/ultisnips'                            "Use snippets in vim
 
 " Git Support
 Plug 'airblade/vim-gitgutter'                     " Show Git Modifications
@@ -500,6 +501,10 @@ let g:ale_fixers = {
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+
+"""""" Utilsnippets
+let g:UltiSnipsExpandTrigger = '<s-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<s-tab>'
 
 """""""" Set Color scheme
 colorscheme onedark
