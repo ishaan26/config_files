@@ -3,7 +3,11 @@ snippet beg\ "begin{} / end{}" bA
 \end{$1}
 endsnippet
 
-snippet itb\ "Bold Item" bA
+snippet i\ "Item" bA
+\item $1
+endsnippet
+
+snippet ib\ "Bold Item" bA
 \item \textbf{$1}
 endsnippet
 
@@ -15,10 +19,18 @@ snippet sec\ "Section" A
 \section{$1}
 endsnippet
 
-snippet b\ "Bold" A
+snippet ssec\ "SubSection" A
+\subsection{$1}
+endsnippet
+
+snippet sssec\ "SubSubSection" A
+\subsubsection{$1}
+endsnippet
+
+snippet bf\ "Bold" A
 \textbf{$1}
 endsnippet
 
-snippet b\ "Italics" A
+snippet it\ "Italics" A
 \textit{$1}
 endsnippet
