@@ -68,8 +68,8 @@ super + ctrl + {m,x,y,z}
 #############
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+super + {_,shift + }{j,k}
+	bspc node -{f,s} {south,north}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
@@ -84,11 +84,11 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {x}
+super + {l}
 	bspc {node,desktop} -f next
 
 # focus the last node/desktop
-super + {z}
+super + {h}
 	bspc {node,desktop} -f prev
 
 # focus the older or newer node in the focus history
