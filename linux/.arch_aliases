@@ -98,7 +98,7 @@ alias ll="lsd -lh"
 alias ls="lsd"
 alias tree="lsd --tree"
 alias vim="nvim"
-alias vimf='nvim $(fzf --height 40% --reverse)'
+alias vimf='nvim "$(fzf --height 40% --reverse)"'
 alias tk="tmux kill-session -a"
 alias ta="tmux attach-session -t Hack"
 
