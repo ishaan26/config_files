@@ -13,9 +13,9 @@ nvm install node
 
 # language packages and utilities
 # Ubuntu
-if hash 2>/dev/null apt-get; then
+if hash 2>/dev/null apt then
     sudo snap install shfmt
-    sudo apt install zsh gcc cmake clang default-jre default-jdk astyle
+    sudo apt install zsh gcc cmake clang default-jre default-jdk astyle build-essentials pkg-config libssl-dev
 # Arch
 elif hash 2>/dev/null pacman; then
     arch_packages="shfmt zsh gcc cmake clang jdk-openjdk jre-openjdk astyle python"

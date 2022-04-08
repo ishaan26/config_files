@@ -13,7 +13,11 @@ UNDERLINE='\033[4m'
 function update() {
 
     echo -e "\n=> ${BOLD}${GREEN}Updating packages${NONE} \n"
+    if hash 2>/dev/null pacman; then
     yay
+    elif hash 2>/dev/null apt; then
+    sudo apt update -y && sudo apt upgrade -y
+    fi
 
     echo -e "\n=> ${BOLD}${GREEN}Updating flatpaks${NONE} \n"
     sudo flatpak update -y
