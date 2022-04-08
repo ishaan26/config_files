@@ -9,7 +9,7 @@ source ../common.sh
 
 check_os
 
-if hash 2>/dev/null pacman; then
+if hash 2>/dev/null zypper; then
     echo ""
 else
     echo "Scripts is not for $OS"
