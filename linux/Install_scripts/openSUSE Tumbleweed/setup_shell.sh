@@ -16,6 +16,9 @@ else
     exit
 fi
 
+# Install dependencies
+sudo zypper install zsh vim neovim autojump tmux
+
 # Install Oh my zsh
 cd $HOME
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
