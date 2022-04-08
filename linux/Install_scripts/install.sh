@@ -11,7 +11,7 @@ source ./common.sh
 # Check System as the script only works on Ubintu 20.04 based OSs
 check_os # Produces $OS and $VER from common.sh
 
-if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" || "$OS" == "Fedora" || "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
+if [[ "$OS" == "Pop!_OS" || "$OS" == "Ubuntu" || "$OS" == "Fedora" || "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" || "$OS" == "openSUSE Tumbleweed"]]; then
     echo ""
 else
     echo "Scripts is not for $OS"
@@ -42,8 +42,8 @@ read_options() {
     read -p "Enter choice [1 - 5]: " choice
     case $choice in
     1) bash "$SCRIPT_DIR/${OS}/install_packages.sh" ;;
-    2) bash "$SCRIPT_DIR/${OS}/setup_shell.sh";;
-    3) bash "$SCRIPT_DIR/${OS}/install_bspwm.sh";;
+    2) bash "$SCRIPT_DIR/${OS}/setup_shell.sh" ;;
+    3) bash "$SCRIPT_DIR/${OS}/install_bspwm.sh" ;;
     4) install_fonts_common ;;
     5) exit 0 ;;
     *) echo -e "${RED}Please select a valid option${STD}" && sleep 1 ;;
