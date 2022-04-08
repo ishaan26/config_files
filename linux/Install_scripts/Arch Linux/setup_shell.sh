@@ -37,17 +37,18 @@ echo -e "\nInstalling Powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Install tmux
-cd $HOME
-ln -sf ~/Documents/Github/config_files/.tmux.conf
+ln -sf $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 
 # Link config files
-cd $HOME
 rm .zshrc
-ln -s ~/Documents/Github/config_files/linux/.zshrc
-ln -s ~/Documents/Github/config_files/linux/.arch_aliases .aliases
-ln -s ~/Documents/Github/config_files/.vimrc
-ln -s ~/Documents/Github/config_files/.p10k.zsh
-ln -s ~/Documents/Github/config_files/.tmux.conf
+ln -s $HOME/Documents/Github/config_files/linux/.zshrc $HOME/.zshrc
+ln -s $HOME/Documents/Github/config_files/linux/.arch_aliases
+ln -s $HOME/Documents/Github/config_files/.p10k.zsh $HOME/.p10k.zsh
+ln -s $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
+
+# Vim setup
+ln -sf $HOME/Documents/Github/config_files/.vimrc $HOME/.vimrc
+ln -sf $HOME/Documents/Github/config_files/linux/.config/nvim $HOME/.config/nvim
 
 echo -e "\nAll Done\n"
 pause "Press [Enter] to contiunue to main menu"

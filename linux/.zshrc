@@ -3,7 +3,7 @@ cd $HOME
 ###############################
 # TMUX
 ###############################
-if command -v tmux >/dev/null 2>&1 && [ "${DISPLAY}" ]; then
+if command -v tmux >/dev/null 2>&1; then
     # if not inside a tmux session, and if no session is started, start a new session
     [ -z "${TMUX}" ] && (tmux new -s "Hack") >/dev/null 2>&1
 fi

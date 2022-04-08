@@ -42,10 +42,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 ln -sf $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 
 # Link config files
-cd $HOME
 rm .zshrc
 ln -s $HOME/Documents/Github/config_files/linux/.zshrc $HOME/.zshrc
-ln -s $HOME/Documents/Github/config_files/linux/.arch_aliases $HOME/.aliases
+ln -s $HOME/Documents/Github/config_files/linux/.aliases
 ln -s $HOME/Documents/Github/config_files/.p10k.zsh $HOME/.p10k.zsh
 ln -s $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 
