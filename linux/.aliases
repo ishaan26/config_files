@@ -11,7 +11,6 @@ UNDERLINE='\033[4m'
 
 # Programs stuff
 function update() {
-
     echo -e "\n=> ${BOLD}${GREEN}Updating packages${NONE} \n"
     if hash 2>/dev/null pacman; then
     yay
@@ -51,7 +50,6 @@ function zsh_colors(){
     done
 }
 
-
 function cf() {
     cd $CF
     if [[ $1 == "-f"  ]]; then
@@ -77,7 +75,6 @@ function rs() {
 alias githistory="git log --oneline --graph --decorate --all"
 
 function gitupload() {
-
 	if [ -n "$1" ]; then
 		git add .
 		git commit -am "$1"
@@ -94,6 +91,21 @@ function ocrall() {
         echo -e "\nRescannig $i"
         ocrmypdf --force-ocr $i $i
     done
+}
+
+function tex2pdf() {
+	if [ -n "$1" ]; then
+        if [[ -f "$1".tex ]]; then
+            pandoc "$1".tex -o "$1".docx
+            if [[ "$2" == "-o" ]]; then
+                xdg-open "$1".docx &
+            fi
+        else
+            echo "No latex file found"
+        fi
+    else
+        echo "Please provide a latex file"
+    fi
 }
 
 # Custom Aliases
