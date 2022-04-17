@@ -98,7 +98,13 @@ function tex2pdf() {
         if [[ -f "$1".tex ]]; then
             pandoc "$1".tex -o "$1".docx
             if [[ "$2" == "-o" ]]; then
-                xdg-open "$1".docx &
+                if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
+                    explorer.exe "$1".docx
+                elif [[ "$(uname -s)" == "Linux" ]]; then
+                    xdg-open "$1".docx &
+                elif [[ "$(uname -s)" == "Darwin" ]]; then
+                    open "$1".docx
+                fi
             fi
         else
             echo "No latex file found"
