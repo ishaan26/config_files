@@ -60,7 +60,6 @@ Plug 'rust-lang/rust.vim'                         " Rust lang plugin
 " Syntax
 Plug 'mboughaba/i3config.vim'                     " i3 config plugin
 Plug 'sheerun/vim-polyglot'                       " Language packs
-Plug 'ap/vim-css-color'                           " Show hex colors in vim
 Plug 'luochen1990/rainbow'                        " Color bracket indents differently
 Plug 'preservim/nerdcommenter'                    " Comment lines of code
 Plug 'lervag/vimtex'                              " Vim Latex
