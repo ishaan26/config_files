@@ -93,7 +93,7 @@ function ocrall() {
     done
 }
 
-function tex2pdf() {
+function tex2word() {
 	if [ -n "$1" ]; then
         if [[ -f "$1".tex ]]; then
             pandoc "$1".tex -o "$1".docx
