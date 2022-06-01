@@ -16,6 +16,9 @@ else
     exit
 fi
 
+# Install dependencies
+sudo pacman -S zsh
+
 # Install Oh my zsh
 cd $HOME
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
@@ -42,7 +45,7 @@ ln -sf $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 # Link config files
 rm .zshrc
 ln -s $HOME/Documents/Github/config_files/linux/.zshrc $HOME/.zshrc
-ln -s $HOME/Documents/Github/config_files/linux/.arch_aliases
+ln -s $HOME/Documents/Github/config_files/linux/.aliases
 ln -s $HOME/Documents/Github/config_files/.p10k.zsh $HOME/.p10k.zsh
 ln -s $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 

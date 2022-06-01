@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Rust toolchain
-if ! command -v rustup &>/dev/null; then
+if hash rustup &>/dev/null; then
+    echo "rust is already installed"
+else
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
@@ -13,14 +15,12 @@ nvm install node
 
 # language packages and utilities
 # Ubuntu
-if hash 2>/dev/null apt then
+if hash 2>/dev/null apt; then
     sudo snap install shfmt
     sudo apt install zsh gcc cmake clang default-jre default-jdk astyle build-essentials pkg-config libssl-dev
-# Arch
 elif hash 2>/dev/null pacman; then
     arch_packages="shfmt zsh gcc cmake clang jdk-openjdk jre-openjdk astyle python"
     sudo pacman -S $arch_packages --needed --noconfirm
-# Mac Os
 elif [ "Darwin" == "$(uname -s)" ]; then
     brew install shfmt astyle
 fi
