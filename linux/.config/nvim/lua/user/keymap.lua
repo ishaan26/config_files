@@ -68,7 +68,7 @@ keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
 
 -- Center search results
-keymap("n", "nzz", opts)
+keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)

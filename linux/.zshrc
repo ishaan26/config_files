@@ -58,7 +58,7 @@ source ~/.aliases
 # Environment variables
 ###############################
 
-export TERM="xterm-256color"
+export TERM="screen-256color"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241,bold,underline"
 

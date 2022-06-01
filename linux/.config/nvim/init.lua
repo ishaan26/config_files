@@ -7,9 +7,26 @@ require "nvim-tree".setup {
 
 
 -- Set colorscheme
-vim.cmd "colorscheme onedark"
-vim.cmd "hi Normal guibg=NONE ctermbg=NONE"
+require('onedark').setup {
+    style = 'deep',
+	transparent = true,
+	term_colors = false,
+	code_style = {
+        comments = 'italic',
+        keywords = 'none',
+        functions = 'none',
+        strings = 'none',
+        variables = 'none'
+    },
+}
+require('onedark').load()
 
+-- Enable Lua Line
+require('lualine').setup{
+	options = {
+		theme = 'onedark'
+	}
+}
 
 -- Save cursor position
 vim.cmd [[
