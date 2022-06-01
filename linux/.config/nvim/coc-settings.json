@@ -1,9 +1,0 @@
-{
-    "rust-analyzer.inlayHints.typeHints":  false,
-    "diagnostic.displayByAle": true,
-    "markdownlint.config": {
-        "default": true,
-        "line-length": false,
-        "no-duplicate-heading": false
-    }
-}
