@@ -40,14 +40,43 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
+--------------------------------------------------------
+------------------- My plugins here --------------------
+--------------------------------------------------------
+
+	-- General Plugins --
+	use "wbthomason/packer.nvim" 				-- Have packer manage itself
+  	use "nvim-lua/popup.nvim" 					-- An implementation of the Popup API from vim in Neovim
+  	use "nvim-lua/plenary.nvim" 				-- Useful lua functions used by lots of plugins
+
+	-- File Tree --
+	use {
+	'kyazdani42/nvim-tree.lua',
+	requires = {
+	  'kyazdani42/nvim-web-devicons', 			-- optional, for file icon
+		},
+	}
+
+	-- Assistants --
+	use "jiangmiao/auto-pairs"					-- Auto close brackets
+	use "tpope/vim-surround"                    -- Creating surrounding characters
+	use "tpope/vim-repeat"                      -- The . command on steriod
+	use "machakann/vim-highlightedyank"         -- Highlight the line yanked
+	use "junegunn/fzf.vim"						-- Fuzzy finder
+
+	-- Visual --
+	use "vim-airline/vim-airline"               -- Vim bar
+	use "vim-airline/vim-airline-themes"        -- Themes for the bar
+	use "joshdick/onedark.vim"                  -- Ondark color scheme
+
+
+-------------------------------------------------------------------------
+
+
+  	-- Automatically set up your configuration after cloning packer.nvim
+  	-- Put this at the end after all plugins
+  	if PACKER_BOOTSTRAP then
+    	require("packer").sync()
+  	end
 end)

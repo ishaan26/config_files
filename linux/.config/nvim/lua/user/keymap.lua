@@ -43,11 +43,36 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Lex explorer
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
 
 -- Write and quit with <leader>
 keymap("n", "<leader>w", ":w<cr>", opts)
 keymap("n", "<leader>q", ":q<cr>", opts)
+
+-- Fuzzy Finder
+keymap("n", "<leader>f", ":Files<cr>", opts)
+keymap("n", "<C-f>", ":Rg<cr>", opts)
+
+-- Add blank lines
+keymap("n", "<leader>o", ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', opts)
+keymap("n", "<leader>O", ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', opts)
+
+-- Remove search highlighting
+keymap("n", "<F12>", ":noh<cr>", opts)
+
+-- Toggle relative Line Numbers
+keymap("n", "<F4>", ":set invrelativenumber<cr>", opts)
+
+-- Move by line
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+
+-- Center search results
+keymap("n", "nzz", opts)
+keymap("n", "N", "Nzz", opts)
+keymap("n", "*", "*zz", opts)
+keymap("n", "#", "#zz", opts)
+keymap("n", "g*", "g*zz", opts)
 
 -----------------------------------
 -- Insert --
