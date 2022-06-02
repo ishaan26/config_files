@@ -3,6 +3,7 @@ require("user.options")
 require("user.keymap")
 require("user.plugins")
 require("user.cmp")
+require("user.lsp")
 require("nvim-tree").setup {
 }
 
@@ -31,3 +32,9 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 ]]
+
+-- Rust options
+vim.g.rustfmt_autosave = 1
+vim.g.rustfmt_emit_files = 1
+vim.g.rustfmt_fail_silently = 0
+vim.g.rust_clip_command = 'xclip -selection clipboard'

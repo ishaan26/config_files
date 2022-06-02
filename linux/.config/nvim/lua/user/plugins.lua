@@ -47,7 +47,7 @@ return packer.startup(function(use)
 
 	-- General useins --
 	use "wbthomason/packer.nvim" -- Have packer manage itself
-	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+	use "nvim-lua/popup.nvim" -- to open a popup window in neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
 
 	-- File Tree --
@@ -74,9 +74,14 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-cmdline" -- command completion
 
 	-- snippets
-	use "L3MON4D3/LuaSnip"
-	use "saadparwaiz1/cmp_luasnip"
-	use "rafamadriz/friendly-snippets"
+	use "L3MON4D3/LuaSnip" -- install lua snip
+	use "saadparwaiz1/cmp_luasnip" -- snippet completions
+	use "rafamadriz/friendly-snippets" -- a bunch of snippets for different files.
+
+	-- LSP
+    use "neovim/nvim-lspconfig" -- enables lsp
+	use "williamboman/nvim-lsp-installer" -- lsp installer inside neovim
+	use "hrsh7th/cmp-nvim-lsp" -- lsp completions
 
 	-- rust
 	use {
@@ -87,6 +92,7 @@ return packer.startup(function(use)
 			require('crates').setup()
 		end,
 	}
+	use "rust-lang/rust.vim"
 
 	-- Visual --
 	use {

@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -128,6 +133,16 @@ _G.packer_plugins = {
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -157,6 +172,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["rust.vim"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/rust.vim",
+    url = "https://github.com/rust-lang/rust.vim"
   },
   ["vim-highlightedyank"] = {
     loaded = true,
