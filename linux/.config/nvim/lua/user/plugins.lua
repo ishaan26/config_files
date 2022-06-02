@@ -72,6 +72,7 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-buffer" -- buffer completion
 	use "hrsh7th/cmp-path" -- path completion
 	use "hrsh7th/cmp-cmdline" -- command completion
+	use "hrsh7th/cmp-nvim-lua" -- nvim lua command completion
 
 	-- snippets
 	use "L3MON4D3/LuaSnip" -- install lua snip
@@ -83,6 +84,14 @@ return packer.startup(function(use)
 	use "williamboman/nvim-lsp-installer" -- lsp installer inside neovim
 	use "hrsh7th/cmp-nvim-lsp" -- lsp completions
 
+	-- Syntax
+	use {
+        'nvim-treesitter/nvim-treesitter', -- treesitter
+        run = ':TSUpdate'
+    }
+	use "p00f/nvim-ts-rainbow" -- Colorful brackets
+	use "jose-elias-alvarez/null-ls.nvim" -- Formatting
+
 	-- rust
 	use {
     	'saecki/crates.nvim',
@@ -93,6 +102,9 @@ return packer.startup(function(use)
 		end,
 	}
 	use "rust-lang/rust.vim"
+
+	-- Git --
+	use "lewis6991/gitsigns.nvim" -- Git showcase
 
 	-- Visual --
 	use {

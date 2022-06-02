@@ -74,6 +74,9 @@ keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 
+-- Format document
+keymap("n", "<F2>", ":Format<cr>", opts)
+
 -----------------------------------
 -- Insert --
 -----------------------------------
@@ -81,6 +84,8 @@ keymap("n", "g*", "g*zz", opts)
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 
+-- Format document
+keymap("i", "<F2>", "<ESC>:Format<cr>i", opts)
 
 -----------------------------------
 -- Visual --
@@ -93,8 +98,7 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)  				-- hold on to the text yanked when pasted over something else.
-
+keymap("v", "p", '"_dP', opts) -- hold on to the text yanked when pasted over something else.
 
 -----------------------------------
 -- Visual Block --
