@@ -29,7 +29,7 @@ require("lualine").setup({
 })
 
 -- Enable Gitsigns
-require('gitsigns').setup()
+require("gitsigns").setup()
 
 -- Save cursor position
 vim.cmd([[
@@ -43,6 +43,9 @@ endif
 vim.cmd([[
 hi rainbowcol1 guifg=#E06C75
 ]])
+
+-- Format files
+vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 
 -- Rust options
 vim.g.rustfmt_autosave = 1
