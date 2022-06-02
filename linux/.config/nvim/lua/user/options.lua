@@ -11,7 +11,7 @@ local options = {
     mouse = "a",                             -- allow the mouse to be used in neovim
     pumheight = 10,                          -- pop up menu height
     showmode = true,                         -- we don't need to see things like -- INSERT -- anymore
-    showtabline = 1,                         -- always show tabs
+    showtabline = 2,                         -- always show tabs
     smartcase = true,                        -- smart case
     smartindent = true,                      -- make indenting smarter again
     splitbelow = true,                       -- force all horizontal splits to go below current window
@@ -33,7 +33,7 @@ local options = {
     wrap = true,                            -- text wrapping
     scrolloff = 8,                           -- is one of my fav
     sidescrolloff = 8,
-    guifont = "NovaMono Nerd Font:h12",               -- the font used in graphical neovim applications
+    guifont = "NovaMono Nerd Font:h12",      -- the font used in graphical neovim applications
 }
 
 vim.opt.shortmess:append "c"

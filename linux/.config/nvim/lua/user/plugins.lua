@@ -66,17 +66,13 @@ return packer.startup(function(use)
 	use "junegunn/fzf.vim" -- Fuzzy finder
 
 	-- Language Tools --
-	use {
-        'nvim-treesitter/nvim-treesitter', -- Tree sitter
-        run = ':TSUpdate'
-    }
+	
 
 	-- Visual --
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
-
 	use "navarasu/onedark.nvim" -- Onedark colorsheme
 
 	-------------------------------------------------------------------------
