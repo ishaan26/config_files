@@ -46,7 +46,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
 
 -- Write and quit with <leader>
-keymap("n", "<leader>w", ":w<cr>", opts)
+keymap("n", "<leader>w", ":wa<cr>", opts)
 keymap("n", "<leader>q", ":q<cr>", opts)
 
 -- Fuzzy Finder

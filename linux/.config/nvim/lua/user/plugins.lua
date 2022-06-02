@@ -23,7 +23,7 @@ vim.cmd [[
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
+-- Use a protected call so we don"t error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
@@ -45,16 +45,16 @@ return packer.startup(function(use)
 	------------------- My plugins here --------------------
 	--------------------------------------------------------
 
-	-- General Plugins --
+	-- General useins --
 	use "wbthomason/packer.nvim" -- Have packer manage itself
 	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
 
 	-- File Tree --
 	use {
-		'kyazdani42/nvim-tree.lua',
+		"kyazdani42/nvim-tree.lua",
 		requires = {
-			'kyazdani42/nvim-web-devicons', -- optional, for file icon
+			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
 	}
 
@@ -66,12 +66,32 @@ return packer.startup(function(use)
 	use "junegunn/fzf.vim" -- Fuzzy finder
 
 	-- Language Tools --
-	
+
+	-- completion
+	use "hrsh7th/nvim-cmp" -- main plugin for completion
+	use "hrsh7th/cmp-buffer" -- buffer completion
+	use "hrsh7th/cmp-path" -- path completion
+	use "hrsh7th/cmp-cmdline" -- command completion
+
+	-- snippets
+	use "L3MON4D3/LuaSnip"
+	use "saadparwaiz1/cmp_luasnip"
+	use "rafamadriz/friendly-snippets"
+
+	-- rust
+	use {
+    	'saecki/crates.nvim',
+		event = { "BufRead Cargo.toml" },
+		requires = { { 'nvim-lua/plenary.nvim' } },
+		config = function()
+			require('crates').setup()
+		end,
+	}
 
 	-- Visual --
 	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true }
 	}
 	use "navarasu/onedark.nvim" -- Onedark colorsheme
 

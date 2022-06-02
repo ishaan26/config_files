@@ -327,7 +327,7 @@ nmap <leader>q :q<CR>
 
 " Fuzzy finder
 nnoremap <silent> <C-f> :Files<CR>
-nnoremap <silent> <Leader>f :Rg<CR>
+nnoremap <silent> <Leader> :Rg<CR>
 
 " Quickly add blank lines in normal mode without moving the cursor
 

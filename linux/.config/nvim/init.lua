@@ -1,10 +1,10 @@
 -- Initialize modules
-require "user.options"
-require "user.keymap"
-require "user.plugins"
-require "nvim-tree".setup {
+require("user.options")
+require("user.keymap")
+require("user.plugins")
+require("user.cmp")
+require("nvim-tree").setup {
 }
-
 
 -- Set colorscheme
 require('onedark').setup {
@@ -12,11 +12,7 @@ require('onedark').setup {
 	transparent = true,
 	term_colors = true,
 	code_style = {
-        comments = 'italic',
-        keywords = 'none',
-        functions = 'none',
-        strings = 'none',
-        variables = 'none'
+        functions = 'italic',
     },
 }
 require('onedark').load()
