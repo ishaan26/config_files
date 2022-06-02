@@ -12,4 +12,8 @@ configs.setup({
 	rainbow = {
 		enable = true,
 	},
+
+	spellsitter = {
+		enable = true
+	}
 })

@@ -94,6 +94,7 @@ return packer.startup(function(use)
 	use "p00f/nvim-ts-rainbow" -- Colorful brackets
 	use "jose-elias-alvarez/null-ls.nvim" -- Formatting
 	use "norcalli/nvim-colorizer.lua" -- Color Highlighter 
+	use "lewis6991/spellsitter.nvim"
 
 	-- rust
 	use {

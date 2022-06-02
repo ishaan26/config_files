@@ -6,6 +6,7 @@ require("user.cmp")
 require("user.lsp")
 require("user.treesitter")
 require("colorizer").setup()
+require("spellsitter").setup()
 require("nvim-tree").setup({})
 
 -- mini plugins

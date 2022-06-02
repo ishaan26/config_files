@@ -218,6 +218,11 @@ _G.packer_plugins = {
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/rust.vim",
     url = "https://github.com/rust-lang/rust.vim"
   },
+  ["spellsitter.nvim"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/spellsitter.nvim",
+    url = "https://github.com/lewis6991/spellsitter.nvim"
+  },
   ["vim-highlightedyank"] = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/vim-highlightedyank",
