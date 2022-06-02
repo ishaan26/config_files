@@ -64,6 +64,8 @@ return packer.startup(function(use)
 	use "tpope/vim-repeat" -- The . command on steriod
 	use "machakann/vim-highlightedyank" -- Highlight the line yanked
 	use "junegunn/fzf.vim" -- Fuzzy finder
+	use { 'echasnovski/mini.nvim', branch = 'stable' } -- Collection of minimal, independent, and fast Lua modules
+	use "gennaro-tedesco/nvim-peekup" -- use vim registers easily
 
 	-- Language Tools --
 
@@ -91,6 +93,7 @@ return packer.startup(function(use)
     }
 	use "p00f/nvim-ts-rainbow" -- Colorful brackets
 	use "jose-elias-alvarez/null-ls.nvim" -- Formatting
+	use "norcalli/nvim-colorizer.lua" -- Color Highlighter 
 
 	-- rust
 	use {

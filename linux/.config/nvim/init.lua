@@ -5,7 +5,14 @@ require("user.plugins")
 require("user.cmp")
 require("user.lsp")
 require("user.treesitter")
+require("colorizer").setup()
 require("nvim-tree").setup({})
+
+-- mini plugins
+require("mini.starter").setup()
+require("mini.comment").setup()
+require("mini.comment").setup()
+require("mini.tabline").setup()
 
 -- Set colorscheme
 require("onedark").setup({
