@@ -39,6 +39,9 @@ function update() {
     echo -e "\n=> ${CYAN}implementor:${NONE}"
     git -C $RS pull
 
+    echo -e "\n=> ${BOLD}${GREEN}Updating neovim plugins${NONE}"
+	nvim -c "PackerUpdate" -c "qa!"
+
     echo -e "\n${BOLD}Done${NONE}!"
 }
 
