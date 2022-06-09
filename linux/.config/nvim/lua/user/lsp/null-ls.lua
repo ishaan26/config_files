@@ -23,7 +23,6 @@ null_ls.setup({
 		formatting.stylua,
 		diagnostics.flake8,
 		diagnostics.zsh,
-		code_actions.gitsigns,
 		code_actions.shellcheck,
 		code_actions.eslint_d,
 		hover.dictionary,
