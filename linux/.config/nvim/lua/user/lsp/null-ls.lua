@@ -25,6 +25,7 @@ null_ls.setup({
 		diagnostics.zsh,
 		code_actions.gitsigns,
 		code_actions.shellcheck,
+		code_actions.eslint_d,
 		hover.dictionary,
 	},
 })

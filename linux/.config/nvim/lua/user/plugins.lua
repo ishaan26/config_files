@@ -44,20 +44,19 @@ return packer.startup(function(use)
 	------------------- My plugins here --------------------
 	--------------------------------------------------------
 
+	--------------------
 	-- General useins --
+	--------------------
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- to open a popup window in neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 
-	-- File Tree --
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icon
-		},
-	})
 
+	--------------------
 	-- Assistants --
+	--------------------
+	
+	-- General
 	use("jiangmiao/auto-pairs") -- Auto close brackets
 	use("tpope/vim-surround") -- Creating surrounding characters
 	use("tpope/vim-repeat") -- The . command on steriod
@@ -65,21 +64,34 @@ return packer.startup(function(use)
 	use("junegunn/fzf.vim") -- Fuzzy finder
 	use({ "echasnovski/mini.nvim", branch = "stable" }) -- Collection of minimal, independent, and fast Lua modules
 	use("gennaro-tedesco/nvim-peekup") -- use vim registers easily
+
+	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
+	use("nvim-telescope/telescope-ui-select.nvim")
 
+	-- File tree
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons", -- optional, for file icon
+		},
+	})
+
+	--------------------
 	-- Language Tools --
+	--------------------
 
-	-- completion
+	-- Completion
 	use("hrsh7th/nvim-cmp") -- main plugin for completion
 	use("hrsh7th/cmp-buffer") -- buffer completion
 	use("hrsh7th/cmp-path") -- path completion
 	use("hrsh7th/cmp-cmdline") -- command completion
 	use("hrsh7th/cmp-nvim-lua") -- nvim lua command completion
 
-	-- snippets
+	-- Snippets
 	use("L3MON4D3/LuaSnip") -- install lua snip
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets for different files.
@@ -105,7 +117,7 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua") -- Color Highlighter
 	use("lewis6991/spellsitter.nvim") -- Spell checker using treesitter
 
-	-- rust
+	-- Rust
 	use({
 		"saecki/crates.nvim", -- Crate versions in Cargo.toml files
 		event = { "BufRead Cargo.toml" },
@@ -116,10 +128,14 @@ return packer.startup(function(use)
 	})
 	use("rust-lang/rust.vim") -- Rust support for neovim
 
+	--------------------
 	-- Git --
+	--------------------
 	use("lewis6991/gitsigns.nvim") -- Show git diff lines
 
+	--------------------
 	-- Visual --
+	--------------------
 	use({
 		"nvim-lualine/lualine.nvim", -- the bar at the bottom
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
