@@ -79,7 +79,10 @@ keymap("n", "<F3>", ":Format<cr>", opts)
 
 -- lsp stuff
 vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
-vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, opts)
+vim.keymap.set("n", "<leader>s", vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "<leader>t", vim.lsp.buf.rename, opts)
+
 -----------------------------------
 -- Insert --
 -----------------------------------

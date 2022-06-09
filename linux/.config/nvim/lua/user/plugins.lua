@@ -51,11 +51,10 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim") -- to open a popup window in neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 
-
 	--------------------
 	-- Assistants --
 	--------------------
-	
+
 	-- General
 	use("jiangmiao/auto-pairs") -- Auto close brackets
 	use("tpope/vim-surround") -- Creating surrounding characters
@@ -100,6 +99,8 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enables lsp
 	use("williamboman/nvim-lsp-installer") -- lsp installer inside neovim
 	use("hrsh7th/cmp-nvim-lsp") -- lsp completions
+	use("RishabhRD/popfix")
+	use("RishabhRD/nvim-lsputils")
 
 	-- Code Actions
 	use({

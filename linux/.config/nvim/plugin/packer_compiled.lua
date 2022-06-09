@@ -176,6 +176,11 @@ _G.packer_plugins = {
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-lsputils"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/nvim-lsputils",
+    url = "https://github.com/RishabhRD/nvim-lsputils"
+  },
   ["nvim-peekup"] = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/nvim-peekup",
@@ -215,6 +220,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  popfix = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/popfix",
+    url = "https://github.com/RishabhRD/popfix"
   },
   ["popup.nvim"] = {
     loaded = true,
