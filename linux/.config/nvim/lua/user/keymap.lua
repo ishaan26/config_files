@@ -49,9 +49,9 @@ keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>w", ":wa<cr>", opts)
 keymap("n", "<leader>q", ":q<cr>", opts)
 
--- Fuzzy Finder
-keymap("n", "<leader>f", ":Files<cr>", opts)
-keymap("n", "<C-f>", ":Rg<cr>", opts)
+-- Telescope
+keymap("n", "<leader>f", ":Telescope find_files<cr>", opts)
+keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
 
 -- Add blank lines
 keymap("n", "<leader>o", ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', opts)
@@ -75,8 +75,11 @@ keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 
 -- Format document
-keymap("n", "<F2>", ":Format<cr>", opts)
+keymap("n", "<F3>", ":Format<cr>", opts)
 
+-- lsp stuff
+vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 -----------------------------------
 -- Insert --
 -----------------------------------
