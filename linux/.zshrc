@@ -51,7 +51,7 @@ setopt extended_glob
 source $ZSH/oh-my-zsh.sh
 
 # Source aliases
-source ~/.aliases
+source ~/.aliases.sh
 
 
 ###############################

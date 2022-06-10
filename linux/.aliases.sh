@@ -40,8 +40,7 @@ function update() {
     git -C $RS pull
 
     echo -e "\n=> ${BOLD}${GREEN}Updating neovim plugins${NONE}"
-	nvim -c "PackerUpdate" -c "qa!"
-
+	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     echo -e "\n${BOLD}Done${NONE}!"
 }
 
