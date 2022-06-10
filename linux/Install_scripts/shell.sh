@@ -5,28 +5,29 @@ clear
 SCRIPT_DIR="$(dirname "$0")"
 
 cd "${SCRIPT_DIR}"
-source ../common.sh
+source ./common.sh
 
 check_os
 
-if hash 2>/dev/null apt; then
-    echo ""
+if hash 2>/dev/null pacman; then
+	echo ""
 else
-    echo "Scripts is not for $OS"
-    exit
+	echo "Scripts is not for $OS"
+	exit
 fi
-# Install Dependencies
-sudo apt install zsh zsh-doc curl wget neofetch python3 git font-manager tmux neovim vim fzf autojump
+
+# Install dependencies
+sudo pacman -S zsh
 
 # Install Oh my zsh
 cd $HOME
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
-    echo "Could not install Oh My Zsh" >/dev/stderr
-    exit 1
+	echo "Could not install Oh My Zsh" >/dev/stderr
+	exit 1
 }
 
 # Install custom Plugins
-cd $HOME
+cd ~
 echo -e "\nInstalling zsh syntax highlighting"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
@@ -44,13 +45,13 @@ ln -sf $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 # Link config files
 rm .zshrc
 ln -s $HOME/Documents/Github/config_files/linux/.zshrc $HOME/.zshrc
-ln -s $HOME/Documents/Github/config_files/linux/.aliases
+ln -s $HOME/Documents/Github/config_files/linux/.aliases.sh
 ln -s $HOME/Documents/Github/config_files/.p10k.zsh $HOME/.p10k.zsh
 ln -s $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 
-# Vim setup
+# vim and neovim setup
 ln -sf $HOME/Documents/Github/config_files/.vimrc $HOME/.vimrc
 ln -sf $HOME/Documents/Github/config_files/linux/.config/nvim $HOME/.config/nvim
 
-echo "\nAll Done\n"
+echo -e "\nAll Done\n"
 pause "Press [Enter] to contiunue to main menu"
