@@ -1,43 +1,74 @@
 #!/bin/bash
 
-# Rust toolchain
+# Font Colors
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+WHITE='\033[01;37m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+
+# Rust
+echo -e "\n=> ${BOLD}${GREEN}Installing rust toolchain${NONE} \n"
 if hash rustup &>/dev/null; then
-    echo "rust is already installed"
+	echo "rust is already installed"
 else
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
+# JavaScript
 # Node
+echo -e "\n=> ${BOLD}${GREEN}Installing javascript stuff${NONE} \n"
+echo -e "=> ${CYAN}Node Version Manager:${NONE}"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-source ~/.nvm/nvm.sh
+source "$HOME"/.nvm/nvm.sh
 nvm install node
 
-# language packages and utilities
-# Ubuntu
-if hash 2>/dev/null apt; then
-    sudo snap install shfmt
-    sudo apt install zsh gcc cmake clang default-jre default-jdk astyle build-essentials pkg-config libssl-dev
-elif hash 2>/dev/null pacman; then
-    arch_packages="shfmt zsh gcc cmake clang jdk-openjdk jre-openjdk astyle python"
-    sudo pacman -S $arch_packages --needed --noconfirm
-elif [ "Darwin" == "$(uname -s)" ]; then
-    brew install shfmt astyle
-fi
+# LSP Stuff
+echo -e "\n=> ${CYAN}LSPs:${NONE}"
+npm i -g prettier eslint
 
-# Other language tools
-echo "Installing python formatter"
+# Python
+# pip
+echo -e "\n=> ${BOLD}${GREEN}Installing python stuff${NONE} \n"
+sudo pacman -S python python-pip --needed --noconfirm
+
+# LSP Stuff
+echo -e "\n=> ${CYAN}LSPs:${NONE}"
+pip install pyright
 pip install yapf
+pip install flake8
 
-echo "Installing HTML, CSS, JavaScript formatter"
-if ! npm list -g js-beautify >/dev/null 2>&1; then
-    npm install -g js-beautify
-else
-    echo "Already Installed"
+# Lua
+echo -e "\n=> ${BOLD}${GREEN}Installing lua stuff${NONE} \n"
+sudo pacman -S lua --needed --noconfirm
+
+# LSP Stuff
+echo -e "\n=> ${CYAN}LSPs:${NONE}"
+sudo pacman -S stylua --needed --noconfirm
+
+# Shell
+echo -e "\n=> ${BOLD}${GREEN}Installing shell stuff${NONE} \n"
+sudo pacman -S zsh --needed --noconfirm
+
+# LSP Stuff
+echo -e "\n=> ${CYAN}LSPs:${NONE}"
+sudo pacman -S shfmt --needed --noconfirm
+if ! hash 2>/dev/null shellcheck; then
+	yay -S shellcheck-bin
 fi
+npm i -g bash-language-server
 
-echo "Installing TypeScript formatter"
-if ! npm list -g typescript-formatter >/dev/null 2>&1; then
-    npm install -g typescript-formatter
-else
-    echo "Already Installed"
+# Stuff for other languages
+echo -e "\n=> ${BOLD}${GREEN}Installing stuff for other languages${NONE} \n"
+if hash 2>/dev/null apt; then
+	sudo snap install shfmt
+	sudo apt install zsh gcc cmake clang default-jre default-jdk astyle build-essentials pkg-config libssl-dev
+elif hash 2>/dev/null pacman; then
+	sudo pacman -S gcc cmake clang jdk-openjdk jre-openjdk astyle python --needed --noconfirm
+elif [ "Darwin" == "$(uname -s)" ]; then
+	brew install shfmt astyle
 fi
