@@ -11,7 +11,7 @@ FONTS="$(realpath "$SCRIPT_DIR"/../../patched\ fonts/fonts/)"
 
 sudo mkdir -p /usr/share/fonts/
 
-cd "$FONTS/" || echo "Unable to install fonts" && exit
+cd "$FONTS/" 
 for font in ./*; do
 	sudo cp "$font" /usr/share/fonts/
 	echo "installed $font"

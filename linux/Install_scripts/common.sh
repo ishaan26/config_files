@@ -39,8 +39,7 @@ check_os() {
 }
 
 pause() {
-	read -pr "$*"
-	clear
+	read -p "$*"
 }
 
 
