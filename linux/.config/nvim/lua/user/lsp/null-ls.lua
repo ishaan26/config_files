@@ -21,6 +21,7 @@ null_ls.setup({
 		formatting.prettierd,
 		formatting.yapf,
 		formatting.stylua,
+		formatting.shfmt,
 		diagnostics.flake8,
 		diagnostics.zsh,
 		code_actions.shellcheck,
