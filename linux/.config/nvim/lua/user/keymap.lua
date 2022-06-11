@@ -24,6 +24,48 @@ vim.g.maplocalleader = " "
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("i", "<F5>", function()
+	require("knap").process_once()
+end)
+vim.keymap.set("v", "<F5>", function()
+	require("knap").process_once()
+end)
+vim.keymap.set("n", "<F5>", function()
+	require("knap").process_once()
+end)
+
+-- F6 closes the viewer application, and allows settings to be reset
+vim.keymap.set("i", "<F6>", function()
+	require("knap").close_viewer()
+end)
+vim.keymap.set("v", "<F6>", function()
+	require("knap").close_viewer()
+end)
+vim.keymap.set("n", "<F6>", function()
+	require("knap").close_viewer()
+end)
+
+-- F7 toggles the auto-processing on and off
+vim.keymap.set("i", "<F7>", function()
+	require("knap").toggle_autopreviewing()
+end)
+vim.keymap.set("v", "<F7>", function()
+	require("knap").toggle_autopreviewing()
+end)
+vim.keymap.set("n", "<F7>", function()
+	require("knap").toggle_autopreviewing()
+end)
+
+-- F8 invokes a SyncTeX forward search, or similar, where appropriate
+vim.keymap.set("i", "<F8>", function()
+	require("knap").forward_jump()
+end)
+vim.keymap.set("v", "<F8>", function()
+	require("knap").forward_jump()
+end)
+vim.keymap.set("n", "<F8>", function()
+	require("knap").forward_jump()
+end)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
@@ -83,6 +125,9 @@ vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, opts)
 vim.keymap.set("n", "<leader>s", vim.lsp.buf.definition, opts)
 vim.keymap.set("n", "<leader>t", vim.lsp.buf.rename, opts)
 
+-- Toruble
+keymap("n", "<leader>x", ":TroubleToggle<cr>", opts)
+
 -----------------------------------
 -- Insert --
 -----------------------------------
@@ -115,3 +160,50 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-----------------------------------
+-- Later and Markdown previewer
+-----------------------------------
+-- F5 processes the document once, and refreshes the view
+vim.keymap.set("i", "<F5>", function()
+	require("knap").process_once()
+end)
+vim.keymap.set("v", "<F5>", function()
+	require("knap").process_once()
+end)
+vim.keymap.set("n", "<F5>", function()
+	require("knap").process_once()
+end)
+
+-- F6 closes the viewer application, and allows settings to be reset
+vim.keymap.set("i", "<F6>", function()
+	require("knap").close_viewer()
+end)
+vim.keymap.set("v", "<F6>", function()
+	require("knap").close_viewer()
+end)
+vim.keymap.set("n", "<F6>", function()
+	require("knap").close_viewer()
+end)
+
+-- F7 toggles the auto-processing on and off
+vim.keymap.set("i", "<F7>", function()
+	require("knap").toggle_autopreviewing()
+end)
+vim.keymap.set("v", "<F7>", function()
+	require("knap").toggle_autopreviewing()
+end)
+vim.keymap.set("n", "<F7>", function()
+	require("knap").toggle_autopreviewing()
+end)
+
+-- F8 invokes a SyncTeX forward search, or similar, where appropriate
+vim.keymap.set("i", "<F8>", function()
+	require("knap").forward_jump()
+end)
+vim.keymap.set("v", "<F8>", function()
+	require("knap").forward_jump()
+end)
+vim.keymap.set("n", "<F8>", function()
+	require("knap").forward_jump()
+end)

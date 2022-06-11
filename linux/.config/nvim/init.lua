@@ -7,12 +7,15 @@ require("user.lsp")
 require("user.treesitter")
 require("user.telescope")
 require("user.nvim-tree")
+require("user.trouble")
+require("user.fidget")
+
 require("colorizer").setup()
 require("spellsitter").setup()
+require("gitsigns").setup()
 
 -- mini plugins
 require("mini.starter").setup()
-require("mini.comment").setup()
 require("mini.comment").setup()
 require("mini.tabline").setup()
 
@@ -28,6 +31,7 @@ require("onedark").setup({
 		TSComment = { fg = "#6B859E" },
 	},
 })
+
 require("onedark").load()
 
 -- Enable Lua Line
@@ -36,9 +40,6 @@ require("lualine").setup({
 		theme = "onedark",
 	},
 })
-
--- Enable Gitsigns
-require("gitsigns").setup()
 
 -- Save cursor position
 vim.cmd([[
@@ -55,6 +56,9 @@ hi rainbowcol1 guifg=#E06C75
 
 -- Format files
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+
+vim.ui.input = require("popui.input-overrider")
+vim.cmd([[ nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR> ]])
 
 -- Rust options
 vim.g.rustfmt_autosave = 1

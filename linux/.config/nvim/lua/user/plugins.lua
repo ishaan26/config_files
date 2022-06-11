@@ -63,17 +63,19 @@ return packer.startup(function(use)
 	use("junegunn/fzf.vim") -- Fuzzy finder
 	use({ "echasnovski/mini.nvim", branch = "stable" }) -- Collection of minimal, independent, and fast Lua modules
 	use("gennaro-tedesco/nvim-peekup") -- use vim registers easily
+	use("RishabhRD/popfix") -- popup fixes
+	use("hood/popui.nvim") -- Pop ui for neovim
 
 	-- Telescope
 	use({
-		"nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope.nvim", -- Fuzzy finder on steroids
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-ui-select.nvim")
 
 	-- File tree
 	use({
-		"kyazdani42/nvim-tree.lua",
+		"kyazdani42/nvim-tree.lua", -- File tree
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
@@ -99,8 +101,12 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enables lsp
 	use("williamboman/nvim-lsp-installer") -- lsp installer inside neovim
 	use("hrsh7th/cmp-nvim-lsp") -- lsp completions
-	use("RishabhRD/popfix")
-	use("RishabhRD/nvim-lsputils")
+	use("RishabhRD/nvim-lsputils") -- better defaults for nvim lsp
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
+	use("j-hui/fidget.nvim") -- lsp progress handler
 
 	-- Code Actions
 	use({
@@ -128,6 +134,9 @@ return packer.startup(function(use)
 		end,
 	})
 	use("rust-lang/rust.vim") -- Rust support for neovim
+
+	-- Latex and markdown
+	use("frabjous/knap") -- previewer
 
 	--------------------
 	-- Git --

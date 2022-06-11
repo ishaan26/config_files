@@ -118,6 +118,11 @@ _G.packer_plugins = {
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/opt/crates.nvim",
     url = "https://github.com/saecki/crates.nvim"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -132,6 +137,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  knap = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/knap",
+    url = "https://github.com/frabjous/knap"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -226,6 +236,11 @@ _G.packer_plugins = {
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/popfix",
     url = "https://github.com/RishabhRD/popfix"
   },
+  ["popui.nvim"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/popui.nvim",
+    url = "https://github.com/hood/popui.nvim"
+  },
   ["popup.nvim"] = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/popup.nvim",
@@ -250,6 +265,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-highlightedyank"] = {
     loaded = true,
