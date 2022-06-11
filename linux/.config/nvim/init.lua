@@ -9,15 +9,13 @@ require("user.telescope")
 require("user.nvim-tree")
 require("user.trouble")
 require("user.fidget")
+require("user.mini")
+require("user.gitsigns")
+require("user.neoclip")
+require("user.dressing")
 
 require("colorizer").setup()
 require("spellsitter").setup()
-require("gitsigns").setup()
-
--- mini plugins
-require("mini.starter").setup()
-require("mini.comment").setup()
-require("mini.tabline").setup()
 
 -- Set colorscheme
 require("onedark").setup({
@@ -56,9 +54,6 @@ hi rainbowcol1 guifg=#E06C75
 
 -- Format files
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
-
-vim.ui.input = require("popui.input-overrider")
-vim.cmd([[ nnoremap ,d :lua require'popui.diagnostics-navigator'()<CR> ]])
 
 -- Rust options
 vim.g.rustfmt_autosave = 1

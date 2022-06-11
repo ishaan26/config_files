@@ -45,7 +45,7 @@ return packer.startup(function(use)
 	--------------------------------------------------------
 
 	--------------------
-	-- General useins --
+	-- Packer --
 	--------------------
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- to open a popup window in neovim
@@ -57,14 +57,21 @@ return packer.startup(function(use)
 
 	-- General
 	use("jiangmiao/auto-pairs") -- Auto close brackets
-	use("tpope/vim-surround") -- Creating surrounding characters
 	use("tpope/vim-repeat") -- The . command on steriod
 	use("machakann/vim-highlightedyank") -- Highlight the line yanked
 	use("junegunn/fzf.vim") -- Fuzzy finder
 	use({ "echasnovski/mini.nvim", branch = "stable" }) -- Collection of minimal, independent, and fast Lua modules
 	use("gennaro-tedesco/nvim-peekup") -- use vim registers easily
 	use("RishabhRD/popfix") -- popup fixes
-	use("hood/popui.nvim") -- Pop ui for neovim
+	use("MunifTanjim/nui.nvim")
+	use("stevearc/dressing.nvim")
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = {
+			{ "tami5/sqlite.lua", module = "sqlite" },
+			{ "nvim-telescope/telescope.nvim" },
+		},
+	})
 
 	-- Telescope
 	use({

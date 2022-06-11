@@ -45,8 +45,8 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 			enable = false,
 			icons = {
 				corner = "└ ",
-				edge = "│ ",
-				item = "│ ",
+				edge = "┃ ",
+				item = "┃ ",
 				none = "  ",
 			},
 		},
