@@ -5,7 +5,7 @@ return {
       ["rust-analyzer"] = {
         -- enable clippy diagnostics on save
         checkOnSave = {
-          command = "clippy"
+          command = "check"
         },
       }
     }
