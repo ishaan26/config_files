@@ -91,6 +91,9 @@ keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>w", ":wa<cr>", opts)
 keymap("n", "<leader>q", ":q<cr>", opts)
 
+-- Toggle between current and last buffer
+keymap("n", "<leader><leader>", "<c-^>", opts)
+
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files<cr>", opts)
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
