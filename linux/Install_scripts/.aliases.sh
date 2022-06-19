@@ -1,1 +1,0 @@
-/home/ishaan/Documents/Github/config_files/linux/.aliases.sh

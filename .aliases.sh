@@ -16,8 +16,8 @@ function update() {
 	echo -e "\n=> ${BOLD}${GREEN}Updating packages${NONE} \n"
 	if hash 2>/dev/null pacman; then
 		yay
-	elif hash 2>/dev/null apt; then
-		sudo apt update -y && sudo apt upgrade -y
+	elif hash 2>/dev/null brew; then
+		brew update && brew upgrade && brew upgrade --cask
 	fi
 
 	echo -e "\n=> ${BOLD}${GREEN}Updating flatpaks${NONE} \n"
@@ -45,7 +45,6 @@ function update() {
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 	echo -e "\n${BOLD}Done${NONE}!"
 }
-
 
 function zsh_colors() {
 	for i in {0..255}; do
@@ -129,4 +128,8 @@ alias vim="nvim"
 alias vimf='nvim "$(fzf --height 40% --reverse)"'
 alias tk="tmux kill-session -a"
 alias ta="tmux attach-session -t Hack"
-alias myip="ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
+if [[ "$(uname -s)" == "Linux" ]]; then
+	alias myip="ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
+elif [[ "$(uname -s)" == "Darwin" ]]; then
+	alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
+fi

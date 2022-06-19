@@ -80,7 +80,7 @@ export LESS='--mouse --wheel-lines=3'
 ## Github Folders
 export CF="$HOME/Documents/Github/config_files"
 export PJT="$HOME/Documents/Github/Learning"
-export RS="$HOME/Documents/Github/zung"
+export RS="$HOME/Documents/Github/implementor"
 
 ## Set Editor
 export VISUAL=nvim;
@@ -118,10 +118,3 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-###############################
-# Vagrant command completion
-###############################
-fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
-compinit
-
-fpath+=${ZDOTDIR:-~}/.zsh_functions
