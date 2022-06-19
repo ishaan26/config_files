@@ -38,7 +38,7 @@ function update() {
 	git -C "$CF" pull
 	echo -e "\n=> ${CYAN}Learning:${NONE}"
 	git -C "$PJT" pull
-	echo -e "\n=> ${CYAN}implementor:${NONE}"
+	echo -e "\n=> ${CYAN}Zung:${NONE}"
 	git -C "$RS" pull
 
 	echo -e "\n=> ${BOLD}${GREEN}Updating neovim plugins${NONE}"
