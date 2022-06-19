@@ -1,3 +1,4 @@
+NEEDS TO BE RE WRITTEN
 # Linux, Mac, Termux and WSL Configuration files
 
 These are all my config files from different systems I use and also some patched nerdfonts.
