@@ -61,3 +61,5 @@
     user = ishaan26
 [commit]
 	gpgsign = true
+[pull]
+	ff = only
