@@ -80,7 +80,7 @@ export LESS='--mouse --wheel-lines=3'
 ## Github Folders
 export CF="$HOME/Documents/Github/config_files"
 export PJT="$HOME/Documents/Github/Learning"
-export RS="$HOME/Documents/Github/implementor"
+export RS="$HOME/Documents/Github/zung"
 
 ## Set Editor
 export VISUAL=nvim;
