@@ -168,16 +168,13 @@ install_wm() {
 		# Install Polybar
 		yay -S polybar
 
-		# Install Compton
-		yay -S compton-tryone-git
+		# Install Picom
+		# TODO
 
-		cd $HOME/.config
-		tell_location
-
-		for file in $HOME/Documents/Github/config_files/linux/.config/*; do
+		for file in $HOME/Documents/Github/config_files/.config/*; do
 			filename="$(basename "$file")"
 			# TODO: Exclude the already existing files.
-			ln -s $HOME/Documents/Github/config_files/.config/"$filename" .
+			ln -s $HOME/Documents/Github/config_files/.config/"$filename" "$HOME"/.config/
 			echo "Linked $filename"
 		done
 
