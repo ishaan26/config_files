@@ -297,6 +297,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/vim-repeat",
     url = "https://github.com/tpope/vim-repeat"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/ishaan/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
