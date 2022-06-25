@@ -132,15 +132,15 @@ vim.keymap.set("n", "<leader>t", vim.lsp.buf.rename, opts)
 -- Toruble
 keymap("n", "<leader>x", ":TroubleToggle<cr>", opts)
 
+-- Rust
+keymap("n", "<F2>", ":RustTest<cr>", opts)
+
 -----------------------------------
 -- Insert --
 -----------------------------------
 
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
-
--- Format document
-keymap("i", "<F2>", "<ESC>:Format<cr>i", opts)
 
 -----------------------------------
 -- Visual --
