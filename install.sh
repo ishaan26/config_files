@@ -87,13 +87,16 @@ install_packages() {
 }
 
 install_shell() {
-
+if ! hash yay 2>/dev/null; then
+	echo -n "Please install packages first\n"
+	fi
 	clear
 	echo -e "\n=> ${BOLD}${GREEN}Installing and setting up shell stuff${NONE} \n"
 
 	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		# Install dependencies
-		sudo pacman -S zsh fzf --needed
+		sudo pacman -S zsh fzf tmux --needed
+
 
 		# Install Oh my zsh
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch
