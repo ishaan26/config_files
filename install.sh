@@ -84,6 +84,10 @@ install_packages() {
 		echo " TODO: write install packages script for Mac"
 
 	fi
+	
+		echo -e "\nAll Done\n"
+	pause "Press [Enter] to contiunue to main menu"
+	clear
 }
 
 install_shell() {
