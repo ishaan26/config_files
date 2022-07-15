@@ -114,6 +114,8 @@ install_shell() {
 		ln -sf $HOME/Documents/Github/config_files/.aliases.sh $HOME/.aliases.sh
 		ln -sf $HOME/Documents/Github/config_files/.p10k.zsh $HOME/.p10k.zsh
 		ln -sf $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
+		ln -sf $HOME/Documents/Github/config_files/.gitconfig $HOME/.gitconfig
+
 
 		# vim and neovim setup
 		ln -sf $HOME/Documents/Github/config_files/.vimrc $HOME/.vimrc
