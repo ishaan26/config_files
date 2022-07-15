@@ -99,7 +99,7 @@ install_shell() {
 
 	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		# Install dependencies
-		sudo pacman -S zsh --needed
+		sudo pacman -S zsh fzf --needed
 
 		# Install Oh my zsh
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch
@@ -115,7 +115,7 @@ install_shell() {
 		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 		# Link config files
-		rm .zshrc
+		rm $HOME/.zshrc
 		ln -sf $HOME/Documents/Github/config_files/.zshrc $HOME/.zshrc
 		ln -sf $HOME/Documents/Github/config_files/.aliases.sh $HOME/.aliases.sh
 		ln -sf $HOME/Documents/Github/config_files/.p10k.zsh $HOME/.p10k.zsh
