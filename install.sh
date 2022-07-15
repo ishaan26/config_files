@@ -96,6 +96,7 @@ if ! hash yay 2>/dev/null; then
 	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		# Install dependencies
 		sudo pacman -S zsh fzf tmux --needed
+		yay -S autojump
 
 
 		# Install Oh my zsh
