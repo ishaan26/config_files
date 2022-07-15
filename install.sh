@@ -70,7 +70,6 @@ install_packages() {
 			net-tools \
 			neovim \
 			zsh \
-			vlc
 
 		# Install yay
 		if ! hash yay 2>/dev/null; then
@@ -79,11 +78,6 @@ install_packages() {
 			git clone https://aur.archlinux.org/yay.git
 			cd yay
 			makepkg -si
-		fi
-
-		# Install pamac
-		if ! hash pamac 2>/dev/null; then
-			yay -S --needed pamac-aur
 		fi
 
 	elif [[ "$OS" == "Darwin" ]]; then
@@ -314,6 +308,11 @@ install_language_tools() {
 install_cargo_packages() {
 
 	echo -e "\n=> ${BOLD}${GREEN}Installing cargo packages${NONE} \n"
+
+	if ! hash rustup &>/dev/null; then
+		echo -n "Please install language tools first\n"\
+		exit
+	fi
 
 	cargo install lsd \
 		onefetch \
