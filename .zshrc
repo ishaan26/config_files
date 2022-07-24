@@ -25,9 +25,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/snap/bin
 
-# Language
-# export LC_ALL=en_IN.UTF-8
-# export LANG=en_IN.UTF-8
+###############################
+# Terminal Setup
+###############################
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -45,6 +45,11 @@ plugins=(
     autojump
     fzf
 )
+
+# zoxide
+if command -v zoxide >/dev/null 2>&1; then
+	eval "$(zoxide init zsh)"
+fi
 
 # Globbing
 setopt extended_glob
