@@ -58,18 +58,17 @@ source ~/.aliases.sh
 # Environment variables
 ###############################
 
-export TERM="screen-256color"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241,bold,underline"
 
 ## Terminal Colors
+export TERM="screen-256color"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 ## Export for wsl gpg verification
 if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
     export GPG_TTY=$(tty)
 fi
-
 
 ## qt5ct Environment Variable
 export QT_QPA_PLATFORMTHEME="qt5ct"
@@ -86,9 +85,6 @@ export RS="$HOME/Documents/Github/zung"
 export VISUAL=nvim;
 export EDITOR=nvim;
 
-# Go Path
-export GOPATH="/home/ishaan/go"
-
 # Cargo Environment Variables
 export CARGO_TARGET_DIR=$HOME/.cargo/target_dump
 
@@ -102,10 +98,10 @@ export DENO_INSTALL="/home/ishaan/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # fzf
+export FZF_DEFAULT_OPTS='-m --height 50% --border --inline-info'
+
 if type fd &> /dev/null; then
     export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-    # export FZF_DEFAULT_COMMAND='rg --hidden --files'
-    export FZF_DEFAULT_OPTS='-m --height 50% --border --inline-info'
     export FZF_ALT_C_COMMAND='fd --type d --type l --hidden --follow --exclude .git'
 fi
 
@@ -116,5 +112,3 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
