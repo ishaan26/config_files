@@ -5,7 +5,7 @@ pgrep -x sxhkd >/dev/null || sxhkd &
 ### Startup
 
 # Dual Screen
-xrandr --output HDMI-1-0 --primary --right-of eDP-1 --auto
+xrandr --output HDMI-A-0 --primary --right-of eDP-1 --auto
 
 # Wallpaper
 feh --bg-fill ~/Pictures/bspwm/*
@@ -35,7 +35,7 @@ $HOME/.config/polybar/launch.sh &
 setxkbmap -option caps:escape
 
 # bspwm stuff
-bspc monitor HDMI-1-0 -d      
+bspc monitor HDMI-A-0 -d      
 bspc monitor eDP-1 -d      
 bspc monitor LVDS-1 -d      
 
