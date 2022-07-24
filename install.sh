@@ -320,7 +320,7 @@ install_cargo_packages() {
 	echo -e "\n=> ${BOLD}${GREEN}Installing cargo packages${NONE} \n"
 
 	if ! hash rustup &>/dev/null; then
-		echo -n "Please install language tools first\n"\
+		echo -n "Please install language tools first\n"
 		exit
 	fi
 
