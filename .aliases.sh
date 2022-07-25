@@ -11,7 +11,7 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
-# Programs stuff
+# System stuff
 function update() {
 	echo -e "\n=> ${BOLD}${GREEN}Updating packages${NONE} \n"
 	if hash 2>/dev/null pacman; then
@@ -55,28 +55,12 @@ function zsh_colors() {
 	done
 }
 
-function cf() {
-	cd "$CF" || echo "Directory not available"
-	if [[ $1 == "-f" ]]; then
-		git fetch
-	fi
-}
-
-function pjt() {
-	cd "$PJT" || echo "Directory not available"
-	if [[ $1 == "-f" ]]; then
-		git fetch
-	fi
-}
-
-function rs() {
-	cd "$RS" || echo "Directory not available"
-	if [[ $1 == "-f" ]]; then
-		git fetch
-	fi
-}
-
 #Git stuff
+
+alias cf='cd "$CF" 2>/dev/null || echo "Directory not available"'
+alias pjt='cd "$PJT" 2>/dev/null || echo "Directory not available"'
+alias rs='cd "$RS" 2>/dev/null || echo "Directory not available"'
+
 alias githistory="git log --oneline --graph --decorate --all"
 
 function gitupload() {
@@ -91,6 +75,7 @@ function gitupload() {
 }
 
 # Document stuff
+
 function ocrall() {
 	for i in ./*.pdf; do
 		echo -e "\nRescannig $i"
@@ -100,34 +85,56 @@ function ocrall() {
 
 function tex2word() {
 	if [ -n "$1" ]; then
-		if [[ -f "$1".tex ]]; then
-			pandoc "$1".tex -o "$1".docx
-			if [[ "$2" == "-o" ]]; then
-				if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
-					explorer.exe "$1".docx
-				elif [[ "$(uname -s)" == "Linux" ]]; then
-					xdg-open "$1".docx &
-				elif [[ "$(uname -s)" == "Darwin" ]]; then
-					open "$1".docx
+		if command -v pandoc >>/dev/null 2>&1; then
+			if [[ -f "$1".tex ]]; then
+				pandoc "$1".tex -o "$1".docx
+				if [[ "$2" == "-o" ]]; then
+					if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
+						explorer.exe "$1".docx
+					elif [[ "$(uname -s)" == "Linux" ]]; then
+						xdg-open "$1".docx &
+					elif [[ "$(uname -s)" == "Darwin" ]]; then
+						open "$1".docx
+					fi
 				fi
+			else
+				echo "No latex file found"
 			fi
 		else
-			echo "No latex file found"
+			echo "Please install pandoc"
 		fi
 	else
 		echo "Please provide a latex file"
 	fi
 }
 
-# Custom Aliases
-alias l="lsd -lah"
-alias ll="lsd -lh"
-alias ls="lsd"
-alias tree="lsd --tree"
-alias vim="nvim"
-alias vimf='nvim "$(fzf --height 40% --reverse)"'
-alias tk="tmux kill-session -a"
-alias ta="tmux attach-session -t Hack"
+# Command Stuff
+
+if command -v lsd >>/dev/null 2>&1; then
+	alias l="lsd -lah"
+	alias ll="lsd -lh"
+	alias ls="lsd"
+	alias tree="lsd --tree"
+fi
+
+if command -v nvim >>/dev/null 2>&1; then
+	alias vim="nvim"
+	alias vimf='nvim "$(fzf --height 40% --reverse)"'
+fi
+
+if command -v tmux >>/dev/null 2>&1; then
+	alias tk="tmux kill-session -a"
+	alias ta="tmux attach-session -t Hack"
+fi
+
+if command -v zoxide >>/dev/null 2>&1; then
+	alias cd="z"
+fi
+
+if command -v zoxide >>/dev/null 2>&1; then
+	alias cat="bat -p"
+fi
+
 if [[ "$(uname -s)" == "Linux" ]]; then
 	alias myip="ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 elif [[ "$(uname -s)" == "Darwin" ]]; then
