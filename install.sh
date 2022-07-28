@@ -339,6 +339,7 @@ install_cargo_packages() {
 		gping \
 		hexyl \
 		bottom \
+		zoxide \
 		cargo-outdated \
 		cargo-cache \
 		cargo-update \

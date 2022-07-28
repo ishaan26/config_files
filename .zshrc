@@ -42,7 +42,6 @@ plugins=(
     deno
     nvm
     zsh-autosuggestions
-    autojump
     fzf
 )
 
