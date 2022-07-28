@@ -160,7 +160,8 @@ install_wm() {
 			polkit-gnome \
 			python-dbus \
 			qt5ct \
-			lxappearance
+			lxappearance \
+			alacritty
 
 		# Install bspwm
 		sudo pacman -S --noconfirm bspwm
@@ -173,7 +174,7 @@ install_wm() {
 		yay -S polybar
 
 		# Install Picom
-		# TODO
+		yay -S picom-jonaburg-git 
 
 		for file in $HOME/Documents/Github/config_files/.config/*; do
 			filename="$(basename "$file")"

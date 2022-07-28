@@ -14,7 +14,7 @@ feh --bg-fill ~/Pictures/bspwm/*
 pgrep fusuma || fusuma -d
 
 # Compositor
-pgrep compton || compton &
+pgrep picom || picom --experimental-backend &
 
 # Clipboard history
 pgrep clipit || clipit &
