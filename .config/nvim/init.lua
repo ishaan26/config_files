@@ -15,6 +15,7 @@ require("user.neoclip")
 require("user.dressing")
 require("user.knap")
 require("user.which-key")
+require("user.bufferline")
 
 require("colorizer").setup()
 require("spellsitter").setup()
