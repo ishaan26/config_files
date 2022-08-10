@@ -64,7 +64,6 @@ vim.g.rustfmt_emit_files = 1
 vim.g.rustfmt_fail_silently = 0
 vim.g.rust_clip_command = "xclip -selection clipboard"
 
-
 local gknapsettings = {
 	texoutputext = "pdf",
 	textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",

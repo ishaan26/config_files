@@ -13,6 +13,8 @@ UNDERLINE='\033[4m'
 
 # System stuff
 function update() {
+
+	# Update Packages
 	echo -e "\n=> ${BOLD}${GREEN}Updating packages${NONE} \n"
 	if hash 2>/dev/null pacman; then
 		yay
@@ -20,8 +22,10 @@ function update() {
 		brew update && brew upgrade && brew upgrade --cask
 	fi
 
-	echo -e "\n=> ${BOLD}${GREEN}Updating flatpaks${NONE} \n"
-	sudo flatpak update -y
+	if hash 2>/dev/null flatpak; then
+		echo -e "\n=> ${BOLD}${GREEN}Updating flatpaks${NONE} \n"
+		sudo flatpak update -y
+	fi
 
 	echo -e "\n=> ${BOLD}${GREEN}Updating cartes${NONE} \n"
 	cargo install-update -a
@@ -29,9 +33,10 @@ function update() {
 	echo -e "\n=> ${BOLD}${GREEN}Updating other stuff${NONE} \n"
 	echo -e "=> ${CYAN}Rustup:${NONE}"
 	rustup update
+
 	echo -e "\n=> ${CYAN}Node Version Manager:${NONE}"
-	nvm install --lts
 	nvm install node
+	nvm install --lts
 
 	echo -e "\n=> ${BOLD}${GREEN}Updating Github Directories${NONE}"
 	echo -e "\n=> ${CYAN}config_files:${NONE}"
@@ -131,8 +136,12 @@ if command -v zoxide >>/dev/null 2>&1; then
 	alias cd="z"
 fi
 
-if command -v zoxide >>/dev/null 2>&1; then
+if command -v bat >>/dev/null 2>&1; then
 	alias cat="bat -p"
+fi
+
+if command -v batman >>/dev/null 2>&1; then
+	alias man="batman"
 fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then

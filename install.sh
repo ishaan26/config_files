@@ -39,7 +39,7 @@ else
 	VER=$(uname -r)
 fi
 
-if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
+if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" || "$OS" == "Darwin" ]]; then
 	echo ""
 else
 	echo "Scripts is not for $OS"

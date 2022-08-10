@@ -24,6 +24,7 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/snap/bin
+export PATH=$PATH:$HOME/Library/Python 
 
 ###############################
 # Terminal Setup
@@ -43,6 +44,8 @@ plugins=(
     nvm
     zsh-autosuggestions
     fzf
+	keychain
+	gpg-agent
 )
 
 # zoxide
@@ -93,7 +96,7 @@ export EDITOR=nvim;
 export CARGO_TARGET_DIR=$HOME/.cargo/target_dump
 
 # Node Version Manager
-export NVM_DIR="/home/ishaan/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -109,6 +112,7 @@ if type fd &> /dev/null; then
     export FZF_ALT_C_COMMAND='fd --type d --type l --hidden --follow --exclude .git'
 fi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###############################
 # P10K ZSH THEME
@@ -116,3 +120,10 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /Users/ishaangoel/.config/broot/launcher/bash/br
+
+
+zstyle :omz:plugins:keychain agents ssh,gpg
+zstyle :omz:plugins:keychain identities id_rsa 0E6951900DED125D
+
