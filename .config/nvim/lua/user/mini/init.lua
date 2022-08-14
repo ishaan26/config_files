@@ -1,5 +1,0 @@
-require("user.mini.starter")
-require("user.mini.comment")
-require("user.mini.surround")
-require("user.mini.jump")
-require("user.mini.indentscope")
