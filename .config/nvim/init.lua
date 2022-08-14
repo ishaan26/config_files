@@ -28,3 +28,6 @@ vim.cmd([[
 
 -- Command for formatting files through the lsp
 vim.cmd([[ command! LspFormat execute 'lua vim.lsp.buf.formatting()' ]])
+
+-- Rust autoformat on save
+vim.g.rustfmt_autosave = 1
