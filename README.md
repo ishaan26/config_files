@@ -21,13 +21,13 @@ These are all my config files from different systems I use and also some patched
 ## Important Notes
 
 1. These files have been configured for Acer Predator Helios 300 G-572. Therefore, many module configurations correspond to its hardware only. You will need to change few settings to match your hardware.
-2. The linux and i3 config files have been tested on a fresh install of Ubuntu 20.04 LTS and Arch Linux.
-3. The mac config files have been tested on macOS Catalina 10.15.4.
+2. The Linux and i3 config files have been tested on a fresh install of Ubuntu 20.04 LTS and Arch Linux.
+3. The Mac config files have been tested on macOS Catalina 10.15.4.
 4. The example images are a bit dated.
 
 ### Pro Tip
 
-You can soft link the config files and aliases files to the desired location directly from the git repo so that your changes can be directly uploaded to your github if you choose to do so.
+You can soft-link the config files and aliases files to the desired location directly from the git repo so that your changes can be directly uploaded to your Github if you choose to do so.
 
 *In any case, the files will still work if you just copy them to their supposed location*.
 
