@@ -125,10 +125,15 @@ keymap("n", "<F9>", ":FormatWrite<cr>", opts)
 keymap("n", "<F10>", ":LspFormat<cr>", opts)
 
 -- lsp stuff
-vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
-vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, opts)
-vim.keymap.set("n", "<leader>s", vim.lsp.buf.definition, opts)
-vim.keymap.set("n", "<leader>t", vim.lsp.buf.rename, opts)
+vim.keymap.set("n", "<leader>c", "<cmd>Lspsaga code_action<cr>", opts)
+vim.keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<cr>", opts)
+vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga preview_definition<cr>", opts)
+vim.keymap.set("n", "<leader>t", "<cmd>Lspsaga lsp_finder<cr>", opts)
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+
+vim.keymap.set("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+vim.keymap.set("n", "<leader>j", "<cmd>Lspsaga diagnostic_jump_next", opts)
+vim.keymap.set("n", "<leader>k", "<cmd>Lspsaga diagnostic_jump_prev", opts)
 
 -- Toruble
 keymap("n", "<leader>x", ":TroubleToggle<cr>", opts)

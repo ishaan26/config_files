@@ -65,6 +65,7 @@ return packer.startup(function(use)
 	use("RishabhRD/popfix") -- popup fixes
 	use("MunifTanjim/nui.nvim") -- Nvim UI component library.
 	use("stevearc/dressing.nvim") -- Nvim UI component library.
+	use("kkharji/lspsaga.nvim") -- A UI for LSP stuff.
 	use("folke/which-key.nvim") -- displays a popup with possible key bindings of the command you started typing.
 	use({
 		"AckslD/nvim-neoclip.lua", -- clipboard manager for neovim

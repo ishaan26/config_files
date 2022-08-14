@@ -158,6 +158,11 @@ _G.packer_plugins = {
     path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/knap",
     url = "https://github.com/frabjous/knap"
   },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
+    url = "https://github.com/kkharji/lspsaga.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/lualine.nvim",
