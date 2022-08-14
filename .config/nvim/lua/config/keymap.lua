@@ -133,8 +133,8 @@ vim.keymap.set("n", "<leader>t", "<cmd>Lspsaga lsp_finder<cr>", opts)
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 
 vim.keymap.set("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-vim.keymap.set("n", "<leader>j", "<cmd>Lspsaga diagnostic_jump_next", opts)
-vim.keymap.set("n", "<leader>k", "<cmd>Lspsaga diagnostic_jump_prev", opts)
+vim.keymap.set("n", "<leader>j", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+vim.keymap.set("n", "<leader>k", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 
 -- Toruble
 keymap("n", "<leader>x", ":TroubleToggle<cr>", opts)
