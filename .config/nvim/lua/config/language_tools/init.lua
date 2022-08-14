@@ -1,0 +1,6 @@
+require("config.language_tools.gitsigns")
+require("config.language_tools.cmp")
+require("config.language_tools.treesitter")
+require("config.language_tools.lsp")
+require("config.language_tools.formatter")
+require("config.language_tools.linter")

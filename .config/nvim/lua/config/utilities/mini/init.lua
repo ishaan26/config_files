@@ -1,0 +1,5 @@
+require("config.utilities.mini.starter")
+require("config.utilities.mini.comment")
+require("config.utilities.mini.surround")
+require("config.utilities.mini.jump")
+require("config.utilities.mini.indentscope")

@@ -1,0 +1,8 @@
+require("config.utilities.nvim-tree")
+require("config.utilities.bufferline")
+require("config.utilities.lualine")
+require("config.utilities.fidget")
+require("config.utilities.neoclip")
+require("config.utilities.telescope")
+require("config.utilities.which-key")
+require("config.utilities.mini")
