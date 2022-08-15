@@ -83,15 +83,15 @@ keymap("n", "<F9>", ":FormatWrite<cr>", opts)
 keymap("n", "<F10>", ":LspFormat<cr>", opts)
 
 -- lsp stuff
-vim.keymap.set("n", "<A-c>", "<cmd>Lspsaga code_action<cr>", opts)
-vim.keymap.set("n", "<A-r>", "<cmd>Lspsaga rename<cr>", opts)
-vim.keymap.set("n", "<A-d>", "<cmd>Lspsaga preview_definition<cr>", opts)
-vim.keymap.set("n", "<A-t>", "<cmd>Lspsaga lsp_finder<cr>", opts)
+vim.keymap.set("n", "mc", "<cmd>Lspsaga code_action<cr>", opts)
+vim.keymap.set("n", "mr", "<cmd>Lspsaga rename<cr>", opts)
+vim.keymap.set("n", "md", "<cmd>Lspsaga preview_definition<cr>", opts)
+vim.keymap.set("n", "mt", "<cmd>Lspsaga lsp_finder<cr>", opts)
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+vim.keymap.set("n", "me", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 
-vim.keymap.set("n", "<A-e>", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-vim.keymap.set("n", "<leader>j", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-vim.keymap.set("n", "<leader>k", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+vim.keymap.set("n", "mj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+vim.keymap.set("n", "mk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 
 -- Toruble
 keymap("n", "<leader>x", ":TroubleToggle<cr>", opts)
