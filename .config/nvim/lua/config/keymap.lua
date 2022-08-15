@@ -24,49 +24,6 @@ vim.g.maplocalleader = " "
 -----------------------------------
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-vim.keymap.set("i", "<F5>", function()
-	require("knap").process_once()
-end)
-vim.keymap.set("v", "<F5>", function()
-	require("knap").process_once()
-end)
-vim.keymap.set("n", "<F5>", function()
-	require("knap").process_once()
-end)
-
--- F6 closes the viewer application, and allows settings to be reset
-vim.keymap.set("i", "<F6>", function()
-	require("knap").close_viewer()
-end)
-vim.keymap.set("v", "<F6>", function()
-	require("knap").close_viewer()
-end)
-vim.keymap.set("n", "<F6>", function()
-	require("knap").close_viewer()
-end)
-
--- F7 toggles the auto-processing on and off
-vim.keymap.set("i", "<F7>", function()
-	require("knap").toggle_autopreviewing()
-end)
-vim.keymap.set("v", "<F7>", function()
-	require("knap").toggle_autopreviewing()
-end)
-vim.keymap.set("n", "<F7>", function()
-	require("knap").toggle_autopreviewing()
-end)
-
--- F8 invokes a SyncTeX forward search, or similar, where appropriate
-vim.keymap.set("i", "<F8>", function()
-	require("knap").forward_jump()
-end)
-vim.keymap.set("v", "<F8>", function()
-	require("knap").forward_jump()
-end)
-vim.keymap.set("n", "<F8>", function()
-	require("knap").forward_jump()
-end)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
@@ -89,8 +46,8 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
 
 -- Write and quit with <leader>
-keymap("n", "<leader>w", ":wa<cr>", opts)
-keymap("n", "<leader>q", ":q<cr>", opts)
+keymap("n", "<A-w>", ":wa<cr>", opts)
+keymap("n", "<A-q>", ":q<cr>", opts)
 
 -- Toggle between current and last buffer
 keymap("n", "<leader><leader>", "<c-^>", opts)
@@ -126,13 +83,13 @@ keymap("n", "<F9>", ":FormatWrite<cr>", opts)
 keymap("n", "<F10>", ":LspFormat<cr>", opts)
 
 -- lsp stuff
-vim.keymap.set("n", "<leader>c", "<cmd>Lspsaga code_action<cr>", opts)
-vim.keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<cr>", opts)
-vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga preview_definition<cr>", opts)
-vim.keymap.set("n", "<leader>t", "<cmd>Lspsaga lsp_finder<cr>", opts)
+vim.keymap.set("n", "<A-c>", "<cmd>Lspsaga code_action<cr>", opts)
+vim.keymap.set("n", "<A-r>", "<cmd>Lspsaga rename<cr>", opts)
+vim.keymap.set("n", "<A-d>", "<cmd>Lspsaga preview_definition<cr>", opts)
+vim.keymap.set("n", "<A-t>", "<cmd>Lspsaga lsp_finder<cr>", opts)
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 
-vim.keymap.set("n", "<leader>e", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+vim.keymap.set("n", "<A-e>", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 vim.keymap.set("n", "<leader>j", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 vim.keymap.set("n", "<leader>k", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 
@@ -173,7 +130,7 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -----------------------------------
--- Later and Markdown previewer
+-- Latex and Markdown previewer
 -----------------------------------
 -- F5 processes the document once, and refreshes the view
 vim.keymap.set("i", "<F5>", function()
