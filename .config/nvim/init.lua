@@ -31,3 +31,8 @@ vim.cmd([[ command! LspFormat execute 'lua vim.lsp.buf.formatting()' ]])
 
 -- Rust autoformat on save
 vim.g.rustfmt_autosave = 1
+
+-------------------------------------
+-- Neovide settings
+-------------------------------------
+vim.g.neovide_cursor_animation_length = 0.13
