@@ -1,4 +1,3 @@
-NEEDS TO BE RE WRITTEN
 # Linux and Mac configuration files
 
 I have made over 700 commits to this. lol
