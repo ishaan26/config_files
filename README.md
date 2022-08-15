@@ -3,20 +3,6 @@ NEEDS TO BE RE WRITTEN
 
 I have made over 700 commits to this. lol
 
-## Table of Contents
-
-1. [Pro Tip](#Pro-Tip)
-2. [Terminal Theme](#Terminal-Theme)
-    1. [Ubuntu](#Ubuntu)
-    2. [Mac](#Mac)
-    3. [WSL](#WSL)
-    4. [Termux](#Termux)
-3. [i3](#i3)
-    1. [i3-gaps-rounded-corners](#i3-gaps-rounded-corners)
-    2. [Compton-tryone](#Compton-tryone)
-    3. [Polybar](#Polybar)
-    4. [Rofi](#Rofi)
-
 ### Pro Tip
 
 You can soft-link the config files and aliases files to the desired location directly from the git repo so that your changes can be directly uploaded to your Github if you choose to do so.
