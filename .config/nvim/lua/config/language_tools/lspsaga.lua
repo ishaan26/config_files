@@ -13,7 +13,7 @@ lspsaga.setup({ -- defaults ...
 	code_action_prompt = {
 		enable = true,
 		sign = true,
-		sign_priority = 40,
+		sign_priority = 10,
 		virtual_text = false,
 	},
 	finder_definition_icon = "  ",
@@ -24,11 +24,11 @@ lspsaga.setup({ -- defaults ...
 		vsplit = "s",
 		split = "i",
 		quit = "<ESC>",
-		scroll_down = "<C-f>",
-		scroll_up = "<C-b>",
+		scroll_down = "<C-j>",
+		scroll_up = "<C-k>",
 	},
 	code_action_keys = {
-		quit = "<ESC",
+		quit = "<ESC>",
 		exec = "<CR>",
 	},
 	rename_action_keys = {
