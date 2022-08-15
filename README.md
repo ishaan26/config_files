@@ -44,12 +44,6 @@ Terminal: [Konsole](https://github.com/KDE/konsole)
 
 Terminal: [iTerm2](https://www.iterm2.com/)
 
-#### Steps to install
-
-* Soft Link or copy the `mac/.zshrc` and `.p10k.zsh` files in `$HOME`
-* Run `source ~/.zshrc`
-* Make sure the font of the terminal is set to a Nerd Font
-
 ## bspwm
 
 ![1](img/linux/i3-Desktop.png)
