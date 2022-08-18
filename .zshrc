@@ -104,6 +104,10 @@ export NVM_DIR="$HOME/.nvm"
 export DENO_INSTALL="/home/ishaan/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+# Go
+export GOPATH=/opt/homebrew/bin/go
+export PATH=$GOPATH/bin:$PATH
+
 # fzf
 export FZF_DEFAULT_OPTS='-m --height 50% --border --inline-info'
 
