@@ -47,8 +47,8 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
 
 -- Write and quit with <leader>
-keymap("n", "<A-w>", ":wa<cr>", opts)
-keymap("n", "<A-q>", ":q<cr>", opts)
+keymap("n", ";w", ":wa<cr>", opts)
+keymap("n", ";q", ":q<cr>", opts)
 
 -- Toggle between current and last buffer
 keymap("n", "<leader><leader>", "<c-^>", opts)
@@ -56,7 +56,6 @@ keymap("n", "<leader><leader>", "<c-^>", opts)
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files<cr>", opts)
 keymap("n", "<C-f>", ":Telescope live_grep<cr>", opts)
-keymap("n", "<leader>b", ":Telescope neoclip<cr>", opts)
 
 -- Add blank lines
 keymap("n", "<leader>o", ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', opts)
@@ -80,8 +79,8 @@ keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 
 -- Format document
-keymap("n", "<F9>", ":FormatWrite<cr>", opts)
-keymap("n", "<F10>", ":LspFormat<cr>", opts)
+keymap("n", "mf", ":FormatWrite<cr>", opts)
+keymap("n", "mg", ":LspFormat<cr>", opts)
 
 -- lsp stuff
 vim.keymap.set("n", "mc", "<cmd>Lspsaga code_action<cr>", opts)

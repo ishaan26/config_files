@@ -61,20 +61,12 @@ return packer.startup(function(use)
 	use("machakann/vim-highlightedyank") -- Highlight the line yanked
 	use("junegunn/fzf.vim") -- Fuzzy finder
 	use({ "echasnovski/mini.nvim", branch = "stable" }) -- Collection of minimal, independent, and fast Lua modules
-	use("gennaro-tedesco/nvim-peekup") -- use vim registers easily
 	use("RishabhRD/popfix") -- popup fixes
 	use("MunifTanjim/nui.nvim") -- Nvim UI component library.
 	use("stevearc/dressing.nvim") -- Nvim UI component library.
 	use("kkharji/lspsaga.nvim") -- A UI for LSP stuff.
-	use("folke/which-key.nvim") -- displays a popup with possible key bindings of the command you started typing.
-	use({
-		"AckslD/nvim-neoclip.lua", -- clipboard manager for neovim
-		requires = {
-			{ "tami5/sqlite.lua", module = "sqlite" },
-			{ "nvim-telescope/telescope.nvim" },
-		},
-	})
-
+	use("folke/which-key.nvim") -- displays a popup with possible key bindings
+	use("gennaro-tedesco/nvim-peekup") -- dynamically interact with neovim buffers
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim", -- Fuzzy finder on steroids
