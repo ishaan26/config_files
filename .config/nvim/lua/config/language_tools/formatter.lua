@@ -6,6 +6,9 @@ require("formatter").setup({
 	log_level = vim.log.levels.WARN,
 	-- All formatter configurations are opt-in
 	filetype = {
+
+		-- Avaiable formatters at https://github.com/mhartington/formatter.nvim
+
 		-- Formatter configurations for filetype "lua" go here
 		-- and will be executed in order
 		lua = {
@@ -33,5 +36,8 @@ require("formatter").setup({
 		typescript = {
 			require("formatter.filetypes.typescript").prettier,
 		},
+		c = {
+			require("formatter.filetypes.c").clangformat,
+		}
 	},
 })
