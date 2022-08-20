@@ -69,7 +69,7 @@ install_packages() {
 			inetutils \
 			net-tools \
 			neovim \
-			zsh \
+			zsh
 
 		# Install yay
 		if ! hash yay 2>/dev/null; then
@@ -84,15 +84,15 @@ install_packages() {
 		echo " TODO: write install packages script for Mac"
 
 	fi
-	
-		echo -e "\nAll Done\n"
+
+	echo -e "\nAll Done\n"
 	pause "Press [Enter] to contiunue to main menu"
 	clear
 }
 
 install_shell() {
-if ! hash yay 2>/dev/null; then
-	echo -n "Please install packages first\n"
+	if ! hash yay 2>/dev/null; then
+		echo -n "Please install packages first\n"
 	fi
 	clear
 	echo -e "\n=> ${BOLD}${GREEN}Installing and setting up shell stuff${NONE} \n"
@@ -101,7 +101,6 @@ if ! hash yay 2>/dev/null; then
 		# Install dependencies
 		sudo pacman -S zsh fzf tmux --needed
 		yay -S autojump
-
 
 		# Install Oh my zsh
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch
@@ -123,7 +122,6 @@ if ! hash yay 2>/dev/null; then
 		ln -sf $HOME/Documents/Github/config_files/.p10k.zsh $HOME/.p10k.zsh
 		ln -sf $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 		ln -sf $HOME/Documents/Github/config_files/.gitconfig $HOME/.gitconfig
-
 
 		# vim and neovim setup
 		ln -sf $HOME/Documents/Github/config_files/.vimrc $HOME/.vimrc
@@ -174,7 +172,7 @@ install_wm() {
 		yay -S polybar
 
 		# Install Picom
-		yay -S picom-jonaburg-git 
+		yay -S picom-jonaburg-git
 
 		for file in $HOME/Documents/Github/config_files/.config/*; do
 			filename="$(basename "$file")"
