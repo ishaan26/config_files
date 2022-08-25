@@ -99,6 +99,10 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip") -- install lua snip
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets for different files.
+	use("MarcWeber/vim-addon-mw-utils")
+	use("tomtom/tlib_vim")
+	use("garbas/vim-snipmate")
+	use("honza/vim-snippets")
 
 	-- LSP
 	use("williamboman/mason.nvim") -- Nextgen lsp handler for neovim

@@ -301,10 +301,20 @@ _G.packer_plugins = {
     path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  tlib_vim = {
+    loaded = true,
+    path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/tlib_vim",
+    url = "https://github.com/tomtom/tlib_vim"
+  },
   ["trouble.nvim"] = {
     loaded = true,
     path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["vim-addon-mw-utils"] = {
+    loaded = true,
+    path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/vim-addon-mw-utils",
+    url = "https://github.com/MarcWeber/vim-addon-mw-utils"
   },
   ["vim-highlightedyank"] = {
     loaded = true,
@@ -315,6 +325,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/vim-repeat",
     url = "https://github.com/tpope/vim-repeat"
+  },
+  ["vim-snipmate"] = {
+    loaded = true,
+    path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/vim-snipmate",
+    url = "https://github.com/garbas/vim-snipmate"
+  },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/Users/ishaangoel/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
   },
   ["which-key.nvim"] = {
     loaded = true,

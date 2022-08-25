@@ -58,24 +58,32 @@ for _, sign in ipairs(signs) do
 	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
-local config = {
-	-- show signs
-	signs = {
-		active = signs,
-	},
-	update_in_insert = true,
-	underline = true,
-	severity_sort = true,
-	float = {
-		focusable = false,
-		style = "minimal",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
-}
+-- local config = {
+-- 	-- show signs
+-- 	signs = {
+-- 		active = signs,
+-- 	},
+-- 	update_in_insert = true,
+-- 	underline = true,
+-- 	virtual_text = false,
+-- 	severity_sort = true,
+-- 	-- float = {
+-- 	-- 	focusable = false,
+-- 	-- 	style = "minimal",
+-- 	-- 	source = "always",
+-- 	-- 	header = "",
+-- 	-- 	prefix = "",
+-- 	-- },
+-- }
+--
+-- vim.diagnostic.config(config)
 
-vim.diagnostic.config(config)
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics,
+	{
+		virtual_text = false,
+	}
+)
 
 -------------------------------------
 -- language server configuration

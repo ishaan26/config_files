@@ -1,3 +1,5 @@
+local util = require "formatter.util"
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
 	-- Enable or disable logging
@@ -38,6 +40,18 @@ require("formatter").setup({
 		},
 		c = {
 			require("formatter.filetypes.c").clangformat,
+		},
+		tex = {
+			function()
+				return {
+					exe = "latexindent",
+					args = {
+						"-w",
+						util.escape_path(util.get_current_buffer_file_path()),
+					},
+					stdin = true,
+				}
+			end
 		}
 	},
 })

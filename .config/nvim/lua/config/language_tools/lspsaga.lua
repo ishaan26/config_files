@@ -1,6 +1,6 @@
 local lspsaga = require("lspsaga")
 lspsaga.setup({ -- defaults ...
-	debug = false,
+	debug = true,
 	use_saga_diagnostic_sign = true,
 	-- diagnostic sign
 	error_sign = "",
