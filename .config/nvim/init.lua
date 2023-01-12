@@ -27,7 +27,7 @@ vim.cmd([[
 ]])
 
 -- Command for formatting files through the lsp
-vim.cmd([[ command! LspFormat execute 'lua vim.lsp.buf.formatting()' ]])
+vim.cmd([[ command! LspFormat execute 'lua vim.lsp.buf.format { async = true }' ]])
 
 -- Rust autoformat on save
 vim.g.rustfmt_autosave = 1

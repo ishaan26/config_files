@@ -125,9 +125,9 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source /Users/ishaangoel/.config/broot/launcher/bash/br
-
-
 zstyle :omz:plugins:keychain agents ssh,gpg
 zstyle :omz:plugins:keychain identities id_rsa 0E6951900DED125D
+
+
+source $HOME/.config/broot/launcher/bash/br
 
