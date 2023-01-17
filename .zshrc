@@ -5,7 +5,7 @@ cd $HOME
 ###############################
 if command -v tmux >/dev/null 2>&1; then
     # if not inside a tmux session, and if no session is started, start a new session
-    [ -z "${TMUX}" ] && (tmux new -s "Hack") >/dev/null 2>&1
+    [ -z "${TMUX}" ] && (tmux -u new -s "Hack") >/dev/null 2>&1
 fi
 
 
@@ -128,6 +128,4 @@ fi
 zstyle :omz:plugins:keychain agents ssh,gpg
 zstyle :omz:plugins:keychain identities id_rsa 0E6951900DED125D
 
-
-source $HOME/.config/broot/launcher/bash/br
 
