@@ -116,7 +116,7 @@ font:
   bold_italic:
     family: Iosevka Nerd Font
   # Font size
-  size: 12
+  size: 8
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -145,7 +145,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#1a1e21'
+    background: '#101013'
     foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
