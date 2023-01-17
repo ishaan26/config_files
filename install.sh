@@ -237,7 +237,8 @@ install_language_tools() {
 
 	# LSP Stuff
 	echo -e "\n=> ${CYAN}LSPs:${NONE}"
-	npm i -g prettier eslint
+	npm i -g prettier eslint vue-language-server
+	yay -S vscode-html-languageserver bash-language-server vscode-json-languageserver
 
 	# Python
 	# pip
