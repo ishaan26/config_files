@@ -68,6 +68,8 @@ source ~/.aliases.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=241,bold,underline"
 
+export LANG=en_IN.utf8
+
 ## Terminal Colors
 export TERM="screen-256color"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
