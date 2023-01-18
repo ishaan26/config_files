@@ -67,6 +67,7 @@ return packer.startup(function(use)
 	use("kkharji/lspsaga.nvim") -- A UI for LSP stuff.
 	use("folke/which-key.nvim") -- displays a popup with possible key bindings
 	use("gennaro-tedesco/nvim-peekup") -- dynamically interact with neovim buffers
+
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim", -- Fuzzy finder on steroids
@@ -94,6 +95,8 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-path") -- path completion
 	use("hrsh7th/cmp-cmdline") -- command completion
 	use("hrsh7th/cmp-nvim-lua") -- nvim lua command completion
+	use("onsails/lspkind.nvim") -- LSP icons
+	use("windwp/nvim-autopairs") -- Add brackets after completion
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip") -- install lua snip

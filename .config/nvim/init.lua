@@ -1,3 +1,5 @@
+vim.opt.termguicolors = true
+
 -------------------------------------
 -- Import Modules
 -------------------------------------
@@ -22,6 +24,7 @@ endif
 ]])
 
 -- Rainbow Brakets fix
+
 vim.cmd([[
 	hi rainbowcol1 guifg=#E06C75
 ]])
@@ -32,9 +35,10 @@ vim.cmd([[ command! LspFormat execute 'lua vim.lsp.buf.format { async = true }' 
 -- Rust autoformat on save
 vim.g.rustfmt_autosave = 1
 
+-- Use Snipmate version 1
+vim.cmd([[ let g:snipMate = { 'snippet_version' : 1 } ]])
+
 -------------------------------------
 -- Neovide settings
 -------------------------------------
 vim.g.neovide_cursor_animation_length = 0.13
-
-
