@@ -75,9 +75,7 @@ export TERM="screen-256color"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 ## Export for wsl gpg verification
-if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
-    export GPG_TTY=$(tty)
-fi
+export GPG_TTY=$(tty)
 
 ## qt5ct Environment Variable
 export QT_QPA_PLATFORMTHEME="qt5ct"
