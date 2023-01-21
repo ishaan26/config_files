@@ -137,6 +137,10 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- Formatting
 	use("norcalli/nvim-colorizer.lua") -- Color Highlighter
 	use("lewis6991/spellsitter.nvim") -- Spell checker using treesitter
+	use({
+		"m-demare/hlargs.nvim",	-- Highlight arguments
+		requires = { "nvim-treesitter/nvim-treesitter" }, 
+	})
 
 	-- Rust
 	use({
