@@ -346,7 +346,9 @@ install_cargo_packages() {
 		cargo-watch \
 		cargo-tree \
 		cargo-audit \
-		cargo-nextest
+		cargo-nextest \
+		gptcommit \
+		topgrade \
 
 	cargo install \
 		tokei --features all
