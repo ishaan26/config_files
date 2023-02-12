@@ -4,7 +4,7 @@ local mason_lspconfig = require("mason-lspconfig")
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "sumneko_lua", "rust_analyzer" },
+	ensure_installed = { "rust_analyzer" },
 })
 
 -------------------------------------
@@ -78,12 +78,9 @@ end
 --
 -- vim.diagnostic.config(config)
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-	vim.lsp.diagnostic.on_publish_diagnostics,
-	{
-		virtual_text = false,
-	}
-)
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	virtual_text = false,
+})
 
 -------------------------------------
 -- language server configuration
@@ -122,12 +119,11 @@ require("lspconfig")["rust_analyzer"].setup({
 	},
 })
 
-require("lspconfig")["sumneko_lua"].setup({
+require("lspconfig").lua_ls.setup({
 	settings = {
 		Lua = {
 			runtime = {
-				-- Tell the language server which version of Lua you're using
-				-- (most likely LuaJIT in the case of Neovim)
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
 			},
 			diagnostics = {
@@ -145,11 +141,7 @@ require("lspconfig")["sumneko_lua"].setup({
 		},
 	},
 })
-
-require("lspconfig")["ltex"].setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-})
+require("lspconfig")["ltex"].setup({})
 
 require("lspconfig")["html"].setup({
 	on_attach = on_attach,
