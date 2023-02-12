@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 cd $HOME
 
 ###############################
@@ -105,8 +107,10 @@ export DENO_INSTALL="/home/ishaan/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Go
-export GOPATH=/opt/homebrew/bin/go
-export PATH=$GOPATH/bin:$PATH
+export GOPATH=$HOME/golang
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # fzf
 export FZF_DEFAULT_OPTS='-m --height 50% --border --inline-info'
@@ -128,4 +132,5 @@ fi
 zstyle :omz:plugins:keychain agents ssh,gpg
 zstyle :omz:plugins:keychain identities id_rsa 0E6951900DED125D
 
-
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
