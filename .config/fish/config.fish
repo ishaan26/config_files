@@ -1,4 +1,10 @@
 if status is-interactive
+
+	
+	function fish_greeting
+		figlet -f $CF/patched\ fonts/figlet-fonts/ANSI\ Shadow "King Paimon"  | lolcat -tp 1 && fortune | lolcat -t
+	end
+
 	####################################
 	# Initialize Shell Prompt
 	####################################
