@@ -2,7 +2,7 @@ if status is-interactive
 
 	
 	function fish_greeting
-		figlet -f $CF/patched\ fonts/figlet-fonts/ANSI\ Shadow "King Paimon"  | lolcat -tp 1 && fortune | lolcat -t
+		figlet -f $CF/patched\ fonts/figlet-fonts/ANSI\ Shadow "Welcome my lord"  | lolcat -tp 1 && fortune | lolcat -t
 	end
 
 	####################################
