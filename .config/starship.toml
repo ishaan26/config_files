@@ -36,7 +36,7 @@ orange = '#FC7E4B'
 show_always = true
 style_user = "fg:blue"
 style_root = "fg:blue"
-format = '[$user ]($style)'
+format = '[  $user ]($style bold)'
 disabled = false
 
 # An alternative to the username module which displays a symbol that
@@ -84,9 +84,9 @@ Windows = " "
 
 [directory]
 style = "fg:green"
-format = "[in $path ]($style)"
+format = "[in $path ]($style bold)"
 truncation_length = 3
-truncation_symbol = " "
+truncation_symbol = "  "
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
