@@ -155,6 +155,7 @@ if status is-interactive
 	alias pjt='cd "$PJT" 2>/dev/null || echo "Directory not available"'
 	alias rs='cd "$RS" 2>/dev/null || echo "Directory not available"'
 	alias githistory="git log --oneline --graph --decorate --all"
+	alias gd="git diff"
 
 	if command -v lsd >>/dev/null 2>&1
 		alias l="lsd -lah"

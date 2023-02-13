@@ -11,6 +11,7 @@ $nodejs\
 $nim\
 $rust\
 $scala\
+$lua\
 $docker_context
 $character
 """
@@ -135,6 +136,11 @@ format = ' using[ $symbol ($version) ]($style bold)'
 [rust]
 symbol = ""
 style = "fg:#AF4301"
+format = ' using[ $symbol ($version) ]($style bold)'
+
+[lua]
+symbol = ""
+style = "fg:#000079"
 format = ' using[ $symbol ($version) ]($style bold)'
 
 [character]
