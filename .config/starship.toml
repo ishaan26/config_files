@@ -30,7 +30,7 @@ mustard = '#af8700'
 orange = '#FC7E4B'
 
 
-# You can also replace your username using a neat symbol like   or disable this
+# You can also replace your username usinga neat symbol like   or disable this
 # and use the os module below
 [username]
 show_always = true
@@ -84,7 +84,7 @@ Windows = " "
 
 [directory]
 style = "fg:green"
-format = "[in $path ]($style bold)"
+format = "in[ $path ]($style bold)"
 truncation_length = 3
 truncation_symbol = "  "
 
@@ -106,36 +106,36 @@ truncation_symbol = "  "
 [git_branch]
 symbol = ""
 style = "fg:#E54C2D"
-format = '[on $symbol $branch]($style)'
+format = 'on[ $symbol $branch]($style bold)'
 
 [git_status]
 style = "fg:yellow"
-format = '[ \[$all_status$ahead_behind\]]($style)'
+format = '[ \[$all_status$ahead_behind\]]($style bold)'
 
 [c]
 symbol = ""
 style = "fg:#000000"
-format = '[ using $symbol ($version) ]($style)'
+format = ' using[ $symbol ($version) ]($style bold)'
 
 [docker_context]
 symbol = ""
 style = "fg:#0DAEE1"
-format = '[ using $symbol $context ]($style) $path'
+format = ' using[ $symbol $context ]($style bold) $path'
 
 [golang]
 symbol = ""
 style = "fg:#65CAD8"
-format = '[ using $symbol ($version) ]($style)'
+format = ' using[ $symbol ($version) ]($style bold)'
 
 [nodejs]
 symbol = ""
 style = "fg:#398037"
-format = '[ using $symbol ($version) ]($style)'
+format = ' using[ $symbol ($version) ]($style bold)'
 
 [rust]
 symbol = ""
 style = "fg:#AF4301"
-format = '[ using $symbol ($version) ]($style)'
+format = ' using[ $symbol ($version) ]($style bold)'
 
 [character]
 success_symbol = '[❯](bold green) '
