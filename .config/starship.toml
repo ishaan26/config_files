@@ -1,6 +1,5 @@
 format = """
 $os\
-[ for ]()\
 $username\
 $directory\
 $git_branch\
@@ -12,9 +11,11 @@ $nim\
 $rust\
 $scala\
 $lua\
-$docker_context
+$docker_context\
+$cmd_duration
 $character
 """
+
 
 # Disable the blank line at the start of the prompt
 add_newline = true
@@ -37,7 +38,7 @@ orange = '#FC7E4B'
 show_always = true
 style_user = "fg:blue"
 style_root = "fg:blue"
-format = '[  $user ]($style bold)'
+format = '[   $user ]($style bold)'
 disabled = false
 
 # An alternative to the username module which displays a symbol that
@@ -104,6 +105,7 @@ truncation_symbol = "  "
 # "Important  " = "  "
 
 
+# Git Stuff
 [git_branch]
 symbol = ""
 style = "fg:#E54C2D"
@@ -113,6 +115,8 @@ format = 'on[ $symbol $branch]($style bold)'
 style = "fg:yellow"
 format = '[ \[$all_status$ahead_behind\]]($style bold)'
 
+
+# Languages Stuff
 [c]
 symbol = ""
 style = "fg:#000000"
@@ -143,6 +147,11 @@ symbol = ""
 style = "fg:#000079"
 format = ' using[ $symbol ($version) ]($style bold)'
 
+# Other Stuff
 [character]
 success_symbol = '[❯](bold green) '
 error_symbol = '[](bold red) '
+
+[cmd_duration]
+min_time = 1
+format = 'ran for [$duration](bold yellow).'
