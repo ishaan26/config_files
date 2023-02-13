@@ -113,39 +113,39 @@ format = 'on[ $symbol $branch]($style bold)'
 
 [git_status]
 style = "fg:yellow"
-format = '[ \[$all_status$ahead_behind\]]($style bold)'
+format = '[ \[$all_status$ahead_behind\] ]($style bold)'
 
 
 # Languages Stuff
 [c]
 symbol = ""
 style = "fg:#000000"
-format = ' using[ $symbol ($version) ]($style bold)'
+format = 'using[ $symbol ($version) ]($style bold)'
 
 [docker_context]
 symbol = ""
 style = "fg:#0DAEE1"
-format = ' using[ $symbol $context ]($style bold) $path'
+format = 'using[ $symbol $context ]($style bold) $path'
 
 [golang]
 symbol = ""
 style = "fg:#65CAD8"
-format = ' using[ $symbol ($version) ]($style bold)'
+format = 'using[ $symbol ($version) ]($style bold)'
 
 [nodejs]
 symbol = ""
 style = "fg:#398037"
-format = ' using[ $symbol ($version) ]($style bold)'
+format = 'using[ $symbol ($version) ]($style bold)'
 
 [rust]
 symbol = ""
 style = "fg:#AF4301"
-format = ' using[ $symbol ($version) ]($style bold)'
+format = 'using[ $symbol ($version) ]($style bold)'
 
 [lua]
 symbol = ""
 style = "fg:#000079"
-format = ' using[ $symbol ($version) ]($style bold)'
+format = 'using[ $symbol ($version) ]($style bold)'
 
 # Other Stuff
 [character]
