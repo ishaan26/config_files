@@ -1,8 +1,12 @@
 if status is-interactive
 
-	
+	####################################
+	# Greetings
+	####################################
 	function fish_greeting
-		figlet -f $CF/patched\ fonts/figlet-fonts/ANSI\ Shadow "Welcome my lord"  | lolcat -tp 1 && fortune | lolcat -t
+		figlet -f $CF/patched\ fonts/figlet-fonts/ANSI\ Shadow "Greetings"  | lolcat -tp 1 && fortune | lolcat -t
+		echo -e ""
+		echo -e "Uptime": (uptime) | lolcat
 	end
 
 	####################################
@@ -156,6 +160,7 @@ if status is-interactive
 	alias rs='cd "$RS" 2>/dev/null || echo "Directory not available"'
 	alias githistory="git log --oneline --graph --decorate --all"
 	alias gd="git diff"
+	alias gah= "git stash; and git pull --rebase; and git stash pop"
 
 	if command -v lsd >>/dev/null 2>&1
 		alias l="lsd -lah"

@@ -153,5 +153,5 @@ success_symbol = '[❯](bold green) '
 error_symbol = '[](bold red) '
 
 [cmd_duration]
-min_time = 1
+min_time = 0
 format = 'ran for [$duration](bold yellow).'
