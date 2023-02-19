@@ -91,41 +91,35 @@ install_packages() {
 }
 
 install_shell() {
+
 	if ! hash yay 2>/dev/null; then
 		echo -n "Please install packages first\n"
+		exit
 	fi
+
 	clear
+
 	echo -e "\n=> ${BOLD}${GREEN}Installing and setting up shell stuff${NONE} \n"
 
 	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		# Install dependencies
-		sudo pacman -S zsh fzf tmux --needed
-		yay -S autojump
+		sudo pacman -S fish fzf tmux starship --needed
 
-		# Install Oh my zsh
-		sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch
+		# Linking all .config files
+		for file in $HOME/Documents/Github/config_files/.config/*; do
+			filename="$(basename "$file")"
+			destination="$HOME/.config/$filename"
+			if [ ! -L "$destination" ]; then
+				ln -s "$file" "$destination"
+				echo "Linked $filename"
+			else
+				echo "$filename already exists, skipping!"
+			fi
+		done
 
-		# Install custom Plugins
-		echo -e "\nInstalling zsh syntax highlighting"
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-		echo -e "\nInstalling zsh autosuggestions"
-		git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-		echo -e "\nInstalling Powerlevel10k"
-		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-
-		# Link config files
-		rm $HOME/.zshrc
-		ln -sf $HOME/Documents/Github/config_files/.zshrc $HOME/.zshrc
-		ln -sf $HOME/Documents/Github/config_files/.aliases.sh $HOME/.aliases.sh
-		ln -sf $HOME/Documents/Github/config_files/.p10k.zsh $HOME/.p10k.zsh
+		# Link files outside .config folder
 		ln -sf $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
 		ln -sf $HOME/Documents/Github/config_files/.gitconfig $HOME/.gitconfig
-
-		# vim and neovim setup
-		ln -sf $HOME/Documents/Github/config_files/.vimrc $HOME/.vimrc
-		ln -sf $HOME/Documents/Github/config_files/.config/nvim $HOME/.config/nvim
 
 	elif
 		[[ "$OS" == "Darwin" ]]
@@ -140,6 +134,11 @@ install_shell() {
 }
 
 install_wm() {
+
+	if ! hash fish 2>/dev/null; then
+		echo -n "Please install shell first\n"
+		exit
+	fi
 
 	clear
 
@@ -348,7 +347,7 @@ install_cargo_packages() {
 		cargo-audit \
 		cargo-nextest \
 		gptcommit \
-		topgrade \
+		topgrade
 
 	cargo install \
 		tokei --features all
