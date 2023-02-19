@@ -699,9 +699,9 @@
 	<key>TabViewType</key>
 	<integer>1</integer>
 	<key>TerminalMargin</key>
-	<integer>16</integer>
+	<integer>25</integer>
 	<key>TerminalVMargin</key>
-	<integer>16</integer>
+	<integer>25</integer>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>kCPKSelectionViewPreferredModeKey</key>

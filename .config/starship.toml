@@ -1,5 +1,6 @@
 format = """
 $os\
+[for]()\
 $username\
 $directory\
 $git_branch\
@@ -154,4 +155,4 @@ error_symbol = '[](bold red) '
 
 [cmd_duration]
 min_time = 0
-format = 'ran for [$duration](bold yellow).'
+format = 'ran for [羽$duration](bold yellow).'
