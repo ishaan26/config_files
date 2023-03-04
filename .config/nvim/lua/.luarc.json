@@ -66,6 +66,7 @@
         "/Users/paimon/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after",
         "/Users/paimon/.local/share/nvim/site/pack/packer/start/rust.vim/after",
         "/Users/paimon/.local/share/nvim/site/pack/packer/start/vim-snipmate/after",
-        "${3rd}/luassert/library"
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library"
     ]
 }
