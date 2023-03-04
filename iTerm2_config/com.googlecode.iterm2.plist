@@ -273,7 +273,7 @@
 			<key>Guid</key>
 			<string>173357E9-D7B0-4425-9D7F-6CC501AF57F0</string>
 			<key>Horizontal Spacing</key>
-			<real>1</real>
+			<real>0.98999999999999999</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
@@ -650,7 +650,7 @@
 			<key>Use Underline Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1</real>
+			<real>1.0700000000000001</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
