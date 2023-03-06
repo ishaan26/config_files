@@ -139,7 +139,7 @@ if status is-interactive
 	set -u EDITOR nvim
 
 	# Cargo Environment Variables
-	set -u CARGO_TARGET_DIR $HOME/.cargo/target_dump
+	export CARGO_TARGET_DIR="$HOME/.cargo/target_dump/"
 
 	####################################
 	# Aliases
