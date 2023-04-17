@@ -1,6 +1,6 @@
 # Linux and Mac configuration files
 
-I have made over 700 commits to this. lol
+I have made over 800 commits to this. why?
 
 ### Pro Tip
 
