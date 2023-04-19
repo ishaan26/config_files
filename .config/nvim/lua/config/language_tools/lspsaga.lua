@@ -10,12 +10,12 @@ lspsaga.setup({ -- defaults ...
 -- 	diagnostic_header_icon = "   ",
 -- 	-- code action title icon
 -- 	code_action_icon = " ",
--- 	code_action_prompt = {
--- 		enable = true,
--- 		sign = true,
--- 		sign_priority = 10,
--- 		virtual_text = false,
--- 	},
+	code_action_prompt = {
+		enable = true,
+		sign = false,
+		sign_priority = 10,
+		virtual_text = true,
+	},
 -- 	finder_definition_icon = "  ",
 -- 	finder_reference_icon = "  ",
 -- 	max_preview_lines = 10,
