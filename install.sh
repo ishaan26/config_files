@@ -42,7 +42,7 @@ fi
 if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" || "$OS" == "Darwin" ]]; then
 	echo ""
 else
-	echo "Scripts is not for $OS"
+	echo "This script is not made for $OS. Why in the world do you not use Arch?"
 	exit
 fi
 
@@ -106,9 +106,9 @@ install_shell() {
 		sudo pacman -S fish fzf tmux starship --needed
 
 		# Linking all .config files
-		for file in $HOME/Documents/Github/config_files/.config/*; do
+		for file in "$HOME"/Documents/Github/config_files/.config/*; do
 			filename="$(basename "$file")"
-			destination="$HOME/.config/$filename"
+			destination="$HOME"/.config/$filename
 			if [ ! -L "$destination" ]; then
 				ln -s "$file" "$destination"
 				echo "Linked $filename"
@@ -118,8 +118,8 @@ install_shell() {
 		done
 
 		# Link files outside .config folder
-		ln -sf $HOME/Documents/Github/config_files/.tmux.conf $HOME/.tmux.conf
-		ln -sf $HOME/Documents/Github/config_files/.gitconfig $HOME/.gitconfig
+		ln -sf "$HOME"/Documents/Github/config_files/.tmux.conf "$HOME"/.tmux.conf
+		ln -sf "$HOME"/Documents/Github/config_files/.gitconfig "$HOME"/.gitconfig
 
 	elif
 		[[ "$OS" == "Darwin" ]]
