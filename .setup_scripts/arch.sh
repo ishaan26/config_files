@@ -11,41 +11,6 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
-##################################
-# Check OS
-##################################
-
-if [ -f /etc/os-release ]; then
-	# freedesktop.org and systemd
-	. /etc/os-release
-	OS=$NAME
-	VER=$VERSION_ID
-elif type lsb_release >/dev/null 2>&1; then
-	# linuxbase.org
-	OS=$(lsb_release -si)
-	VER=$(lsb_release -sr)
-elif [ -f /etc/lsb-release ]; then
-	# For some versions of Debian/Ubuntu without lsb_release command
-	. /etc/lsb-release
-	OS=$DISTRIB_ID
-	VER=$DISTRIB_RELEASE
-elif [ -f /etc/debian_version ]; then
-	# Older Debian/Ubuntu/etc.
-	OS=Debian
-	VER=$(cat /etc/debian_version)
-else
-	# Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
-	OS=$(uname -s)
-	VER=$(uname -r)
-fi
-
-if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" || "$OS" == "Darwin" ]]; then
-	echo ""
-else
-	echo "This script is not made for $OS. Why in the world do you not use Arch?"
-	exit
-fi
-
 pause() {
 	read -p "$*"
 }
@@ -81,8 +46,37 @@ install_packages() {
 		fi
 
 	elif [[ "$OS" == "Darwin" ]]; then
-		echo " TODO: write install packages script for Mac"
+		echo "Installing brew..."
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+		echo "Installing brew cask..."
+		brew tap homebrew/cask
+
+		brew upgrade
+
+		# CLI Tools
+		PROD=$(softwareupdate -l | grep "\*.*Command Line" | head -n 1 | awk -F"*" '{print $2}' | sed -e 's/^ *//' | tr -d '\n') || true
+
+		if [[ ! -z "$PROD" ]]; then
+			softwareupdate -i "$PROD" --verbose
+		fi
+
+		# Utilities
+		brew install coreutils
+		brew install gnu-sed
+		brew install gnu-tar
+		brew install gnu-indent
+		brew install gnu-which
+
+		brew install findutils
+
+		# Dev Tools
+		echo "Installing development tools..."
+		brew install docker
+		brew install git
+		brew install --cask visual-studio-code
+		brew install fish
+		brew install neovim
 	fi
 
 	echo -e "\nAll Done\n"
@@ -101,7 +95,9 @@ install_shell() {
 
 	echo -e "\n=> ${BOLD}${GREEN}Installing and setting up shell stuff${NONE} \n"
 
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
+	if
+		[[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]
+	then
 		# Install dependencies
 		sudo pacman -S fish fzf tmux starship --needed
 
@@ -361,45 +357,3 @@ install_cargo_packages() {
 
 	pause "Press [Enter] to contiunue to main menu"
 }
-
-clear
-# function to display menus
-show_menus() {
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo " I N S T A L L - S T U F F"
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
-		echo "For $OS"
-	elif [[ "$OS" == "Darwin" ]]; then
-		echo "For MacOs"
-	fi
-	echo ""
-	echo "1. Install Packages"
-	echo "2. Setup Shell"
-	echo "3. Install and setup window manager"
-	echo "4. Install Fonts from patched fonts folder"
-	echo "5. Install Languge Tools"
-	echo "6. Install Cargo Packages"
-	echo "7. Exit"
-}
-
-read_options() {
-	local choice
-	read -p "Enter choice [1 - 7]: " choice
-	case $choice in
-	1) install_packages ;;
-	2) install_shell ;;
-	3) install_wm ;;
-	4) install_fonts ;;
-	5) install_language_tools ;;
-	6) install_cargo_packages ;;
-	7) exit 0 ;;
-	*) echo -e "${RED}Please select a valid option${STD}" && sleep 1 ;;
-	esac
-}
-
-while true; do
-	clear
-	show_menus
-	read_options
-done
