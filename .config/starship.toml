@@ -95,10 +95,10 @@ truncation_symbol = "󰝰  "
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
 "~" = "󱂵  Home"
-"Documents" = "Documents 󱧶 "
-"Downloads" = "Downloads 󰉍 "
-"Pictures" = "Pictures 󰉏 "
-"Github" = "Github  "
+"Documents" = "󱧶  Documents"
+"Downloads" = "󰉍  Downloads"
+"Pictures" = "󰉏  Pictures"
+"Github" = "  Github"
 # Keep in mind that the order matters. For example:
 # "Important Documents" = "  "
 # will not be replaced, because "Documents" was already substituted before.

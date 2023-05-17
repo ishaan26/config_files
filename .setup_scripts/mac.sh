@@ -141,9 +141,8 @@ install_language_tools() {
 		echo "Node version manager is already installed"
 	else
 		echo -e "=> ${CYAN}Node Version Manager:${NONE}"
-		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-		source "$HOME"/.nvm/nvm.sh
-		nvm install node
+		brew install node
+		brew install npm
 	fi
 
 	# LSP Stuff
