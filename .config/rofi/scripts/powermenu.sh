@@ -17,7 +17,7 @@ confirm_exit() {
     confirm_no="No"
     confirm_options="$confirm_yes\n$confirm_no"
     echo -e $confirm_options | rofi -p "Are You Sure?" -dmenu -selected-row 1  \
-        -theme $dir/confirm.rasi
+        -theme "$dir"/confirm.rasi
 }
 
 

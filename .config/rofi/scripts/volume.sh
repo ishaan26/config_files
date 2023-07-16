@@ -28,15 +28,15 @@ else
 fi
 
 ## Icons
-ICON_UP=" ﱛ"
-ICON_DOWN=" ﱜ"
-ICON_MUTED=" ﱝ"
-SETTINGS=""
+ICON_UP=""
+ICON_DOWN=""
+ICON_MUTED="󰖁"
+SETTINGS=""
 
 options="$ICON_UP\n$ICON_MUTED\n$ICON_DOWN\n$SETTINGS"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "$VOLUME" -dmenu $active $urgent -selected-row 0 -location 3 -yoffset 35 -xoffset -60)"
+chosen="$(echo -e "$options" | $rofi_command -p "$VOLUME" -dmenu "$active" "$urgent" -selected-row 0 -location 3 -yoffset 35 -xoffset -60)"
 case $chosen in
 $ICON_UP)
     amixer -Mq set Master,0 5%+ unmute && notify-send -u low -t 1500 "Volume Up $"

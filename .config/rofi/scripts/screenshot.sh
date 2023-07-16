@@ -4,7 +4,7 @@ rofi_command='rofi -theme themes/screenshot.rasi -color-window "#222222, #222222
 
 # Options
 screen=""
-area=""
+area=""
 window=""
 
 # vars

@@ -24,7 +24,6 @@ install_packages() {
 	clear
 	echo -e "\n=> ${BOLD}${GREEN}Installing packages${NONE} \n"
 
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		# Update
 		sudo pacman -Syyu
 
@@ -45,39 +44,6 @@ install_packages() {
 			makepkg -si
 		fi
 
-	elif [[ "$OS" == "Darwin" ]]; then
-		echo "Installing brew..."
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-		echo "Installing brew cask..."
-		brew tap homebrew/cask
-
-		brew upgrade
-
-		# CLI Tools
-		PROD=$(softwareupdate -l | grep "\*.*Command Line" | head -n 1 | awk -F"*" '{print $2}' | sed -e 's/^ *//' | tr -d '\n') || true
-
-		if [[ ! -z "$PROD" ]]; then
-			softwareupdate -i "$PROD" --verbose
-		fi
-
-		# Utilities
-		brew install coreutils
-		brew install gnu-sed
-		brew install gnu-tar
-		brew install gnu-indent
-		brew install gnu-which
-
-		brew install findutils
-
-		# Dev Tools
-		echo "Installing development tools..."
-		brew install docker
-		brew install git
-		brew install --cask visual-studio-code
-		brew install fish
-		brew install neovim
-	fi
 
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to contiunue to main menu"
@@ -95,11 +61,8 @@ install_shell() {
 
 	echo -e "\n=> ${BOLD}${GREEN}Installing and setting up shell stuff${NONE} \n"
 
-	if
-		[[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]
-	then
 		# Install dependencies
-		sudo pacman -S fish fzf tmux starship --needed
+		sudo pacman -S fish fzf tmux starship lolcat --needed
 
 		# Linking all .config files
 		for file in "$HOME"/Documents/Github/config_files/.config/*; do
@@ -117,12 +80,6 @@ install_shell() {
 		ln -sf "$HOME"/Documents/Github/config_files/.tmux.conf "$HOME"/.tmux.conf
 		ln -sf "$HOME"/Documents/Github/config_files/.gitconfig "$HOME"/.gitconfig
 
-	elif
-		[[ "$OS" == "Darwin" ]]
-	then
-		echo " TODO: Check if this works for Mac"
-
-	fi
 
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to contiunue to main menu"
@@ -138,7 +95,6 @@ install_wm() {
 
 	clear
 
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		echo -e "\n=> ${BOLD}${GREEN}Installing bspwm${NONE} \n"
 		# Install dependencies
 
@@ -180,28 +136,19 @@ install_wm() {
 
 		pause "Press [Enter] to contiunue to main menu"
 
-	elif [[ "$OS" == "Darwin" ]]; then
-		echo "TODO: This seems nice - https://github.com/ianyh/Amethyst "
-
-	fi
 }
 
 install_fonts() {
 	clear
 
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		echo -e "\n=> ${BOLD}${GREEN}Installing fonts${NONE} \n"
 
-		for font in "$HOME"/Documents/Github/config_files/patched\ fonts/fonts/*; do
+		for font in "$HOME"/Documents/Github/config_files/patched\ fonts/nerd-fonts/My\ Fonts/*; do
 			sudo cp "$font" /usr/share/fonts/
 			echo "installed $font"
 		done
 		echo -e "\nBuilding font cache..."
 		sudo fc-cache
-
-	elif [[ "$OS" == "Darwin" ]]; then
-		open "$HOME"/Documents/Github/config_files/patched\ fonts/fonts/*
-	fi
 
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to continue to main menu"
@@ -239,71 +186,36 @@ install_language_tools() {
 	# pip
 	echo -e "\n=> ${BOLD}${GREEN}Installing python stuff${NONE} \n"
 
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		sudo pacman -S python python-pip --needed --noconfirm
-	elif [[ "$OS" == "Darwin" ]]; then
-		brew install python
-	fi
 
 	# LSP Stuff
 	echo -e "\n=> ${CYAN}LSPs:${NONE}"
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		pip install yapf
 		pip install pyright
 		pip install flake8
-	elif [[ "$OS" == "Darwin" ]]; then
-		reset
-		pip3 install yapf
-		pip3 install pyright
-		pip3 install flake8
-	fi
-
 	# Lua
 	echo -e "\n=> ${BOLD}${GREEN}Installing lua stuff${NONE} \n"
 
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		sudo pacman -S lua --needed --noconfirm
-	elif [[ "$OS" == "Darwin" ]]; then
-		brew install lua
-	fi
 
 	# LSP Stuff
 	echo -e "\n=> ${CYAN}LSPs:${NONE}"
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		sudo pacman -S stylua --needed --noconfirm
-	elif [[ "$OS" == "Darwin" ]]; then
-		brew install stylua
-	fi
 
 	# Shell
 	echo -e "\n=> ${BOLD}${GREEN}Installing shell stuff${NONE} \n"
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		sudo pacman -S zsh --needed --noconfirm
-	fi
-
 	# LSP Stuff
 	echo -e "\n=> ${CYAN}LSPs:${NONE}"
-	if [[ "$OS" == "Arch Linux" || "$OS" == "Manjaro Linux" ]]; then
 		sudo pacman -S shfmt --needed --noconfirm
 		if ! hash 2>/dev/null shellcheck; then
 			yay -S shellcheck-bin
 			npm i -g bash-language-server
 		fi
-	elif [[ "$OS" == "Darwin" ]]; then
-		echo "TODO: Figure this out for Mac"
-		npm i -g bash-language-server
-	fi
 
 	# Stuff for other languages
 	echo -e "\n=> ${BOLD}${GREEN}Installing stuff for other languages${NONE} \n"
-	if hash 2>/dev/null apt; then
-		sudo snap install shfmt
-		sudo apt install zsh gcc cmake clang default-jre default-jdk astyle build-essentials pkg-config libssl-dev
-	elif hash 2>/dev/null pacman; then
 		sudo pacman -S gcc cmake clang jdk-openjdk jre-openjdk astyle python --needed --noconfirm
-	elif [ "Darwin" == "$(uname -s)" ]; then
-		brew install shfmt astyle
-	fi
 
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to contiunue to main menu"

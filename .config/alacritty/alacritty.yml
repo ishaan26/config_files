@@ -108,15 +108,15 @@ window:
 # Font configuration
 font:
   normal:
-    family: Iosevka Nerd Font
+    family: LigaFantasqueSansMNoLoopKNerdFontComplete Nerd Font 
   bold:
-    family: Iosevka Nerd Font
+    family: LigaFantasqueSansMNoLoopKNerdFontComplete Nerd Font
   italic:
-    family: Iosevka Nerd Font
+    family: LigaFantasqueSansMNoLoopKNerdFontComplete Nerd Font 
   bold_italic:
-    family: Iosevka Nerd Font
+    family: LigaFantasqueSansMNoLoopKNerdFontComplete Nerd Font 
   # Font size
-  size: 8
+  size: 13
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
