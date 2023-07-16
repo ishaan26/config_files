@@ -24,26 +24,25 @@ install_packages() {
 	clear
 	echo -e "\n=> ${BOLD}${GREEN}Installing packages${NONE} \n"
 
-		# Update
-		sudo pacman -Syyu
+	# Update
+	sudo pacman -Syyu
 
-		# Install basic packages
-		sudo pacman -S --needed git \
-			base-devel \
-			inetutils \
-			net-tools \
-			neovim \
-			zsh
+	# Install basic packages
+	sudo pacman -S --needed git \
+		base-devel \
+		inetutils \
+		net-tools \
+		neovim \
+		zsh
 
-		# Install yay
-		if ! hash yay 2>/dev/null; then
-			mkdir -p "$HOME"/Documents/Github/OtherGits
-			cd "$HOME"/Documents/Github/OtherGits
-			git clone https://aur.archlinux.org/yay.git
-			cd yay
-			makepkg -si
-		fi
-
+	# Install yay
+	if ! hash yay 2>/dev/null; then
+		mkdir -p "$HOME"/Documents/Github/OtherGits
+		cd "$HOME"/Documents/Github/OtherGits
+		git clone https://aur.archlinux.org/yay.git
+		cd yay
+		makepkg -si
+	fi
 
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to contiunue to main menu"
@@ -61,25 +60,24 @@ install_shell() {
 
 	echo -e "\n=> ${BOLD}${GREEN}Installing and setting up shell stuff${NONE} \n"
 
-		# Install dependencies
-		sudo pacman -S fish fzf tmux starship lolcat --needed
+	# Install dependencies
+	sudo pacman -S fish fzf tmux starship lolcat --needed
 
-		# Linking all .config files
-		for file in "$HOME"/Documents/Github/config_files/.config/*; do
-			filename="$(basename "$file")"
-			destination="$HOME"/.config/$filename
-			if [ ! -L "$destination" ]; then
-				ln -s "$file" "$destination"
-				echo "Linked $filename"
-			else
-				echo "$filename already exists, skipping!"
-			fi
-		done
+	# Linking all .config files
+	for file in "$HOME"/Documents/Github/config_files/.config/*; do
+		filename="$(basename "$file")"
+		destination="$HOME"/.config/$filename
+		if [ ! -L "$destination" ]; then
+			ln -s "$file" "$destination"
+			echo "Linked $filename"
+		else
+			echo "$filename already exists, skipping!"
+		fi
+	done
 
-		# Link files outside .config folder
-		ln -sf "$HOME"/Documents/Github/config_files/.tmux.conf "$HOME"/.tmux.conf
-		ln -sf "$HOME"/Documents/Github/config_files/.gitconfig "$HOME"/.gitconfig
-
+	# Link files outside .config folder
+	ln -sf "$HOME"/Documents/Github/config_files/.tmux.conf "$HOME"/.tmux.conf
+	ln -sf "$HOME"/Documents/Github/config_files/.gitconfig "$HOME"/.gitconfig
 
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to contiunue to main menu"
@@ -95,60 +93,61 @@ install_wm() {
 
 	clear
 
-		echo -e "\n=> ${BOLD}${GREEN}Installing bspwm${NONE} \n"
-		# Install dependencies
+	echo -e "\n=> ${BOLD}${GREEN}Installing bspwm${NONE} \n"
+	# Install dependencies
 
-		sudo pacman -S --needed --noconfirm alsa-utils \
-			brightnessctl \
-			feh \
-			dunst \
-			acpi \
-			maim \
-			pavucontrol-qt \
-			network-manager-applet \
-			polkit-gnome \
-			python-dbus \
-			qt5ct \
-			lxappearance \
-			alacritty
+	sudo pacman -S --needed --noconfirm alsa-utils \
+		brightnessctl \
+		feh \
+		dunst \
+		acpi \
+		maim \
+		pavucontrol-qt \
+		network-manager-applet \
+		polkit-gnome \
+		python-dbus \
+		qt5ct \
+		lxappearance \
+		xorg-xrandr \
+		alacritty
 
-		# Install bspwm
-		sudo pacman -S --noconfirm bspwm
-		sudo pacman -S --noconfirm sxhkd
+	# Install bspwm
+	sudo pacman -S --noconfirm bspwm
+	sudo pacman -S --noconfirm sxhkd
 
-		# Install rofi
-		sudo pacman -S rofi
+	# Install rofi
+	sudo pacman -S rofi
 
-		# Install Polybar
-		yay -S polybar
+	# Install Polybar
+	yay -S polybar
 
-		# Install Picom
-		yay -S picom-jonaburg-git
+	# Install Picom
+	yay -S picom-jonaburg-git
 
-		for file in $HOME/Documents/Github/config_files/.config/*; do
-			filename="$(basename "$file")"
-			# TODO: Exclude the already existing files.
-			ln -s $HOME/Documents/Github/config_files/.config/"$filename" "$HOME"/.config/
-			echo "Linked $filename"
-		done
+	for file in $HOME/Documents/Github/config_files/.config/*; do
+		filename="$(basename "$file")"
+		# TODO: Exclude the already existing files.
+		ln -s $HOME/Documents/Github/config_files/.config/"$filename" "$HOME"/.config/
+		echo "Linked $filename"
+	done
 
-		echo -e "\nPlease reboot"
+	echo -e "\nPlease reboot"
 
-		pause "Press [Enter] to contiunue to main menu"
+	pause "Press [Enter] to contiunue to main menu"
 
 }
 
 install_fonts() {
 	clear
 
-		echo -e "\n=> ${BOLD}${GREEN}Installing fonts${NONE} \n"
+	echo -e "\n=> ${BOLD}${GREEN}Installing fonts${NONE} \n"
 
-		for font in "$HOME"/Documents/Github/config_files/patched\ fonts/nerd-fonts/My\ Fonts/*; do
-			sudo cp "$font" /usr/share/fonts/
-			echo "installed $font"
-		done
-		echo -e "\nBuilding font cache..."
-		sudo fc-cache
+	for font in "$HOME"/Documents/Github/config_files/patched\ fonts/nerd-fonts/My\ Fonts/*; do
+		sudo cp "$font" /usr/share/fonts/
+		echo "installed $font"
+	done
+	echo -e "\nBuilding font cache..."
+	sudo fc-cache
 
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to continue to main menu"
@@ -186,36 +185,36 @@ install_language_tools() {
 	# pip
 	echo -e "\n=> ${BOLD}${GREEN}Installing python stuff${NONE} \n"
 
-		sudo pacman -S python python-pip --needed --noconfirm
+	sudo pacman -S python python-pip --needed --noconfirm
 
 	# LSP Stuff
 	echo -e "\n=> ${CYAN}LSPs:${NONE}"
-		pip install yapf
-		pip install pyright
-		pip install flake8
+	pip install yapf
+	pip install pyright
+	pip install flake8
 	# Lua
 	echo -e "\n=> ${BOLD}${GREEN}Installing lua stuff${NONE} \n"
 
-		sudo pacman -S lua --needed --noconfirm
+	sudo pacman -S lua --needed --noconfirm
 
 	# LSP Stuff
 	echo -e "\n=> ${CYAN}LSPs:${NONE}"
-		sudo pacman -S stylua --needed --noconfirm
+	sudo pacman -S stylua --needed --noconfirm
 
 	# Shell
 	echo -e "\n=> ${BOLD}${GREEN}Installing shell stuff${NONE} \n"
-		sudo pacman -S zsh --needed --noconfirm
+	sudo pacman -S zsh --needed --noconfirm
 	# LSP Stuff
 	echo -e "\n=> ${CYAN}LSPs:${NONE}"
-		sudo pacman -S shfmt --needed --noconfirm
-		if ! hash 2>/dev/null shellcheck; then
-			yay -S shellcheck-bin
-			npm i -g bash-language-server
-		fi
+	sudo pacman -S shfmt --needed --noconfirm
+	if ! hash 2>/dev/null shellcheck; then
+		yay -S shellcheck-bin
+		npm i -g bash-language-server
+	fi
 
 	# Stuff for other languages
 	echo -e "\n=> ${BOLD}${GREEN}Installing stuff for other languages${NONE} \n"
-		sudo pacman -S gcc cmake clang jdk-openjdk jre-openjdk astyle python --needed --noconfirm
+	sudo pacman -S gcc cmake clang jdk-openjdk jre-openjdk astyle python --needed --noconfirm
 
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to contiunue to main menu"
