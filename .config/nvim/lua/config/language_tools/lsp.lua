@@ -4,7 +4,7 @@ local mason_lspconfig = require("mason-lspconfig")
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "rust_analyzer" },
+	ensure_installed = { "rust_analyzer", "tsserver", "eslint", "html" },
 })
 
 -------------------------------------
@@ -149,6 +149,10 @@ require("lspconfig")["html"].setup({
 	capabilities = capabilities,
 })
 
+require("lspconfig").cssls.setup({
+	capabilities = capabilities,
+})
+
 require("lspconfig")["volar"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
@@ -158,6 +162,16 @@ require("lspconfig")["jsonls"].setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
+})
+
+require('lspconfig').eslint.setup({
+	--- ...
+	on_attach = function(client, bufnr)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = bufnr,
+			command = "EslintFixAll",
+		})
+	end,
 })
 
 require("lspconfig")["gopls"].setup({
