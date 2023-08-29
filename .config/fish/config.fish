@@ -192,3 +192,10 @@ if status is-interactive
 	end
 
 end
+
+# pnpm
+set -gx PNPM_HOME "/Users/ishaangoel/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
