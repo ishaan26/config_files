@@ -111,6 +111,7 @@ return packer.startup(function(use)
 	use("williamboman/mason.nvim") -- Nextgen lsp handler for neovim
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig") -- enables lsp
+	use("kabouzeid/nvim-lspinstall")
 	use("mfussenegger/nvim-lint") -- Linter
 	use("mhartington/formatter.nvim") -- Formatter
 	use("williamboman/nvim-lsp-installer") -- lsp installer inside neovim
@@ -138,8 +139,8 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua") -- Color Highlighter
 	use("lewis6991/spellsitter.nvim") -- Spell checker using treesitter
 	use({
-		"m-demare/hlargs.nvim",	-- Highlight arguments
-		requires = { "nvim-treesitter/nvim-treesitter" }, 
+		"m-demare/hlargs.nvim", -- Highlight arguments
+		requires = { "nvim-treesitter/nvim-treesitter" },
 	})
 
 	-- Rust
