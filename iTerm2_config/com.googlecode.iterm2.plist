@@ -5,7 +5,7 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>Command</key>
-	<string>/opt/homebrew/bin/fish</string>
+	<string></string>
 	<key>Default Bookmark Guid</key>
 	<string>77F7E81A-5755-45F3-A604-05FD0CF2F648</string>
 	<key>HapticFeedbackForEsc</key>
@@ -674,7 +674,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>LigaFantasqueSansMNoLoopKNerdFontCompleteNF-Regular 16</string>
+			<string>IosevkaSlabNerdFontCompleteNF-Medium 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Option Key Sends</key>
