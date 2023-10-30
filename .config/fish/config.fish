@@ -123,6 +123,11 @@ if status is-interactive
 	# Environment variables
 	####################################
 
+	## For Tauri
+	set -Ux JAVA_HOME /Applications/Android Studio.app/Contents/jbr/Contents/Home
+	set -Ux ANDROID_HOME $HOME/Library/Android/sdk
+	set -Ux NDK_HOME $ANDROID_HOME/ndk/26.1.10909125
+
 	## qt5ct Environment Variable
 	set -u QT_QPA_PLATFORMTHEME qt5ct
 

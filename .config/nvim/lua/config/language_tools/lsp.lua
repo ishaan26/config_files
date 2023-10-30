@@ -4,7 +4,7 @@ local mason_lspconfig = require("mason-lspconfig")
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "rust_analyzer", "tsserver", "eslint", "html" },
+	ensure_installed = { "rust_analyzer", "tsserver", "eslint", "html", "sqlls", "jsonls"  },
 })
 
 -------------------------------------
@@ -179,6 +179,10 @@ require("lspconfig")["gopls"].setup({
 	flags = lsp_flags,
 })
 
+require("lspconfig")["sqlls"].setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+})
 
 require("lspconfig")["clangd"].setup({
 	on_attach = on_attach,

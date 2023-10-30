@@ -5,13 +5,13 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>Command</key>
-	<string></string>
+	<string>/opt/homebrew/bin/fish</string>
 	<key>Default Bookmark Guid</key>
 	<string>77F7E81A-5755-45F3-A604-05FD0CF2F648</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideScrollbar</key>
-	<false/>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -674,7 +674,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>IosevkaSlabNerdFontCompleteNF-Medium 16</string>
+			<string>LigaInconsolataNerdFontCompleteNF-Regular 22</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Option Key Sends</key>
@@ -800,6 +800,8 @@
 	<false/>
 	<key>WindowNumber</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
