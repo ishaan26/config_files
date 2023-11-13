@@ -5,7 +5,7 @@ pgrep -x sxhkd >/dev/null || sxhkd &
 ### Startup
 
 # Dual Screen
-xrandr --output DVI-D-0 --primary --left-of HDMI-A-0 --auto
+xrandr --output HDMI-1 --primary --left-of DVI-D-1 --auto
 
 # Wallpaper
 feh --bg-fill ~/Pictures/bspwm/*
@@ -14,7 +14,7 @@ feh --bg-fill ~/Pictures/bspwm/*
 pgrep fusuma || fusuma -d
 
 # Compositor
-pgrep picom || picom --experimental-backend &
+pgrep picom || picom &
 
 # Clipboard history
 pgrep clipit || clipit &
@@ -35,7 +35,7 @@ nm-applet &
 setxkbmap -option caps:escape
 
 # bspwm stuff
-bspc monitor DVI-D-0 -d 󰇊 󰇋 󰇌 󰇍 󰇎 󰇏
+bspc monitor HDMI-1 -d 󰇊 󰇋 󰇌 󰇍 󰇎 󰇏
 
 ### bspwm config
 bspc config border_width 2
