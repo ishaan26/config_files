@@ -146,6 +146,16 @@ if status is-interactive
 	# Cargo Environment Variables
 	export CARGO_TARGET_DIR="$HOME/.cargo/target_dump/"
 
+
+	## For Bat
+	# To use batpipe, eval the output of this command in your shell init script.
+	set -x LESSOPEN "|/usr/local/bin/batpipe %s";
+	set -e LESSCLOSE;
+
+	# The following will enable colors when using batpipe with less:
+	set -x LESS "$LESS -R";
+	set -x BATPIPE "color";
+
 	####################################
 	# Aliases
 	####################################

@@ -1,8 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export ANDROID_HOME:/Users/ishaangoel/Library/Android/sdk
+SETUVAR --export ANDROID_HOME:/home/ishaan/Library/Android/sdk
 SETUVAR --export JAVA_HOME:/Applications/Android\x1eStudio\x2eapp/Contents/jbr/Contents/Home
-SETUVAR --export NDK_HOME:/Users/ishaangoel/Library/Android/sdk/ndk/26\x2e1\x2e10909125
+SETUVAR --export NDK_HOME:/home/ishaan/Library/Android/sdk/ndk/26\x2e1\x2e10909125
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
@@ -49,4 +49,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dFFCC66
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/Users/ishaangoel/\x2ecargo/bin\x1e/Users/paimon/\x2ecargo/bin\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/home/ishaan/\x2elocal/share/fnm\x1e/Users/ishaangoel/\x2ecargo/bin\x1e/Users/paimon/\x2ecargo/bin\x1e/opt/homebrew/bin
