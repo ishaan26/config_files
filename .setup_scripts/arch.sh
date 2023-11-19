@@ -79,6 +79,10 @@ install_shell() {
 	ln -sf "$HOME"/Documents/Github/config_files/.tmux.conf "$HOME"/.tmux.conf
 	ln -sf "$HOME"/Documents/Github/config_files/.gitconfig "$HOME"/.gitconfig
 
+	# Setup astro nvim
+	git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+	ln -sf $HOME/Documents/Github/config_files/astronvim_config/user $HOME/.config/nvim/lua/
+
 	echo -e "\nAll Done\n"
 	pause "Press [Enter] to contiunue to main menu"
 	clear
