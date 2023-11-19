@@ -1,4 +1,6 @@
+
 .DS_Store
 .vscode
 core
 .config/nvim/plugin/packer_compiled.lua
+fish_variables
