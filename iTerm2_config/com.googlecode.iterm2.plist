@@ -5,7 +5,7 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>Command</key>
-	<string>/opt/homebrew/bin/fish</string>
+	<string></string>
 	<key>Default Bookmark Guid</key>
 	<string>77F7E81A-5755-45F3-A604-05FD0CF2F648</string>
 	<key>HapticFeedbackForEsc</key>
@@ -238,13 +238,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.094696044921875</real>
+				<real>0.084381103515625</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.094696044921875</real>
+				<real>0.084381103515625</real>
 				<key>Red Component</key>
-				<real>0.094696044921875</real>
+				<real>0.084381103515625</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -728,7 +728,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.14880319148936172</real>
+			<real>0.14027593085106385</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
