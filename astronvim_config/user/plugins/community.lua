@@ -3,7 +3,8 @@ return {
 	{ import = "astrocommunity.motion.mini-surround" },
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
-	{ import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+	{ import = "astrocommunity.utility.nvim-toggler" },
+	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 	{
 		"m4xshen/smartcolumn.nvim",
 		opts = {
