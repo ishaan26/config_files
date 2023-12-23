@@ -5,6 +5,8 @@ return {
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
 	{ import = "astrocommunity.utility.nvim-toggler" },
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
+	{ import = "astrocommunity.syntax.hlargs-nvim" },
 	{
 		"m4xshen/smartcolumn.nvim",
 		opts = {
