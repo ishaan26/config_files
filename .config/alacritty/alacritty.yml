@@ -108,12 +108,17 @@ window:
 font:
   normal:
     family: LigaSpaceMono Nerd Font
+    style: Regular
   bold:
     family: LigaSpaceMono Nerd Font
+    style: Bold
   italic:
     family: LigaSpaceMono Nerd Font
+    style: Bold Italic
   bold_italic:
     family: LigaSpaceMono Nerd Font
+    style: Italic
+
   # Font size
   size: 13
 
