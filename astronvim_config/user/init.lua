@@ -1,7 +1,7 @@
 return {
 
   -- Custom Colorshcheme. Configured in the onedark file in the plugins folder.
-  colorscheme = "onedark_dark",
+  colorscheme = "onedark_vivid",
 
   -- Global lsp setting. This is so much easier that setting up mannually. wow.
   lsp = {
