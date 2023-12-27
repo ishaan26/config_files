@@ -4,50 +4,59 @@ return {
             cargo = {
                 allFeatures = true,
             },
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
             checkOnSave = {
                 allFeatures = true,
                 command = "clippy",
             },
             procMacro = {
-                ignored = {
-                    ["async-trait"] = { "async_trait" },
-                    ["napi-derive"] = { "napi" },
-                    ["async-recursion"] = { "async_recursion" },
-                },
+                enable = true
             },
         },
         rust = {
             inlayHints = {
-                bindingModeHints = {
-                    enable = true,
+                -- automatically set inlay hints (type hints)
+                -- default: true
+                auto = false,
+
+                -- Only show inlay hints for the current line
+                only_current_line = true,
+
+                -- whether to show parameter hints with the inlay hints or not
+                -- default: true
+                show_parameter_hints = false,
+
+            },
+            -- options same as lsp hover / vim.lsp.util.open_floating_preview()
+            hover_actions = {
+
+                -- the border that is used for the hover window
+                -- see vim.api.nvim_open_win()
+                border = {
+                    { "╭", "FloatBorder" },
+                    { "─", "FloatBorder" },
+                    { "╮", "FloatBorder" },
+                    { "│", "FloatBorder" },
+                    { "╯", "FloatBorder" },
+                    { "─", "FloatBorder" },
+                    { "╰", "FloatBorder" },
+                    { "│", "FloatBorder" },
                 },
-                chainingHints = {
-                    enable = true,
-                },
-                closingBraceHints = {
-                    enable = true,
-                    minLines = 25,
-                },
-                closureReturnTypeHints = {
-                    enable = true,
-                },
-                lifetimeElisionHints = {
-                    enable = true,
-                    useParameterNames = false,
-                },
-                maxLength = 25,
-                parameterHints = {
-                    enable = true,
-                },
-                reborrowHints = {
-                    enable = true,
-                },
-                renderColons = true,
-                typeHints = {
-                    enable = true,
-                    hideClosureInitialization = false,
-                    hideNamedConstructor = false,
-                },
+
+                -- Maximal width of the hover window. Nil means no max.
+                max_width = nil,
+
+                -- Maximal height of the hover window. Nil means no max.
+                max_height = nil,
+
+                -- whether the hover action window gets automatically focused
+                -- default: false
+                auto_focus = false,
             },
         },
     },

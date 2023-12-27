@@ -1,7 +1,7 @@
 return {
 
   -- Custom Colorshcheme. Configured in the onedark file in the plugins folder.
-  colorscheme = "onedark_vivid",
+  colorscheme = "onedark",
 
   -- Global lsp setting. This is so much easier that setting up mannually. wow.
   lsp = {
@@ -98,4 +98,13 @@ return {
       -- ["<esc>"] = false,
     },
   },
+
+  heirline = {
+    colors = {
+      bg = "#000000",
+      section_bg = "#000000",
+      tabline_bg = "none",
+    },
+  },
+
 }
