@@ -11,20 +11,26 @@ return {
             keywords = 'italic',
             functions = 'bold',
             strings = 'none',
-            variables = 'bold'
-        },                  -- Lualine options --
+            variables = 'bold',
+            types = 'bold'
+        },                      -- Lualine options --
         lualine = {
             transparent = true, -- lualine center bar transparency
         },
+        highlights = {
+            NormalFloat = { fg = "#ffffff", bg = "#000000" },
+            FloatBorder = { fg = "#000000", bg = "#000000" },
+        }
     },
 }
 -- return {
 --     "olimorris/onedarkpro.nvim",
+--     priority = 1000,
 --     opts = {
 --         options = {
 --             highlight_inactive_windows = true,
---             transparency = true,
---
+--             cursorline = false,
+--             transparency = true
 --         },
 --         plugins = {
 --             neo_tree = false,
@@ -35,13 +41,9 @@ return {
 --             Comment = { italic = true },
 --             Directory = { bold = true },
 --             ErrorMsg = { italic = true, bold = true },
---             -- Identifier = { fg = "#ABB2BF", bold = true },
---             -- Keyword = { fg = "#F844D6", italic = true },
---             ["@variable.rust"] = { fg = "#FFFFFF", bold = true },
---             ["@variable"] = { fg = "#FFFFFF", bold = true },
 --         },
 --         styles = {
---             types = "NONE",
+--             types = "bold",
 --             methods = "NONE",
 --             numbers = "NONE",
 --             strings = "NONE",
@@ -51,13 +53,9 @@ return {
 --             functions = "bold",
 --             operators = "NONE",
 --             variables = "NONE",
---             parameters = "NONE",
+--             parameters = "bold",
 --             conditionals = "italic",
 --             virtual_text = "NONE",
 --         },
---         options = {
---             cursorline = true,
---             transparency = true
---         }
 --     },
 -- }
