@@ -67,9 +67,6 @@ return {
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
 
-      -- zen-mode mappings
-      ["<leader>z"] = { "<cmd>ZenMode<cr>", desc = "Zen Mode" },
-
       -- control commands
       -- quick save
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
@@ -92,6 +89,11 @@ return {
       -- Add Blank Lines
       ["<leader>o"] = { ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' },
       ["<leader>O"] = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' },
+
+      -- neotesting
+      ["<leader>zt"] = { ":Neotest run<cr>" },
+      ["<leader>zs"] = { ":Neotest summary<cr>" },
+      ["<leader>zo"] = { ":Neotest output<cr>" },
     },
     t = {
       -- setting a mapping to false will disable it
