@@ -4,7 +4,7 @@ return {
     name = "onedark",
     config = function()
         require("onedark").setup {
-            style = 'deep',
+            style = 'warmer',
             transparent = true,
             colors = {
                 bright_orange = "#ff8800", -- define a new color

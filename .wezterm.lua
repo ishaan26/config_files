@@ -24,7 +24,7 @@ config.cell_width = 0.89
 -- Color Scheme
 config.color_scheme = 'OneHalfDark'
 config.colors = {
-    background = "#0a0d12"
+    background = "#0c0e15"
 }
 
 -- Hide the tab bar
@@ -32,14 +32,14 @@ config.hide_tab_bar_if_only_one_tab = true
 
 -- window padding
 config.window_padding = {
-    left = 20,
-    right = 20,
+    left = 40,
+    right = 40,
     top = 50,
     bottom = 20,
 }
 
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 40
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 80
 config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW|INTEGRATED_BUTTONS"
 config.initial_cols = 110
 
