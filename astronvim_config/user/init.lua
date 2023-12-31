@@ -102,11 +102,30 @@ return {
   },
 
   heirline = {
+    separators = {
+      none = { "", "" },
+      left = { "", " " },
+      right = { "", "|" },
+      center = { "  ", "  " },
+      tab = { "", " " },
+      breadcrumbs = "  ",
+      path = "  ",
+    },
     colors = {
       bg = "#000000",
       section_bg = "#000000",
       tabline_bg = "none",
+      normal = "#000000",
+      insert = "#000000",
+      visual = "#000000",
     },
-  },
-
+    icon_highlights = {
+      breadcrumbs = true,
+      file_icon = {
+        tabline = function(self) return self.is_active or self.is_visible end,
+        statusline = true,
+        winbar = true,
+      },
+    },
+  }
 }
