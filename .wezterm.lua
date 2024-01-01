@@ -18,6 +18,7 @@ config.font = wezterm.font({
 	weight = "Medium",
 	harfbuzz_features = { "zero" },
 })
+
 config.font_size = 14.0
 -- config.cell_width = 0.9
 -- config.line_height = 0.9
@@ -25,13 +26,20 @@ config.font_size = 14.0
 -- config.freetype_render_target = "HorizontalLcd"
 
 ----------------------------
--- Color Scheme
+-- Theme
 ----------------------------
 config.color_scheme = "OneHalfDark"
+-- Background
 config.colors = {
 	background = "#0c0e15",
 }
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 80
+config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW|INTEGRATED_BUTTONS"
 
+----------------------------
+-- Window Scheme
+----------------------------
 -- Hide the tab bar
 config.hide_tab_bar_if_only_one_tab = true
 
@@ -43,9 +51,7 @@ config.window_padding = {
 	bottom = 20,
 }
 
-config.window_background_opacity = 0.9
-config.macos_window_background_blur = 80
-config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW|INTEGRATED_BUTTONS"
+-- Startup
 config.initial_cols = 110
 
 -- and finally, return the configuration to wezterm
