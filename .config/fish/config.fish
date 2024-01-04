@@ -186,7 +186,7 @@ if status is-interactive
 
 	if command -v nvim >>/dev/null 2>&1
 		alias vim="nvim"
-		alias vimf='nvim "$(fzf --height 60% --layout=reverse-list --preview \'bat --color=always --style=changes {}\' --preview-window=right:60:wrap --color=\'fg:#e5c07b,fg+:#282c34,bg:,bg+:#61afef\' --border)"'
+		alias vimf='nvim "$(find . | fzf --height 60% --layout=reverse-list --preview \'bat --color=always --style=changes {}\' --preview-window=right:60:wrap --color=\'fg:#e5c07b,fg+:#282c34,bg:,bg+:#61afef\' --border)"'
 
 	end
 
