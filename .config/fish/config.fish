@@ -24,7 +24,7 @@ if status is-interactive
 	
 	
 	####################################
-	# Start Tmux
+	# Zoxide 
 	####################################
 	# Utility functions for zoxide.
 
@@ -186,7 +186,8 @@ if status is-interactive
 
 	if command -v nvim >>/dev/null 2>&1
 		alias vim="nvim"
-		alias vimf='nvim "$(fzf --height 40% --reverse)"'
+		alias vimf='nvim "$(fzf --height 60% --layout=reverse-list --preview \'bat --color=always --style=changes {}\' --preview-window=right:60:wrap --color=\'fg:#e5c07b,fg+:#282c34,bg:,bg+:#61afef\' --border)"'
+
 	end
 
 	if command -v tmux >>/dev/null 2>&1
@@ -208,15 +209,11 @@ if status is-interactive
 
 end
 
-# pnpm
-set -gx PNPM_HOME "/Users/ishaangoel/Library/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+# iterm
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
+fzf_configure_bindings --directory=\cf --variables=\e\cv
