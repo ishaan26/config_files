@@ -186,7 +186,7 @@ if status is-interactive
 
 	if command -v nvim >>/dev/null 2>&1
 		alias vim="nvim"
-		alias vimf='nvim "$(find . | fzf --height 60% --layout=reverse-list --preview \'bat --color=always --style=changes {}\' --preview-window=right:60:wrap --color=\'fg:#e5c07b,fg+:#282c34,bg:,bg+:#61afef\' --border)"'
+		alias vimf='nvim "$(find . | fzf --height 60% --layout=reverse-list --preview \'bat --color=always --style=changes {}\' --preview-window=right:60%:wrap --color=\'fg:#e5c07b,fg+:#282c34,bg:,bg+:#61afef\' --border)"'
 
 	end
 
@@ -212,6 +212,9 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# java
+set --export JAVA_HOME "/usr/lib/jvm/default"
 
 # iterm
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
