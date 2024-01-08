@@ -91,7 +91,7 @@ return {
       ["<leader>O"] = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' },
 
       -- neotesting
-      ["<leader>zt"] = { ":Neotest run<cr>" },
+      ["<leader>zz"] = { ":Neotest run<cr>" },
       ["<leader>zs"] = { ":Neotest summary<cr>" },
       ["<leader>zo"] = { ":Neotest output<cr>" },
     },
@@ -105,11 +105,11 @@ return {
     separators = {
       none = { "", "" },
       left = { "", " " },
-      right = { "", "|" },
+      right = { " ", "" },
       center = { "  ", "  " },
       tab = { "", " " },
-      breadcrumbs = "  ",
-      path = "  ",
+      breadcrumbs = "  ",
+      path = "  ",
     },
     colors = {
       bg = "#000000",
