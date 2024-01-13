@@ -220,3 +220,6 @@ set --export JAVA_HOME "/usr/lib/jvm/default"
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 fzf_configure_bindings --directory=\cf --variables=\e\cv
+
+# Atuin
+atuin init fish | source
