@@ -8,7 +8,7 @@ return {
             transparent = true,
             colors = {
                 bright_orange = "#ff8800", -- define a new color
-                light_grey = '#e2ff63',
+                light_grey = '##c4c4c4',
             },
             code_style = {
                 comments = 'italic',
