@@ -137,6 +137,15 @@ format = 'on[ $symbol $branch]($style bold)'
 [git_status]
 style = "fg:yellow"
 format = '[ \[$all_status$ahead_behind\] ]($style bold)'
+deleted = "  "
+ahead = "  "
+behind = "  "
+staged = "  "
+renamed = "  "
+stashed = " 󱠶 "
+modified = "  "
+diverged = "  "
+untracked = "  "
 
 
 # Languages Stuff
