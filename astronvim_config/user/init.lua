@@ -5,18 +5,27 @@ return {
 
   -- Global lsp setting. This is so much easier that setting up mannually. wow.
   lsp = {
+    config = {
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev', },
+              extraArgs = { "--profile", "rust-analyzer", },
+            },
+            -- Add clippy lints for Rust.
+            checkOnSave = {
+              allFeatures = true,
+              command = "clippy",
+              extraArgs = { "--no-deps" },
+            },
+          },
+        },
+      },
+    },
     formatting = {
       -- enable or disable automatic formatting on save
       format_on_save = true,
-    },
-
-    setup_handlers = {
-      -- add custom handler for rust tools
-      rust_analyzer = function(_, opts)
-        require("rust-tools").setup({
-          server = opts,
-        })
-      end,
     },
   },
 

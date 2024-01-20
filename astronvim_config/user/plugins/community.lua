@@ -1,7 +1,6 @@
 return {
 	"AstroNvim/astrocommunity",
 	{ import = "astrocommunity.motion.mini-surround" },
-	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
 	{ import = "astrocommunity.utility.nvim-toggler" },
 	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
