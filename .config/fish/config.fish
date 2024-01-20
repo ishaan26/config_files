@@ -213,8 +213,6 @@ end
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-# java
-set --export JAVA_HOME "/usr/lib/jvm/default"
 
 # iterm
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
@@ -222,4 +220,9 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 fzf_configure_bindings --directory=\cf --variables=\e\cv
 
 # Atuin
+set -gx ATUIN_NOBIND "true"
 atuin init fish | source
+
+# bind to ctrl-r in normal and insert mode, add any other bindings you want here too
+bind \cr _atuin_search
+bind -M insert \cr _atuin_search

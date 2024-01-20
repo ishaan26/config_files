@@ -4,7 +4,6 @@ return {
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
 	{ import = "astrocommunity.utility.nvim-toggler" },
-	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
 	{ import = "astrocommunity.syntax.hlargs-nvim" },
 	{ import = "astrocommunity.indent.indent-blankline-nvim" },
