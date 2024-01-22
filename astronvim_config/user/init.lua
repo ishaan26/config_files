@@ -51,6 +51,7 @@ return {
       signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
       wrap = true,           -- sets vim.opt.wrap
     },
+
     g = {
       mapleader = " ",                   -- sets vim.g.mapleader
       autoformat_enabled = true,         -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
@@ -60,7 +61,18 @@ return {
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
       icons_enabled = true,              -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       ui_notifications_enabled = true,   -- disable notifications when toggling UI elements
+      neovide_window_blurred = true,
+      neovide_transparency = 0.8,
+      neovide_floating_blur_amount_x = 20.0,
+      neovide_floating_blur_amount_y = 20.0,
+      neovide_floating_shadow = true,
+      neovide_floating_z_height = 10,
+      neovide_light_angle_degrees = 45,
+      neovide_light_radius = 5,
     },
+    o = {
+      guifont = "MeraIosevka Nerd Font:h18" -- text below applies for VimScript
+    }
   },
 
   -- Custom Keymappins
@@ -136,5 +148,6 @@ return {
         winbar = true,
       },
     },
-  }
+  },
+
 }
