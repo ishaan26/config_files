@@ -25,7 +25,7 @@ return {
     },
     formatting = {
       -- enable or disable automatic formatting on save
-      format_on_save = true,
+      format_on_save = false,
     },
   },
 
