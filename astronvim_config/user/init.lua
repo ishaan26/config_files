@@ -24,8 +24,14 @@ return {
       },
     },
     formatting = {
-      -- enable or disable automatic formatting on save
-      format_on_save = false,
+      format_on_save = {
+        enabled = true,     -- enable format on save
+        allow_filetypes = { -- only allow formatting on save for these filetypes
+          "lua",
+          "rust",
+          "python"
+        }
+      },
     },
   },
 
