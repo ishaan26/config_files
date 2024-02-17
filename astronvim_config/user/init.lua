@@ -67,8 +67,9 @@ return {
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
       icons_enabled = true,              -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       ui_notifications_enabled = true,   -- disable notifications when toggling UI elements
+      -- Neovide
       neovide_window_blurred = true,
-      neovide_transparency = 0.8,
+      neovide_transparency = 0.9,
       neovide_floating_blur_amount_x = 20.0,
       neovide_floating_blur_amount_y = 20.0,
       neovide_floating_shadow = true,

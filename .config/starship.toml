@@ -1,6 +1,6 @@
 format = """
 $os\
-[ for]()\
+[ by]()\
 $username\
 $directory\
 $git_branch\
@@ -86,7 +86,7 @@ Gentoo = " "
 HardenedBSD = "ﲊ "
 Illumos = " "
 Linux = " "
-Macos = ""
+Macos = " "
 Manjaro = "󱘊 "
 Mariner = " "
 MidnightBSD = " "
