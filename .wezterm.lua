@@ -15,11 +15,11 @@ end
 ----------------------------
 config.font = wezterm.font({
 	family = "MeraIosevka Nerd Font",
-	weight = "Medium",
+	weight = "Regular",
 	harfbuzz_features = { "zero" },
 })
 
-config.font_size = 18.0
+config.font_size = 14.0
 -- config.cell_width = 0.9
 -- config.line_height = 0.9
 -- config.freetype_load_target = "Light"
@@ -33,7 +33,7 @@ config.color_scheme = "OneHalfDark"
 config.colors = {
 	background = "#0c0e15",
 }
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.8
 config.macos_window_background_blur = 80
 config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW"
 

@@ -42,7 +42,7 @@ else
 fi
 
 pause() {
-    read -p "$*"
+    read -rp "$*"
 }
 
 source ./.setup_scripts/cargo_packages.sh
