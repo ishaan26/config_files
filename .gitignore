@@ -3,7 +3,6 @@
 core
 .config/nvim/plugin/packer_compiled.lua
 .config/fish/fish_variables
-.config/fish/conf.d*
 
 # Note that some of the patterns below should be in an individual's
 # ~/.config/git/ignore file. For example, ".DS_Store" from people working on

@@ -34,6 +34,9 @@ if status is-interactive
 	# Environment variables
 	####################################
 
+	#GPG
+	export GPG_TTY=$(tty)
+
 	## For Tauri
 	set -Ux JAVA_HOME /Applications/Android Studio.app/Contents/jbr/Contents/Home
 	set -Ux ANDROID_HOME $HOME/Library/Android/sdk
@@ -104,14 +107,14 @@ abbr mkdir 'mkdir -p'
 	alias gah= "git stash; and git pull --rebase; and git stash pop"
 
 	if command -v lsd >>/dev/null 2>&1
-		alias l="~/.cargo/bin/lsd -lah"
-		alias ll="~/.cargo/bin/lsd -lh"
-		alias ls="~/.cargo/bin/lsd"
-		alias tree="~/.cargo/bin/lsd --tree"
+		abbr l "lsd -lah"
+		abbr ll "lsd -lh"
+		abbr ls "lsd"
+		abbr tree "lsd --tree"
 	end
 
 	if command -v nvim >>/dev/null 2>&1
-		alias vim="nvim"
+		abbr vim "nvim"
 		alias vimf='nvim "$(find . | fzf --height 60% --layout=reverse-list --preview \'bat --color=always --style=changes {}\' --preview-window=right:60%:wrap --color=\'fg:#e5c07b,fg+:#282c34,bg:,bg+:#61afef\' --border)"'
 
 	end
