@@ -8,6 +8,7 @@ return {
 	{ import = "astrocommunity.indent.indent-blankline-nvim" },
 	{ import = "astrocommunity.indent.mini-indentscope" },
 	{ import = "astrocommunity.test.neotest" },
+	{ import = "astrocommunity.pack.rust" },
 	{
 		"m4xshen/smartcolumn.nvim",
 		opts = {
