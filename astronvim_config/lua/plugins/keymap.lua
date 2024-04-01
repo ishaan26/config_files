@@ -40,8 +40,12 @@ return {
 					["<leader><leader>"] = { "<c-^>" },
 
 					-- Add Blank Lines
-					["<leader>o"] = { ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' },
-					["<leader>O"] = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' },
+					["go"] = { ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' },
+					["gO"] = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' },
+
+					-- Better movement
+					["j"] = { "gj" },
+					["k"] = { "gk" },
 
 					-- neotesting
 					["<leader>zz"] = { ":Neotest run<cr>" },
