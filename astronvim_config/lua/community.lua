@@ -4,11 +4,15 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-  -- Language Packs
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.python" },
-  -- nvim ui
-  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+	"AstroNvim/astrocommunity",
+	{ import = "astrocommunity.pack.lua" },
+	-- Language Packs
+	{ import = "astrocommunity.pack.rust" },
+	{ import = "astrocommunity.pack.python" },
+	-- nvim ui
+	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+	-- Play nicely with vscode
+	{ import = "astrocommunity.recipes.vscode" },
+
+	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
 }
