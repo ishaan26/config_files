@@ -3,14 +3,16 @@
 -- fit in the normal config locations above can go here
 
 -- Set up custom filetypes
-vim.filetype.add {
-  extension = {
-    foo = "fooscript",
-  },
-  filename = {
-    ["Foofile"] = "fooscript",
-  },
-  pattern = {
-    ["~/%.config/foo/.*"] = "fooscript",
-  },
-}
+vim.filetype.add({
+	extension = {
+		foo = "fooscript",
+	},
+	filename = {
+		["Foofile"] = "fooscript",
+	},
+	pattern = {
+		["~/%.config/foo/.*"] = "fooscript",
+	},
+})
+
+vim.wo.wrap = true
