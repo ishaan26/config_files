@@ -8,9 +8,8 @@ return {
 	{ import = "astrocommunity.pack.lua" },
 
 	-- Language Packs
-	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.pack.python" },
-
+	{ import = "astrocommunity.pack.typescript" },
 	-- nvim ui
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 
@@ -27,4 +26,7 @@ return {
 
 	-- syntax
 	{ import = "astrocommunity.syntax.hlargs-nvim" },
+
+	-- neovide
+	{ import = "astrocommunity.recipes.neovide" },
 }
