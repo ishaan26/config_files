@@ -15,4 +15,14 @@ vim.filetype.add({
 	},
 })
 
-vim.wo.wrap = true
+-- DISSSSAABLLEEE!!!!!!!!!!! those Snippets >(
+require("cmp").setup({
+	sources = {
+		{
+			name = "nvim_lsp",
+			entry_filter = function(entry)
+				return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+			end,
+		},
+	},
+})

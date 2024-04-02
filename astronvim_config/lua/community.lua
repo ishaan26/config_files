@@ -12,6 +12,7 @@ return {
 	{ import = "astrocommunity.pack.python" },
 	{ import = "astrocommunity.pack.typescript" },
 	{ import = "astrocommunity.pack.svelte" },
+	{ import = "astrocommunity.pack.vue" },
 	{ import = "astrocommunity.pack.tailwindcss" },
 	{ import = "astrocommunity.pack.json" },
 	{ import = "astrocommunity.pack.yaml" },
@@ -21,7 +22,6 @@ return {
 
 	-- nvim ui
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-	{ import = "astrocommunity.scrolling.mini-animate" },
 
 	-- Play nicely with vscode
 	{ import = "astrocommunity.recipes.vscode" },

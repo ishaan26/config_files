@@ -12,16 +12,10 @@ return {
     features = {
       autoformat = true,   -- enable or disable auto formatting on start
       codelens = true,     -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true,  -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
 
-    -- so that rustaceanvim works
-    setup = {
-      rust_analyzer = function()
-        return true
-      end,
-    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
