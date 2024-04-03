@@ -9,6 +9,8 @@ return {
 
 	-- Language Packs
 	{ import = "astrocommunity.pack.rust" },
+	{ import = "astrocommunity.pack.cpp" },
+	{ import = "astrocommunity.pack.zig" },
 	{ import = "astrocommunity.pack.python" },
 	{ import = "astrocommunity.pack.typescript" },
 	{ import = "astrocommunity.pack.svelte" },
@@ -19,6 +21,7 @@ return {
 	{ import = "astrocommunity.pack.lua" },
 	{ import = "astrocommunity.pack.markdown" },
 	{ import = "astrocommunity.pack.bash" },
+	{ import = "astrocommunity.programming-language-support.csv-vim" },
 
 	-- nvim ui
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
@@ -31,6 +34,7 @@ return {
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
 	{ import = "astrocommunity.test.neotest" },
 	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
+	{ import = "astrocommunity.diagnostics.lsp_lines-nvim" },
 
 	-- Tabs
 	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
