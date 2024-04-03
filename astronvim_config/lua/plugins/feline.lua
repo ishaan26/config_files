@@ -19,18 +19,20 @@ local function config(_, opts)
 	local separators = require("feline.defaults").statusline.separators.default_value
 	local lsp = require("feline.providers.lsp")
 
-	local theme = {
+	local onedark_theme = {
 		black = "#000000",
 		white = "#ffffff",
-		fg = "#a7aab0",
-		purple = "#bb70d2",
-		green = "#8fb573",
-		orange = "#c49060",
-		blue = "#54b0fd",
-		yellow = "#dbb671",
-		cyan = "#51a8b3",
-		red = "#de5d68",
-		grey = "#5a5b5e",
+		bg_blue = "#61afef",
+		bg_yellow = "#e8c88c",
+		fg = "#a0a8b7",
+		purple = "#bf68d9",
+		green = "#8ebd6b",
+		orange = "#cc9057",
+		blue = "#4fa6ed",
+		yellow = "#e2b86b",
+		cyan = "#48b0bd",
+		red = "#e55561",
+		grey = "#535965",
 	}
 
 	local c = {
@@ -44,22 +46,23 @@ local function config(_, opts)
 				else
 					s = ""
 				end
-				s = string.format("   %s  ", s)
+				s = string.format("   %s   ", s)
 				return s
 			end,
 
-			hl = { fg = theme.purple, bg = theme.black },
+			hl = { fg = onedark_theme.purple, bg = onedark_theme.black },
 		},
 
 		file_name = {
 			provider = {
 				name = "file_info",
+				opts = { colored_icon = false },
 			},
-			hl = { fg = theme.black, bg = theme.blue },
+			hl = { fg = onedark_theme.black, bg = onedark_theme.blue },
 			left_sep = {
 				always_visible = true,
 				str = separators.block,
-				hl = { fg = theme.blue, bg = theme.blue },
+				hl = { fg = onedark_theme.blue, bg = onedark_theme.blue },
 			},
 		},
 
@@ -75,12 +78,12 @@ local function config(_, opts)
 				end
 				return s
 			end,
-			hl = { fg = theme.black, bg = theme.orange },
+			hl = { fg = onedark_theme.black, bg = onedark_theme.orange },
 
 			left_sep = {
 				always_visible = true,
 				str = separators.block,
-				hl = { fg = theme.blue, bg = theme.black },
+				hl = { fg = onedark_theme.blue, bg = onedark_theme.black },
 			},
 		},
 
@@ -95,37 +98,42 @@ local function config(_, opts)
 
 			hl = function()
 				if not lsp.is_lsp_attached() then
-					return { fg = theme.black, bg = theme.black }
+					return { fg = onedark_theme.black, bg = onedark_theme.black }
 				end
-				return { fg = theme.black, bg = theme.purple }
+				return { fg = onedark_theme.black, bg = onedark_theme.purple }
 			end,
+
+			left_sep = {
+				always_visible = true,
+				str = separators.block,
+				hl = { fg = onedark_theme.black, bg = onedark_theme.black },
+			},
 		},
 
 		git_diff = {
-			git_diff_added = {
+			added = {
 				provider = {
 					name = "git_diff_added",
-					opts = { colored_icon = false },
 				},
 				hl = {
-					fg = theme.green,
-					bg = theme.black,
+					fg = onedark_theme.green,
+					bg = onedark_theme.black,
 				},
 			},
 
-			git_diff_removed = {
+			removed = {
 				provider = "git_diff_removed",
 				hl = {
-					fg = theme.red,
-					bg = theme.black,
+					fg = onedark_theme.red,
+					bg = onedark_theme.black,
 				},
 			},
 
-			git_diff_changed = {
+			changed = {
 				provider = "git_diff_changed",
 				hl = {
-					fg = theme.yellow,
-					bg = theme.black,
+					fg = onedark_theme.yellow,
+					bg = onedark_theme.black,
 				},
 			},
 		},
@@ -135,7 +143,7 @@ local function config(_, opts)
 				return string.format("%s ", vi_mode.get_vim_mode())
 			end,
 			hl = function()
-				return { fg = theme.black, bg = vi_mode.get_mode_color() }
+				return { fg = onedark_theme.black, bg = vi_mode.get_mode_color() }
 			end,
 			left_sep = {
 				always_visible = true,
@@ -147,6 +155,30 @@ local function config(_, opts)
 		},
 
 		-- right
+		diagnostics = {
+			errors = {
+				provider = "diagnostic_errors",
+				hl = {
+					fg = onedark_theme.red,
+					bg = onedark_theme.black,
+				},
+			},
+			warnings = {
+				provider = "diagnostic_warnings",
+				hl = {
+					fg = onedark_theme.yellow,
+					bg = onedark_theme.black,
+				},
+			},
+			hints = {
+				provider = "diagnostic_hints",
+				hl = {
+					fg = onedark_theme.purple,
+					bg = onedark_theme.black,
+				},
+			},
+		},
+
 		macro = {
 			provider = function()
 				local s
@@ -158,7 +190,7 @@ local function config(_, opts)
 				end
 				return s
 			end,
-			hl = { fg = theme.black, bg = theme.black },
+			hl = { fg = onedark_theme.black, bg = onedark_theme.black },
 		},
 
 		search_count = {
@@ -178,7 +210,7 @@ local function config(_, opts)
 				local denominator = math.min(result.total, result.maxcount)
 				return string.format(" at %d of %d ", result.current, denominator)
 			end,
-			hl = { fg = theme.black, bg = theme.white },
+			hl = { fg = onedark_theme.black, bg = onedark_theme.white },
 		},
 
 		cursor_position = {
@@ -186,18 +218,18 @@ local function config(_, opts)
 				name = "position",
 				opts = { padding = true },
 			},
-			hl = { fg = theme.black, bg = theme.blue },
+			hl = { fg = onedark_theme.black, bg = onedark_theme.blue },
 			left_sep = {
 				always_visible = true,
 				str = separators.block,
 				hl = function()
-					return { fg = theme.blue, bg = theme.black }
+					return { fg = onedark_theme.blue, bg = onedark_theme.black }
 				end,
 			},
 			right_sep = {
 				always_visible = true,
 				str = " ",
-				hl = { fg = theme.black, bg = theme.blue },
+				hl = { fg = onedark_theme.black, bg = onedark_theme.blue },
 			},
 		},
 
@@ -206,7 +238,7 @@ local function config(_, opts)
 				name = "scroll_bar",
 				opts = { reverse = true },
 			},
-			hl = { fg = theme.yellow, bg = theme.blue },
+			hl = { fg = onedark_theme.yellow, bg = onedark_theme.blue },
 		},
 
 		-- inactive statusline
@@ -218,16 +250,16 @@ local function config(_, opts)
 					return file.file_type({}, { colored_icon = false, case = "lowercase" })
 				end
 			end,
-			hl = { fg = theme.black, bg = theme.blue },
+			hl = { fg = onedark_theme.black, bg = onedark_theme.blue },
 			left_sep = {
 				always_visible = true,
 				str = string.format("%s%s", separators.slant_left, separators.block),
-				hl = { fg = theme.blue, bg = "none" },
+				hl = { fg = onedark_theme.blue, bg = "none" },
 			},
 			right_sep = {
 				always_visible = true,
 				str = " ",
-				hl = { fg = theme.black, bg = theme.blue },
+				hl = { fg = onedark_theme.black, bg = onedark_theme.blue },
 			},
 		},
 	}
@@ -237,12 +269,16 @@ local function config(_, opts)
 			c.vim_status,
 			c.vi_mode,
 			c.file_name,
+
 			c.git_branch,
-			c.git_diff.git_diff_added,
-			c.git_diff.git_diff_removed,
-			c.git_diff.git_diff_changed,
+			c.git_diff.added,
+			c.git_diff.removed,
+			c.git_diff.changed,
 		},
 		{ -- right
+			c.diagnostics.errors,
+			c.diagnostics.warnings,
+			c.diagnostics.hints,
 			c.macro,
 			c.search_count,
 			c.lsp,
@@ -262,7 +298,7 @@ local function config(_, opts)
 	opts.components = { active = active, inactive = inactive }
 
 	feline.setup(opts)
-	feline.use_theme(theme)
+	feline.use_theme(onedark_theme)
 end
 
 return {
