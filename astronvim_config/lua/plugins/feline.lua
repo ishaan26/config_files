@@ -13,8 +13,6 @@ end
 
 -- configure feline
 local function config(_, opts)
-	local colorscheme = vim.g.colors_name
-	local palette = require("nightfox.palette").load(colorscheme)
 	local feline = require("feline")
 	local vi_mode = require("feline.providers.vi_mode")
 	local file = require("feline.providers.file")
@@ -23,6 +21,7 @@ local function config(_, opts)
 
 	local theme = {
 		black = "#000000",
+		white = "#ffffff",
 		fg = "#a7aab0",
 		purple = "#bb70d2",
 		green = "#8fb573",
@@ -35,13 +34,6 @@ local function config(_, opts)
 	}
 
 	local c = {
-
-		-- local function git_diff(type)
-		-- 	---@diagnostic disable-next-line: undefined-field
-		-- 	local gsd = vim.b.gitsigns_status_dict
-		-- 	if gsd and gsd[type] and gsd[type] > 0 then return tostring(gsd[type]) end
-		-- 	return nil
-		-- end
 
 		-- left
 		vim_status = {
@@ -62,7 +54,6 @@ local function config(_, opts)
 		file_name = {
 			provider = {
 				name = "file_info",
-				opts = { colored_icon = false },
 			},
 			hl = { fg = theme.black, bg = theme.blue },
 			left_sep = {
@@ -99,7 +90,7 @@ local function config(_, opts)
 					return " 󱏎 LSP "
 				end
 
-				return string.format(" 󱁛 LSP(s): %s ", active_clients())
+				return string.format(" 󱁛 LSP: %s ", active_clients())
 			end,
 
 			hl = function()
@@ -187,7 +178,7 @@ local function config(_, opts)
 				local denominator = math.min(result.total, result.maxcount)
 				return string.format(" at %d of %d ", result.current, denominator)
 			end,
-			hl = { fg = theme.black, bg = palette.white.base },
+			hl = { fg = theme.black, bg = theme.white },
 		},
 
 		cursor_position = {
@@ -215,7 +206,7 @@ local function config(_, opts)
 				name = "scroll_bar",
 				opts = { reverse = true },
 			},
-			hl = { fg = palette.blue.dim, bg = theme.blue },
+			hl = { fg = theme.yellow, bg = theme.blue },
 		},
 
 		-- inactive statusline
