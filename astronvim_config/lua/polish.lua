@@ -14,15 +14,3 @@ vim.filetype.add({
 		["~/%.config/foo/.*"] = "fooscript",
 	},
 })
-
--- DISSSSAABLLEEE!!!!!!!!!!! those Snippets >(
-require("cmp").setup({
-	sources = {
-		{
-			name = "nvim_lsp",
-			entry_filter = function(entry)
-				return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
-			end,
-		},
-	},
-})
