@@ -34,7 +34,6 @@ return {
 	{ import = "astrocommunity.diagnostics.trouble-nvim" },
 	{ import = "astrocommunity.test.neotest" },
 	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
-	{ import = "astrocommunity.diagnostics.lsp_lines-nvim" },
 
 	-- Tabs
 	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },

@@ -46,11 +46,6 @@ return {
 					-- Better movement
 					["j"] = { "gj" },
 					["k"] = { "gk" },
-
-					-- neotesting
-					["<leader>zz"] = { ":Neotest run<cr>" },
-					["<leader>zs"] = { ":Neotest summary<cr>" },
-					["<leader>zo"] = { ":Neotest output<cr>" },
 				},
 				t = {
 					-- setting a mapping to false will disable it
