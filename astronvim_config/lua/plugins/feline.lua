@@ -5,7 +5,7 @@ local function active_clients()
 	for i, v in ipairs(clients) do
 		client_string = client_string .. v.name
 		if i < #clients then
-			client_string = client_string .. ", "
+			client_string = client_string .. ","
 		end
 	end
 	return client_string
@@ -93,7 +93,7 @@ local function config(_, opts)
 					return " 󱏎 LSP "
 				end
 
-				return string.format(" 󱁛 LSP: %s ", active_clients())
+				return string.format(" 󱁛 : %s ", active_clients())
 			end,
 
 			hl = function()
