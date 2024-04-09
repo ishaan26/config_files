@@ -4,13 +4,13 @@ return {
 		progress = {
 			display = {
 				render_limit = 10,
-				done_icon = "✔",
+				done_icon = "✔  ",
 			},
 		},
 		notification = {
 			window = {
 				normal_hl = "Comment", -- Base highlight group in the notification window
-				winblend = 0, -- Background color opacity in the notification window
+				winblend = 100, -- Background color opacity in the notification window
 				border = "rounded", -- Border around the notification window
 				zindex = 45, -- Stacking priority of the notification window
 				max_width = 0, -- Maximum width of the notification window
