@@ -13,11 +13,9 @@ return {
 			code_style = {
 				comments = "italic",
 				keywords = "italic",
-				functions = "bold",
 				strings = "none",
-				variables = "bold",
-				types = "bold",
-			}, -- Lualine options --
+			},
+			-- Lualine options --
 			lualine = {
 				transparent = true, -- lualine center bar transparency
 			},
