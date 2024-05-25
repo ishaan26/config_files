@@ -93,7 +93,7 @@ local function config(_, opts)
 					return " 󱏎 LSP "
 				end
 
-				return string.format(" 󱁛 : %s ", active_clients())
+				return string.format(" 󱁛 :%s ", active_clients())
 			end,
 
 			hl = function()

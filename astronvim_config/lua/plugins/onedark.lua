@@ -14,6 +14,7 @@ return {
 				comments = "italic",
 				keywords = "italic",
 				strings = "none",
+				functions = "bold",
 			},
 			-- Lualine options --
 			lualine = {
