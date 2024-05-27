@@ -4,42 +4,33 @@
 
 ---@type LazySpec
 return {
-	"AstroNvim/astrocommunity",
-	{ import = "astrocommunity.pack.lua" },
+  "AstroNvim/astrocommunity",
+  { import = "astrocommunity.pack.lua" },
+  -- import/override with your plugins folder
 
-	-- Language Packs
-	{ import = "astrocommunity.pack.rust" },
-	{ import = "astrocommunity.pack.cpp" },
-	{ import = "astrocommunity.pack.python" },
-	{ import = "astrocommunity.pack.typescript" },
-	{ import = "astrocommunity.pack.svelte" },
-	{ import = "astrocommunity.pack.vue" },
-	{ import = "astrocommunity.pack.tailwindcss" },
-	{ import = "astrocommunity.pack.json" },
-	{ import = "astrocommunity.pack.yaml" },
-	{ import = "astrocommunity.pack.lua" },
-	{ import = "astrocommunity.pack.markdown" },
-	{ import = "astrocommunity.pack.bash" },
-	{ import = "astrocommunity.programming-language-support.csv-vim" },
+  { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.svelte" },
+  { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.vue" },
+  { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.bash" },
 
-	-- nvim ui
-	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  -- nvim programming support
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  { import = "astrocommunity.test.neotest" },
+  { import = "astrocommunity.editing-support.todo-comments-nvim" },
 
-	-- Play nicely with vscode
-	{ import = "astrocommunity.recipes.vscode" },
+  -- Tabs
+  { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
 
-	-- support
-	{ import = "astrocommunity.motion.mini-surround" },
-	{ import = "astrocommunity.diagnostics.trouble-nvim" },
-	{ import = "astrocommunity.test.neotest" },
-	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
+  -- syntax
+  { import = "astrocommunity.syntax.hlargs-nvim" },
 
-	-- Tabs
-	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
-
-	-- syntax
-	{ import = "astrocommunity.syntax.hlargs-nvim" },
-
-	-- neovide
-	{ import = "astrocommunity.recipes.neovide" },
+  -- neovide
+  { import = "astrocommunity.recipes.neovide" },
 }
