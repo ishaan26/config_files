@@ -28,8 +28,10 @@ return {
   -- Tabs
   { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
 
-  -- syntax
+  -- colors
   { import = "astrocommunity.syntax.hlargs-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
 
   -- neovide
   { import = "astrocommunity.recipes.neovide" },

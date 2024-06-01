@@ -46,11 +46,19 @@ return {
           -- Better movement
           ["j"] = { "gj" },
           ["k"] = { "gk" },
+
+          -- Theme Switcher
+          ["<leader>k"] = {
+            function()
+              vim.cmd.Themery()
+            end,
+            desc = "Switch Themes",
+          },
         },
-        t = {
-          -- setting a mapping to false will disable it
-          ["<esc>"] = false,
-        },
+      },
+      t = {
+        -- setting a mapping to false will disable it
+        ["<esc>"] = false,
       },
     },
   },
