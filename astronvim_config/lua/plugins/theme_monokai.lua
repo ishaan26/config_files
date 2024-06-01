@@ -5,10 +5,10 @@ return {
 		transparent_background = true,
 		styles = {
 			comment = { italic = true },
-			keyword = { italic = true }, -- any other keyword
-			type = { italic = false }, -- (preferred) int, long, char, etc
+			keyword = { italic = true },    -- any other keyword
+			type = { italic = false },      -- (preferred) int, long, char, etc
 			storageclass = { italic = false }, -- static, register, volatile, etc
-			structure = { italic = true }, -- struct, union, enum, etc
+			structure = { italic = true },  -- struct, union, enum, etc
 			parameter = { italic = false }, -- parameter pass in function
 			annotation = { italic = true },
 			tag_attribute = { italic = true }, -- attribute of tag in reactjs
@@ -23,6 +23,7 @@ return {
 			"nvim-tree",
 			"neo-tree",
 			"bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+			"heirline",
 		},
 	},
 }
