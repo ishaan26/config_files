@@ -1,4 +1,3 @@
-local rust_prefix = "<Leader>r"
 return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
@@ -8,7 +7,7 @@ return {
         -- Code Actions
         ["<leader>ra"] = {
           function()
-            vim.cmd.RustLsp "codeAction" -- supports rust-analyzer's grouping
+            vim.cmd.RustLsp("codeAction") -- supports rust-analyzer's grouping
             -- or vim.lsp.buf.codeAction() if you don't want grouping.
           end,
           desc = "Code Actions",
@@ -17,7 +16,7 @@ return {
         -- Get all runnables
         ["<leader>rr"] = {
           function()
-            vim.cmd.RustLsp "runnables" -- supports rust-analyzer's grouping
+            vim.cmd.RustLsp("runnables") -- supports rust-analyzer's grouping
           end,
           desc = "List out all the runnables",
         },
@@ -25,7 +24,7 @@ return {
         -- Get all testables
         ["<leader>rt"] = {
           function()
-            vim.cmd.RustLsp "testables" -- supports rust-analyzer's grouping
+            vim.cmd.RustLsp("testables") -- supports rust-analyzer's grouping
           end,
           desc = "List out all the testables",
         },
@@ -33,27 +32,31 @@ return {
         -- Get all debuggables
         ["<leader>rd"] = {
           function()
-            vim.cmd.RustLsp "debuggables" -- supports rust-analyzer's grouping
+            vim.cmd.RustLsp("debuggables") -- supports rust-analyzer's grouping
           end,
           desc = "List out the debuggables",
         },
 
         -- Explain Error
         ge = {
-          function() vim.cmd.RustLsp "explainError" end,
+          function()
+            vim.cmd.RustLsp("explainError")
+          end,
           desc = "Explain the error",
         },
 
         -- Open Cargo.toml
         ["<leader>rc"] = {
-          function() vim.cmd.RustLsp "openCargo" end,
+          function()
+            vim.cmd.RustLsp("openCargo")
+          end,
           desc = "Open Cargo.toml",
         },
 
         ["<leader>ro"] = {
           function()
             -- Open Cargo.toml
-            vim.cmd.RustLsp "openDocs"
+            vim.cmd.RustLsp("openDocs")
           end,
           desc = "Open docs.rs",
         },

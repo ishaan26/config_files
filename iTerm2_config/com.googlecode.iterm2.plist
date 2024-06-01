@@ -582,13 +582,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0675048828125</real>
+				<real>0.073211669921875</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.0675048828125</real>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<real>0.0675048828125</real>
+				<real>0.0</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -612,7 +612,7 @@
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>64</real>
+			<real>44.496833444148933</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -705,7 +705,7 @@
 			<key>Guid</key>
 			<string>77F7E81A-5755-45F3-A604-05FD0CF2F648</string>
 			<key>Horizontal Spacing</key>
-			<real>1</real>
+			<real>0.90000000000000002</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
@@ -1024,7 +1024,7 @@
 			<key>Non-ASCII Ligatures</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>GoogleSansMNF-Regular 18</string>
+			<string>ZedMonoNF 17</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Option Key Sends</key>
@@ -1157,8 +1157,8 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>0</integer>
+	<integer>5</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

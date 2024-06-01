@@ -11,9 +11,9 @@ return {
           ["<Leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
           ["<Leader>bD"] = {
             function()
-              require("astroui.status").heirline.buffer_picker(
-                function(bufnr) require("astrocore.buffer").close(bufnr) end
-              )
+              require("astroui.status").heirline.buffer_picker(function(bufnr)
+                require("astrocore.buffer").close(bufnr)
+              end)
             end,
             desc = "Pick to close",
           },
@@ -62,12 +62,16 @@ return {
         n = {
           -- this mapping will only be set in buffers with an LSP attached
           K = {
-            function() vim.lsp.buf.hover() end,
+            function()
+              vim.cmd.Lspsaga("hover_doc")
+            end,
             desc = "Hover symbol details",
           },
           -- condition for only server with declaration capabilities
           gD = {
-            function() vim.lsp.buf.declaration() end,
+            function()
+              vim.lsp.buf.declaration()
+            end,
             desc = "Declaration of current symbol",
             cond = "textDocument/declaration",
           },
