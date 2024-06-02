@@ -28,43 +28,10 @@ return {
 	-- Tabs
 	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 	-- colors
 	{ import = "astrocommunity.syntax.hlargs-nvim" },
 	{ import = "astrocommunity.colorscheme.catppuccin" },
 	{ import = "astrocommunity.colorscheme.tokyonight-nvim" },
-||||||| Stash base
-  -- colors
-  { import = "astrocommunity.syntax.hlargs-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
-=======
-	-- colors
-	{ import = "astrocommunity.colorscheme.catppuccin" },
-	{ import = "astrocommunity.colorscheme.tokyonight-nvim" },
->>>>>>> Stashed changes
-||||||| Stash base
-  -- colors
-  { import = "astrocommunity.syntax.hlargs-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
-=======
-	-- colors
-	{ import = "astrocommunity.colorscheme.catppuccin" },
-	{ import = "astrocommunity.colorscheme.tokyonight-nvim" },
->>>>>>> Stashed changes
-||||||| Stash base
-  -- colors
-  { import = "astrocommunity.syntax.hlargs-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
-=======
-	-- colors
-	{ import = "astrocommunity.colorscheme.catppuccin" },
-	{ import = "astrocommunity.colorscheme.tokyonight-nvim" },
->>>>>>> Stashed changes
 
 	-- neovide
 	{ import = "astrocommunity.recipes.neovide" },
