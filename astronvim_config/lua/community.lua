@@ -20,18 +20,22 @@ return {
 	{ import = "astrocommunity.pack.lua" },
 	{ import = "astrocommunity.pack.bash" },
 
+	-- Completion
+	{ import = "astrocommunity.completion.codeium-nvim" },
+
 	-- nvim programming support
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 	{ import = "astrocommunity.test.neotest" },
 	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
 
-	-- Tabs
+	-- Lines
 	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
+	{ import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
 	-- colors
-	{ import = "astrocommunity.syntax.hlargs-nvim" },
 	{ import = "astrocommunity.colorscheme.catppuccin" },
 	{ import = "astrocommunity.colorscheme.tokyonight-nvim" },
+	{ import = "astrocommunity.color.transparent-nvim" },
 
 	-- neovide
 	{ import = "astrocommunity.recipes.neovide" },

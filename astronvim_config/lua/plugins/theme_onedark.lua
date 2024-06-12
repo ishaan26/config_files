@@ -28,9 +28,9 @@ return {
       Directory = { bold = true },
       ErrorMsg = { italic = true, bold = true },
       ["@variable"] = { fg = vivid_colors.white },
-      NormalFloat = { bg = vivid_colors.black },
+      NormalFloat = { bg = "NONE" },
       FloatBorder = {
-        bg = vivid_colors.black,
+        bg = "NONE",
         fg = vivid_colors.gray,
       },
       NeoTreeRootFolder = { fg = vivid_colors.blue },

@@ -4,19 +4,22 @@
 
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme gruvbox")
-vim.g.theme_id = 4
+vim.cmd("colorscheme monokai-pro")
+vim.g.theme_id = 6
 -- end themery block
 
--- Set up custom filetypes
-vim.filetype.add({
-	extension = {
-		foo = "fooscript",
-	},
-	filename = {
-		["Foofile"] = "fooscript",
-	},
-	pattern = {
-		["~/%.config/foo/.*"] = "fooscript",
-	},
-})
+-- Transparency
+vim.cmd("TransparentEnable")
+
+-- -- Set up custom filetypes
+-- vim.filetype.add({
+-- 	extension = {
+-- 		foo = "fooscript",
+-- 	},
+-- 	filename = {
+-- 		["Foofile"] = "fooscript",
+-- 	},
+-- 	pattern = {
+-- 		["~/%.config/foo/.*"] = "fooscript",
+-- 	},
+-- })

@@ -4,13 +4,12 @@ return {
 		themes = {
 			"onedark_vivid",
 			"catppuccin",
-			"dracula",
-			"gruvbox",
+			"gruvbox-baby",
 			"tokyonight",
 			"tokyodark",
 			"monokai-pro",
 			"nightfox",
-			"onenord",
+			"kanagawa",
 		},
 		themeConfigFile = "~/.config/nvim/lua/polish.lua",
 		livePreview = true, -- Apply theme while browsing. Default to true.
