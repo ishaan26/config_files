@@ -93,7 +93,7 @@ local function config(_, opts)
 					return " 󱏎 LSP "
 				end
 
-				return string.format(" %s:%s ", require("lsp-progress").progress(), active_clients())
+				return string.format(" %s [%s] ", require("lsp-progress").progress(), active_clients())
 			end,
 
 			hl = function()
@@ -312,12 +312,34 @@ return {
 			{
 				"linrongbin16/lsp-progress.nvim",
 				opts = {
-					spinner = { "🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘" },
+					spinner = {
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+					},
+					spin_update_time = 500,
+					max_size = 30,
 					client_format = function(_, spinner, series_messages)
-						return #series_messages > 0 and (spinner .. " ") or "   "
+						return #series_messages > 0 and (spinner .. "  " .. table.concat(series_messages, "  "))
+							or "  "
 					end,
 					format = function(client_messages)
-						local sign = "  "
+						local sign = " "
 						if #client_messages > 0 then
 							return table.concat(client_messages)
 						end

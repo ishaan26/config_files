@@ -37,6 +37,7 @@ return {
 	{ import = "astrocommunity.colorscheme.tokyonight-nvim" },
 	{ import = "astrocommunity.color.transparent-nvim" },
 
-	-- neovide
+	-- recepies
 	{ import = "astrocommunity.recipes.neovide" },
+	{ import = "astrocommunity.recipes.auto-session-restore" },
 }
