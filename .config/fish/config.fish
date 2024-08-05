@@ -40,7 +40,7 @@ if status is-interactive
     ## For Tauri
     set -Ux JAVA_HOME /Applications/Android Studio.app/Contents/jbr/Contents/Home
     set -Ux ANDROID_HOME $HOME/Library/Android/sdk
-    set -Ux NDK_HOME $ANDROID_HOME/ndk/26.1.10909125
+    export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
 
     ## qt5ct Environment Variable
     set -u QT_QPA_PLATFORMTHEME qt5ct
@@ -57,8 +57,13 @@ if status is-interactive
     set -u VISUAL nvim
     set -u EDITOR nvim
 
-    # Cargo Environment Variables
+    # Rust Init
     export CARGO_TARGET_DIR="$HOME/.cargo/target_dump/"
+    source "$HOME/.cargo/env.fish"
+
+    # fnm init
+    source /Users/ishaangoel/.config/fish/conf.d/fnm.fish
+    eval "$(fnm env)"
 
     #GPG
     export GPG_TTY=$(tty)

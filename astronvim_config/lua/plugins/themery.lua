@@ -12,7 +12,6 @@ return {
 			"nightfox",
 			"kanagawa",
 		},
-		themeConfigFile = "~/.config/nvim/lua/polish.lua",
 		livePreview = true, -- Apply theme while browsing. Default to true.
 	},
 }

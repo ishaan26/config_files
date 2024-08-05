@@ -5,13 +5,6 @@ $username\
 $directory\
 $git_branch\
 $git_status\
-$c\
-$golang\
-$nodejs\
-$nim\
-$rust\
-$scala\
-$lua\
 $docker_context\
 $cmd_duration
 $character
