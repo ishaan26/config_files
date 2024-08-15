@@ -39,5 +39,4 @@ return {
 
 	-- recepies
 	{ import = "astrocommunity.recipes.neovide" },
-	{ import = "astrocommunity.recipes.auto-session-restore" },
 }

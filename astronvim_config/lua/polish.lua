@@ -7,19 +7,3 @@
 vim.cmd("colorscheme kanagawa")
 vim.g.theme_id = 9
 -- end themery block
-
--- Transparency
-vim.cmd("TransparentEnable")
-
--- -- Set up custom filetypes
--- vim.filetype.add({
--- 	extension = {
--- 		foo = "fooscript",
--- 	},
--- 	filename = {
--- 		["Foofile"] = "fooscript",
--- 	},
--- 	pattern = {
--- 		["~/%.config/foo/.*"] = "fooscript",
--- 	},
--- })

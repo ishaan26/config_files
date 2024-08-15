@@ -37,11 +37,6 @@ if status is-interactive
     #GPG
     export GPG_TTY=$(tty)
 
-    ## For Tauri
-    set -Ux JAVA_HOME /Applications/Android Studio.app/Contents/jbr/Contents/Home
-    set -Ux ANDROID_HOME $HOME/Library/Android/sdk
-    export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
-
     ## qt5ct Environment Variable
     set -u QT_QPA_PLATFORMTHEME qt5ct
 
@@ -57,7 +52,7 @@ if status is-interactive
     set -u VISUAL nvim
     set -u EDITOR nvim
 
-    # Rust Init
+    ## RUST
     export CARGO_TARGET_DIR="$HOME/.cargo/target_dump/"
     source "$HOME/.cargo/env.fish"
 
@@ -68,6 +63,17 @@ if status is-interactive
     #GPG
     export GPG_TTY=$(tty)
 
+    ## For Tauri
+    switch (uname)
+    case Darwin
+        set -Ux JAVA_HOME /Applications/Android Studio.app/Contents/jbr/Contents/Home
+        set -Ux ANDROID_HOME $HOME/Library/Android/sdk
+        export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+    case Linux
+        # do things for Linux
+    case '*'
+        # do things for other OSs
+    end
 
     ## For Bat
     # To use batpipe, eval the output of this command in your shell init script.
@@ -114,11 +120,11 @@ if status is-interactive
     alias gd="git diff"
     alias gah= "git stash; and git pull --rebase; and git stash pop"
 
-    if command -v lsd >>/dev/null 2>&1
-        abbr l "lsd -lah"
-        abbr ll "lsd -lh"
-        abbr ls lsd
-        abbr tree "lsd --tree"
+    if command -v eza >>/dev/null 2>&1
+        abbr ls "eza --icons"
+        abbr l "eza -lah --icons"
+        abbr ll "eza -Rl --icons"
+        abbr tree "eza -Tl --icons"
     end
 
     if command -v nvim >>/dev/null 2>&1
@@ -151,7 +157,7 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 
-# iterm
+# iTerm
 test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
 
 # Atuin
