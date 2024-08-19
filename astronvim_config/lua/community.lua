@@ -5,9 +5,9 @@
 ---@type LazySpec
 return {
 	"AstroNvim/astrocommunity",
-	{ import = "astrocommunity.pack.lua" },
 
 	-- Language Packs
+	{ import = "astrocommunity.pack.lua" },
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.pack.typescript" },
 	{ import = "astrocommunity.pack.svelte" },
@@ -27,6 +27,9 @@ return {
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 	{ import = "astrocommunity.test.neotest" },
 	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
+
+	-- Git
+	{ import = "astrocommunity.git.gitgraph-nvim" },
 
 	-- Lines
 	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
