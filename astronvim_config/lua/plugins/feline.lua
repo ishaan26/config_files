@@ -3,9 +3,16 @@ local function active_clients()
 	local clients = vim.lsp.get_clients()
 	local client_string = ""
 	for i, v in ipairs(clients) do
-		client_string = client_string .. v.name
-		if i < #clients then
-			client_string = client_string .. ","
+		if client_string ~= "typos_lsp" or client_string ~= "null-ls" then
+			client_string = client_string .. v.name
+			if i > 2 then
+				client_string = client_string .. "..."
+				break
+			end
+
+			if i < #clients then
+				client_string = client_string .. ","
+			end
 		end
 	end
 	return client_string
@@ -336,7 +343,7 @@ return {
 					max_size = 30,
 					client_format = function(_, spinner, series_messages)
 						return #series_messages > 0 and (spinner .. "  " .. table.concat(series_messages, "  "))
-							or "  "
+								or "  "
 					end,
 					format = function(client_messages)
 						local sign = " "
