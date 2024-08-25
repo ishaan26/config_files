@@ -33,7 +33,6 @@ return {
 
 	-- Lines
 	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
-	{ import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
 	-- colors
 	{ import = "astrocommunity.colorscheme.catppuccin" },
@@ -42,4 +41,5 @@ return {
 
 	-- recepies
 	{ import = "astrocommunity.recipes.neovide" },
+	{ import = "astrocommunity.recipes.heirline-vscode-winbar" },
 }
