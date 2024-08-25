@@ -57,7 +57,7 @@ if status is-interactive
     source "$HOME/.cargo/env.fish"
 
     # fnm init
-    source /Users/ishaangoel/.config/fish/conf.d/fnm.fish
+    source "$HOME/.config/fish/conf.d/fnm.fish"
     eval "$(fnm env)"
 
     #GPG
@@ -70,7 +70,9 @@ if status is-interactive
         set -Ux ANDROID_HOME $HOME/Library/Android/sdk
         export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
     case Linux
-        # do things for Linux
+        export JAVA_HOME=$HOME/android-studio/jbr
+        export ANDROID_HOME="$HOME/Android/Sdk"
+        export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
     case '*'
         # do things for other OSs
     end
