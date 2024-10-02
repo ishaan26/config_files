@@ -4,42 +4,29 @@
 
 ---@type LazySpec
 return {
-	"AstroNvim/astrocommunity",
+  "AstroNvim/astrocommunity",
 
-	-- Language Packs
-	{ import = "astrocommunity.pack.lua" },
-	{ import = "astrocommunity.pack.rust" },
-	{ import = "astrocommunity.pack.typescript" },
-	{ import = "astrocommunity.pack.svelte" },
-	{ import = "astrocommunity.pack.python" },
-	{ import = "astrocommunity.pack.cpp" },
-	{ import = "astrocommunity.pack.vue" },
-	{ import = "astrocommunity.pack.tailwindcss" },
-	{ import = "astrocommunity.pack.json" },
-	{ import = "astrocommunity.pack.yaml" },
-	{ import = "astrocommunity.pack.lua" },
-	{ import = "astrocommunity.pack.bash" },
+  -- Language Packs
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.svelte" },
+  { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.vue" },
+  { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.bash" },
 
-	-- Completion
-	{ import = "astrocommunity.completion.codeium-nvim" },
+  -- UI
+  { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
+  { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
+  { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+  { import = "astrocommunity.recipes.cache-colorscheme" },
 
-	-- nvim programming support
-	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-	{ import = "astrocommunity.test.neotest" },
-	{ import = "astrocommunity.editing-support.todo-comments-nvim" },
-
-	-- Git
-	{ import = "astrocommunity.git.gitgraph-nvim" },
-
-	-- Lines
-	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
-	{ import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-
-	-- colors
-	{ import = "astrocommunity.colorscheme.catppuccin" },
-	{ import = "astrocommunity.colorscheme.tokyonight-nvim" },
-	{ import = "astrocommunity.color.transparent-nvim" },
-
-	-- recepies
-	{ import = "astrocommunity.recipes.neovide" },
+  -- import/override with your plugins folder
 }

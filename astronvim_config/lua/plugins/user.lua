@@ -4,8 +4,6 @@
 ---@type LazySpec
 return {
 
-  -- == Examples of Adding Plugins ==
-
   "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
@@ -30,6 +28,9 @@ return {
       return opts
     end,
   },
+
+  -- You can disable default plugins as follows:
+  { "rcarriga/nvim-notify", enabled = false },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
