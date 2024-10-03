@@ -53,13 +53,20 @@
     cm = commit -m
     c = commit
     rv = remote -v
+    chm = checkout main
+    chu = checkout updates
+    chun = checkout -b updates
+    lb = branch -a
+    bd = branch --delete
 
 [init]
 	defaultBranch = main
 
 [github]
     user = ishaan26
+
 [commit]
 	gpgsign = true
+
 [pull]
 	ff = only
