@@ -14,7 +14,7 @@ end
 -- Font
 ----------------------------
 config.font = wezterm.font({
-	family = "SpaceMono Nerd Font",
+	family = "JetBrainsMono Nerd Font",
 	weight = "Regular",
 	harfbuzz_features = { "zero" },
 })
