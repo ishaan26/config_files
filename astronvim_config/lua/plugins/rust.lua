@@ -3,7 +3,9 @@ return {
 		"mrcjkb/rustaceanvim",
 		opts = {
 			tools = {
-				replace_builtin_hover = false,
+				hover_action = {
+					replace_builtin_hover = false,
+				},
 				float_win_config = {
 					border = "rounded",
 				},
