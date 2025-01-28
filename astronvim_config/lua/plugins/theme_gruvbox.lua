@@ -1,3 +1,0 @@
-return {
-	"luisiacc/gruvbox-baby",
-}

@@ -52,7 +52,9 @@ return {
 
 	-- Colorschemes
 	{ import = "astrocommunity.colorscheme.catppuccin" },
-	{ import = "astrocommunity.colorscheme.tokyonight-nvim" },
+	{ import = "astrocommunity.colorscheme.everforest" },
+	{ import = "astrocommunity.colorscheme.eldritch-nvim" },
+	{ import = "astrocommunity.colorscheme.sonokai" },
 	{ import = "astrocommunity.recipes.cache-colorscheme" },
 	{ import = "astrocommunity.color.transparent-nvim" },
 }
