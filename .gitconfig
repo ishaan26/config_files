@@ -58,6 +58,7 @@
     chun = checkout -b updates
     lb = branch -a
     bd = branch --delete
+	forgot = !git add . && git commit --amend --no-edit
 
 [init]
 	defaultBranch = main
@@ -70,3 +71,7 @@
 
 [pull]
 	ff = only
+[maintenance]
+	repo = /Users/ishaangoel/Documents/Github/zung
+	repo = /Users/ishaangoel/Documents/Github/RGC/rgc-app
+	repo = /Users/ishaangoel/Documents/Github/config_files
