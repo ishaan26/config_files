@@ -10,7 +10,9 @@ local function active_clients()
         break
       end
 
-      if i < #clients then client_string = client_string .. "," end
+      if i < #clients then
+        client_string = client_string .. ","
+      end
     end
   end
   return client_string
@@ -18,11 +20,11 @@ end
 
 -- configure feline
 local function config(_, opts)
-  local feline = require "feline"
-  local vi_mode = require "feline.providers.vi_mode"
-  local file = require "feline.providers.file"
+  local feline = require("feline")
+  local vi_mode = require("feline.providers.vi_mode")
+  local file = require("feline.providers.file")
   local separators = require("feline.defaults").statusline.separators.default_value
-  local lsp = require "feline.providers.lsp"
+  local lsp = require("feline.providers.lsp")
 
   local onedark_theme = {
     black = "#000000",
@@ -73,7 +75,7 @@ local function config(_, opts)
 
     git_branch = {
       provider = function()
-        local git = require "feline.providers.git"
+        local git = require("feline.providers.git")
         local branch, icon = git.git_branch()
         local s
         if #branch > 0 then
@@ -94,13 +96,17 @@ local function config(_, opts)
 
     lsp = {
       provider = function()
-        if not lsp.is_lsp_attached() then return " 󱏎 LSP " end
+        if not lsp.is_lsp_attached() then
+          return " 󱏎 LSP "
+        end
 
         return string.format(" %s [%s] ", require("lsp-progress").progress(), active_clients())
       end,
 
       hl = function()
-        if not lsp.is_lsp_attached() then return { fg = onedark_theme.black, bg = onedark_theme.black } end
+        if not lsp.is_lsp_attached() then
+          return { fg = onedark_theme.black, bg = onedark_theme.black }
+        end
         return { fg = onedark_theme.black, bg = onedark_theme.purple }
       end,
 
@@ -140,12 +146,18 @@ local function config(_, opts)
     },
 
     vi_mode = {
-      provider = function() return string.format("%s ", vi_mode.get_vim_mode()) end,
-      hl = function() return { fg = onedark_theme.black, bg = vi_mode.get_mode_color() } end,
+      provider = function()
+        return string.format("%s ", vi_mode.get_vim_mode())
+      end,
+      hl = function()
+        return { fg = onedark_theme.black, bg = vi_mode.get_mode_color() }
+      end,
       left_sep = {
         always_visible = true,
         str = separators.block,
-        hl = function() return { fg = vi_mode.get_mode_color(), bg = "none" } end,
+        hl = function()
+          return { fg = vi_mode.get_mode_color(), bg = "none" }
+        end,
       },
     },
 
@@ -190,11 +202,17 @@ local function config(_, opts)
 
     search_count = {
       provider = function()
-        if vim.v.hlsearch == 0 then return "" end
+        if vim.v.hlsearch == 0 then
+          return ""
+        end
 
         local ok, result = pcall(vim.fn.searchcount, { maxcount = 999, timeout = 250 })
-        if not ok then return "" end
-        if next(result) == nil then return "" end
+        if not ok then
+          return ""
+        end
+        if next(result) == nil then
+          return ""
+        end
 
         local denominator = math.min(result.total, result.maxcount)
         return string.format(" at %d of %d ", result.current, denominator)
@@ -211,7 +229,9 @@ local function config(_, opts)
       left_sep = {
         always_visible = true,
         str = separators.block,
-        hl = function() return { fg = onedark_theme.blue, bg = onedark_theme.black } end,
+        hl = function()
+          return { fg = onedark_theme.blue, bg = onedark_theme.black }
+        end,
       },
       right_sep = {
         always_visible = true,
@@ -290,7 +310,7 @@ end
 
 return {
   {
-    "freddiehaddad/feline.nvim",
+    "famiu/feline.nvim",
     config = config,
     dependencies = {
       "EdenEast/nightfox.nvim",
@@ -322,12 +342,17 @@ return {
           spin_update_time = 500,
           max_size = 30,
           client_format = function(_, spinner, series_messages)
-            return #series_messages > 0 and (spinner .. "  " .. table.concat(series_messages, "  ")) or "  "
+            return #series_messages > 0 and (spinner .. "  " .. table.concat(series_messages, "  "))
+                or "  "
           end,
           format = function(client_messages)
             local sign = " "
-            if #client_messages > 0 then return table.concat(client_messages) end
-            if #vim.lsp.get_clients() > 0 then return sign end
+            if #client_messages > 0 then
+              return table.concat(client_messages)
+            end
+            if #vim.lsp.get_clients() > 0 then
+              return sign
+            end
             return "󱏎 LSP"
           end,
         },
@@ -340,7 +365,9 @@ return {
       -- update statusbar when there's a plugin update
       vim.api.nvim_create_autocmd("User", {
         pattern = "LazyCheck",
-        callback = function() vim.opt.statusline = vim.opt.statusline end,
+        callback = function()
+          vim.opt.statusline = vim.opt.statusline
+        end,
       })
 
       -- update statusbar with LSP progress
@@ -348,14 +375,16 @@ return {
       vim.api.nvim_create_autocmd("User", {
         group = "feline_augroup",
         pattern = "LspProgressStatusUpdated",
-        callback = function() vim.opt.statusline = vim.opt.statusline end,
+        callback = function()
+          vim.opt.statusline = vim.opt.statusline
+        end,
       })
 
       -- hide the mode
       vim.opt.showmode = false
 
       -- hide search count on command line
-      vim.opt.shortmess:append { S = true }
+      vim.opt.shortmess:append({ S = true })
     end,
     opts = {
       force_inactive = { filetypes = { "^dapui_*", "^help$", "^neotest*", "^NvimTree$", "^qf$" } },
@@ -365,6 +394,8 @@ return {
   {
     "rebelot/heirline.nvim",
     optional = true,
-    opts = function(_, opts) opts.statusline = nil end,
+    opts = function(_, opts)
+      opts.statusline = nil
+    end,
   },
 }
