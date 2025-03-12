@@ -13,11 +13,7 @@ return {
 	{ import = "astrocommunity.pack.lua" },
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.pack.cpp" },
-	-- { import = "astrocommunity.pack.tailwindcss" },
 	{ import = "astrocommunity.pack.python-ruff" },
-	-- { import = "astrocommunity.pack.vue" },
-	-- { import = "astrocommunity.pack.json" },
-	-- { import = "astrocommunity.pack.yaml" },
 	{ import = "astrocommunity.pack.bash" },
 
 	-----------------
