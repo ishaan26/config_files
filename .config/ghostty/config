@@ -1,0 +1,40 @@
+# Theme
+bold-is-bright = true
+selection-invert-fg-bg = true
+background-opacity = 0.9
+background-blur-radius = 40
+
+# Font
+font-family = IosevkaTermSlab Nerd Font
+font-size = 18
+
+# Window Settings
+window-padding-x = 20
+window-padding-y = 10
+window-padding-color = background
+window-padding-balance = true
+window-save-state = always
+macos-titlebar-style=transparent
+window-colorspace = "display-p3"
+window-width = 110
+
+# Other Settings
+shell-integration-features = no-cursor,sudo,no-title
+adjust-cell-height = 15%
+macos-option-as-alt = true
+shell-integration = fish
+
+# Look and Feel
+adjust-cursor-thickness        = 3
+adjust-underline-position      = 3
+bold-is-bright                 = true
+cursor-invert-fg-bg            = true
+cursor-opacity                 = 0.8
+link-url                       = true
+mouse-hide-while-typing        = true
+theme                          = dark:tokyonight_night,light:tokyonight_day
+window-vsync                   = true
+
+# keybindings
+keybind = cmd+s>r=reload_config
+keybind = cmd+s>x=close_surface
