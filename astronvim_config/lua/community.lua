@@ -16,6 +16,7 @@ return {
 	{ import = "astrocommunity.pack.python-ruff" },
 	{ import = "astrocommunity.pack.bash" },
 	{ import = "astrocommunity.pack.markdown" },
+	{ import = "astrocommunity.pack.typst" },
 	{ import = "astrocommunity.markdown-and-latex.vimtex" },
 
 	-----------------
