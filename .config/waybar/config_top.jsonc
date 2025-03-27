@@ -1,0 +1,202 @@
+{
+	"layer": "top",
+	"position": "top",
+	"mode": "dock",
+	"height": 32,
+	"reload_style_on_change": true,
+	"gtk-layer-shell": true,
+	// <<--< Positions >-->>
+	"modules-left": [
+		"hyprland/window" // window title
+	],
+	"modules-center": [
+		"clock#date" // date
+	],
+	"modules-right": [
+		"bluetooth", // bluetooth
+		"network",
+		"pulseaudio", // output device
+		"backlight", // brightness
+		"battery", // battery
+		"clock#time" // time
+	],
+	// <<--< Modules >-->>
+	"hyprland/window": {
+		"format": "{}",
+		"min-length": 5,
+		"rewrite": {
+			// Desktop
+			"": "<span foreground='#89b4fa'> </span> Hyprland",
+			// Terminal
+			"~": "  ",
+			"zsh": "  ",
+			"(.*)fish (.*)": "<span>  </span> $1 $2 $3",
+			"kitty": "  ",
+			// Browser
+			"(.*)Mozilla Firefox": "<span foreground='#f38ba8'> </span> Firefox",
+			"(.*) — Mozilla Firefox": "<span foreground='#f38ba8'> </span> $1",
+			// Development
+			"(.*) - Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
+			"(.*)Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> Visual Studio Code",
+			"nvim": "<span foreground='#a6e3a1'> </span> Neovim",
+			"nvim (.*)": "<span foreground='#a6e3a1'> </span> $1 $2 $3",
+			"(.*)nvim (.*)": "<span foreground='#a6e3a1'> </span> $1 $2, $3",
+			// Media
+			"(.*)Spotify": "<span foreground='#a6e3a1'> </span> Spotify",
+			"(.*)Spotify Premium": "<span foreground='#a6e3a1'> </span> Spotify Premium",
+			"OBS(.*)": "<span foreground='#a6adc8'> </span> OBS Studio",
+			"VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
+			"(.*) - VLC media player": "<span foreground='#fab387'>󰕼 </span> $1",
+			"(.*) - mpv": "<span foreground='#cba6f7'> </span> $1",
+			"qView": "  qView",
+			"(.*).jpg": "  $1.jpg",
+			"(.*).png": "  $1.png",
+			"(.*).svg": "  $1.svg",
+			// Social
+			"vesktop": "<span foreground='#89b4fa'> </span> Discord",
+			"• Discord(.*)": "Discord$1",
+			"(.*)Discord(.*)": "<span foreground='#89b4fa'> </span> $1Discord$2",
+			// Documents
+			"ONLYOFFICE Desktop Editors": "<span foreground='#f38ba8'> </span> OnlyOffice Desktop",
+			"(.*).docx": "<span foreground='#89b4fa'> </span> $1.docx",
+			"(.*).xlsx": "<span foreground='#a6e3a1'> </span> $1.xlsx",
+			"(.*).pptx": "<span foreground='#fab387'> </span> $1.pptx",
+			"(.*).pdf": "<span foreground='#f38ba8'> </span> $1.pdf",
+			// System
+			"Authenticate": "  Authenticate"
+		}
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "󱑎 ",
+			"deactivated": "󱑂 "
+		},
+		"tooltip-format-activated": "Presentation Mode",
+		"tooltip-format-deactivated": "Idle Mode",
+		"start-activated": false
+	},
+	"clock#time": {
+		"format": "{:%H:%M}",
+		"tooltip-format": "Standard Time: {:%I:%M %p}",
+		"min-length": 7,
+		"max-length": 7
+	},
+	"clock#date": {
+		"format": "󰨳 {:%m-%d}",
+		"tooltip-format": "<tt>{calendar}</tt>",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 6,
+			"on-click-right": "mode",
+			"format": {
+				"months": "<span color='#b4befe'><b>{}</b></span>",
+				"weekdays": "<span color='#a6adc8' font='7'>{}</span>",
+				"today": "<span color='#f38ba8'><b>{}</b></span>"
+			}
+		},
+		"actions": {
+			"on-click": "mode",
+			"on-click-right": "mode"
+		},
+		"min-length": 8,
+		"max-length": 8
+	},
+	"network": {
+		"interface": "eno1",
+		"format": "{ifname}",
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "󰈀",
+		"format-disconnected": "", //An empty format will hide the module.
+		"tooltip-format": "{ifname} via {gwaddr} 󰈀",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+		"tooltip-format-ethernet": "{ifname} 󰈀",
+		"tooltip-format-disconnected": "Disconnected",
+		"min-length": 7,
+		"max-length": 7
+	},
+	"bluetooth": {
+		"format": "󰂰",
+		"format-disabled": "󰂲",
+		"format-connected": "󰂱",
+		"format-connected-battery": "󰂱",
+		"tooltip-format": "{num_connections} connected",
+		"tooltip-format-disabled": "Bluetooth Disabled",
+		"tooltip-format-connected": "{num_connections} connected\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}: 󰥉 {device_battery_percentage}%",
+		"on-click": "~/.config/waybar/scripts/bluetooth-menu.sh",
+		"on-click-right": "kitty --title '󰂯  Bluetooth TUI' bash -c bluetui",
+		"interval": 1,
+		"min-length": 1,
+		"max-length": 1
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟 {volume}%",
+		"format-icons": {
+			"default": [
+				"󰕿",
+				"󰖀",
+				"󰕾"
+			],
+			"headphone": "󰋋",
+			"headset": "󰋋"
+		},
+		"tooltip-format": "Device: {desc}",
+		"on-click": "~/.config/waybar/scripts/volume-control.sh -o m",
+		"on-scroll-up": "~/.config/waybar/scripts/volume-control.sh -o i",
+		"on-scroll-down": "~/.config/waybar/scripts/volume-control.sh -o d",
+		"min-length": 7,
+		"max-length": 7
+	},
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false,
+		"on-scroll-up": "~/.config/waybar/scripts/brightness-control.sh -o i",
+		"on-scroll-down": "~/.config/waybar/scripts/brightness-control.sh -o d",
+		"min-length": 6,
+		"max-length": 6
+	},
+	"battery": {
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+		"format": "{icon} {capacity}%",
+		"format-icons": [
+			"󰂎",
+			"󰁻",
+			"󰁼",
+			"󰁽",
+			"󰁾",
+			"󰁿",
+			"󰂀",
+			"󰂁",
+			"󰂂",
+			"󰁹"
+		],
+		"format-charging": " {capacity}%",
+		"tooltip-format": "Discharging: {time}",
+		"tooltip-format-charging": "Charging: {time}",
+		"interval": 1,
+		"min-length": 6,
+		"max-length": 6
+	},
+	// <<--< Padding >-->>
+	"custom/sep": {
+		"format": " | ",
+		"tooltip": false
+	}
+}
