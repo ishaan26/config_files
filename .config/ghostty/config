@@ -2,11 +2,14 @@
 bold-is-bright = true
 selection-invert-fg-bg = true
 background-opacity = 0.9
-background-blur-radius = 40
+background-blur-radius = 90
 
 # Font
-font-family = IosevkaTermSlab Nerd Font
-font-size = 18
+font-family =  MartianMono Nerd Font
+font-size = 17
+font-style = Condensed Regular
+# font-thicken = true
+# adjust-cell-width = -10%
 
 # Window Settings
 window-padding-x = 20
@@ -16,7 +19,8 @@ window-padding-balance = true
 window-save-state = always
 macos-titlebar-style=transparent
 window-colorspace = "display-p3"
-window-width = 110
+window-width = 120
+window-height = 45
 
 # Other Settings
 shell-integration-features = no-cursor,sudo,no-title
@@ -32,7 +36,7 @@ cursor-invert-fg-bg            = true
 cursor-opacity                 = 0.8
 link-url                       = true
 mouse-hide-while-typing        = true
-theme                          = dark:tokyonight_night,light:tokyonight_day
+theme                          = custom.conf
 window-vsync                   = true
 
 # keybindings
