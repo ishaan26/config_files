@@ -5,10 +5,12 @@ background-opacity = 0.9
 background-blur-radius = 90
 
 # Font
-font-family =  MartianMono Nerd Font
+font-family =  ZedMono Nerd Font
 font-size = 17
-font-style = Condensed Regular
-# font-thicken = true
+font-thicken = true
+
+# font-style = Condensed Regular
+
 # adjust-cell-width = -10%
 
 # Window Settings
