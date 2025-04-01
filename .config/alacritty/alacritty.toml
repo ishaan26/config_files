@@ -6,24 +6,11 @@ foreground = "#c5c8c6"
 TERM = "xterm-256color"
 
 [font]
-size = 14
+size = 15
 
 [font.normal]
-family = "SpaceMono Nerd Font"
+family = "IosevkaTermSlab Nerd Font"
 style = "Regular"
-
-[font.bold]
-family = "SpaceMono Nerd Font"
-style = "Bold"
-
-[font.bold_italic]
-family = "SpaceMono Nerd Font"
-style = "Italic"
-
-[font.italic]
-family = "SpaceMono Nerd Font"
-style = "Bold Italic"
-
 
 # [font.offset]
 # x = -1
