@@ -86,6 +86,8 @@ if status is-interactive
     set -x LESS "$LESS -R"
     set -x BATPIPE color
 
+    source "$HOME/.config/fish/api_key"
+
     ####################################
     # Aliases
     ####################################

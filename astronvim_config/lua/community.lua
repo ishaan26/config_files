@@ -4,54 +4,57 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
+	"AstroNvim/astrocommunity",
 
-  -----------------
-  -- Language Packs
-  -----------------
+	-----------------
+	-- Language Packs
+	-----------------
 
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.zig" },
-  { import = "astrocommunity.pack.cpp" },
-  { import = "astrocommunity.pack.python-ruff" },
-  { import = "astrocommunity.pack.bash" },
-  { import = "astrocommunity.pack.markdown" },
-  { import = "astrocommunity.pack.typst" },
-  { import = "astrocommunity.markdown-and-latex.vimtex" },
+	{ import = "astrocommunity.pack.lua" },
+	{ import = "astrocommunity.pack.rust" },
+	{ import = "astrocommunity.pack.zig" },
+	{ import = "astrocommunity.pack.cpp" },
+	{ import = "astrocommunity.pack.python-ruff" },
+	{ import = "astrocommunity.pack.bash" },
+	{ import = "astrocommunity.pack.markdown" },
+	{ import = "astrocommunity.pack.typst" },
+	{ import = "astrocommunity.markdown-and-latex.vimtex" },
 
-  -----------------
-  -- Tools
-  -----------------
+	-----------------
+	-- Tools
+	-----------------
 
-  -- Generate comment shortcut
-  { import = "astrocommunity.editing-support.neogen" },
+	-- Generate comment shortcut
+	{ import = "astrocommunity.editing-support.neogen" },
 
-  -- lsp
-  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+	-- lsp
+	{ import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
-  -----------------
-  -- UI
-  -----------------
+	-- AI
+	{ import = "astrocommunity.completion.avante-nvim" },
 
-  -- Better completion ui.
-  { import = "astrocommunity.completion.blink-cmp" },
+	-----------------
+	-- UI
+	-----------------
 
-  -- Smooth scrolling
-  { import = "astrocommunity.scrolling.neoscroll-nvim" },
+	-- Better completion ui.
+	{ import = "astrocommunity.completion.blink-cmp" },
 
-  -- Rainbows
-  { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
+	-- Smooth scrolling
+	{ import = "astrocommunity.scrolling.neoscroll-nvim" },
 
-  -- Bars and lines
-  { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-  { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
+	-- Rainbows
+	{ import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
 
-  -- Colorschemes
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.everforest" },
-  { import = "astrocommunity.colorscheme.eldritch-nvim" },
-  { import = "astrocommunity.colorscheme.sonokai" },
-  { import = "astrocommunity.recipes.cache-colorscheme" },
-  { import = "astrocommunity.color.transparent-nvim" },
+	-- Bars and lines
+	{ import = "astrocommunity.bars-and-lines.dropbar-nvim" },
+	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
+
+	-- Colorschemes
+	{ import = "astrocommunity.colorscheme.catppuccin" },
+	{ import = "astrocommunity.colorscheme.everforest" },
+	{ import = "astrocommunity.colorscheme.eldritch-nvim" },
+	{ import = "astrocommunity.colorscheme.sonokai" },
+	{ import = "astrocommunity.recipes.cache-colorscheme" },
+	{ import = "astrocommunity.color.transparent-nvim" },
 }
