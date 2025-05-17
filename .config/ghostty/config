@@ -29,6 +29,7 @@ shell-integration-features = no-cursor,sudo,no-title
 adjust-cell-height = 15%
 macos-option-as-alt = true
 shell-integration = fish
+mouse-scroll-multiplier = 0.5
 
 # Look and Feel
 adjust-cursor-thickness        = 3
