@@ -5,14 +5,14 @@ local colors = require("colors")
 local apps = {
 	{
 		name = "settings",
-		icon = "",
+		icon = " ",
 		color = 0xff6c6c70,
 		bundle_id = "com.apple.systempreferences",
 		display_name = "Settings",
 	},
 	{
 		name = "surrealist",
-		icon = "󰆼",
+		icon = "󰆼 ",
 		bundle_id = "com.surrealdb.surrealist",
 		display_name = "Surrealist",
 		color = 0xffbd93f9,
@@ -90,7 +90,8 @@ for i, app in ipairs(apps) do
 			color = app.color,
 			padding_left = 8,
 			padding_right = 8,
-			font = "ZedMono Nerd Font:Regular:20.0",
+			font = "ZedMono Nerd Font:Regular:24.0",
+			y_offset = 2,
 		},
 		label = { drawing = false }, -- Hide label, only show icon
 		position = "right",
@@ -106,12 +107,7 @@ end
 
 -- Group all app items with a bracket (single unified background)
 sbar.add("bracket", app_items, {
-	background = {
-		color = colors.with_alpha(colors.black, 0.8),
-		border_color = colors.black,
-		border_width = 1,
-		height = 35,
-	},
+	background = colors.transparent,
 })
 
 -- Padding item after apps group

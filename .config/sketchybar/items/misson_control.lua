@@ -35,23 +35,13 @@ local mission_control = sbar.add("item", {
 	position = "right",
 	padding_left = 1,
 	padding_right = 1,
-	background = {
-		color = colors.with_alpha(colors.black, 0.8),
-		border_color = colors.transparent,
-		border_width = 0,
-		height = 35,
-	},
+	background = colors.default_background,
 	click_script = "open -a 'Mission Control'",
 })
 
 -- Double border for mission control using a single item bracket
 sbar.add("bracket", { mission_control.name }, {
-	background = {
-		color = colors.with_alpha(colors.black, 0.8),
-		border_color = colors.transparent,
-		border_width = 0,
-		height = 35,
-	},
+	background = colors.default_background,
 })
 
 -- Padding item required because of bracket

@@ -4,7 +4,7 @@ local settings = require("settings")
 local app_icons = require("helpers.app_icons")
 
 local spaces = {}
-local dice = { "󰇊 |", "󰇋 |", "󰇌 |", "󰇍 |", "󰇎 |", "󰇏 |" }
+local dice = { "󰇊 ", "󰇋 ", "󰇌 ", "󰇍 ", "󰇎 ", "󰇏 " }
 
 for i = 1, 10, 1 do
 	local space = sbar.add("space", "space." .. i, {
@@ -21,17 +21,11 @@ for i = 1, 10, 1 do
 			padding_right = 20,
 			color = colors.grey,
 			highlight_color = colors.white,
-			font = "sketchybar-app-font:Regular:18.0",
-			y_offset = -1,
+			font = "sketchybar-app-font:Regular:16.0",
 		},
 		padding_right = 0,
 		padding_left = 0,
-		background = {
-			color = colors.with_alpha(colors.black, 0.8),
-			border_color = colors.transparent,
-			border_width = 2,
-			height = 35,
-		},
+		background = colors.default_background,
 		popup = { background = { border_width = 2, border_color = colors.black } },
 	})
 
@@ -39,12 +33,7 @@ for i = 1, 10, 1 do
 
 	-- Single item bracket for space items to achieve double border on highlight
 	local space_bracket = sbar.add("bracket", { space.name }, {
-		background = {
-			color = colors.transparent,
-			border_color = colors.bg2,
-			height = 28,
-			border_width = 2,
-		},
+		background = colors.default_background,
 	})
 
 	-- Padding space
@@ -76,7 +65,7 @@ for i = 1, 10, 1 do
 			background = { border_color = colors.black },
 		})
 		space_bracket:set({
-			background = { border_color = colors.black },
+			background = { border_color = colors.transparent },
 		})
 	end)
 
@@ -133,10 +122,7 @@ end)
 spaces_indicator:subscribe("mouse.entered", function(env)
 	sbar.animate("tanh", 30, function()
 		spaces_indicator:set({
-			background = {
-				color = { alpha = 1.0 },
-				border_color = { alpha = 1.0 },
-			},
+			background = colors.default_background,
 			icon = { color = colors.bg1 },
 			label = { width = "dynamic" },
 		})

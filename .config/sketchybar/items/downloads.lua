@@ -34,12 +34,7 @@ local downloads = sbar.add("item", {
 	position = "right",
 	padding_left = 1,
 	padding_right = 1,
-	background = {
-		color = colors.with_alpha(colors.black, 0.8),
-		border_color = colors.transparent,
-		border_width = 0,
-		height = 35,
-	},
+	background = colors.default_background,
 })
 
 -- Create popup for recent downloads
@@ -56,12 +51,7 @@ local downloads_popup = sbar.add("item", {
 		padding_left = 10,
 		padding_right = 10,
 	},
-	background = {
-		color = colors.transparent,
-		border_color = colors.transparent,
-		border_width = 0,
-		height = 35,
-	},
+	background = colors.default_background,
 })
 
 -- Function to get recent downloads

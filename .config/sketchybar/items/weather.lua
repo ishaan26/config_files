@@ -107,7 +107,7 @@ local weather_icons_night = {
 }
 
 local weather = sbar.add("item", "widgets.weather", {
-	position = "center",
+	position = "right",
 	icon = {
 		font = { family = "JetBrainsMono Nerd Font", style = "Regular", size = 16 },
 		color = colors.magenta,
@@ -145,12 +145,7 @@ local function get_icon(condition, is_day)
 end
 
 sbar.add("bracket", "widgets.weather.bracket", { weather.name }, {
-	background = {
-		color = colors.with_alpha(colors.black, 0.8),
-		border_color = colors.black,
-		border_width = 1,
-		height = 35,
-	},
+	background = colors.default_background,
 })
 
 sbar.add("item", "widgets.weather.padding", {
@@ -257,14 +252,14 @@ local function toggle_weather()
 				})
 
 				if
-					hour == "00"
-					or hour == "03"
-					or hour == "06"
-					or hour == "09"
-					or hour == "12"
-					or hour == "15"
-					or hour == "18"
-					or hour == "21"
+						hour == "00"
+						or hour == "03"
+						or hour == "06"
+						or hour == "09"
+						or hour == "12"
+						or hour == "15"
+						or hour == "18"
+						or hour == "21"
 				then
 					if (day_index == 1 and hour >= current_hour) or day_index ~= 1 then
 						sbar.add("item", "weather.day." .. day_index .. ".hourly." .. hourly_index, {
