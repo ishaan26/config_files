@@ -47,7 +47,6 @@ return {
 	{ import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
 
 	-- Bars and lines
-	{ import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
 
 	-- Colorschemes

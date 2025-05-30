@@ -5,7 +5,7 @@ background-opacity = 0.9
 background-blur-radius = 90
 
 # Font
-font-family =  ZedMono Nerd Font
+font-family = IosevkaTermSlab Nerd Font
 font-size = 17
 font-thicken = true
 
