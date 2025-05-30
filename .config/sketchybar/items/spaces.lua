@@ -10,22 +10,22 @@ for i = 1, 10, 1 do
 	local space = sbar.add("space", "space." .. i, {
 		space = i,
 		icon = {
-			font = "sketchybar-app-font:Regular:16.0",
+			font = "sketchybar-app-font:Regular:20.0",
 			string = dice[i],
-			padding_left = 15,
+			padding_left = 4,
 			padding_right = 8,
-			color = colors.grey,
+			color = colors.bg2,
 			highlight_color = colors.white,
 		},
 		label = {
-			padding_right = 20,
+			padding_right = 8,
 			color = colors.grey,
 			highlight_color = colors.white,
-			font = "sketchybar-app-font:Regular:16.0",
+			font = "sketchybar-app-font:Regular:20.0",
 		},
-		padding_right = 0,
+		padding_right = 10,
 		padding_left = 0,
-		background = colors.default_background,
+		background = colors.transparent,
 		popup = { background = { border_width = 2, border_color = colors.black } },
 	})
 
@@ -33,14 +33,14 @@ for i = 1, 10, 1 do
 
 	-- Single item bracket for space items to achieve double border on highlight
 	local space_bracket = sbar.add("bracket", { space.name }, {
-		background = colors.default_background,
+		background = colors.transparent,
 	})
 
 	-- Padding space
 	sbar.add("space", "space.padding." .. i, {
 		space = i,
 		script = "",
-		width = settings.group_paddings,
+		width = 0,
 	})
 
 	local space_popup = sbar.add("item", {
@@ -62,7 +62,7 @@ for i = 1, 10, 1 do
 		space:set({
 			icon = { highlight = selected, highlight_color = colors.blue },
 			label = { highlight = selected },
-			background = { border_color = colors.black },
+			background = { border_color = colors.transparent },
 		})
 		space_bracket:set({
 			background = { border_color = colors.transparent },
@@ -105,8 +105,9 @@ space_window_observer:subscribe("space_windows_change", function(env)
 	end
 
 	if no_app then
-		icon_line = "-"
+		spaces.padding_right = 0
 	end
+
 	sbar.animate("tanh", 10, function()
 		spaces[env.INFO.space]:set({ label = icon_line })
 	end)
