@@ -1,0 +1,8 @@
+{
+    "diagnostics.globals": [
+        "id",
+        "math",
+        "sbar"
+    ],
+    "runtime.version": "Lua 5.4"
+}
