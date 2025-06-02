@@ -1,6 +1,5 @@
 local colors = require("colors")
 local icons = require("icons")
-local settings = require("settings")
 local app_icons = require("helpers.app_icons")
 
 local spaces = {}
@@ -14,7 +13,7 @@ for i = 1, 10, 1 do
 			string = dice[i],
 			padding_left = 4,
 			padding_right = 8,
-			color = colors.bg2,
+			color = colors.white,
 			highlight_color = colors.white,
 		},
 		label = {
@@ -58,7 +57,6 @@ for i = 1, 10, 1 do
 
 	space:subscribe("space_change", function(env)
 		local selected = env.SELECTED == "true"
-		local color = selected and colors.grey or colors.bg2
 		space:set({
 			icon = { highlight = selected, highlight_color = colors.blue },
 			label = { highlight = selected },
@@ -89,15 +87,10 @@ local space_window_observer = sbar.add("item", {
 	updates = true,
 })
 
-local spaces_indicator = sbar.add("item", {
-	padding_left = -3,
-	padding_right = 0,
-})
-
 space_window_observer:subscribe("space_windows_change", function(env)
 	local icon_line = ""
 	local no_app = true
-	for app, count in pairs(env.INFO.apps) do
+	for app, _ in pairs(env.INFO.apps) do
 		no_app = false
 		local lookup = app_icons[app]
 		local icon = ((lookup == nil) and app_icons["Default"] or lookup)
@@ -111,38 +104,4 @@ space_window_observer:subscribe("space_windows_change", function(env)
 	sbar.animate("tanh", 10, function()
 		spaces[env.INFO.space]:set({ label = icon_line })
 	end)
-end)
-
-spaces_indicator:subscribe("swap_menus_and_spaces", function(env)
-	local currently_on = spaces_indicator:query().icon.value == icons.switch.on
-	spaces_indicator:set({
-		icon = currently_on and icons.switch.off or icons.switch.on,
-	})
-end)
-
-spaces_indicator:subscribe("mouse.entered", function(env)
-	sbar.animate("tanh", 30, function()
-		spaces_indicator:set({
-			background = colors.default_background,
-			icon = { color = colors.bg1 },
-			label = { width = "dynamic" },
-		})
-	end)
-end)
-
-spaces_indicator:subscribe("mouse.exited", function(env)
-	sbar.animate("tanh", 30, function()
-		spaces_indicator:set({
-			background = {
-				color = { alpha = 0.0 },
-				border_color = { alpha = 0.0 },
-			},
-			icon = { color = colors.grey },
-			label = { width = 0 },
-		})
-	end)
-end)
-
-spaces_indicator:subscribe("mouse.clicked", function(env)
-	sbar.trigger("swap_menus_and_spaces")
 end)

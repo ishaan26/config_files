@@ -3,7 +3,7 @@ local colors = require("colors")
 
 -- Padding item required because of bracket
 sbar.add("item", {
-	position = "right",
+	position = "left",
 	width = settings.group_paddings,
 })
 
@@ -32,7 +32,7 @@ local mission_control = sbar.add("item", {
 			size = 16.0,
 		},
 	},
-	position = "right",
+	position = "left",
 	padding_left = 1,
 	padding_right = 1,
 	background = colors.default_background,

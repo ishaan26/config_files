@@ -1,5 +1,6 @@
 require("items.spaces")
+require("items.title")
+require("items.misson_control")
 require("items.apps")
 require("items.downloads")
-require("items.misson_control")
 require("items.weather")
