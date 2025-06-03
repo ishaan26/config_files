@@ -1,16 +1,13 @@
 local colors = require("colors")
-local icons = require("icons")
-local app_icons = require("helpers.app_icons")
 
-local spaces = {}
-local dice = { "󰇊 ", "󰇋 ", "󰇌 ", "󰇍 ", "󰇎 ", "󰇏 " }
+local dices = { "󰇊 ", "󰇋 ", "󰇌 ", "󰇍 ", "󰇎 ", "󰇏 " }
 
-for i = 1, 10, 1 do
+for i, dice in ipairs(dices) do
 	local space = sbar.add("space", "space." .. i, {
 		space = i,
 		icon = {
 			font = "sketchybar-app-font:Regular:20.0",
-			string = dice[i],
+			string = dice,
 			padding_left = 4,
 			padding_right = 8,
 			color = colors.white,
@@ -22,13 +19,11 @@ for i = 1, 10, 1 do
 			highlight_color = colors.white,
 			font = "sketchybar-app-font:Regular:20.0",
 		},
-		padding_right = 10,
+		padding_right = 0,
 		padding_left = 0,
 		background = colors.transparent,
 		popup = { background = { border_width = 2, border_color = colors.black } },
 	})
-
-	spaces[i] = space
 
 	-- Single item bracket for space items to achieve double border on highlight
 	local space_bracket = sbar.add("bracket", { space.name }, {
@@ -81,27 +76,3 @@ for i = 1, 10, 1 do
 		space:set({ popup = { drawing = false } })
 	end)
 end
-
-local space_window_observer = sbar.add("item", {
-	drawing = false,
-	updates = true,
-})
-
-space_window_observer:subscribe("space_windows_change", function(env)
-	local icon_line = ""
-	local no_app = true
-	for app, _ in pairs(env.INFO.apps) do
-		no_app = false
-		local lookup = app_icons[app]
-		local icon = ((lookup == nil) and app_icons["Default"] or lookup)
-		icon_line = icon_line .. icon
-	end
-
-	if no_app then
-		spaces.padding_right = 0
-	end
-
-	sbar.animate("tanh", 10, function()
-		spaces[env.INFO.space]:set({ label = icon_line })
-	end)
-end)

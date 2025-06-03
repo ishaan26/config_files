@@ -19,48 +19,55 @@ local apps = {
 	},
 	{
 		name = "ghostty",
-		icon = "", -- Terminal icon
+		icon = " ", -- Terminal icon
 		bundle_id = "com.mitchellh.ghostty",
 		display_name = "Ghostty",
 	},
 	{
+		name = "appstore",
+		icon = " ",
+		bundle_id = "com.apple.AppStore",
+		display_name = "App Store",
+		color = 0xff18bffb,
+	},
+	{
+		icon = "󱎒 ", -- Word icon
 		name = "word",
-		icon = "󱎒", -- Word icon
 		bundle_id = "com.microsoft.Word",
 		display_name = "Microsoft Word",
 		color = 0xff2b579a,
 	},
 	{
 		name = "outlook",
-		icon = "󰴢", -- Outlook icon
+		icon = "󰴢 ", -- Outlook icon
 		bundle_id = "com.microsoft.Outlook",
 		display_name = "Microsoft Outlook",
 		color = 0xff0078d4,
 	},
 	{
 		name = "discord",
-		icon = "", -- Discord icon
+		icon = " ", -- Discord icon
 		bundle_id = "com.hnc.Discord",
 		color = 0xff5865f2,
 		display_name = "Discord",
 	},
 	{
 		name = "whatsapp",
-		icon = "󰖣", -- WhatsApp icon (requires Nerd Font)
+		icon = "󰖣 ", -- WhatsApp icon (requires Nerd Font)
 		bundle_id = "net.whatsapp.WhatsApp",
 		display_name = "WhatsApp",
 		color = 0xff25d366,
 	},
 	{
 		name = "firefox",
-		icon = "", -- Firefox icon (requires Nerd Font)
+		icon = " ", -- Firefox icon (requires Nerd Font)
 		bundle_id = "org.mozilla.firefox",
 		display_name = "Firefox",
 		color = 0xffff6611,
 	},
 	{
 		name = "finder",
-		icon = "󰀶",
+		icon = "󰀶 ",
 		bundle_id = "com.apple.finder",
 		display_name = "Finder",
 		color = 0xff1ba1e6,
@@ -71,7 +78,7 @@ local apps = {
 	},
 	{
 		name = "launchpad",
-		icon = "", -- Grid/Launchpad icon
+		icon = " ", -- Grid/Launchpad icon
 		bundle_id = "com.apple.launchpad.launcher",
 		display_name = "Launchpad",
 	},
@@ -83,7 +90,7 @@ sbar.add("item", { position = "right", width = settings.group_paddings })
 local app_items = {}
 
 -- Create app items
-for i, app in ipairs(apps) do
+for _, app in ipairs(apps) do
 	local app_item = sbar.add("item", {
 		icon = {
 			string = app.icon,
