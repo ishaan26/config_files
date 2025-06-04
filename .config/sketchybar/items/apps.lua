@@ -118,7 +118,7 @@ sbar.add("bracket", app_items, {
 })
 
 -- Padding item after apps group
-sbar.add("item", { position = "right", width = settings.group_paddings })
+sbar.add("item", { position = "right", width = 0 })
 
 -- Initialize app states
 sbar.exec("yabai -m query --windows --window", function(result)

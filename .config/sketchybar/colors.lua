@@ -15,6 +15,7 @@ return {
   orange = 0xfff39660,
   magenta = 0xffb39df3,
   grey = 0xff7f8490,
+  dark_grey = 0xff363636,
   transparent = 0x00000000,
 
   bar = {
