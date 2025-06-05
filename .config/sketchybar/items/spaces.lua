@@ -4,6 +4,7 @@ local dices = { "󰇊 ", "󰇋 ", "󰇌 ", "󰇍 ", "󰇎 ", "󰇏 " }
 
 for i, dice in ipairs(dices) do
 	local space = sbar.add("space", "space." .. i, {
+		position = "center",
 		space = i,
 		icon = {
 			font = "sketchybar-app-font:Regular:20.0",
