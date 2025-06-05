@@ -1,15 +1,15 @@
 configuration {
-	font:							"GoogleSans Nerd Font 12";
+	font: "Iosevka Nerd Font Propo 12";
 }
 
-@import "colors.rasi"
+@import "defaults.rasi"
 
 
 window {
     background-color:               @background;
     transparency:                   "real";
     border-radius:                  12px;
-	width:							550px;
+	width:							750px;
     location:                       center;
 }
 
@@ -41,7 +41,7 @@ inputbar {
     border:                  		0px;
     border-radius:                  10px;
     border-color:                  	@accent;
-    margin:                         0px 165px 0px 0px;
+    margin:                         0px 5px 0px 0px;
     padding:                        0px;
     position:                       center;
 }
@@ -70,12 +70,11 @@ element {
 }
 
 element-text {
-	font:							"GoogleSans Nerd Font 32";
+	font: "Iosevka Nerd Font Propo 32";
     background-color:               @transparent;
     text-color:                     @foreground;
     expand:                         true;
     horizontal-align:               0.5;
-    margin:                         5px 10px 20px 10px;
 }
 
 element-icon {

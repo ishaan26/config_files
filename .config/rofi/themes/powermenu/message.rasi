@@ -1,9 +1,9 @@
-@import "../colors.rasi"
+@import "../defaults.rasi"
 
 * {
     background-color:       @transparent;
     text-color:             @foreground;
-	font:				 	"GoogleSans Nerd Font 12";
+	font: "Iosevka Nerd Font Propo 12";
 }
 
 window {

@@ -5,21 +5,20 @@ dir="$HOME/.config/rofi/themes/powermenu/"
 rofi_command="rofi -theme $dir/theme.rasi"
 
 # Options
-shutdown=""
-reboot=""
-lock=""
-suspend="⏼"
-logout=""
+shutdown=" "
+reboot=" "
+lock=" "
+suspend="⏼ "
+logout="󰗽 "
 
 # Confirmation
+confirm_yes="Yes"
 confirm_exit() {
-    confirm_yes="Yes"
     confirm_no="No"
     confirm_options="$confirm_yes\n$confirm_no"
-    echo -e $confirm_options | rofi -p "Are You Sure?" -dmenu -selected-row 1  \
+    echo -e $confirm_options | rofi -p "Are You Sure?" -dmenu -selected-row 1 \
         -theme "$dir"/confirm.rasi
 }
-
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
@@ -69,8 +68,8 @@ $logout)
             openbox --exit
         elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
             bspc quit
-        elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
-            i3-msg exit
+        elif [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
+            hyprctl dispatch exit
         fi
     elif [[ $ans == "No" ]]; then
         exit 0

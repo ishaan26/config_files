@@ -1,8 +1,8 @@
 configuration {
-	font:							"GoogleSans Nerd Font 14";
+	font: "Iosevka Nerd Font Propo 12";
 }
 
-@import "colors.rasi"
+@import "../defaults.rasi"
 
 window {
     background-color:               @background;

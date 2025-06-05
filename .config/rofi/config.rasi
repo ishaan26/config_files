@@ -1,9 +1,8 @@
-/** Configured For Applets **/
-
 configuration {
-	modi: "window,drun,run,ssh";
+ modi: "window,drun,ssh,combi,dmenu";
 	show-icons: true;
-	icon-theme: "Candy-icons";
-	terminal: "alacritty";
-	drun-match-fields: "name,generic,exec,categories";
-}
+	font: "Iosevka Nerd Font Propo 12";
+ combi-modi: "window,drun,ssh";
+ }
+
+

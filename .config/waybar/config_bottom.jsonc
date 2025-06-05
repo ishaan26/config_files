@@ -1,134 +1,124 @@
 {
-	"layer": "top",
-	"position": "bottom",
-	"mode": "dock",
-	"height": 38,
-	"reload_style_on_change": true,
-	"gtk-layer-shell": true,
-	// <<--< Positions >-->>
-	"modules-left": [
-		"custom/distro", // distro icon
-		"mpris", // media info
-		"cava"
-	],
-	"modules-center": [
-		"hyprland/workspaces" // workspaces
-	],
-	"modules-right": [
-		"memory", // memory
-		"cpu", // cpu
-		"custom/cputemp", // temperature
-		"custom/sep",
-		"custom/power" // power button
-	],
-	"custom/distro": {
-		"format": " ",
-		"tooltip": false,
-		"min-length": 7,
-		"max-length": 7
-	},
-	"mpris": {
-		"format": "{player_icon} {title} - {artist}",
-		"format-paused": "{status_icon} {title} - {artist}",
-		"player-icons": {
-			"default": "󰝚 ",
-			"spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
-			"firefox": "<span foreground='#f38ba8'>󰗃 </span>"
-		},
-		"status-icons": {
-			"paused": "<span color='#b4befe'>󰏤 </span>"
-		},
-		"tooltip-format": "Playing: {title} - {artist}",
-		"tooltip-format-paused": "Paused: {title} - {artist}",
-		"min-length": 5,
-		"max-length": 55
-	},
-	"cava": {
-		//        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-		"framerate": 30,
-		"autosens": 1,
-		"sensitivity": 100,
-		"bars": 14,
-		"lower_cutoff_freq": 50,
-		"higher_cutoff_freq": 10000,
-		"method": "pulse",
-		"source": "auto",
-		"stereo": true,
-		"reverse": false,
-		"bar_delimiter": 0,
-		"monstercat": false,
-		"waves": false,
-		"noise_reduction": 0.77,
-		"input_delay": 2,
-		"format-icons": [
-			"▁",
-			"▂",
-			"▃",
-			"▄",
-			"▅",
-			"▆",
-			"▇",
-			"█"
-		],
-		"actions": {
-			"on-click-right": "mode"
-		}
-	},
-	"hyprland/workspaces": {
-		"on-scroll-up": "hyprctl dispatch workspace -1",
-		"on-scroll-down": "hyprctl dispatch workspace +1",
-		"format": "{icon}",
-		"format-icons": {
-			"1": " 󰇊 ",
-			"2": " 󰇋 ",
-			"3": " 󰇌 ",
-			"4": " 󰇍 ",
-			"5": " 󰇎 ",
-			"6": " 󰇏 ",
-			"default": "  "
-		},
-		"persistent-workspaces": {
-			"1": [],
-			"2": [],
-			"3": [],
-			"4": [],
-			"5": [],
-			"6": []
-		}
-	},
-	"memory": {
-		"states": {
-			"warning": 75,
-			"critical": 90
-		},
-		"format": " {percentage}%",
-		"tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
-		"interval": 2,
-		"min-length": 7,
-		"max-length": 7
-	},
-	"cpu": {
-		"format": " {usage}%",
-		"tooltip": false,
-		"interval": 2,
-		"min-length": 7,
-		"max-length": 7
-	},
-	"custom/cputemp": {
-		"exec": "~/.config/waybar/scripts/cpu-temp.sh",
-		"return-type": "json",
-		"format": "{}",
-		"interval": 5,
-		"min-length": 7,
-		"max-length": 7
-	},
-	"custom/power": {
-		"format": " ",
-		"tooltip-format": "Power Menu",
-		"on-click": "~/.config/waybar/scripts/power-menu.sh"
-	},
-	"custom/sep": {
-		"format": " | ",
-		"tooltip": false
-	}
+  "layer": "top",
+  "position": "bottom",
+  "mode": "dock",
+  "height": 38,
+  "reload_style_on_change": true,
+  "gtk-layer-shell": true,
+  // <<--< Positions >-->>
+  "modules-left": [
+    "custom/distro", // distro icon
+    "mpris", // media info
+    "cava",
+  ],
+  "modules-center": ["hyprland/workspaces"],
+
+  "modules-right": [
+    "memory", // memory
+    "cpu", // cpu
+    "custom/cputemp", // temperature
+    "custom/sep",
+    "custom/power",
+  ],
+  "custom/distro": {
+    "format": " ",
+    "tooltip": false,
+    "min-length": 7,
+    "max-length": 7,
+  },
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "player-icons": {
+      "default": "󰝚 ",
+      "spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
+      "firefox": "<span foreground='#f38ba8'>󰗃 </span>",
+    },
+    "status-icons": {
+      "paused": "<span color='#b4befe'>󰏤 </span>",
+    },
+    "tooltip-format": "Playing: {title} - {artist}",
+    "tooltip-format-paused": "Paused: {title} - {artist}",
+    "min-length": 5,
+    "max-length": 55,
+  },
+  "cava": {
+    //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "actions": {
+      "on-click-right": "mode",
+    },
+  },
+  "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "format": "{icon}",
+    "format-icons": {
+      "1": " 󰇊 ",
+      "2": " 󰇋 ",
+      "3": " 󰇌 ",
+      "4": " 󰇍 ",
+      "5": " 󰇎 ",
+      "6": " 󰇏 ",
+      "default": "  ",
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+    },
+  },
+  "memory": {
+    "states": {
+      "warning": 75,
+      "critical": 90,
+    },
+    "format": " {percentage}%",
+    "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
+    "interval": 2,
+    "min-length": 7,
+    "max-length": 7,
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false,
+    "interval": 2,
+    "min-length": 7,
+    "max-length": 7,
+  },
+  "custom/cputemp": {
+    "exec": "~/.config/waybar/scripts/cpu-temp.sh",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 5,
+    "min-length": 7,
+    "max-length": 7,
+  },
+  "custom/power": {
+    "format": " ",
+    "tooltip-format": "Power Menu",
+    "on-click": "~/.config/rofi/scripts/powermenu.sh",
+  },
+  "custom/sep": {
+    "format": " | ",
+    "tooltip": false,
+  },
 }

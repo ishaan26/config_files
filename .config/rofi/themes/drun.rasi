@@ -1,7 +1,10 @@
+/* ==========================================
+ * ROFI CONFIGURATION
+ * ========================================== */
 configuration {
-	font: "GoogleSans Nerd Font 12";
+	font: "Iosevka Nerd Font Propo 12";
 	show-icons: true;
-	display-drun: " ";
+	display-drun: "    "; 
 	drun-display-format: "{name}";
 	threads: 0;
 	scroll-method: 0;
@@ -9,24 +12,27 @@ configuration {
 	fullscreen: false;
 	hide-scrollbar: true;
 	sidebar-mode: false;
-
 }
 
-@import "colors.rasi"
+@import "defaults.rasi"
 
-/* ########### */
-
+/* ==========================================
+ * MAIN WINDOW
+ * ========================================== */
 window {
 	transparency: "real";
 	background-color: @background;
 	text-color: @foreground;
-	border-radius: 12px;
-	height: 60%;
-	width: 50%;
+	border-radius: @border-radius;
+	height: 50%;
+	width: 40%;
 	location: center;
 	anchor: center;
 }
 
+/* ==========================================
+ * SEARCH PROMPT
+ * ========================================== */
 prompt {
 	enabled: true;
 	padding: 0px 0px 0px 0px;
@@ -34,17 +40,22 @@ prompt {
 	text-color: @foreground;
 }
 
+/* ==========================================
+ * INPUT BAR CONTAINER
+ * ========================================== */
 inputbar {
 	background-color: @background-dark;
 	text-color: @foreground;
 	expand: false;
-	border-radius: 6px;
+	border-radius: @border-radius;
 	margin: 0px 0px 0px 0px;
-	padding: 10px 10px 10px 10px;
+	padding: @padding;
 	position: center;
 }
 
-
+/* ==========================================
+ * SEARCH ENTRY FIELD
+ * ========================================== */
 entry {
 	background-color: @transparent;
 	text-color: @foreground;
@@ -56,13 +67,18 @@ entry {
 	blink: true;
 }
 
+/* ==========================================
+ * CASE INDICATOR
+ * ========================================== */
 case-indicator {
 	background-color: @background;
 	text-color: @foreground;
 	spacing: 0;
 }
 
-
+/* ==========================================
+ * APPLICATION LIST VIEW
+ * ========================================== */
 listview {
 	background-color: @transparent;
 	columns: 5;
@@ -72,6 +88,9 @@ listview {
 	layout: vertical;
 }
 
+/* ==========================================
+ * MAIN CONTAINER LAYOUT
+ * ========================================== */
 mainbox {
 	background-color: @transparent;
 	children: [ inputbar, listview];
@@ -79,6 +98,9 @@ mainbox {
 	padding: 30px 25px 15px 25px;
 }
 
+/* ==========================================
+ * APPLICATION ELEMENT CONTAINER
+ * ========================================== */
 element {
 	background-color: @transparent;
 	text-color: @foreground;
@@ -87,8 +109,11 @@ element {
 	padding: 10px 0px 10px 0px;
 }
 
+/* ==========================================
+ * APPLICATION ICON STYLING
+ * ========================================== */
 element-icon {
-	size: 50px;
+	size: 80px;
 	border: 0px;
     background-color:               @transparent;
     border-radius:                  12px;
@@ -96,6 +121,9 @@ element-icon {
 	vertical-align: 0.5;
 }
 
+/* ==========================================
+ * APPLICATION TEXT STYLING
+ * ========================================== */
 element-text {
 	expand: true;
     background-color:               @transparent;
@@ -105,6 +133,9 @@ element-text {
 	margin: 10px 10px 0px 10px;
 }
 
+/* ==========================================
+ * SELECTED ELEMENT HIGHLIGHTING
+ * ========================================== */
 element selected {
 	background-color: @background-dark;
 }

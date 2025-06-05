@@ -95,8 +95,7 @@ install_cargo_packages() {
         fi
 
         echo -e "${YELLOW}Installing${NONE} $package [${current_package}/${total_packages}]"
-        (cargo install --locked "$package" >>"$log_file" 2>&1) &
-        spinner $!
+        cargo install "$package" 
 
         if [ $? -eq 0 ]; then
             echo -e "${GREEN}✓${NONE} Successfully installed $package"

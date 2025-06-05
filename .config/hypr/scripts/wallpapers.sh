@@ -39,15 +39,14 @@ generate_menu() {
 
 # Use wofi to display grid of wallpapers - IMPORTANT: added --sort-order=default
 selected=$(
-  generate_menu | wofi --show dmenu \
-    --cache-file /dev/null \
-    --define "image-size=${THUMBNAIL_WIDTH}x${THUMBNAIL_HEIGHT}" \
-    --columns 3 \
-    --allow-images \
-    --insensitive \
-    --sort-order=default \
-    --prompt "Select Wallpaper" \
-    --conf ~/.config/wofi/wallpaper.conf
+  generate_menu | rofi -dmenu \
+    -no-cache \
+    -theme-str "listview { columns: 3; }" \
+    -show-icons \
+    -i \
+    -sort \
+    -p "Select Wallpaper" \
+    -theme ~/.config/rofi/themes/wallpapers.rasi
 )
 
 # Set wallpaper if one was selected
