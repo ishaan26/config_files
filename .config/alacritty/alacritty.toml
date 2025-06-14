@@ -9,7 +9,7 @@ TERM = "xterm-256color"
 size = 15
 
 [font.normal]
-family = "0xProto Nerd Font"
+family = "SpaceMono Nerd Font"
 style = "Regular"
 
 # [font.offset]

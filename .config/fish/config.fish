@@ -37,8 +37,8 @@ if status is-interactive
     #GPG
     export GPG_TTY=$(tty)
 
-    ## qt5ct Environment Variable
-    set -u QT_QPA_PLATFORMTHEME qt5ct
+    ## qt6ct Environment Variable
+    set -u QT_QPA_PLATFORMTHEME qt6ct
 
     ## Set mouse scrolling with less
     set -u LESS --mouse --wheel-lines=3
@@ -70,7 +70,6 @@ if status is-interactive
         set -Ux ANDROID_HOME $HOME/Library/Android/sdk
         export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
     case Linux
-        export JAVA_HOME=$HOME/android-studio/jbr
         export ANDROID_HOME="$HOME/Android/Sdk"
         export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
     case '*'

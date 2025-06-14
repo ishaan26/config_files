@@ -80,7 +80,7 @@ detect_system() {
     ARCH=$(uname -m)
 
     case "$OS" in
-    "Arch Linux" | "Manjaro Linux")
+    "Arch Linux" | "Manjaro Linux" | "CachyOS Linux")
         CPU=$(grep "model name" /proc/cpuinfo | head -n1 | cut -d ":" -f2 | sed 's/^[ \t]*//')
         MEMORY=$(free -h | awk '/^Mem:/ {print $2}')
         ;;
@@ -92,7 +92,7 @@ detect_system() {
 
     # Check for supported systems
     case "$OS" in
-    "Arch Linux" | "Manjaro Linux" | "Darwin")
+    "Arch Linux" | "Manjaro Linux" | "Darwin" | "CachyOS Linux")
         log "INFO" "Detected supported system: $OS $VERSION ($ARCH)"
         log "INFO" "Kernel: $KERNEL"
         log "INFO" "CPU: $CPU"

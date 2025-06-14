@@ -1,8 +1,0 @@
-configuration {
- modi: "window,drun,ssh,combi,dmenu";
-	show-icons: true;
-	font: "Iosevka Nerd Font Propo 12";
- combi-modi: "window,drun,ssh";
- }
-
-
