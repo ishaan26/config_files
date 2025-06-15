@@ -1,6 +1,6 @@
 format = """
 $os\
-[ by]()\
+[ for]()\
 $username\
 $directory\
 $git_branch\
@@ -68,6 +68,7 @@ Amazon = " "
 Android = " "
 Arch = " "
 CentOS = " "
+CachyOS = "󰌽 "
 Debian = " "
 DragonFly = " "
 Emscripten = " "

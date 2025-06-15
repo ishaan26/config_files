@@ -1,8 +1,4 @@
 [misc]
 [git]
 max_concurrency = 5
-repos = [
-	"~/Documents/Github/zung",
-	"~/Documents/Github/Learning"
-]
-
+repos = ["~/Documents/Github/zung", "~/Documents/Github/Learning"]
