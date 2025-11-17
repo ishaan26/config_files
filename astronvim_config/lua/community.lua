@@ -11,6 +11,10 @@ return {
 	-----------------
 
 	{ import = "astrocommunity.pack.lua" },
+	{ import = "astrocommunity.pack.svelte" },
+	{ import = "astrocommunity.pack.typescript-all-in-one" },
+	{ import = "astrocommunity.pack.tailwindcss" },
+
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.pack.zig" },
 	{ import = "astrocommunity.pack.cpp" },
@@ -26,9 +30,6 @@ return {
 
 	-- Generate comment shortcut
 	{ import = "astrocommunity.editing-support.neogen" },
-
-	-- lsp
-	{ import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
 	-- AI
 	{ import = "astrocommunity.completion.avante-nvim" },

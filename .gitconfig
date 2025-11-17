@@ -75,3 +75,10 @@
 	repo = /Users/ishaangoel/Documents/Github/zung
 	repo = /Users/ishaangoel/Documents/Github/RGC/rgc-app
 	repo = /Users/ishaangoel/Documents/Github/config_files
+[gpg]
+	program = /usr/local/bin/gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
