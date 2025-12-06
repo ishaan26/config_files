@@ -1,26 +1,15 @@
 -- Customize Mason
 
----@type LazySpec
 return {
-  -- use mason-tool-installer for automatically installing Mason packages
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    -- overrides `require("mason-tool-installer").setup(...)`
-    opts = {
-      -- Make sure to use the names found in `:Mason`
-      ensure_installed = {
-        -- install language servers
-        "lua-language-server",
-
-        -- install formatters
-        "stylua",
-
-        -- install debuggers
-        "debugpy",
-
-        -- install any other package
-        "tree-sitter-cli",
-      },
-    },
-  },
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = function(_, opts)
+			-- Remove emmet_ls if it exists in ensure_installed
+			if opts.ensure_installed then
+				opts.ensure_installed = vim.tbl_filter(function(tool)
+					return tool ~= "emmet_ls" and tool ~= "emmet-ls"
+				end, opts.ensure_installed)
+			end
+		end,
+	},
 }
