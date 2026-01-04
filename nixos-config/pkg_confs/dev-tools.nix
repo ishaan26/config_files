@@ -27,11 +27,26 @@
     python313Packages.virtualenv
     uv
 
-    # Development tools that work with both
-    lldb # Debugger
+    # other required tools
+    lldb
     gdb
     gcc
   ];
+
+  # to use flakes for development
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+
+    config = {
+      # Optionally whitelist specific directories
+      whitelist = {
+        prefix = [
+          "~/Documents/Github/" # Auto-allow all projects in this folder
+        ];
+      };
+    };
+  };
 
   home.sessionVariables = {
     # Rust
