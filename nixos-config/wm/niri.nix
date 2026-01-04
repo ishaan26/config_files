@@ -41,7 +41,7 @@
         }
     }
 
-    // Startup programs (DankMaterialShell will auto-start)
+    // Startup programs
     spawn-at-startup "xwayland-satellite"
 
     // Screenshot path
@@ -129,6 +129,20 @@
         // System
         Mod+Shift+E { quit; }
         Mod+Shift+P { power-off-monitors; }
+        // DMS Core Controls
+        Mod+Space { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+        Mod+V { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+        Mod+M { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+        Mod+Comma { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
+        
+        // Audio Controls
+        XF86AudioRaiseVolume { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
+        XF86AudioLowerVolume { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
+        XF86AudioMute { spawn "dms" "ipc" "call" "audio" "mute"; }
+        
+        // Brightness Controls
+        XF86MonBrightnessUp { spawn "dms" "ipc" "call" "brightness" "increment" "5"; }
+        XF86MonBrightnessDown { spawn "dms" "ipc" "call" "brightness" "decrement" "5"; }
     }
   '';
 }
