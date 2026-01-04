@@ -1,4 +1,4 @@
-{ pkgs, dms, ... }:
+{ dms, ... }:
 
 {
   imports = [ dms.homeModules.dankMaterialShell.default ];
@@ -26,5 +26,4 @@
     enableAudioWavelength = true; # Audio visualizer (cava)
     enableCalendarEvents = true; # Calendar integration (khal)
   };
-
 }

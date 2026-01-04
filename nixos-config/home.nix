@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ ./pkg_confs/git.nix ./pkg_confs/shell.nix ./pkg_confs/dev-tools.nix ./pkg_confs/fonts.nix ./wm ];
+  imports = [ ./pkg_confs ./wm ];
 
   home.username = "ishaan";
   home.homeDirectory = "/home/ishaan";
@@ -19,7 +18,6 @@
     # Add your user-specific packages here
     firefox
     brave
-    ghostty
     bitwarden-desktop
   ];
 
