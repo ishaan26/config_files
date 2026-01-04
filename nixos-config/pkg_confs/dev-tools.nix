@@ -41,7 +41,7 @@
 
     # Python
     PYTHONPATH =
-      "${config.home.homeDirectory}/.local/lib/python3.15/site-packages:$PYTHONPATH";
+      "${config.home.homeDirectory}/.local/lib/python3.13/site-packages:$PYTHONPATH";
   };
 
   programs.fish.shellInit = ''
