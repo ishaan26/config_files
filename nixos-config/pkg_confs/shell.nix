@@ -204,13 +204,6 @@
     lolcat
     fortune
 
-    # Rust (if not using rustup)
-    # rustc
-    # cargo
-
-    # Node.js/Bun alternatives
-    nodejs
-    bun
   ];
 
   xdg.configFile = {

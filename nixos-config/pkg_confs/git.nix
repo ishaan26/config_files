@@ -3,25 +3,40 @@
 {
   programs.git = {
     enable = true;
-    userName = "Ishaan Goel";
-    userEmail = "ishaangoel.99@gmail.com";
+    settings = {
+      user = {
+        name = "Ishaan Goel";
+        email = "ishaangoel.99@gmail.com";
+      };
 
-    signing = {
-      key = "0E6951900DED125D";
-      signByDefault = true;
-    };
+      alias = {
+        st = "status -sb";
+        history = "log --oneline --graph --decorate --all";
+        last = "log -1 HEAD --stat";
+        cm = "commit -m";
+        c = "commit";
+        rv = "remote -v";
+        chm = "checkout main";
+        chu = "checkout updates";
+        chun = "checkout -b updates";
+        lb = "branch -a";
+        bd = "branch --delete";
+        forgot = "!git add . && git commit --amend --no-edit";
+      };
 
-    extraConfig = {
       core = {
         pager = "delta";
         editor = "nvim";
       };
+
       ui.color = "always";
       color.ui = true;
+
       merge = {
         tool = "nvim -d";
         conflictstyle = "diff3";
       };
+
       delta = {
         features = "line-numbers decorations";
         syntax-theme = "OneHalfDark";
@@ -48,6 +63,7 @@
         line-numbers-left-style = "cyan";
         line-numbers-right-style = "cyan";
       };
+
       interactive = { diffFilter = "delta --color-only"; };
       init = { defaultBranch = "main"; };
       github = { user = "ishaan26"; };
@@ -61,20 +77,11 @@
       };
     };
 
-    aliases = {
-      st = "status -sb";
-      history = "log --oneline --graph --decorate --all";
-      last = "log -1 HEAD --stat";
-      cm = "commit -m";
-      c = "commit";
-      rv = "remote -v";
-      chm = "checkout main";
-      chu = "checkout updates";
-      chun = "checkout -b updates";
-      lb = "branch -a";
-      bd = "branch --delete";
-      forgot = "!git add . && git commit --amend --no-edit";
+    signing = {
+      key = "0E6951900DED125D";
+      signByDefault = true;
     };
+
   };
 
   home.packages = with pkgs; [ delta git-lfs ];

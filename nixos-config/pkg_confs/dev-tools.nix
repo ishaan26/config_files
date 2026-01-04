@@ -13,9 +13,13 @@
     #####################################
     # Language tools
     #####################################
-
-    # Rust - use rustup for flexibility
+    # Rust
     rustup
+
+    # Web
+    nodejs
+    bun
+    deno
 
     # Python - basic installation
     python313
