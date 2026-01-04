@@ -94,6 +94,9 @@
   #enable fish system-wide
   programs.fish.enable = true;
 
+  # Enable Niri (nixpkgs 25.11 - recommended for DankMaterialShell)
+  programs.niri.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

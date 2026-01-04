@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ ./pkg_confs/git.nix ./pkg_confs/shell.nix ./pkg_confs/dev-tools.nix ];
+    [ ./pkg_confs/git.nix ./pkg_confs/shell.nix ./pkg_confs/dev-tools.nix ./pkg_confs/fonts.nix ./wm ];
 
   home.username = "ishaan";
   home.homeDirectory = "/home/ishaan";
