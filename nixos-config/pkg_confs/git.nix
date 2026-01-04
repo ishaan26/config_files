@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.git = {
     enable = true;
     userName = "Ishaan Goel";
     userEmail = "ishaangoel.99@gmail.com";
-    
+
     signing = {
       key = "0E6951900DED125D";
       signByDefault = true;
@@ -26,8 +26,8 @@
         features = "line-numbers decorations";
         syntax-theme = "OneHalfDark";
         line-numbers = true;
-        plus-style = "syntax \"#146329\"";
-        minus-style = "syntax \"#3f0001\"";
+        plus-style = ''syntax "#146329"'';
+        minus-style = ''syntax "#3f0001"'';
       };
       "delta \"decorations\"" = {
         commit-decoration-style = "bold yellow box ul";
@@ -42,27 +42,17 @@
         line-numbers = true;
         line-number-minus-style = "124";
         line-numbers-plus-style = "28";
-        line-numbers-zero-style = "\"#444444\"";
-        line-numbers-left-format = "\"{nm:>4}┊\"";
-        line-numbers-right-format = "\"{np:>4}│\"";
+        line-numbers-zero-style = ''"#444444"'';
+        line-numbers-left-format = ''"{nm:>4}┊"'';
+        line-numbers-right-format = ''"{np:>4}│"'';
         line-numbers-left-style = "cyan";
         line-numbers-right-style = "cyan";
       };
-      interactive = {
-        diffFilter = "delta --color-only";
-      };
-      init = {
-        defaultBranch = "main";
-      };
-      github = {
-        user = "ishaan26";
-      };
-      pull = {
-        ff = "only";
-      };
-      gpg = {
-        program = "${pkgs.gnupg}/bin/gpg";
-      };
+      interactive = { diffFilter = "delta --color-only"; };
+      init = { defaultBranch = "main"; };
+      github = { user = "ishaan26"; };
+      pull = { ff = "only"; };
+      gpg = { program = "${pkgs.gnupg}/bin/gpg"; };
       filter.lfs = {
         clean = "git-lfs clean -- %f";
         smudge = "git-lfs smudge -- %f";
@@ -87,8 +77,5 @@
     };
   };
 
-  home.packages = with pkgs; [
-    delta
-    git-lfs
-  ];
+  home.packages = with pkgs; [ delta git-lfs ];
 }

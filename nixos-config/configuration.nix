@@ -2,13 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    /etc/nixos/hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -83,44 +83,38 @@
     isNormalUser = true;
     description = "Ishaan Goel";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
+    shell = pkgs.fish;
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  #enable fish system-wide
+  programs.fish.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   git
-   neovim 
-   rustup
-   cargo
-   wget
-   gnupg
-pinentry-curses
+    fish
+    git
+    neovim
+    wget
+    gnupg
+    pinentry-curses
+    gnumake
+    unzip
   ];
 
-# GPG Setup
-services.pcscd.enable = true;
-programs.gnupg.agent = {
-   enable = true;
-   enableSSHSupport = true;
-};
+  # GPG Setup
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
