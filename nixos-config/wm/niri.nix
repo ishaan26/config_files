@@ -31,16 +31,28 @@
         default-column-width { proportion 0.5; }
         
         focus-ring {
-            width 4
-            active-color "#7fc8ff"
-            inactive-color "#505050"
+            width 2
+            active-color "#d0bcff"
+            inactive-color "#49454f"
         }
         
         border {
             off
         }
+        
+        struts {
+            left 0
+            right 0
+            top 0
+            bottom 0
+        }
     }
-
+    
+    window-rule {
+        geometry-corner-radius 12
+        clip-to-geometry true
+    }
+    
     // Startup programs
     spawn-at-startup "xwayland-satellite"
 
@@ -66,15 +78,15 @@
         Mod+Q { close-window; }
 
         // Focus navigation
-        Mod+Left  { focus-column-left; }
-        Mod+Down  { focus-window-down; }
-        Mod+Up    { focus-window-up; }
-        Mod+Right { focus-column-right; }
+        Mod+h  { focus-column-left; }
+        Mod+j  { focus-window-down; }
+        Mod+k    { focus-window-up; }
+        Mod+l { focus-column-right; }
         
-        Mod+Shift+Left  { move-column-left; }
-        Mod+Shift+Down  { move-window-down; }
-        Mod+Shift+Up    { move-window-up; }
-        Mod+Shift+Right { move-column-right; }
+        Mod+Shift+h  { move-column-left; }
+        Mod+Shift+j  { move-window-down; }
+        Mod+Shift+k    { move-window-up; }
+        Mod+Shift+l { move-column-right; }
 
         Mod+Home { focus-column-first; }
         Mod+End  { focus-column-last; }
