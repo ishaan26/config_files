@@ -5,12 +5,13 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      # Theme
+      # Theme - Catppuccin Mocha
+      theme = "catppuccin-mocha";
       bold-is-bright = true;
       selection-invert-fg-bg = true;
 
       # Font
-      font-family = "ZedMono Nerd Font";
+      font-family = "JetBrainsMono Nerd Font";
       font-size = 14;
       font-thicken = true;
 
@@ -39,10 +40,6 @@
       mouse-hide-while-typing = true;
       window-vsync = true;
       window-decoration = "none";
-
-      # Theme
-      # FIXME: Fix this in dms v 1.2 -> change to just "dankcolors"
-      theme = "/home/ishaan/.config/ghostty/config-dankcolors";
 
       # Keybindings
       keybind = [ "cmd+s>r=reload_config" "cmd+s>x=close_surface" ];

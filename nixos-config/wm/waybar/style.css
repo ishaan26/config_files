@@ -1,0 +1,194 @@
+/* Catppuccin Mocha Waybar Theme */
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar > box {
+  background: rgba(30, 30, 46, 0.85);
+  border-radius: 12px;
+  border: 1px solid rgba(203, 166, 247, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltips */
+tooltip {
+  background: rgba(30, 30, 46, 0.95);
+  border: 1px solid #cba6f7;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: #cdd6f4;
+  padding: 4px 8px;
+}
+
+/* Global button styling */
+button {
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 0;
+}
+
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px #cba6f7;
+}
+
+/* Workspaces */
+#workspaces {
+  background: rgba(49, 50, 68, 0.6);
+  border-radius: 10px;
+  margin: 4px 8px;
+  padding: 0 4px;
+}
+
+#workspaces button {
+  padding: 4px 8px;
+  color: #6c7086;
+  border-radius: 8px;
+  margin: 2px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  background: rgba(203, 166, 247, 0.2);
+  color: #cba6f7;
+  box-shadow: none;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  background: linear-gradient(45deg, #cba6f7, #89b4fa);
+  color: #1e1e2e;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  background: #f38ba8;
+  color: #1e1e2e;
+}
+
+/* Window title */
+#window {
+  color: #cdd6f4;
+  margin: 4px 8px;
+  padding: 4px 12px;
+  background: rgba(49, 50, 68, 0.6);
+  border-radius: 10px;
+}
+
+#window.empty {
+  background: transparent;
+}
+
+/* Clock */
+#clock {
+  color: #cdd6f4;
+  font-weight: bold;
+  padding: 4px 16px;
+  margin: 4px 0;
+  background: rgba(49, 50, 68, 0.6);
+  border-radius: 10px;
+}
+
+/* Tray */
+#tray {
+  margin: 4px 4px;
+  padding: 4px 8px;
+  background: rgba(49, 50, 68, 0.6);
+  border-radius: 10px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #f38ba8;
+}
+
+/* Right side modules */
+#pulseaudio,
+#network,
+#battery {
+  color: #cdd6f4;
+  padding: 4px 12px;
+  margin: 4px 2px;
+  background: rgba(49, 50, 68, 0.6);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+  background: rgba(203, 166, 247, 0.2);
+}
+
+/* PulseAudio */
+#pulseaudio {
+  color: #89b4fa;
+}
+
+#pulseaudio.muted {
+  color: #6c7086;
+}
+
+/* Network */
+#network {
+  color: #a6e3a1;
+}
+
+#network.disconnected {
+  color: #f38ba8;
+}
+
+/* Battery */
+#battery {
+  color: #a6e3a1;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+  color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+  }
+}
+
+/* Power button */
+#custom-power {
+  color: #f38ba8;
+  padding: 4px 12px;
+  margin: 4px 8px 4px 2px;
+  background: rgba(49, 50, 68, 0.6);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+  background: rgba(243, 139, 168, 0.3);
+}

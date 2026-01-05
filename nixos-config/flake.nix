@@ -7,13 +7,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { nixpkgs, home-manager, dms, ... }:
+  outputs = { nixpkgs, home-manager, ... }:
 
     let system = "x86_64-linux";
 
@@ -27,7 +23,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.ishaan = import ./home.nix;
-            home-manager.extraSpecialArgs = { inherit dms; };
           }
         ];
       };
