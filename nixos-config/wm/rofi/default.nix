@@ -3,7 +3,7 @@
 {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     terminal = "${pkgs.ghostty}/bin/ghostty";
 
     extraConfig = {
