@@ -1,4 +1,4 @@
-{ pkgs, nerdfonts, ... }:
+{ pkgs, ... }:
 
 {
   # Common packages shared between Niri and Hyprland
@@ -24,8 +24,9 @@
     # Icon theme for Rofi
     papirus-icon-theme
 
-    # Fonts
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
+    # Fonts - individual nerd-fonts packages (NixOS 24.05+)
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
   ];
 
   # Set cursor theme
