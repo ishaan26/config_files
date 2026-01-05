@@ -22,7 +22,7 @@
     xwayland-satellite
 
     # Icon theme for Rofi
-    papirus-icon-theme
+    # papirus-icon-theme
 
     # Fonts - individual nerd-fonts packages (NixOS 24.05+)
     nerd-fonts.jetbrains-mono
