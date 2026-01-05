@@ -24,9 +24,6 @@
     # Icon theme for Rofi
     papirus-icon-theme
 
-    # Wallpapers
-    catppuccin-wallpapers
-
     # Fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
   ];

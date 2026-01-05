@@ -69,7 +69,7 @@
     // Startup applications
     spawn-at-startup "waybar"
     spawn-at-startup "mako"
-    spawn-at-startup "swaybg" "-m" "fill" "-i" "${pkgs.catppuccin-wallpapers}/share/wallpapers/catppuccin/Colorful.jpeg"
+    spawn-at-startup "swaybg" "-m" "fill" "-i" "~/.config/wallpaper.jpg"
     spawn-at-startup "xwayland-satellite"
 
     // Screenshot path

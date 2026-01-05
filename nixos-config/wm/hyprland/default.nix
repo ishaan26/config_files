@@ -110,7 +110,7 @@
       exec-once = [
         "waybar"
         "mako"
-        "swaybg -m fill -i ${pkgs.catppuccin-wallpapers}/share/wallpapers/catppuccin/Colorful.jpeg"
+        "swaybg -m fill -i ~/.config/wallpaper.jpg"
       ];
 
       # Window rules
