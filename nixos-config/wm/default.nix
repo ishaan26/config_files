@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./niri.nix ./dms.nix ];
+  imports = [ ./niri.nix ./dms.nix ./gtk.nix ./qt.nix ];
 
   home.packages = with pkgs; [
     xwayland-satellite

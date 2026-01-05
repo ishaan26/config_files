@@ -17,8 +17,11 @@
   home.packages = with pkgs; [
     # Add your user-specific packages here
     firefox
+
     brave
     bitwarden-desktop
   ];
+
+
 
 }

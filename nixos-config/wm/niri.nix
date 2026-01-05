@@ -1,5 +1,11 @@
 {
   xdg.configFile."niri/config.kdl".text = ''
+    // Set QT app themes
+    environment {
+        QT_QPA_PLATFORMTHEME "gtk3"
+        QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    }
+
     // Input device configuration.
     input {
         keyboard {
