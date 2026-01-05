@@ -48,12 +48,14 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable SDDM display manager
+  # Enable SDDM display manager with default theme
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "catppuccin-mocha";
   };
+
+  # Enable Plasma 6
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -127,13 +129,6 @@
     pinentry-curses
     gnumake
     unzip
-
-    # SDDM Catppuccin theme
-    (catppuccin-sddm.override {
-      flavor = "mocha";
-      font = "JetBrainsMono Nerd Font";
-      fontSize = "12";
-    })
 
     # Audio/video utilities
     wireplumber
