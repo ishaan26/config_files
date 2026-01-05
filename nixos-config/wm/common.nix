@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nerdfonts, ... }:
 
 {
   # Common packages shared between Niri and Hyprland
