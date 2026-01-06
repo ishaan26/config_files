@@ -1,5 +1,5 @@
 {
   imports =
-    [ ./dev-tools.nix ./fonts.nix ./git.nix ./shell.nix ./terminal.nix ];
+    [ ./dev-tools.nix ./fonts.nix ./git.nix ./shell.nix ./terminal.nix ./vim.nix ];
 
 }
