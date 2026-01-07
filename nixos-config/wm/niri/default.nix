@@ -4,7 +4,7 @@
   xdg.configFile."niri/config.kdl".text = ''
     // Environment variables
     environment {
-        QT_QPA_PLATFORMTHEME "gtk3"
+        QT_QPA_PLATFORMTHEME "qt6ct"
         QT_QPA_PLATFORM "wayland"
         NIXOS_OZONE_WL "1"
     }
