@@ -11,5 +11,6 @@
     ./common.nix
     ./gtk.nix
     ./qt.nix
+    ./awww.nix
   ];
 }

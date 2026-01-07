@@ -102,7 +102,6 @@
       exec-once = [
         "waybar"
         "mako"
-        "swaybg -m fill -i ~/.config/wallpaper.jpg"
       ];
 
       # Window rules
@@ -124,6 +123,7 @@
         "$mod, B, exec, $browser"
         "$mod, Q, killactive"
         "$mod ALT, L, exec, swaylock"
+        "$mod ALT, W, exec, systemctl --user start awww-rotation.service"
 
         # Vim-style focus navigation (matching Niri)
         "$mod, h, movefocus, l"

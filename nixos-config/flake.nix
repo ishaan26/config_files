@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, awww, ... }:
 
     let
       # Function to create a NixOS configuration
@@ -21,6 +22,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit awww; };
             home-manager.users.ishaan = import ./home.nix;
             
             # Backup existing config files instead of failing

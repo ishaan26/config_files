@@ -100,6 +100,7 @@
         // Window management
         Mod+Q { close-window; }
         Mod+Alt+L { spawn "swaylock"; }
+        Mod+Alt+W { spawn "systemctl" "--user" "start" "awww-rotation.service"; }
 
         // Vim-style focus navigation
         Mod+h { focus-column-left; }
