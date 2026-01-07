@@ -26,10 +26,10 @@
     wget
     curl
     gzip
-    tar
+    gnutar
     nodejs_22
     python3
-    
+
     # Optional but good to have
     gnumake
     cargo # rust
@@ -38,7 +38,7 @@
   # Setup AstroNvim
   # 1. Clone AstroNvim template if not present
   # 2. Link our user config
-  home.activation.installAstroNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.installAstroNvim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -d "$HOME/.config/nvim" ]; then
       ${pkgs.git}/bin/git clone --depth 1 https://github.com/AstroNvim/AstroNvim "$HOME/.config/nvim"
     fi
