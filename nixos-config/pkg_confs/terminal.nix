@@ -6,7 +6,7 @@
     enable = true;
     settings = {
       # Theme - Catppuccin Mocha
-      theme = "catppuccin-mocha";
+      theme = "Catppuccin Mocha";
       bold-is-bright = true;
       selection-invert-fg-bg = true;
 
