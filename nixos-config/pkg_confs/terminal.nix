@@ -32,6 +32,8 @@
       mouse-scroll-multiplier = 0.5;
 
       # Look and Feel
+      background-blur = true;
+      background-opacity = 0.8;
       adjust-cursor-thickness = 3;
       adjust-underline-position = 3;
       cursor-invert-fg-bg = true;
