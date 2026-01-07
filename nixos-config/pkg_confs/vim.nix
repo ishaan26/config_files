@@ -10,26 +10,6 @@
     withPython3 = true;
   };
 
-  # Required packages (AstroNvim requirements + core tools)
-  home.packages = with pkgs; [
-    # Core
-    git
-    lazygit
-    ripgrep
-    bottom
-    gdu
-    tree-sitter
-
-    # Compilers / Runtimes
-    gcc
-    unzip
-    wget
-    curl
-    gzip
-    gnutar
-    gnumake
-  ];
-
   # Setup AstroNvim
   # 1. Clone AstroNvim template if not present
   # 2. Link our user config
