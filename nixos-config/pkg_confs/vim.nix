@@ -27,8 +27,6 @@
     curl
     gzip
     gnutar
-    nodejs_22
-    python3
     gnumake
   ];
 
