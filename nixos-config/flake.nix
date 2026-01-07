@@ -23,6 +23,9 @@
             home-manager.useUserPackages = true;
             home-manager.users.ishaan = import ./home.nix;
             
+            # Backup existing config files instead of failing
+            home-manager.backupFileExtension = "backup";
+            
             # Set hostname
             networking.hostName = hostName;
           }
