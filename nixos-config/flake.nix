@@ -11,10 +11,9 @@
 
   outputs = { nixpkgs, home-manager, ... }:
 
-    let system = "x86_64-linux";
-
-    in {
-      nixosConfigurations.Paimon = nixpkgs.lib.nixosSystem {
+    let
+      # Function to create a NixOS configuration
+      mkSystem = { hostName, system }: nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix
@@ -23,8 +22,27 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.ishaan = import ./home.nix;
+            
+            # Set hostname
+            networking.hostName = hostName;
           }
         ];
+      };
+    
+    in {
+      nixosConfigurations = {
+        # Existing x86_64-linux machine
+        Paimon = mkSystem {
+          hostName = "Paimon";
+          system = "x86_64-linux";
+        };
+
+        # New aarch64-linux machine (ARM)
+        # You can rename "Sumeru" to whatever you want your ARM machine to be called
+        Sumeru = mkSystem {
+          hostName = "Sumeru";
+          system = "aarch64-linux";
+        };
       };
     };
 }
