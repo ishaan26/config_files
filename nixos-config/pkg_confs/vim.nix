@@ -29,10 +29,7 @@
     gnutar
     nodejs_22
     python3
-
-    # Optional but good to have
     gnumake
-    cargo # rust
   ];
 
   # Setup AstroNvim
