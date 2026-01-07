@@ -60,8 +60,6 @@
           "windowsOut, 1, 4, easeOutQuint, popin 80%"
           "fade, 1, 3, easeOutQuint"
           "workspaces, 1, 4, easeOutExpo, slide"
-          "border, 1, 5, easeOutQuint"
-          "borderangle, 1, 30, easeInOutQuint, loop"
         ];
       };
 
