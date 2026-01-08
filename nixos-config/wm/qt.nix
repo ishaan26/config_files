@@ -1,15 +1,28 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ libsForQt5.qt5ct kdePackages.qt6ct ];
+  home.packages = with pkgs; [
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
+    catppuccin-kvantum
+  ];
 
   qt = {
     enable = true;
-    platformTheme.name = "qt6ct";
+    platformTheme.name = "qtct";
+    style.name = "kvantum";
   };
 
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt6ct";
-    QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
-  };
+  # 1. Set the theme name in the Kvantum config file
+  # Note: The name here MUST match the folder name in step 2.
+  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=Catppuccin-Mocha-Blue
+  '';
+
+  # 2. Link the theme assets from the Nix store
+  # Correct Path: share/Kvantum/Catppuccin-Mocha-{Accent}
+  xdg.configFile."Kvantum/Catppuccin-Mocha-Blue".source = "${pkgs.catppuccin-kvantum}/share/Kvantum/Catppuccin-Mocha-Blue";
 }
