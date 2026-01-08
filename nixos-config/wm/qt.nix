@@ -9,8 +9,7 @@ in
 {
   qt = {
     enable = true;
-    platformTheme.name = "qtct"; # Back to qtct
-    style.name = "";
+    platformTheme.name = "qtct";
   };
 
   # Ensure these packages are installed
