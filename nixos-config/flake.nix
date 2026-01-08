@@ -11,35 +11,35 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, home-manager, awww, ... }:
+  outputs = { nixpkgs, home-manager, catppuccin, awww, ... }:
 
     let
       # Function to create a NixOS configuration
-      mkSystem = { hostName, system }: nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          catppuccin.homeModules.catppuccin
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit awww; };
-            home-manager.users.ishaan = import ./home.nix;
+      mkSystem = { hostName, system }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit awww; };
+              home-manager.users.ishaan = {
+                imports = [ ./home.nix catppuccin.homeModules.catppuccin ];
+              };
 
-            # Backup existing config files instead of failing
-            home-manager.backupFileExtension = "backup";
+              # Backup existing config files instead of failing
+              home-manager.backupFileExtension = "backup";
 
+              # Set hostname
+              networking.hostName = hostName;
 
-            # Set hostname
-            networking.hostName = hostName;
+            }
+          ];
+        };
 
-          }
-        ];
-      };
-
-    in
-    {
+    in {
       nixosConfigurations = {
         # Existing x86_64-linux machine
         Paimon = mkSystem {
