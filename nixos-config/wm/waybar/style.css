@@ -47,13 +47,13 @@ button:hover {
 #workspaces {
   background: transparent;
   border-radius: 10px;
-  margin: 4px 8px;
-  padding: 0 4px;
+  margin: 2px 8px;
+  padding: 0px 4px;
 }
 
 #workspaces button {
-  padding: 4px 11px 4px 10px;
-  color: #6c7086;
+  padding: 1px 11px 1px 10px;
+  color: black;
   border-radius: 8px;
   margin: 2px;
   transition: all 0.2s ease;

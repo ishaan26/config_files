@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   # Configure your Catppuccin theme variant here
   variant = "mocha";
-  accent = "mauve";
+  accent = "blue";
 
   # Create the Kvantum theme package with your chosen variant
   kvantumThemePackage =
@@ -30,8 +30,8 @@ in {
   # Configure Qt theming
   qt = {
     enable = true;
-    platformTheme.name = "kde"; # Use qt5ct instead of qt6ct
-    style.name = "kvantum-dark"; # Kvantum as the widget style
+    platformTheme.name = "kde";
+    style.name = "kvantum-dark";
   };
 
   # Link Kvantum theme to the correct location
@@ -61,7 +61,7 @@ in {
 
   # Environment variables for Qt applications
   home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "kde"; # Force qt5ct as platform theme
+    QT_QPA_PLATFORMTHEME = "kde";
     QT_STYLE_OVERRIDE = "kvantum-dark"; # Force kvantum style
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
   };

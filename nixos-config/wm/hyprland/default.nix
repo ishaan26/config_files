@@ -38,8 +38,6 @@
           new_optimizations = true;
           xray = false;
           popups = true;
-          vibrancy = 0.5;
-          vibrancy_darkness = 0.5;
         };
 
         shadow = {
