@@ -85,9 +85,7 @@
       };
 
       # Master layout
-      master = {
-        new_status = "master";
-      };
+      master = { new_status = "master"; };
 
       # Misc
       misc = {
@@ -99,10 +97,7 @@
       };
 
       # Startup applications
-      exec-once = [
-        "waybar"
-        "mako"
-      ];
+      exec-once = [ "waybar" "mako" ];
 
       # Window rules
       windowrulev2 = [
@@ -175,9 +170,10 @@
         "$mod, R, submap, resize"
 
         # Screenshots
-        ", Print, exec, grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
+        ''
+          , Print, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png''
         "CTRL, Print, exec, grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
-        "$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy"
+        ''$mod SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy''
 
         # System
         "$mod SHIFT, E, exit"
@@ -221,10 +217,9 @@
       ];
 
       # Mouse bindings
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
+      bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+
+      layerrule = [ "blur,waybar" ];
     };
 
     # Extra config for resize submap

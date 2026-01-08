@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.waybar = {
@@ -10,69 +10,63 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "top";
-        height = 36;
-        spacing = 8;
-        margin-top = 6;
+        position = "bottom";
+        height = 42;
+        spacing = 2;
+        margin-bottom = 6;
         margin-left = 12;
         margin-right = 12;
 
-        modules-left = [
-          "niri/workspaces"
-          "hyprland/workspaces"
-          "niri/window"
-          "hyprland/window"
-        ];
+        modules-left = [ "clock" "niri/window" "hyprland/window" ];
 
-        modules-center = [
-          "clock"
-        ];
+        modules-center = [ "niri/workspaces" "hyprland/workspaces" ];
 
-        modules-right = [
-          "tray"
-          "pulseaudio"
-          "network"
-          "battery"
-          "custom/power"
-        ];
+        modules-right =
+          [ "tray" "pulseaudio" "network" "battery" "custom/power" ];
 
         # Workspaces
         "niri/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "󰲠";
-            "2" = "󰲢";
-            "3" = "󰲤";
-            "4" = "󰲦";
-            "5" = "󰲨";
-            "6" = "󰲪";
-            "7" = "󰲬";
-            "8" = "󰲮";
-            "9" = "󰲰";
-            active = "󰮯";
-            default = "󰊠";
+            "1" = "󰇊";
+            "2" = "󰇋";
+            "3" = "󰇌";
+            "4" = "󰇍";
+            "5" = "󰇎";
+            "6" = "󰇏";
+          };
+          persistent-workspaces = {
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
+            "5" = [ ];
+            "6" = [ ];
           };
         };
 
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "󰲠";
-            "2" = "󰲢";
-            "3" = "󰲤";
-            "4" = "󰲦";
-            "5" = "󰲨";
-            "6" = "󰲪";
-            "7" = "󰲬";
-            "8" = "󰲮";
-            "9" = "󰲰";
-            active = "󰮯";
-            default = "󰊠";
-            special = "󰠱";
+            "1" = "󰇊";
+            "2" = "󰇋";
+            "3" = "󰇌";
+            "4" = "󰇍";
+            "5" = "󰇎";
+            "6" = "󰇏";
+          };
+          persistent-workspaces = {
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
+            "5" = [ ];
+            "6" = [ ];
           };
           on-click = "activate";
           on-scroll-up = "hyprctl dispatch workspace e-1";
           on-scroll-down = "hyprctl dispatch workspace e+1";
+          sort-by-number = true;
         };
 
         # Window title

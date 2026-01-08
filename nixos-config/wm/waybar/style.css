@@ -4,7 +4,7 @@
   border: none;
   border-radius: 0;
   font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
-  font-size: 13px;
+  font-size: 16px;
   min-height: 0;
 }
 
@@ -13,16 +13,16 @@ window#waybar {
 }
 
 window#waybar > box {
-  background: rgba(30, 30, 46, 0.85);
+  background: rgba(30, 30, 46, 0.5);
   border-radius: 12px;
-  border: 1px solid rgba(203, 166, 247, 0.3);
+  border: 0px solid rgba(203, 166, 247, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Tooltips */
 tooltip {
   background: rgba(30, 30, 46, 0.95);
-  border: 1px solid #cba6f7;
+  border: 0px solid #cba6f7;
   border-radius: 8px;
 }
 
@@ -45,7 +45,7 @@ button:hover {
 
 /* Workspaces */
 #workspaces {
-  background: rgba(49, 50, 68, 0.6);
+  background: transparent;
   border-radius: 10px;
   margin: 4px 8px;
   padding: 0 4px;
@@ -67,7 +67,7 @@ button:hover {
 
 #workspaces button.active,
 #workspaces button.focused {
-  background: linear-gradient(45deg, #cba6f7, #89b4fa);
+  background:  #89b4fa;
   color: #1e1e2e;
   font-weight: bold;
 }
@@ -82,7 +82,7 @@ button:hover {
   color: #cdd6f4;
   margin: 4px 8px;
   padding: 4px 12px;
-  background: rgba(49, 50, 68, 0.6);
+  background: transparent;
   border-radius: 10px;
 }
 
@@ -95,7 +95,7 @@ button:hover {
   color: #cdd6f4;
   font-weight: bold;
   padding: 4px 16px;
-  margin: 4px 0;
+  margin: 4px 8px;
   background: rgba(49, 50, 68, 0.6);
   border-radius: 10px;
 }
