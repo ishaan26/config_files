@@ -1,28 +1,44 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let
+  variant = "mocha";
+  accent = "blue";
+  kvantumThemePackage =
+    pkgs.catppuccin-kvantum.override { inherit variant accent; };
+in
 {
-  home.packages = with pkgs; [
-    libsForQt5.qt5ct
-    kdePackages.qt6ct
-    libsForQt5.qtstyleplugin-kvantum
-    kdePackages.qtstyleplugin-kvantum
-    catppuccin-kvantum
-  ];
-
   qt = {
     enable = true;
     platformTheme.name = "qtct";
     style.name = "kvantum";
   };
 
-  # 1. Set the theme name in the Kvantum config file
-  # Note: The name here MUST match the folder name in step 2.
-  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=catppuccin-mocha-blue
-  '';
+  xdg.configFile = {
+    "Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=catppuccin-${variant}-${accent}
+      translucent_windows=true
+      reduce_window_opacity=10
+      blurring=true
+      contrast=1.00
+      intensity=1.00
+      saturation=1.00
+      [Hacks]
+      transparent_dolphin_view=true
+      transparent_ktitle_label=true
+      blur_translucent=true
+      transparent_menutitle=false
+      [WindowTranslucent]
+      interior=true
+      interior.element=window
+      interior.x.patternsize=48
+      interior.y.patternsize=48
+      frame.expansion=0
+    '';
 
-  # 2. Link the theme assets from the Nix store
-  # Correct Path: share/Kvantum/Catppuccin-Mocha-{Accent}
-  xdg.configFile."Kvantum/catppuccin-mocha-blue".source = "${pkgs.catppuccin-kvantum}/share/Kvantum/catppuccin-mocha-blue";
+    # The important bit is here, links the theme directory from the package to a directory under ~/.config
+    # where Kvantum should find it.
+    "Kvantum/catppuccin-${variant}-${accent}".source =
+      "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
+  };
 }
