@@ -24,10 +24,12 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit awww; };
-            home-manager.users.ishaan = imports [
-              ./home.nix
-              catppuccin.homeModules.catppuccin
-            ];
+            home-manager.users.ishaan = {
+              imports = [
+                ./home.nix
+                catppuccin.homeModules.catppuccin
+              ];
+            };
 
             # Backup existing config files instead of failing
             home-manager.backupFileExtension = "backup";
