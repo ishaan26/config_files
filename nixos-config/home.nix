@@ -15,13 +15,16 @@
 
   # Packages that should be installed to the user profile
   home.packages = with pkgs; [
-    # Add your user-specific packages here
+    # Essential Apps
     firefox
-
     brave
     bitwarden-desktop
+    qbittorrent
+
+    # Artist
+    blender
+    gimp
+    krita
   ];
-
-
 
 }

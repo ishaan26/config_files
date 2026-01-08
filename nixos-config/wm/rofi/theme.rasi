@@ -2,26 +2,26 @@
 
 * {
     /* Catppuccin Mocha Colors */
-    bg:       #1e1e2eee;
+    bg:       #1e1e2eaa;
     bg-alt:   #313244;
     fg:       #cdd6f4;
     fg-alt:   #6c7086;
-    accent:   #cba6f7;
-    accent2:  #89b4fa;
+    accent2:   black;
+    accent:  #89b4fa;
     urgent:   #f38ba8;
     
     background-color: transparent;
     text-color: @fg;
     spacing: 0;
-    width: 600px;
+    width: 800px;
 }
 
 window {
     background-color: @bg;
     border: 2px solid;
-    border-color: @accent;
+    border-color: transparent;
     border-radius: 16px;
-    padding: 16px;
+    padding: 32px;
     location: center;
     anchor: center;
 }
@@ -33,7 +33,7 @@ mainbox {
 }
 
 inputbar {
-    background-color: @bg-alt;
+    background-color: transparent;
     border-radius: 12px;
     padding: 12px 16px;
     spacing: 12px;
@@ -116,7 +116,7 @@ element selected.active {
 
 element-icon {
     background-color: transparent;
-    size: 24px;
+    size: 32px;
 }
 
 element-text {
