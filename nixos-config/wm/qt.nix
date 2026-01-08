@@ -1,38 +1,28 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
-let
-  variant = "mocha";
-  accent = "teal";
-  kvantumThemePackage =
-    pkgs.catppuccin-kvantum.override { inherit variant accent; };
-in
 {
+  # Install Kvantum
+  home.packages = with pkgs; [
+    kdePackages.qt6ct
+    kdePackages.qtbase
+    kdePackages.qtwayland
+    kdePackages.qtstyleplugin-kvantum
+    kdePackages.breeze-icons
+    kdePackages.qtimageformats
+    kdePackages.qtsvg
+  ];
+
+  # Configure Qt to use Kvantum
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
   };
 
-  xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=catppuccin-${variant}-${accent}
-    '';
-
-    # The important bit is here, links the theme directory from the package to a directory under ~/.config
-    # where Kvantum should find it.
-    "Kvantum/catppuccin-${variant}-${accent}".source =
-      "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
-
-    "qt5ct/qt5ct.conf".text = ''
-      [Appearance]
-      style=kvantum
-      icon_theme=Papirus-Dark
-    '';
-
-    "qt6ct/qt6ct.conf".text = ''
-      [Appearance]
-      style=kvantum
-      icon_theme=Papirus-Dark
-    '';
+  # Enable Catppuccin theme for Kvantum
+  catppuccin.kvantum = {
+    enable = true;
+    accent = "mauve";
+    flavor = "mocha";
   };
 }
