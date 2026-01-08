@@ -10,7 +10,7 @@ in
   qt = {
     enable = true;
     platformTheme.name = "qtct"; # Back to qtct
-    style.name = "qt5ct";
+    style.name = "";
   };
 
   # Ensure these packages are installed
