@@ -20,6 +20,7 @@
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
+          catppuccin.homeModules.catppuccin
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -29,7 +30,6 @@
             # Backup existing config files instead of failing
             home-manager.backupFileExtension = "backup";
 
-            catppuccin.homeModules.catppuccin;
 
             # Set hostname
             networking.hostName = hostName;
