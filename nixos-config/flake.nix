@@ -11,7 +11,7 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, home-manager, awww, catppuccin, ... }:
+  outputs = { nixpkgs, home-manager, awww, ... }:
 
     let
       # Function to create a NixOS configuration
@@ -20,14 +20,12 @@
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
+          catppuccin.homeModules.catppuccin
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit awww; };
-            home-manager.users.ishaan = imports [
-              ./home.nix
-              catppuccin.homeModules.catppuccin
-            ];
+            home-manager.users.ishaan = import ./home.nix;
 
             # Backup existing config files instead of failing
             home-manager.backupFileExtension = "backup";
