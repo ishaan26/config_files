@@ -10,10 +10,10 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "bottom";
+        position = "top";
         height = 42;
         spacing = 2;
-        margin-bottom = 6;
+        margin-top = 6;
         margin-left = 12;
         margin-right = 12;
 

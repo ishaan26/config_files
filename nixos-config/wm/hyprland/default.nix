@@ -37,13 +37,15 @@
           passes = 3;
           new_optimizations = true;
           xray = false;
+          popups = true;
+          vibrancy = 0.5;
+          vibrancy_darkness = 0.5;
         };
 
         shadow = {
           enabled = true;
-          range = 15;
-          render_power = 3;
-          color = "rgba(1a1a2eee)";
+          range = 5;
+          render_power = 5;
         };
       };
 
@@ -219,7 +221,8 @@
       # Mouse bindings
       bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
 
-      layerrule = [ "blur,waybar" ];
+      layerrule =
+        [ "blur on, match:namespace waybar" "blur on, match:namespace rofi" ];
     };
 
     # Extra config for resize submap

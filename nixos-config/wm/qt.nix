@@ -30,7 +30,7 @@ in {
   # Configure Qt theming
   qt = {
     enable = true;
-    platformTheme = "kde"; # Use qt5ct instead of qt6ct
+    platformTheme.name = "kde"; # Use qt5ct instead of qt6ct
     style.name = "kvantum-dark"; # Kvantum as the widget style
   };
 

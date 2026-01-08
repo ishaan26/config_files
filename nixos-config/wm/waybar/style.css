@@ -13,9 +13,9 @@ window#waybar {
 }
 
 window#waybar > box {
-  background: rgba(30, 30, 46, 0.5);
+  background: rgba(30, 30, 46, 0.2);
   border-radius: 12px;
-  border: 0px solid rgba(203, 166, 247, 0.3);
+  border: 1px solid rgba(30, 30, 46, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -52,7 +52,7 @@ button:hover {
 }
 
 #workspaces button {
-  padding: 4px 8px;
+  padding: 4px 11px 4px 10px;
   color: #6c7086;
   border-radius: 8px;
   margin: 2px;
@@ -61,7 +61,7 @@ button:hover {
 
 #workspaces button:hover {
   background: rgba(203, 166, 247, 0.2);
-  color: #cba6f7;
+  color: black;
   box-shadow: none;
 }
 
