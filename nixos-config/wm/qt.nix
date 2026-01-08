@@ -9,16 +9,37 @@ in
 {
   qt = {
     enable = true;
-    platformTheme.name = "kvantum"; # Changed from "qtct" to "kvantum"
+    platformTheme.name = "qtct"; # Back to qtct
     style.name = "kvantum";
   };
 
-  # Remove QT_STYLE_OVERRIDE if it exists
-  home.sessionVariables = {
-    QT_STYLE_OVERRIDE = lib.mkForce "";
-  };
+  # Ensure these packages are installed
+  home.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+    qt6Packages.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
+  ];
 
   xdg.configFile = {
+    # Qt5ct configuration
+    "qt5ct/qt5ct.conf".text = ''
+      [Appearance]
+      style=kvantum
+      
+      [Interface]
+      stylesheets=@Invalid()
+    '';
+
+    # Qt6ct configuration  
+    "qt6ct/qt6ct.conf".text = ''
+      [Appearance]
+      style=kvantum
+      
+      [Interface]
+      stylesheets=@Invalid()
+    '';
+
     "Kvantum/kvantum.kvconfig".text = ''
       [General]
       theme=catppuccin-${variant}-${accent}
