@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     awww.url = "git+https://codeberg.org/LGFae/awww";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = { nixpkgs, home-manager, awww, ... }:
@@ -24,17 +25,21 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit awww; };
             home-manager.users.ishaan = import ./home.nix;
-            
+
             # Backup existing config files instead of failing
             home-manager.backupFileExtension = "backup";
-            
+
+            catppuccin.homeModules.catppuccin;
+
             # Set hostname
             networking.hostName = hostName;
+
           }
         ];
       };
-    
-    in {
+
+    in
+    {
       nixosConfigurations = {
         # Existing x86_64-linux machine
         Paimon = mkSystem {

@@ -1,17 +1,22 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }:
 
+{
+  # Install Kvantum
+  home.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+  ];
+
+  # Configure Qt to use Kvantum
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "kvantum";
     style.name = "kvantum";
   };
 
-  xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=GraphiteNordDark
-    '';
-
-    "Kvantum/GraphiteNord".source = "${pkgs.graphite-kde-theme}/share/Kvantum/GraphiteNord";
+  # Enable Catppuccin theme for Kvantum
+  catppuccin.kvantum = {
+    enable = true;
+    accent = "blue";
+    flavor = "mocha";
   };
 }
