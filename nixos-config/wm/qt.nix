@@ -2,7 +2,7 @@
 
 let
   variant = "mocha";
-  accent = "blue";
+  accent = "teal";
   kvantumThemePackage =
     pkgs.catppuccin-kvantum.override { inherit variant accent; };
 in
