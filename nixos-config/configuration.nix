@@ -78,6 +78,11 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # External drive support
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -158,6 +163,10 @@
 
     # Polkit authentication agent
     polkit_gnome
+
+    # Hardisk support
+    ntfs3g
+    exfat
   ];
 
   # Polkit authentication agent

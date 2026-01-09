@@ -25,27 +25,10 @@
       "~/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 
-  # Ensure Firefox is installed with stylix theme
-  programs.firefox = {
-    enable = true;
-
-    profiles = {
-      my-profile = {
-        isDefault = true;
-        bookmarks = [ ];
-        extensions.force = true;
-        search = { default = "google"; };
-      };
-    };
-  };
-  stylix.targets.firefox = {
-    profileNames = [ "my-profile" ];
-    colorTheme.enable = true;
-  };
-
   # Packages that should be installed to the user profile
   home.packages = with pkgs; [
     # Essential Apps
+    firefox
     brave
     bitwarden-desktop
     qbittorrent
