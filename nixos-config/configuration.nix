@@ -48,19 +48,6 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Setup Sddm theme
-  environment.systemPackages = with pkgs; [
-    (
-      pkgs.catppuccin-sddm.override {
-        flavor = "mocha";
-        accent = "blue";
-        font = "Noto Sans";
-        fontSize = "12";
-        background = "${./sddm_wallpaper.jpg}";
-        loginBackground = true;
-      }
-    )
-  ];
 
   # Set sddm in the displayManager.
   services.displayManager.sddm = {
@@ -138,6 +125,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # Install sddm theme
+    (
+      pkgs.catppuccin-sddm.override {
+        flavor = "mocha";
+        accent = "blue";
+        font = "Noto Sans";
+        fontSize = "12";
+        background = "${./sddm_wallpaper.jpg}";
+        loginBackground = true;
+      }
+    )
+
     fish
     git
     neovim
