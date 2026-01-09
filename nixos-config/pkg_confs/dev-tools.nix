@@ -6,7 +6,7 @@
     #####################################
     # Gui tools 
     #####################################
-    zed-editor
+    # zed-editor
     antigravity
     vscode
 
