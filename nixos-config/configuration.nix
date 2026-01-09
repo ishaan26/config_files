@@ -53,13 +53,20 @@
   services.displayManager.sddm = {
     enable = lib.mkForce true;
     package = pkgs.kdePackages.sddm;
+    autoNumlock = true;
     wayland.enable = true;
+    enableHidpi = true;
     theme = "sddm-astronaut-theme";
     settings = {
       Theme = {
         Current = "sddm-astronaut-theme";
       };
     };
+    extraPackages = with pkgs; [
+      kdePackages.qtsvg
+      kdePackages.qtvirtualkeyboard
+      kdePackages.qtmultimedia
+    ];
   };
 
   # Enable plasma 
@@ -139,7 +146,6 @@
         #};
       }
     )
-    kdePackages.qtmultimedia
 
     # System essential packages.
     fish
