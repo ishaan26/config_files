@@ -136,7 +136,7 @@
           #  Background = "path/to/background.jpg";
           #  Font = "M+1 Nerd Font";
           #};
-        }
+        };
       )
 
       fish
