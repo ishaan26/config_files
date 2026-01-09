@@ -6,5 +6,6 @@
 
   stylix.polarity = "dark";
 
-  stylix.image = ./wallpaper.jpg;
+  stylix.image = ./wallpaper.png;
+
 }

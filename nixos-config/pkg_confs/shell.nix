@@ -183,8 +183,6 @@
     enableFishIntegration = true;
   };
 
-  programs.tmux = { enable = true; };
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -241,6 +239,4 @@
     fortune
 
   ];
-
-  xdg.configFile = { "tmux/tmux.conf".source = ../../.config/.tmux.conf; };
 }
