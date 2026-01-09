@@ -48,7 +48,6 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-
   # Set sddm in the displayManager.
   services.displayManager.sddm = {
     enable = lib.mkForce true;
@@ -57,11 +56,7 @@
     wayland.enable = true;
     enableHidpi = true;
     theme = "sddm-astronaut-theme";
-    settings = {
-      Theme = {
-        Current = "sddm-astronaut-theme";
-      };
-    };
+    settings = { Theme = { Current = "sddm-astronaut-theme"; }; };
     extraPackages = with pkgs; [
       kdePackages.qtsvg
       kdePackages.qtvirtualkeyboard
@@ -137,15 +132,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Install sddm theme
-    (
-      pkgs.sddm-astronaut.override {
-        embeddedTheme = "astronaut";
-        #themeConfig = {
-        #  Background = "path/to/background.jpg";
-        #  Font = "M+1 Nerd Font";
-        #};
-      }
-    )
+    (pkgs.sddm-astronaut.override { embeddedTheme = "astronaut"; })
 
     # System essential packages.
     fish

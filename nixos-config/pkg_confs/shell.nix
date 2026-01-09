@@ -6,8 +6,6 @@
     enable = true;
 
     shellInit = ''
-
-
       # Environment variables
       set -gx EDITOR nvim
       set -gx VISUAL nvim
@@ -35,6 +33,10 @@
 
       # Cargo
       set -gx PATH $HOME/.cargo/bin $PATH
+
+      # Custom
+      set -gx CF  "~/Documents/Github/config_files/"
+      set -gx RS  "~/Documents/Github/zung"
     '';
 
     interactiveShellInit = ''
@@ -128,10 +130,6 @@
       # Quick directory navigation (set these paths as needed)
       cf = ''
         cd "$CF" 2>/dev/null; or echo "CF directory not set. Set with: set -Ux CF /path/to/config"
-      '';
-
-      pjt = ''
-        cd "$PJT" 2>/dev/null; or echo "PJT directory not set. Set with: set -Ux PJT /path/to/projects"
       '';
 
       rs = ''

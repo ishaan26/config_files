@@ -53,7 +53,7 @@ button:hover {
 
 #workspaces button {
   padding: 1px 11px 1px 10px;
-  color: black;
+  color: white;
   border-radius: 8px;
   margin: 2px;
   transition: all 0.2s ease;
