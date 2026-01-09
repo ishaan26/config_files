@@ -51,12 +51,11 @@
 
   # Set sddm in the displayManager.
   services.displayManager.sddm = {
-    enable = true;
+    enable = lib.mkForce true;
     theme = "catppuccin-mocha-blue";
     package = pkgs.kdePackages.sddm;
     wayland.enable = true;
   };
-
 
   # Enable plasma 
   services.desktopManager.plasma6.enable = true;
