@@ -6,7 +6,6 @@
     ./hyprland
     ./waybar
     ./rofi
-    ./sddm
     ./mako.nix
     ./swaylock.nix
     ./common.nix
