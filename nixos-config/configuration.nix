@@ -48,6 +48,29 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
+  # Setup Sddm theme
+  environment.systemPackages = with pkgs; [
+    (
+      pkgs.catppuccin-sddm.override {
+        flavor = "mocha";
+        accent = "blue";
+        font = "Noto Sans";
+        fontSize = "12";
+        background = "${./sddm_wallpaper.jpg}";
+        loginBackground = true;
+      }
+    )
+  ];
+
+  # Set sddm in the displayManager.
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "catppuccin-mocha-blue";
+    package = pkgs.kdePackages.sddm;
+    wayland.enable = true;
+  };
+
+
   # Enable plasma 
   services.desktopManager.plasma6.enable = true;
 
