@@ -48,12 +48,6 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable SDDM display manager with default theme
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-
   # Enable plasma 
   services.desktopManager.plasma6.enable = true;
 

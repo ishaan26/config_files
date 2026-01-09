@@ -12,5 +12,6 @@
     ./gtk.nix
     ./qt.nix
     ./awww.nix
+    ./sddm.nix
   ];
 }
