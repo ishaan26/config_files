@@ -139,7 +139,9 @@
         #};
       }
     )
+    kdePackages.qtmultimedia
 
+    # System essential packages.
     fish
     git
     neovim
