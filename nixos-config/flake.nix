@@ -3,15 +3,20 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:nix-community/stylix";
+
     awww.url = "git+https://codeberg.org/LGFae/awww";
+
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, awww, ... }:
+  outputs = { nixpkgs, home-manager, stylix, catppuccin, awww, ... }:
 
     let
       # Function to create a NixOS configuration
@@ -20,6 +25,9 @@
           inherit system;
           modules = [
             ./configuration.nix
+
+            stylix.nixosModules.stylix
+
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -34,7 +42,6 @@
 
               # Set hostname
               networking.hostName = hostName;
-
             }
           ];
         };

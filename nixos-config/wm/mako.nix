@@ -1,15 +1,14 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   services.mako = {
     enable = true;
     settings = {
-      # Font
-      font = "JetBrainsMono Nerd Font 11";
+      # NOTE: The following settings are controlled by stylix
+      # font = "JetBrainsMono Nerd Font 11";
       # Catppuccin Mocha colors
-      background-color = "#1e1e2eee";
-      text-color = "#cdd6f4";
-      border-color = "#cba6f7";
-      progress-color = "over #89b4fa";
+      # background-color = "#1e1e2eee";
+      # text-color = "#cdd6f4";
+      # border-color = "#cba6f7";
+      # progress-color = "over #89b4fa";
       # Dimensions
       width = 350;
       height = 150;
@@ -48,7 +47,8 @@
     '';
   };
   # Notification utilities
-  home.packages = with pkgs; [
-    libnotify  # notify-send
-  ];
+  home.packages = with pkgs;
+    [
+      libnotify # notify-send
+    ];
 }

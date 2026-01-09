@@ -34,11 +34,10 @@
       normalize-match = true;
     };
 
-    theme = ./theme.rasi;
+    # NOTE: The following settings are controlled by stylix
+    # theme = ./theme.rasi;
   };
 
   # Power menu script
-  home.packages = with pkgs; [
-    rofi-power-menu
-  ];
+  home.packages = with pkgs; [ rofi-power-menu ];
 }

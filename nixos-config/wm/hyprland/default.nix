@@ -19,8 +19,9 @@
         gaps_in = 6;
         gaps_out = 12;
         border_size = 2;
-        "col.active_border" = "rgb(cba6f7) rgb(89b4fa) 45deg";
-        "col.inactive_border" = "rgb(45475a)";
+        # NOTE: The following settings are controlled by stylix
+        # "col.active_border" = "rgb(cba6f7) rgb(89b4fa) 45deg";
+        # "col.inactive_border" = "rgb(45475a)";
         layout = "dwindle";
         resize_on_border = true;
       };

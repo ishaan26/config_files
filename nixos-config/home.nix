@@ -13,6 +13,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+stylix.targets.neovim.enable = false;
+
+
   # Packages that should be installed to the user profile
   home.packages = with pkgs; [
     # Essential Apps

@@ -88,10 +88,6 @@
 
       # Man pages with bat
       "man" = "batman";
-
-      # Neovim with fzf
-      "vimf" = ''
-        nvim "$(find . | fzf --height 60% --layout=reverse-list --preview 'bat --color=always --style=changes {}' --preview-window=right:60%:wrap --color='fg:#e5c07b,fg+:#282c34,bg:,bg+:#61afef' --border)"'';
     };
 
     functions = {
@@ -141,6 +137,45 @@
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
+    settings = {
+      add_newline = true;
+      scan_timeout = 10;
+
+      format =
+        "$username$hostname$directory$git_branch$git_status$git_state$nix_shell$cmd_duration$line_break$character";
+
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[✗](bold red)";
+      };
+
+      directory = {
+        style = "cyan bold";
+        truncation_length = 4;
+        fish_style_pwd_dir_length = 1;
+      };
+
+      git_branch = {
+        symbol = " ";
+        style = "purple bold";
+      };
+
+      git_status = {
+        style = "red bold";
+        format = "[$all_status$ahead_behind]($style) ";
+      };
+
+      nix_shell = {
+        symbol = " ";
+        format = "via [$symbol$state]($style) ";
+      };
+
+      cmd_duration = {
+        min_time = 2000;
+        format = "took [$duration]($style) ";
+        style = "yellow bold";
+      };
+    };
   };
 
   programs.zoxide = {
@@ -160,7 +195,8 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "OneHalfDark";
+      # NOTE: The following settings are controlled by stylix
+      # theme = "OneHalfDark";
       style = "changes,header,grid";
     };
   };
@@ -168,12 +204,14 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
-    colors = {
-      fg = "#e5c07b";
-      "fg+" = "#282c34";
-      bg = "-1";
-      "bg+" = "#61afef";
-    };
+
+    # NOTE: The following settings are controlled by stylix
+    # colors = {
+    #   fg = "#e5c07b";
+    #   "fg+" = "#282c34";
+    #   bg = "-1";
+    #   "bg+" = "#61afef";
+    # };
   };
 
   programs.eza = {
@@ -204,8 +242,5 @@
 
   ];
 
-  xdg.configFile = {
-    "starship.toml".source = ../../.config/starship.toml;
-    "tmux/tmux.conf".source = ../../.config/.tmux.conf;
-  };
+  xdg.configFile = { "tmux/tmux.conf".source = ../../.config/.tmux.conf; };
 }
