@@ -44,13 +44,6 @@
     # krita # May need Homebrew on macOS
   ];
 
-  # Cursor theme
-  home.pointerCursor = {
-    name = "Bibata-Modern-Classic";
-    package = pkgs.bibata-cursors;
-    size = 20;
-  };
-
   # macOS-specific session variables
   home.sessionVariables = {
     # Disable analytics

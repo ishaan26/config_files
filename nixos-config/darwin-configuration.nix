@@ -3,8 +3,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  system.primaryUser = "ishaan";
+
   users.users.ishaan = {
-    isNormalUser = true;
     description = "Ishaan Goel";
     shell = pkgs.fish;
     home = "/Users/ishaan";
