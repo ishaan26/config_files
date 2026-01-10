@@ -18,6 +18,9 @@
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
+  # Asrto nvim is irreplaceable
+  stylix.targets.neovim.enable = false;
+
   # nh wrapper for nix commands
   programs.nh = {
     enable = true;

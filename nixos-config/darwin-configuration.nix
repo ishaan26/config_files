@@ -85,9 +85,6 @@
     nerd-fonts.fira-code
   ];
 
-  # Asrto nvim is irreplaceable
-  stylix.targets.neovim.enable = false;
-
   # Used for backwards compatibility
   system.stateVersion = 6;
 }
