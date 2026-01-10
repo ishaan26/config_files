@@ -12,6 +12,7 @@
     ./stylix.nix
   ];
 
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -210,6 +211,14 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+# Set Icon Theme
+  stylix.icons = {
+    enable = true;
+    package = pkgs.papirus-icon-theme;
+    dark = "Papirus-Dark";
+    light = "Papirus-Light";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

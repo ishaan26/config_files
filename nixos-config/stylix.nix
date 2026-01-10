@@ -1,11 +1,10 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   stylix = {
     enable = true;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark-dark.yaml";
     image = ./wallpaper.png;
     polarity = "dark";
-
 
     fonts = {
       serif = {
@@ -27,13 +26,6 @@
         package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
-    };
-  } // lib.optionalAttrs pkgs.stdenv.isLinux {
-    icons = {
-      enable = true;
-      package = pkgs.papirus-icon-theme;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
     };
   };
 }
