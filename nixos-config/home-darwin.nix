@@ -27,22 +27,6 @@
       "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 
-  # macOS-compatible packages
-  home.packages = with pkgs; [
-    # Browsers
-    firefox
-
-    # NOTE: The following may work better via Homebrew on macOS:
-    # - brave (use: brew install --cask brave-browser)
-    # - bitwarden-desktop (use: brew install --cask bitwarden)
-    # - qbittorrent (use: brew install --cask qbittorrent)
-
-    # Creative apps
-    blender
-    gimp
-    # krita # May need Homebrew on macOS
-  ];
-
   # macOS-specific session variables
   home.sessionVariables = {
     # Disable analytics
