@@ -7,6 +7,7 @@
     isNormalUser = true;
     description = "Ishaan Goel";
     shell = pkgs.fish;
+    home = "/Users/ishaan";
   };
 
   # Enable fish system-wide
