@@ -6,12 +6,6 @@
     image = ./wallpaper.png;
     polarity = "dark";
 
-    icons = lib.mkIf pkgs.stdenv.isLinux {
-      enable = true;
-      package = pkgs.papirus-icon-theme;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
-    };
 
     fonts = {
       serif = {
@@ -33,6 +27,13 @@
         package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
+    };
+  } // lib.optionalAttrs pkgs.stdenv.isLinux {
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
     };
   };
 }
