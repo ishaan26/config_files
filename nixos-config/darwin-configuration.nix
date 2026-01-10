@@ -25,7 +25,7 @@
   # macOS system settings
   system.defaults = {
     dock = {
-      autohide = true;
+      autohide = false;
       show-recents = false;
       minimize-to-application = true;
     };
@@ -37,14 +37,14 @@
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
       KeyRepeat = 2;
-      InitialKeyRepeat = 15;
+      InitialKeyRepeat = 20;
       ApplePressAndHoldEnabled = false;
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticSpellingCorrectionEnabled = false;
     };
     trackpad = {
       Clicking = true;
-      TrackpadThreeFingerDrag = true;
+      TrackpadThreeFingerDrag = false;
     };
   };
 
@@ -68,9 +68,9 @@
       cleanup = "zap";
     };
     casks = [
-      # Uncomment/add apps you want from Homebrew
-      # "brave-browser"
-      # "bitwarden"
+      "firefox"
+      "brave-browser"
+      "bitwarden"
       # "discord"
     ];
     brews = [

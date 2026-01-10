@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 
 {
   # Import shared pkg_confs (cross-platform modules only)
@@ -9,6 +9,7 @@
     ./pkg_confs/vim.nix
     ./pkg_confs/fonts.nix
     ./pkg_confs/tmux.nix
+    ./pkg_confs/kitty.nix
   ];
 
   home.username = "ishaan";
