@@ -55,7 +55,7 @@
           modules = [
             ./darwin-configuration.nix
 
-            stylix.nixosModules.stylix
+            stylix.darwinModules.stylix
 
             home-manager.darwinModules.home-manager
             {
