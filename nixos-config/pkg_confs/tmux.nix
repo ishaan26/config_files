@@ -151,7 +151,7 @@
 
       # Window status format
        setw -g window-status-format " #I:#W "
-       setw -g window-status-current-format "#[bg=${config.lib.stylix.colors.base0D},fg=${config.lib.stylix.colors.base00},bold] #I:#W #[nobold]"
+       setw -g window-status-current-format "#[bg=black,fg=blue] #I:#W #[nobold]"
 
        # Pane border format
        set -g pane-border-status off

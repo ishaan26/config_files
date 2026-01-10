@@ -15,6 +15,9 @@
   home.homeDirectory = "/Users/ishaan"; # macOS uses /Users, not /home!
   home.stateVersion = "25.11";
 
+  # Asrto nvim is irreplaceable
+  stylix.targets.neovim.enable = false;
+
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
