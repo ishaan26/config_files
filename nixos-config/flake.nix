@@ -37,9 +37,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit awww; };
-              home-manager.users.ishaan = {
-                imports = [ ./home.nix ];
-              };
+              home-manager.users.ishaan = { imports = [ ./home.nix ]; };
 
               # Backup existing config files instead of failing
               home-manager.backupFileExtension = "backup";
@@ -61,9 +59,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.ishaan = {
-                imports = [ ./home-darwin.nix ];
-              };
+              home-manager.users.ishaan = { imports = [ ./home-darwin.nix ]; };
 
               # Backup existing config files instead of failing
               home-manager.backupFileExtension = "backup";
@@ -90,11 +86,10 @@
       # Darwin configurations (macOS)
       darwinConfigurations = {
         # Apple Silicon Mac (M1/M2/M3)
-        Noir = mkDarwinSystem {
+        Noir = nix-darwin.lib.darwinSystem {
           hostName = "Noir";
           system = "aarch64-darwin";
         };
-
         # Intel Mac (if needed)
         # IntelMac = mkDarwinSystem {
         #   hostName = "IntelMac";

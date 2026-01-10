@@ -22,7 +22,7 @@
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake =
-      "~/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
+      "$HOME/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 
   # Packages that should be installed to the user profile
