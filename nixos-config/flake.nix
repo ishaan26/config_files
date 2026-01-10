@@ -54,15 +54,17 @@
           inherit system;
           modules = [
             ./darwin-configuration.nix
-
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ishaan = { imports = [ ./home-darwin.nix ]; };
-
               # Backup existing config files instead of failing
               home-manager.backupFileExtension = "backup";
+              # Set hostname for Darwin
+              networking.hostName = hostName;
+              networking.computerName = hostName;
+              system.defaults.smb.NetBIOSName = hostName;
             }
           ];
         };
@@ -86,7 +88,7 @@
       # Darwin configurations (macOS)
       darwinConfigurations = {
         # Apple Silicon Mac (M1/M2/M3)
-        Noir = nix-darwin.lib.darwinSystem {
+        Noir = mkDarwinSystem {
           hostName = "Noir";
           system = "aarch64-darwin";
         };
