@@ -6,7 +6,7 @@
 
     # nix-darwin for macOS
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,6 +54,9 @@
           inherit system;
           modules = [
             ./darwin-configuration.nix
+
+            stylix.nixosModules.stylix
+
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
