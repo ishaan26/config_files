@@ -3,6 +3,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  users.users.ishaan = {
+    isNormalUser = true;
+    description = "Ishaan Goel";
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    shell = pkgs.fish;
+  };
+
   # Enable fish system-wide
   programs.fish.enable = true;
 
