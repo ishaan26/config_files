@@ -1,8 +1,14 @@
 {
-  description = "Ishaan's NixOS configuration";
+  description = "Ishaan's NixOS and nix-darwin configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    # nix-darwin for macOS
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,15 +18,13 @@
     stylix.url = "github:nix-community/stylix";
 
     awww.url = "git+https://codeberg.org/LGFae/awww";
-
-    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, home-manager, stylix, catppuccin, awww, ... }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, stylix, awww, ... }:
 
     let
-      # Function to create a NixOS configuration
-      mkSystem = { hostName, system }:
+      # Function to create a NixOS configuration (Linux)
+      mkNixosSystem = { hostName, system }:
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
@@ -34,7 +38,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit awww; };
               home-manager.users.ishaan = {
-                imports = [ ./home.nix catppuccin.homeModules.catppuccin ];
+                imports = [ ./home.nix ];
               };
 
               # Backup existing config files instead of failing
@@ -46,20 +50,56 @@
           ];
         };
 
+      # Function to create a Darwin configuration (macOS)
+      mkDarwinSystem = { hostName, system }:
+        nix-darwin.lib.darwinSystem {
+          inherit system;
+          modules = [
+            ./darwin-configuration.nix
+
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ishaan = {
+                imports = [ ./home-darwin.nix ];
+              };
+
+              # Backup existing config files instead of failing
+              home-manager.backupFileExtension = "backup";
+            }
+          ];
+        };
+
     in {
+      # NixOS configurations (Linux)
       nixosConfigurations = {
         # Existing x86_64-linux machine
-        Paimon = mkSystem {
+        Paimon = mkNixosSystem {
           hostName = "Paimon";
           system = "x86_64-linux";
         };
 
-        # New aarch64-linux machine (ARM)
-        # You can rename "Sumeru" to whatever you want your ARM machine to be called
-        Sumeru = mkSystem {
-          hostName = "Sumeru";
+        # aarch64-linux machine (ARM Linux)
+        Vetala = mkNixosSystem {
+          hostName = "Vetala";
           system = "aarch64-linux";
         };
+      };
+
+      # Darwin configurations (macOS)
+      darwinConfigurations = {
+        # Apple Silicon Mac (M1/M2/M3)
+        Noir = mkDarwinSystem {
+          hostName = "Noir";
+          system = "aarch64-darwin";
+        };
+
+        # Intel Mac (if needed)
+        # IntelMac = mkDarwinSystem {
+        #   hostName = "IntelMac";
+        #   system = "x86_64-darwin";
+        # };
       };
     };
 }

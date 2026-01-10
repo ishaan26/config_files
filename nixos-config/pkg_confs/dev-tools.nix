@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [
@@ -27,8 +27,10 @@
     python313Packages.virtualenv
     uv
 
-    # other required tools
+    # Debugging tools (cross-platform)
     lldb
+  ] ++ lib.optionals pkgs.stdenv.isLinux [
+    # Linux-only tools
     gdb
     gcc
   ];
