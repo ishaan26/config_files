@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   stylix = {
     enable = true;
 
@@ -6,7 +6,7 @@
     image = ./wallpaper.png;
     polarity = "dark";
 
-    icons = {
+    icons = lib.mkIf pkgs.stdenv.isLinux {
       enable = true;
       package = pkgs.papirus-icon-theme;
       dark = "Papirus-Dark";
