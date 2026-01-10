@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [ ./pkg_confs ./wm ];
@@ -22,7 +22,7 @@
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake =
-      "$HOME/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
+      "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 
   # Packages that should be installed to the user profile

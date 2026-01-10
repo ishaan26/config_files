@@ -20,7 +20,7 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, stylix, awww, ... }:
+  outputs = { nixpkgs, nix-darwin, home-manager, stylix, awww, ... }:
 
     let
       # Function to create a NixOS configuration (Linux)

@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, ... }:
 
 {
   # Import shared pkg_confs (cross-platform modules only)
@@ -10,8 +10,6 @@
     ./pkg_confs/vim.nix
     ./pkg_confs/fonts.nix
     ./pkg_confs/tmux.nix
-    # NOTE: utilities.nix excluded (contains KDE packages - Linux only)
-    # NOTE: wm/ excluded (Wayland compositors - Linux only)
   ];
 
   home.username = "ishaan";
@@ -26,7 +24,8 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "~/Documents/Github/config_files/nixos-config";
+    flake =
+      "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 
   # macOS-compatible packages
