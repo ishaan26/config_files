@@ -5,7 +5,6 @@
   imports = [
     ./pkg_confs/shell.nix
     ./pkg_confs/git.nix
-    ./pkg_confs/terminal.nix
     ./pkg_confs/dev-tools.nix
     ./pkg_confs/vim.nix
     ./pkg_confs/fonts.nix
