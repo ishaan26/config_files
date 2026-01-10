@@ -1,39 +1,39 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [
+  home.packages = with pkgs;
+    [
+      #####################################
+      # Gui tools 
+      #####################################
+      # zed-editor
+      antigravity
+      vscode
 
-    #####################################
-    # Gui tools 
-    #####################################
-    # zed-editor
-    antigravity
-    vscode
+      #####################################
+      # Language tools
+      #####################################
+      # Rust
+      rustup
 
-    #####################################
-    # Language tools
-    #####################################
-    # Rust
-    rustup
+      # Web
+      nodejs
+      bun
+      deno
 
-    # Web
-    nodejs
-    bun
-    deno
+      # Python - basic installation
+      python313
+      python313Packages.pip
+      python313Packages.virtualenv
+      uv
 
-    # Python - basic installation
-    python313
-    python313Packages.pip
-    python313Packages.virtualenv
-    uv
-
-    # Debugging tools (cross-platform)
-    lldb
-  ] ++ lib.optionals pkgs.stdenv.isLinux [
-    # Linux-only tools
-    gdb
-    gcc
-  ];
+      # Debugging tools (cross-platform)
+      lldb
+    ] ++ lib.optionals pkgs.stdenv.isLinux [
+      # Linux-only tools
+      gdb
+      gcc
+    ];
 
   # to use flakes for development
   programs.direnv = {
@@ -52,9 +52,9 @@
 
   home.sessionVariables = {
     # Rust
-    CARGO_HOME = "${config.home.homeDirectory}/.cargo";
-    CARGO_TARGET_DIR = "${config.home.homeDirectory}/.cargo/target-dump";
-    RUSTUP_HOME = "${config.home.homeDirectory}/.rustup";
+    CARGO_HOME = "$HOME/.cargo";
+    CARGO_TARGET_DIR = "$HOME/.cargo/target-dump";
+    RUSTUP_HOME = "$HOME/.rustup";
 
     # Python
     PYTHONPATH =
