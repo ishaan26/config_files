@@ -100,6 +100,7 @@
     # CLI tools not in nixpkgs
     brews = [
       "fontconfig"
+      "topgrade"
     ];
 
   };
