@@ -28,6 +28,7 @@
       autohide = false;
       show-recents = false;
       minimize-to-application = true;
+      enable-spring-load-actions-on-all-items = true;
       persistent-apps = [
         "/Applications/Safari.app"
         "/Applications/Brave Browser.app"
@@ -98,6 +99,7 @@
 
     # CLI tools not in nixpkgs
     brews = [
+      "fontconfig"
     ];
 
   };
@@ -109,6 +111,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
+    nerd-fonts.iosevka-term
   ];
 
   # Used for backwards compatibility

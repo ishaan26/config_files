@@ -3,7 +3,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      size = lib.mkForce 16;
+      size = lib.mkForce 18;
     };
     settings = {
       # Blur settings

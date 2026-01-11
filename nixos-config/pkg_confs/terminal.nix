@@ -5,13 +5,10 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      # Theme - Catppuccin Mocha
-      theme = "Catppuccin Mocha";
       bold-is-bright = true;
       selection-invert-fg-bg = true;
 
       # Font
-      font-family = "JetBrainsMono Nerd Font";
       font-size = 14;
       font-thicken = true;
 

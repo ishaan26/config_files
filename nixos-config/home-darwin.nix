@@ -7,7 +7,6 @@
     ./pkg_confs/git.nix
     ./pkg_confs/dev-tools.nix
     ./pkg_confs/vim.nix
-    ./pkg_confs/fonts.nix
     ./pkg_confs/tmux.nix
     ./pkg_confs/kitty.nix
   ];
