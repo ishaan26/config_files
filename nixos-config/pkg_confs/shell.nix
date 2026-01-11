@@ -10,6 +10,11 @@
       set -gx EDITOR nvim
       set -gx VISUAL nvim
 
+      # Homebrew
+      if test (uname) = Darwin
+        set -gx PATH /opt/homebrew/bin $PATH
+      end
+
       # Tauri/Android Development
       if test (uname) = Linux
         set -gx ANDROID_HOME "$HOME/Android/Sdk"
@@ -238,5 +243,8 @@
     lolcat
     fortune
 
+    # System tools
+    fontconfig
+    topgrade
   ];
 }
