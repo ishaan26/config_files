@@ -23,43 +23,50 @@
   };
 
   # macOS system settings
-  system.defaults = {
-    dock = {
-      autohide = false;
-      show-recents = false;
-      minimize-to-application = true;
-      enable-spring-load-actions-on-all-items = true;
-      persistent-apps = [
-        "/System/Applications/Apps.app"
-        "/Applications/Bitwarden.app"
-        "/System/Cryptexes/App/System/Applications/Safari.app"
-        "/Applications/Brave Browser.app"
-        "/Applications/Firefox.app"
-        "/Applications/WhatsApp.app"
-        "/System/Applications/Mail.app"
-        "/Applications/Microsoft Word.app"
-        "/Applications/Microsoft Excel.app"
-        "/System/Applications/Notes.app"
-        "/System/Applications/App Store.app"
-        "/Users/ishaan/Applications/Home Manager Apps/kitty.app"
-      ];
+  system = {
+    defaults = {
+      dock = {
+        autohide = false;
+        show-recents = false;
+        minimize-to-application = true;
+        enable-spring-load-actions-on-all-items = true;
+        persistent-apps = [
+          "/System/Applications/Apps.app"
+          "/Users/ishaan/Applications/Home Manager Apps/Bitwarden.app"
+          "/System/Cryptexes/App/System/Applications/Safari.app"
+          "/Users/ishaan/Applications/Home Manager Apps/Brave Browser.app"
+          "/Users/ishaan/Applications/Home Manager Apps/Firefox.app"
+          "/Applications/WhatsApp.app"
+          "/System/Applications/Mail.app"
+          "/Applications/Microsoft Word.app"
+          "/Applications/Microsoft Excel.app"
+          "/System/Applications/Notes.app"
+          "/System/Applications/App Store.app"
+          "/Users/ishaan/Applications/Home Manager Apps/kitty.app"
+        ];
+      };
+      finder = {
+        AppleShowAllExtensions = true;
+        ShowPathbar = true;
+        FXEnableExtensionChangeWarning = false;
+      };
+      NSGlobalDomain = {
+        AppleInterfaceStyle = "Dark";
+        KeyRepeat = 2;
+        InitialKeyRepeat = 20;
+        ApplePressAndHoldEnabled = false;
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+      };
+      trackpad = {
+        Clicking = true;
+        TrackpadThreeFingerDrag = false;
+      };
     };
-    finder = {
-      AppleShowAllExtensions = true;
-      ShowPathbar = true;
-      FXEnableExtensionChangeWarning = false;
-    };
-    NSGlobalDomain = {
-      AppleInterfaceStyle = "Dark";
-      KeyRepeat = 2;
-      InitialKeyRepeat = 20;
-      ApplePressAndHoldEnabled = false;
-      NSAutomaticCapitalizationEnabled = false;
-      NSAutomaticSpellingCorrectionEnabled = false;
-    };
-    trackpad = {
-      Clicking = true;
-      TrackpadThreeFingerDrag = false;
+
+    keyboard = {
+      enableKeyMapping = true;
+      swapLeftCtrlAndFn = true;
     };
   };
 
@@ -96,9 +103,6 @@
 
     # GUI Apps
     casks = [
-      "firefox"
-      "brave-browser"
-      "bitwarden"
       # "discord"
     ];
 

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   # Import shared pkg_confs (cross-platform modules only)
@@ -29,6 +29,13 @@
     flake =
       "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
+
+  # Managed packages
+  home.packages = with pkgs; [
+    firefox
+    brave
+    bitwarden-desktop
+  ];
 
   # macOS-specific session variables
   home.sessionVariables = {
