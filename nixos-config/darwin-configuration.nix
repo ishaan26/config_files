@@ -30,14 +30,18 @@
       minimize-to-application = true;
       enable-spring-load-actions-on-all-items = true;
       persistent-apps = [
-        "/Applications/Safari.app"
+        "/System/Applications/Apps.app"
+        "/Applications/Bitwarden.app"
+        "/System/Cryptexes/App/System/Applications/Safari.app"
         "/Applications/Brave Browser.app"
+        "/Applications/Firefox.app"
         "/Applications/WhatsApp.app"
         "/System/Applications/Mail.app"
         "/Applications/Microsoft Word.app"
+        "/Applications/Microsoft Excel.app"
         "/System/Applications/Notes.app"
-        "/Users/ishaan/Applications/Home Manager Apps/kitty.app"
         "/System/Applications/App Store.app"
+        "/Users/ishaan/Applications/Home Manager Apps/kitty.app"
       ];
     };
     finder = {
@@ -84,6 +88,7 @@
       "Microsoft Excel" = 462058435;
       "Microsoft Word" = 462054704;
       "Microsoft PowerPoint" = 462062816;
+      "Onedrive" = 823766827;
 
       "Dropover" = 1355679052;
       "WhatsApp Messenger" = 310633997;
