@@ -5,7 +5,7 @@
     enable = true;
 
     # Use a modern tmux version
-    terminal = "tmux-256color";
+    terminal = "screen-256color";
 
     # Set prefix to Ctrl-b (default, but explicit)
     prefix = "C-b";
@@ -151,7 +151,7 @@
 
       # Window status format
        setw -g window-status-format " #I:#W "
-       setw -g window-status-current-format "#[bg=black,fg=blue] #I:#W #[nobold]"
+       # setw -g window-status-current-format "#[bg=black,fg=blue] #I:#W #[nobold]"
 
        # Pane border format
        set -g pane-border-status off
