@@ -3,13 +3,8 @@
 {
   # Import shared pkg_confs (cross-platform modules only)
   imports = [
-    ./pkg_confs/shell.nix
-    ./pkg_confs/git.nix
-    ./pkg_confs/dev-tools.nix
-    ./pkg_confs/vim.nix
-    ./pkg_confs/tmux.nix
-    ./pkg_confs/kitty.nix
-    ./pkg_confs/alacritty.nix
+    ../common/terminal
+    ../common/dev
   ];
 
   home.username = "ishaan";

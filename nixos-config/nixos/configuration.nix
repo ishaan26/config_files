@@ -8,7 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware/home_pc.nix
-    ./stylix.nix
+    ../common/stylix.nix
   ];
 
 
@@ -211,7 +211,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-# Set Icon Theme
+  # Set Icon Theme
   stylix.icons = {
     enable = true;
     package = pkgs.papirus-icon-theme;

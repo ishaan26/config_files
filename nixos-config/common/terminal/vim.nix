@@ -27,6 +27,6 @@
     fi
 
     # Re-link every time to ensure it points to the correct store path
-    ln -sfn ${../../astronvim_config/lua} $HOME/.config/nvim/lua
+    ln -sfn ${../../../astronvim_config/lua} $HOME/.config/nvim/lua
   '';
 }

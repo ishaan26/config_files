@@ -1,5 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
 
+# Ghostty is not available on nix darwin as of yet
+lib.mkIf pkgs.stdenv.isLinux {
   home.packages = with pkgs; [ ghostty ];
 
   programs.ghostty = {

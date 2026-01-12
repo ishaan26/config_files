@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./stylix.nix ];
+  imports = [ ../common/stylix.nix ];
 
   # Nix settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

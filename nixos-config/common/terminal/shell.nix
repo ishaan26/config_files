@@ -15,6 +15,9 @@
         set -gx PATH /opt/homebrew/bin $PATH
       end
 
+      # Add Python local bins to PATH
+      set -gx PATH $HOME/.local/bin $PATH
+
       # Tauri/Android Development
       if test (uname) = Linux
         set -gx ANDROID_HOME "$HOME/Android/Sdk"

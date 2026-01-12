@@ -28,7 +28,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./configuration.nix
+            ./nixos/configuration.nix
             stylix.nixosModules.stylix
             { networking.hostName = hostName; }
           ];
@@ -39,7 +39,7 @@
         nix-darwin.lib.darwinSystem {
           inherit system;
           modules = [
-            ./darwin-configuration.nix
+            ./darwin/configuration.nix
             stylix.darwinModules.stylix
             {
               networking.hostName = hostName;
@@ -50,7 +50,7 @@
         };
 
       # Function to create a standalone home-manager configuration
-      mkHomeConfig = { system, homeFile, extraModules ? [] }:
+      mkHomeConfig = { system, homeFile, extraModules ? [ ] }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
@@ -60,11 +60,12 @@
           modules = [
             homeFile
             stylix.homeModules.stylix
-            ./stylix-home.nix
+            ./common/stylix.nix
           ] ++ extraModules;
         };
 
-    in {
+    in
+    {
       # NixOS configurations (Linux)
       nixosConfigurations = {
         # Existing x86_64-linux machine
@@ -98,15 +99,15 @@
       homeConfigurations = {
         "ishaan@Paimon" = mkHomeConfig {
           system = "x86_64-linux";
-          homeFile = ./home.nix;
+          homeFile = ./nixos/home.nix;
         };
         "ishaan@Vetala" = mkHomeConfig {
           system = "aarch64-linux";
-          homeFile = ./home.nix;
+          homeFile = ./nixos/home.nix;
         };
         "ishaan@Noir" = mkHomeConfig {
           system = "aarch64-darwin";
-          homeFile = ./home-darwin.nix;
+          homeFile = ./darwin/home.nix;
         };
       };
     };
