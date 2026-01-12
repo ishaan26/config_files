@@ -6,5 +6,6 @@
     ./shell.nix
     ./tmux.nix
     ./vim.nix
+    ./zellij.nix
   ];
 }
