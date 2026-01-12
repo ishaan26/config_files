@@ -42,7 +42,7 @@
           "/Applications/Microsoft Excel.app"
           "/System/Applications/Notes.app"
           "/System/Applications/App Store.app"
-          "/Users/ishaan/Applications/Home Manager Apps/kitty.app"
+          "/Users/ishaan/Applications/Home Manager Apps/Alacritty.app"
         ];
       };
       finder = {

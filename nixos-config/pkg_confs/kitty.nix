@@ -60,6 +60,9 @@
 
       # Shell integration
       shell_integration = "enabled";
+
+      # It takes too much space on the menu bar.
+      macos_show_window_title_in = "window"; # all, window, menubar, none
     };
 
     keybindings = {

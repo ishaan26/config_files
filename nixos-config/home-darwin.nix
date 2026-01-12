@@ -9,6 +9,7 @@
     ./pkg_confs/vim.nix
     ./pkg_confs/tmux.nix
     ./pkg_confs/kitty.nix
+    ./pkg_confs/alacritty.nix
   ];
 
   home.username = "ishaan";
