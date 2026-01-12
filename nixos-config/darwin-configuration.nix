@@ -32,10 +32,10 @@
         enable-spring-load-actions-on-all-items = true;
         persistent-apps = [
           "/System/Applications/Apps.app"
-          "/Users/ishaan/Applications/Home Manager Apps/Bitwarden.app"
+          "/Applications/Bitwarden.app"
           "/System/Cryptexes/App/System/Applications/Safari.app"
-          "/Users/ishaan/Applications/Home Manager Apps/Brave Browser.app"
-          "/Users/ishaan/Applications/Home Manager Apps/Firefox.app"
+          "/Applications/Brave Browser.app"
+          "/Applications/Firefox.app"
           "/Applications/WhatsApp.app"
           "/System/Applications/Mail.app"
           "/Applications/Microsoft Word.app"
@@ -103,7 +103,9 @@
 
     # GUI Apps
     casks = [
-      # "discord"
+      "firefox"
+      "brave-browser"
+      "bitwarden"
     ];
 
     # CLI tools not in nixpkgs

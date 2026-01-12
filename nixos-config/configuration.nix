@@ -8,7 +8,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware/home_pc.nix
-
     ./stylix.nix
   ];
 

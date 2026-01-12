@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   # Import shared pkg_confs (cross-platform modules only)
@@ -32,11 +32,9 @@
   };
 
   # Managed packages
-  home.packages = with pkgs; [
-    firefox
-    brave
-    bitwarden-desktop
-  ];
+  # home.packages = with pkgs; [
+  #
+  # ];
 
   # macOS-specific session variables
   home.sessionVariables = {
