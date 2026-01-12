@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   programs.tmux = {
@@ -79,7 +79,7 @@
        # ============================================
 
        # Reload config with prefix + r
-       bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded!"
+       bind r source-file ${config.home.homeDirectory}/.config/tmux/tmux.conf \; display "Config reloaded!"
 
        # Create new window with Ctrl-b + c (default, but confirming)
        bind c new-window -c "#{pane_current_path}"

@@ -29,22 +29,8 @@
           inherit system;
           modules = [
             ./configuration.nix
-
             stylix.nixosModules.stylix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit awww; };
-              home-manager.users.ishaan = { imports = [ ./home.nix ]; };
-
-              # Backup existing config files instead of failing
-              home-manager.backupFileExtension = "backup";
-
-              # Set hostname
-              networking.hostName = hostName;
-            }
+            { networking.hostName = hostName; }
           ];
         };
 
@@ -54,22 +40,28 @@
           inherit system;
           modules = [
             ./darwin-configuration.nix
-
             stylix.darwinModules.stylix
-
-            home-manager.darwinModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ishaan = { imports = [ ./home-darwin.nix ]; };
-              # Backup existing config files instead of failing
-              home-manager.backupFileExtension = "backup";
-              # Set hostname for Darwin
               networking.hostName = hostName;
               networking.computerName = hostName;
               system.defaults.smb.NetBIOSName = hostName;
             }
           ];
+        };
+
+      # Function to create a standalone home-manager configuration
+      mkHomeConfig = { system, homeFile, extraModules ? [] }:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = { inherit awww; };
+          modules = [
+            homeFile
+            stylix.homeModules.stylix
+            ./stylix-home.nix
+          ] ++ extraModules;
         };
 
     in {
@@ -100,6 +92,22 @@
         #   hostName = "IntelMac";
         #   system = "x86_64-darwin";
         # };
+      };
+
+      # Standalone home-manager configurations
+      homeConfigurations = {
+        "ishaan@Paimon" = mkHomeConfig {
+          system = "x86_64-linux";
+          homeFile = ./home.nix;
+        };
+        "ishaan@Vetala" = mkHomeConfig {
+          system = "aarch64-linux";
+          homeFile = ./home.nix;
+        };
+        "ishaan@Noir" = mkHomeConfig {
+          system = "aarch64-darwin";
+          homeFile = ./home-darwin.nix;
+        };
       };
     };
 }

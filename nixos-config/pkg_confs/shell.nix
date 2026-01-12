@@ -44,12 +44,12 @@
       set -gx RS  "~/Documents/Github/zung"
     '';
 
-    interactiveShellInit = ''
-      # Auto-start tmux for interactive shells
-      if not set -q TMUX
-        exec tmux
-      end
-    '';
+    # interactiveShellInit = ''
+    #   # Auto-start tmux for interactive shells
+    #   if not set -q TMUX
+    #     exec tmux
+    #   end
+    # '';
 
     shellAbbrs = {
       # Directory navigation
