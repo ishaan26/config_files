@@ -52,6 +52,8 @@
   xdg.configFile."zellij/config.kdl".text = ''
     // Streamlined keybindings configuration
     keybinds {
+        unbind "Ctrl h" // Used inside vim
+        
         normal {
             // Mode switching
             bind "Ctrl g" { SwitchToMode "locked"; }
