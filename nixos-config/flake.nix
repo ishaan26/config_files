@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # nix-darwin for macOS
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,12 +14,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Themes
     stylix.url = "github:nix-community/stylix";
 
+    # Wallpapers
     awww.url = "git+https://codeberg.org/LGFae/awww";
+
+    # Zellij Plugin
+    zjstatus.url = "github:dj95/zjstatus";
   };
 
-  outputs = { nixpkgs, nix-darwin, home-manager, stylix, awww, ... }:
+  outputs = { nixpkgs, nix-darwin, home-manager, stylix, awww, zjstatus, ... }:
 
     let
       # Function to create a NixOS configuration (Linux)
@@ -52,18 +56,26 @@
       # Function to create a standalone home-manager configuration
       mkHomeConfig = { system, homeFile, extraModules ? [ ] }:
         home-manager.lib.homeManagerConfiguration {
+
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            overlays = [
+              (final: prev: {
+                zjstatus = zjstatus.packages.${prev.system}.default;
+              })
+            ];
           };
+
           extraSpecialArgs = { inherit awww; };
+
           modules = [
             homeFile
             stylix.homeModules.stylix
             ./common/stylix.nix
           ] ++ extraModules;
         };
-
+        
     in
     {
       # NixOS configurations (Linux)
