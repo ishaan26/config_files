@@ -1,11 +1,7 @@
 { pkgs, config, ... }:
 
 {
-  imports = [
-    ../common/terminal
-    ../common/dev
-    ./linux-pkgs.nix.
-  ];
+  imports = [ ../common/terminal ../common/dev ./wm ./linux-pkgs.nix ];
 
   home.username = "ishaan";
   home.homeDirectory = "/home/ishaan";

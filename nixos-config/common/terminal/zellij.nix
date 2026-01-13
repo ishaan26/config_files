@@ -14,14 +14,12 @@
 
       # Copy on select
       copy_on_select = true;
-      copy_command =
-        if pkgs.stdenv.isDarwin then
-          "pbcopy"
-        else if builtins.getEnv "WAYLAND_DISPLAY" != "" then
-          "wl-copy"
-        else
-          "xclip -selection clipboard";
-
+      copy_command = if pkgs.stdenv.isDarwin then
+        "pbcopy"
+      else if builtins.getEnv "WAYLAND_DISPLAY" != "" then
+        "wl-copy"
+      else
+        "xclip -selection clipboard";
 
       # Scrollback
       scrollback_editor = "${pkgs.neovim}/bin/nvim";
@@ -62,8 +60,6 @@
         unbind "Ctrl h" // Used inside vim
 
         shared_except "locked" {
-            bind "Esc" { SwitchToMode "normal"; }
-            
             // TODO: fuzzy finder
             // bind "Ctrl f" { SwitchToMode "search"; }
         }

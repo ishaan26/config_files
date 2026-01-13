@@ -3,7 +3,7 @@
     enable = true;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-    image = ./wallpaper.png;
+    image = ../wallpaper.png;
     polarity = "dark";
 
     fonts = {
