@@ -75,7 +75,7 @@
             ./common/stylix.nix
           ] ++ extraModules;
         };
-        
+
     in
     {
       # NixOS configurations (Linux)

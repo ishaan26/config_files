@@ -13,6 +13,9 @@
     home = "/Users/ishaan";
   };
 
+  # sudo via fingerprint
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   # Enable fish system-wide
   programs.fish.enable = true;
 
@@ -43,24 +46,36 @@
           "/System/Applications/Notes.app"
           "/System/Applications/App Store.app"
           "/Users/ishaan/Applications/Home Manager Apps/Alacritty.app"
+          "/System/Applications/System Settings.app"
         ];
       };
       finder = {
         AppleShowAllExtensions = true;
         ShowPathbar = true;
+        ShowStatusBar = true;
         FXEnableExtensionChangeWarning = false;
+        FXPreferredViewStyle = "list";
       };
       NSGlobalDomain = {
         AppleInterfaceStyle = "Dark";
+        AppleIconAppearanceTheme = "RegularDark";
         KeyRepeat = 2;
         InitialKeyRepeat = 20;
         ApplePressAndHoldEnabled = false;
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
+        AppleShowAllFiles = true;
+        AppleShowScrollBars = "Automatic";
+        NSDocumentSaveNewDocumentsToCloud = false;
+        NSNavPanelExpandedStateForSaveMode2 = true;
       };
       trackpad = {
         Clicking = true;
         TrackpadThreeFingerDrag = false;
+      };
+      controlcenter = {
+        BatteryShowPercentage = true;
+        Bluetooth = true;
       };
     };
 
