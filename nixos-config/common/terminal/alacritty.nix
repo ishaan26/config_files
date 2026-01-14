@@ -6,9 +6,9 @@
     settings = {
       # Window configuration
       window = {
-        opacity = lib.mkForce 0.75;
+        opacity = lib.mkForce 0.85;
         blur = true;
-        decorations = "buttonless"; # macOS: removes title bar but keeps rounded corners
+        decorations = "transparent"; # macOS: removes title bar but keeps rounded corners
         padding = {
           x = 20;
           y = 20;
@@ -17,7 +17,7 @@
           columns = 180;
           lines = 50;
         };
-        dynamic_padding = false;
+        dynamic_padding = true;
         startup_mode = "Windowed";
         dynamic_title = true;
         option_as_alt = "Both"; # macOS: treat Option as Alt
@@ -81,11 +81,8 @@
         # New window
         { key = "N"; mods = "Command"; action = "CreateNewWindow"; }
 
-        # Tmux pane navigation (matching Kitty config)
-        { key = "H"; mods = "Alt"; chars = "\\u001bh"; }
-        { key = "L"; mods = "Alt"; chars = "\\u001bl"; }
-        { key = "J"; mods = "Alt"; chars = "\\u001bj"; }
-        { key = "K"; mods = "Alt"; chars = "\\u001bk"; }
+        # Mac Options
+        { key = "F"; mods = "Command|Shift"; action = "ToggleSimpleFullscreen"; }
       ];
     };
   };

@@ -1,5 +1,8 @@
 { pkgs, ... }: {
-  imports = [ ../common/stylix.nix ];
+  imports = [
+    ../common/stylix.nix
+    ./darwin-pkgs.nix
+  ];
 
   # Nix settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -85,58 +88,9 @@
     };
   };
 
-  # System packages
-  environment.systemPackages = with pkgs; [
-    fish
-    git
-    neovim
-    wget
-    gnupg
-    pinentry_mac
-    gnumake
-    unzip
-  ];
-
-  # Homebrew integration (for GUI apps not in nixpkgs)
-  homebrew = {
-    enable = true;
-    onActivation = {
-      autoUpdate = true;
-      cleanup = "zap";
-    };
-
-    # Mac App Store apps (requires you to be signed in to the App Store)
-    masApps = {
-      "Microsoft Excel" = 462058435;
-      "Microsoft Word" = 462054704;
-      "Microsoft PowerPoint" = 462062816;
-      "Onedrive" = 823766827;
-
-      "Dropover" = 1355679052;
-      "WhatsApp Messenger" = 310633997;
-    };
-
-    # GUI Apps
-    casks = [
-      "firefox"
-      "brave-browser"
-      "bitwarden"
-    ];
-
-    # CLI tools not in nixpkgs
-    brews = [
-    ];
-  };
-
   # Set shell
   environment.shells = [ pkgs.fish ];
 
-  # Fonts (system-wide)
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-    nerd-fonts.iosevka-term
-  ];
 
   # Used for backwards compatibility
   system.stateVersion = 6;
