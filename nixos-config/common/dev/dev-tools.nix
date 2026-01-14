@@ -29,11 +29,23 @@
       python313Packages.virtualenv
       uv
 
-      # Debugging tools (cross-platform)
+      #####################################
+      # Cli tools
+      #####################################
+      gh
+
+      #####################################
+      # Debugging tools 
+      #####################################
       lldb
     ] ++ lib.optionals pkgs.stdenv.isLinux [
       # Linux-only tools
       gdb
       gcc
+
+      #####################################
+      # GUI tools
+      #####################################
+      github-desktop
     ];
 }

@@ -37,6 +37,7 @@
       "brave-browser"
       "bitwarden"
       "imageoptim"
+      "github"
     ];
 
     # CLI tools not in nixpkgs
