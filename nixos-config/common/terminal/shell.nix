@@ -245,13 +245,6 @@
     # };
   };
 
-  programs.eza = {
-    enable = true;
-    enableFishIntegration = true;
-    icons = "auto";
-    git = true;
-  };
-
   # Essential packages
   home.packages = with pkgs; [
     # Bat extras
