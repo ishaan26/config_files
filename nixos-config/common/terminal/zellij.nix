@@ -196,7 +196,7 @@ in
                 plugin location="file://${pkgs.zjstatus}/bin/zjstatus.wasm" {
                     format_left   "{mode}#[bg=#000000]{tabs}"
                     format_center ""
-                      format_right  "#[bg=#${colors.base00},fg=#${colors.base0D}]#[bg=#${colors.base0D},fg=#${colors.base01},bold]  #[bg=#${colors.base02},fg=#${colors.base05},bold] {session} #[bg=#${colors.base03},fg=#${colors.base05},bold]"
+                    format_right  "#[bg=#${colors.base00},fg=#${colors.base0D}]#[bg=#${colors.base0D},fg=#${colors.base01},bold] 󰒋 #[bg=#${colors.base02},#[bg=#000000,fg=#${colors.base01}]█,fg=#${colors.base05},bold] {command_host} #[bg=#${colors.base03},fg=#${colors.base05},bold]"
                     format_space  "#[bg=#000000]"
                     format_hide_on_overlength "true"
                     format_precedence "crl"
@@ -239,14 +239,14 @@ in
                     tab_fullscreen_indicator " 󰊓"
                     tab_floating_indicator   " 󰹙"
 
-                    command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
-                    command_git_branch_format      "#[fg=blue] {stdout} "
-                    command_git_branch_interval    "10"
-                    command_git_branch_rendermode  "static"
+                    command_host_command     "hostname -s"
+                    command_host_format      "{stdout}"
+                    command_host_interval    "0"
+                    command_host_rendermode  "static"
 
                     datetime        "#[fg=#6C7086,bold] {format} "
-                    datetime_format "%A, %d %b %Y %H:%M"
-                    datetime_timezone "Europe/London"
+                    datetime_format "%d %b %Y %I:%M %p"
+                    datetime_timezone "Asia/Kolkata"
                 }
             }
         }
