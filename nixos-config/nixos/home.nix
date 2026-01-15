@@ -1,7 +1,14 @@
-{ pkgs, config, ... }:
-
 {
-  imports = [ ../common/terminal ../common/dev ./wm ./linux-pkgs.nix ];
+  pkgs,
+  config,
+  ...
+}: {
+  imports = [
+    ../common/terminal
+    ../common/dev
+    ./wm
+    ./linux-pkgs.nix
+  ];
 
   home.username = "ishaan";
   home.homeDirectory = "/home/ishaan";
@@ -13,16 +20,12 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Asrto nvim is irreplaceable
-  stylix.targets.neovim.enable = false;
-
   # An awsome wrapper for nix commands
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake =
-      "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
+    flake = "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 
   # Packages that should be installed to the user profile
@@ -38,5 +41,4 @@
     gimp
     krita
   ];
-
 }

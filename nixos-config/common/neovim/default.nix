@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{...}: {
+  imports = [
+    ./keymaps.nix
+    ./lualine.nix
+    ./languages/rust.nix
+  ];
 
-{
   programs.nvf = {
     enable = true;
 
@@ -10,18 +14,13 @@
         viAlias = false;
         vimAlias = true;
 
-        # Theme - disabled, Stylix handles this via base16
-        # theme = {
-        #   enable = true;
-        #   name = "catppuccin";
-        #   style = "mocha";
-        # };
-
-        # Statusline
-        statusline.lualine = {
-          enable = true;
-          # theme handled by Stylix
-        };
+        # Transparent background
+        luaConfigRC.transparency = ''
+          vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+          vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+          vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+          vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+        '';
 
         # File tree
         filetree.neo-tree = {
@@ -40,7 +39,6 @@
         lsp = {
           enable = true;
           formatOnSave = true;
-          # lspSignature.enable = true;
           lightbulb.enable = true;
           trouble.enable = true;
         };
@@ -117,61 +115,6 @@
           scrolloff = 8;
           updatetime = 50;
         };
-
-        # Keymaps
-        keymaps = [
-          # File tree toggle
-          {
-            key = "<leader>e";
-            mode = "n";
-            action = "<cmd>Neotree toggle<cr>";
-            desc = "Toggle file tree";
-          }
-          # Telescope
-          {
-            key = "<leader>ff";
-            mode = "n";
-            action = "<cmd>Telescope find_files<cr>";
-            desc = "Find files";
-          }
-          {
-            key = "<leader>fg";
-            mode = "n";
-            action = "<cmd>Telescope live_grep<cr>";
-            desc = "Live grep";
-          }
-          {
-            key = "<leader>fb";
-            mode = "n";
-            action = "<cmd>Telescope buffers<cr>";
-            desc = "Find buffers";
-          }
-          # Window navigation
-          {
-            key = "<C-h>";
-            mode = "n";
-            action = "<C-w>h";
-            desc = "Move to left window";
-          }
-          {
-            key = "<C-j>";
-            mode = "n";
-            action = "<C-w>j";
-            desc = "Move to bottom window";
-          }
-          {
-            key = "<C-k>";
-            mode = "n";
-            action = "<C-w>k";
-            desc = "Move to top window";
-          }
-          {
-            key = "<C-l>";
-            mode = "n";
-            action = "<C-w>l";
-            desc = "Move to right window";
-          }
-        ];
       };
     };
   };
