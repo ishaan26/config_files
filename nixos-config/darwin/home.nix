@@ -4,6 +4,7 @@
   imports = [
     ../common/terminal
     ../common/dev
+    ../common/neovim
   ];
 
   home.username = "ishaan";
