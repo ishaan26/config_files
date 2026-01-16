@@ -1,10 +1,14 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./keymaps.nix
     ./lualine.nix
+
     ./languages/rust.nix
     ./languages/nix.nix
+    ./languages/svelte.nix
+    ./languages/tailwind.nix
+    ./languages/typescript.nix
   ];
 
   programs.nvf = {
@@ -29,13 +33,13 @@
           enable = true;
         };
 
+        syntaxHighlighting = true;
+
         # Treesitter for better syntax highlighting
         treesitter = {
-          enable = true;
           context.enable = true;
           highlight.enable = true;
           indent.enable = true;
-
         };
 
         # LSP configuration
@@ -55,7 +59,6 @@
           enableTreesitter = true;
 
           python.enable = true;
-          ts.enable = true;
           html.enable = true;
           css.enable = true;
           markdown.enable = true;
@@ -66,7 +69,6 @@
         # Autocompletion
         autocomplete.blink-cmp = {
           enable = true;
-          friendly-snippets.enable = true;
           sourcePlugins.ripgrep.enable = true;
         };
 

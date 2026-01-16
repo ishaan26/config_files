@@ -15,8 +15,6 @@
       '';
     };
 
-    treesitter.enable = true;
-
     dap.enable = true;
 
     extensions = {

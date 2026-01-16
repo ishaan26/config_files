@@ -1,5 +1,5 @@
 {
-  programs.nvf.settings.vim.languages.nix = {
+  programs.nvf.settings.vim.languages.svelte = {
     enable = true;
     extraDiagnostics.enable = true;
 
@@ -7,7 +7,7 @@
 
     format = {
       enable = true;
-      type = [ "nixfmt" ];
+      type = [ "biome" ];
     };
 
   };
