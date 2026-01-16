@@ -2,6 +2,7 @@
   programs.nvf.settings.vim.languages.nix = {
     enable = true;
     extraDiagnostics.enable = true;
+    treesitter.enable = true;
 
     lsp.enable = true;
 

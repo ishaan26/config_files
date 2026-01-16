@@ -6,6 +6,7 @@
   imports = [
     ../common/terminal
     ../common/dev
+    ../common/neovim
     ./wm
     ./linux-pkgs.nix
   ];

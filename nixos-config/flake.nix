@@ -31,23 +31,10 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      nix-darwin,
-      home-manager,
-      nvf,
-      stylix,
-      awww,
-      zjstatus,
-      ...
-    }:
+    { nixpkgs, nix-darwin, home-manager, nvf, stylix, awww, zjstatus, ... }:
     let
       # Function to create a NixOS configuration (Linux)
-      mkNixosSystem =
-        {
-          hostName,
-          system,
-        }:
+      mkNixosSystem = { hostName, system, }:
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
@@ -58,11 +45,7 @@
         };
 
       # Function to create a Darwin configuration (macOS)
-      mkDarwinSystem =
-        {
-          hostName,
-          system,
-        }:
+      mkDarwinSystem = { hostName, system, }:
         nix-darwin.lib.darwinSystem {
           inherit system;
           modules = [
@@ -77,12 +60,7 @@
         };
 
       # Function to create a standalone home-manager configuration
-      mkHomeConfig =
-        {
-          system,
-          homeFile,
-          extraModules ? [ ],
-        }:
+      mkHomeConfig = { system, homeFile, extraModules ? [ ], }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
@@ -101,11 +79,9 @@
             nvf.homeManagerModules.default
             stylix.homeModules.stylix
             ./common/stylix.nix
-          ]
-          ++ extraModules;
+          ] ++ extraModules;
         };
-    in
-    {
+    in {
       # NixOS configurations (Linux)
       nixosConfigurations = {
         # Existing x86_64-linux machine

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./keymaps.nix
@@ -38,9 +38,10 @@
 
         # Treesitter for better syntax highlighting
         treesitter = {
-          context.enable = true;
-          highlight.enable = true;
-          indent.enable = true;
+          # enable = false; # treesitter is broken upstream.
+          # context.enable = true;
+          # highlight.enable = true;
+          # indent.enable = true;
         };
 
         # LSP configuration
@@ -57,7 +58,7 @@
         # Language support
         languages = {
           enableFormat = true;
-          enableTreesitter = true;
+          enableTreesitter = false; # treesitter is broken upstream.
 
           python.enable = true;
           html.enable = true;
