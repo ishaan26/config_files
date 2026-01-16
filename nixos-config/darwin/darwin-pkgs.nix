@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # System packages
   environment.systemPackages = with pkgs; [
     fish
@@ -38,6 +39,7 @@
       "bitwarden"
       "imageoptim"
       "github"
+      "logi-options+"
     ];
 
     # CLI tools not in nixpkgs

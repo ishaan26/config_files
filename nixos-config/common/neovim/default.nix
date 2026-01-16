@@ -107,6 +107,9 @@
         notify.nvim-notify.enable = true;
         notify.nvim-notify.setupOpts.background_colour = "#00000000";
 
+        # Dashboard
+        dashboard.dashboard-nvim.enable = true;
+
         # Options
         options = {
           number = true;

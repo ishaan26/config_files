@@ -49,6 +49,12 @@
       action = "<cmd>Telescope help_tags<cr>";
       desc = "Help tags";
     }
+    {
+      key = "<leader>fo";
+      mode = "n";
+      action = "<cmd>Telescope oldfiles<cr>";
+      desc = "Find recently opened files";
+    }
 
     # Window navigation
     {

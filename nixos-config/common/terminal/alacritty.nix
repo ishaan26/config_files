@@ -8,16 +8,16 @@
       window = {
         opacity = lib.mkForce 0.85;
         blur = true;
-        decorations = "transparent"; # macOS: removes title bar but keeps rounded corners
+        decorations = "transparent"; # macOS: removes title bar but keeps rounded corners and buttons
         padding = {
           x = 20;
-          y = 20;
+          y = 10;
         };
         dimensions = {
           columns = 180;
           lines = 50;
         };
-        dynamic_padding = true;
+        dynamic_padding = false;
         startup_mode = "Windowed";
         dynamic_title = true;
         option_as_alt = "Both"; # macOS: treat Option as Alt
@@ -66,23 +66,59 @@
       # Key bindings
       keyboard.bindings = [
         # Opacity adjustments
-        { key = "Plus"; mods = "Command|Shift"; action = "IncreaseFontSize"; }
-        { key = "Minus"; mods = "Command|Shift"; action = "DecreaseFontSize"; }
-        { key = "Key0"; mods = "Command|Shift"; action = "ResetFontSize"; }
+        {
+          key = "Plus";
+          mods = "Command|Shift";
+          action = "IncreaseFontSize";
+        }
+        {
+          key = "Minus";
+          mods = "Command|Shift";
+          action = "DecreaseFontSize";
+        }
+        {
+          key = "Key0";
+          mods = "Command|Shift";
+          action = "ResetFontSize";
+        }
 
         # Font size adjustments
-        { key = "Equals"; mods = "Command"; action = "IncreaseFontSize"; }
-        { key = "Minus"; mods = "Command"; action = "DecreaseFontSize"; }
-        { key = "Key0"; mods = "Command"; action = "ResetFontSize"; }
+        {
+          key = "Equals";
+          mods = "Command";
+          action = "IncreaseFontSize";
+        }
+        {
+          key = "Minus";
+          mods = "Command";
+          action = "DecreaseFontSize";
+        }
+        {
+          key = "Key0";
+          mods = "Command";
+          action = "ResetFontSize";
+        }
 
         # Clear screen
-        { key = "K"; mods = "Command"; chars = "\\u000C"; }
+        {
+          key = "K";
+          mods = "Command";
+          chars = "\\u000C";
+        }
 
         # New window
-        { key = "N"; mods = "Command"; action = "CreateNewWindow"; }
+        {
+          key = "N";
+          mods = "Command";
+          action = "CreateNewWindow";
+        }
 
         # Mac Options
-        { key = "F"; mods = "Command|Shift"; action = "ToggleSimpleFullscreen"; }
+        {
+          key = "F";
+          mods = "Command|Shift";
+          action = "ToggleSimpleFullscreen";
+        }
       ];
     };
   };
