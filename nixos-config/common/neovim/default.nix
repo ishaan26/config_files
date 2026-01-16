@@ -1,8 +1,10 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./keymaps.nix
     ./lualine.nix
     ./languages/rust.nix
+    ./languages/nix.nix
   ];
 
   programs.nvf = {
@@ -33,14 +35,18 @@
           context.enable = true;
           highlight.enable = true;
           indent.enable = true;
+
         };
 
         # LSP configuration
         lsp = {
           enable = true;
           formatOnSave = true;
-          lightbulb.enable = true;
+          lightbulb.enable = false;
           trouble.enable = true;
+          lspconfig.enable = true;
+          lspkind.enable = true;
+          lspsaga.enable = false;
         };
 
         # Language support
@@ -48,10 +54,7 @@
           enableFormat = true;
           enableTreesitter = true;
 
-          # Languages
-          nix.enable = true;
           python.enable = true;
-          rust.enable = true;
           ts.enable = true;
           html.enable = true;
           css.enable = true;
@@ -63,6 +66,8 @@
         # Autocompletion
         autocomplete.blink-cmp = {
           enable = true;
+          friendly-snippets.enable = true;
+          sourcePlugins.ripgrep.enable = true;
         };
 
         # Fuzzy finder
@@ -80,6 +85,7 @@
         ui = {
           noice.enable = true;
           illuminate.enable = true;
+          borders.enable = true;
         };
 
         # Utility features
@@ -99,6 +105,7 @@
 
         # Better notifications
         notify.nvim-notify.enable = true;
+        notify.nvim-notify.setupOpts.background_colour = "#00000000";
 
         # Options
         options = {
