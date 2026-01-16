@@ -54,8 +54,8 @@ in
 
     # Inactive sections
     inactiveSection = {
-      a = [];
-      b = [];
+      a = [ ];
+      b = [ ];
       c = [
         ''
           {
@@ -64,9 +64,9 @@ in
           }
         ''
       ];
-      x = [];
-      y = [];
-      z = [];
+      x = [ ];
+      y = [ ];
+      z = [ ];
     };
   };
 
@@ -104,7 +104,7 @@ in
         c = { fg = "#${colors.base05}", bg = "#${colors.base00}" },
       },
     }
-    
+
     -- Override lualine config with our custom theme
     -- We wait for lualine to be loaded, get its current config, swap the theme, and re-setup
     vim.schedule(function()
@@ -115,4 +115,3 @@ in
     end)
   '';
 }
-

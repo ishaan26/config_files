@@ -152,5 +152,47 @@
       action = ":m '<-2<cr>gv=gv";
       desc = "Move line up";
     }
+
+    # Command line
+    {
+      key = ";";
+      mode = "n";
+      action = ":";
+      desc = "Enter command mode";
+    }
+
+    # Diagnostics
+    {
+      key = "ge";
+      mode = "n";
+      action = "<cmd>lua vim.diagnostic.open_float()<cr>";
+      desc = "Show diagnostics";
+    }
+    {
+      key = "g]";
+      mode = "n";
+      action = "<cmd>lua vim.diagnostic.goto_next()<cr>";
+      desc = "Next diagnostic";
+    }
+    {
+      key = "g[";
+      mode = "n";
+      action = "<cmd>lua vim.diagnostic.goto_prev()<cr>";
+      desc = "Previous diagnostic";
+    }
+
+    # Save and Quit
+    {
+      key = ";w";
+      mode = "n";
+      action = "<cmd>wa<cr>";
+      desc = "Save all files";
+    }
+    {
+      key = ";q";
+      mode = "n";
+      action = "<cmd>qa<cr>";
+      desc = "Quit all";
+    }
   ];
 }
