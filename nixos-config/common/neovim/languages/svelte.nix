@@ -9,6 +9,5 @@
       enable = true;
       type = [ "biome" ];
     };
-
   };
 }

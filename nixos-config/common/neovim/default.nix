@@ -3,6 +3,7 @@
   imports = [
     ./keymaps.nix
     ./lualine.nix
+    ./blink-cmp.nix
 
     ./languages/rust.nix
     ./languages/nix.nix
@@ -64,12 +65,6 @@
           markdown.enable = true;
           bash.enable = true;
           lua.enable = true;
-        };
-
-        # Autocompletion
-        autocomplete.blink-cmp = {
-          enable = true;
-          sourcePlugins.ripgrep.enable = true;
         };
 
         # Fuzzy finder
