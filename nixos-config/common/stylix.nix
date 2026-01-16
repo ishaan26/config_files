@@ -1,8 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark-terminal.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/0x96f.yaml";
     image = ../wallpaper.png;
     polarity = "dark";
 
