@@ -1,11 +1,15 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ../common/stylix.nix
     ./darwin-pkgs.nix
   ];
 
   # Nix settings
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   system.primaryUser = "ishaan";
@@ -84,13 +88,12 @@
 
     keyboard = {
       enableKeyMapping = true;
-      swapLeftCtrlAndFn = true;
+      swapLeftCtrlAndFn = false;
     };
   };
 
   # Set shell
   environment.shells = [ pkgs.fish ];
-
 
   # Used for backwards compatibility
   system.stateVersion = 6;

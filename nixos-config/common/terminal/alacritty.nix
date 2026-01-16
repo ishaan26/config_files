@@ -11,7 +11,7 @@
         decorations = "transparent"; # macOS: removes title bar but keeps rounded corners and buttons
         padding = {
           x = 20;
-          y = 10;
+          y = 20;
         };
         dimensions = {
           columns = 180;

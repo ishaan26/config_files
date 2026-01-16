@@ -55,7 +55,6 @@
       action = "<cmd>Telescope oldfiles<cr>";
       desc = "Find recently opened files";
     }
-
     # Window navigation
     {
       key = "<C-h>";
