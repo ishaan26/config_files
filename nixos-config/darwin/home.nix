@@ -1,8 +1,9 @@
-{config, ...}: {
+{ config, ... }:
+{
   imports = [
     ../common/terminal
     ../common/dev
-    ../common/neovim
+    # ../common/neovim # nvf is too unstable for now.
   ];
 
   home.username = "ishaan";

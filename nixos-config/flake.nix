@@ -14,11 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # neovim
-    nvf = {
-      url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # neovim - This is too unstable for now.
+    # nvf = {
+    #   url = "github:NotAShelf/nvf";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Themes
     stylix.url = "github:nix-community/stylix";
@@ -31,7 +31,11 @@
   };
 
   outputs =
-    { nixpkgs, nix-darwin, home-manager, nvf, stylix, awww, zjstatus, ... }:
+    { nixpkgs, 
+    nix-darwin, 
+    home-manager, 
+    # nvf, 
+    stylix, awww, zjstatus, ... }:
     let
       # Function to create a NixOS configuration (Linux)
       mkNixosSystem = { hostName, system, }:
@@ -76,7 +80,7 @@
 
           modules = [
             homeFile
-            nvf.homeManagerModules.default
+            # nvf.homeManagerModules.default
             stylix.homeModules.stylix
             ./common/stylix.nix
           ] ++ extraModules;
