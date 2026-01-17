@@ -20,6 +20,9 @@ error() {
   exit 1
 }
 
+# FIXME: Make this script runable
+error "script does not work. DO NOT USE IT"!
+
 warn() {
   echo -e "${YELLOW}[WARNING]${NC} $1"
 }
@@ -41,9 +44,9 @@ fi
 # Banner
 echo ""
 echo "╔════════════════════════════════════════════════════════════╗"
-echo "║         NixOS Production Installation Script              ║"
+echo "║         NixOS Production Installation Script               ║"
 echo "║                                                            ║"
-echo "║  This will install NixOS from your GitHub flake config    ║"
+echo "║  This will install NixOS from your GitHub flake config     ║"
 echo "╚════════════════════════════════════════════════════════════╝"
 echo ""
 

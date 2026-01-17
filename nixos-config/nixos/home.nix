@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}:
-{
+{ pkgs, config, ... }: {
   imports = [
     ../common/terminal
     ../common/dev
@@ -41,11 +36,20 @@
   # Astronvim cannot be repalced
   stylix.targets.neovim.enable = false;
 
+  # Set Icon Theme
+  stylix.icons = {
+    enable = true;
+    package = pkgs.papirus-icon-theme;
+    dark = "Papirus-Dark";
+    light = "Papirus-Light";
+  };
+
   # An awsome wrapper for nix commands
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
+    flake =
+      "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 }
