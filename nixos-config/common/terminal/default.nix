@@ -6,5 +6,6 @@
     ./kitty.nix
     ./shell.nix
     ./zellij.nix
+    ./vim.nix
   ];
 }

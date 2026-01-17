@@ -1,7 +1,8 @@
 { pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     [
       #####################################
       # Editors
@@ -22,6 +23,7 @@
       nodejs
       bun
       deno
+      svelte-language-server
 
       # Python - basic installation
       python313
@@ -35,10 +37,11 @@
       gh
 
       #####################################
-      # Debugging tools 
+      # Debugging tools
       #####################################
       lldb
-    ] ++ lib.optionals pkgs.stdenv.isLinux [
+    ]
+    ++ lib.optionals pkgs.stdenv.isLinux [
       # Linux-only tools
       gdb
       gcc

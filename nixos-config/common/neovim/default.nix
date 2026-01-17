@@ -7,7 +7,7 @@
 
     ./languages/rust.nix
     ./languages/nix.nix
-    ./languages/svelte.nix
+    # ./languages/svelte.nix
     ./languages/tailwind.nix
     ./languages/typescript.nix
   ];
@@ -25,7 +25,6 @@
         luaConfigRC.transparency = ''
           vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
           vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-          vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
           vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
         '';
 
@@ -38,10 +37,12 @@
 
         # Treesitter for better syntax highlighting
         treesitter = {
-          # enable = false; # treesitter is broken upstream.
-          # context.enable = true;
-          # highlight.enable = true;
-          # indent.enable = true;
+          enable = true;
+          autotagHtml = true;
+          context.enable = true;
+          indent.enable = true;
+          textobjects.enable = true;
+          highlight.enable = false; # this option is broken upstream.
         };
 
         # LSP configuration
@@ -58,9 +59,11 @@
         # Language support
         languages = {
           enableFormat = true;
-          enableTreesitter = false; # treesitter is broken upstream.
+          enableTreesitter = true;
 
           python.enable = true;
+          ts.enable = true;
+          svelte.enable = true;
           html.enable = true;
           css.enable = true;
           markdown.enable = true;
