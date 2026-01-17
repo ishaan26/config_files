@@ -1,6 +1,9 @@
 { pkgs, config, ... }:
 
-{
+let
+  # Access Stylix colors
+  colors = config.lib.stylix.colors.withHashtag;
+in {
   programs.tmux = {
     enable = true;
 
@@ -84,6 +87,9 @@
       # Create new window with Ctrl-b + c (default, but confirming)
       bind c new-window -c "#{pane_current_path}"
 
+      # Alt+n to create new window
+      bind -n M-n new-window -c "#{pane_current_path}"
+
       # Alt+h and Alt+l to switch windows (tabs)
       bind -n M-h previous-window
       bind -n M-l next-window
@@ -133,8 +139,11 @@
       bind ] paste-buffer
 
       # ============================================
-      # STATUS BAR (Stylix will override colors)
+      # STATUS BAR - Override Stylix defaults
       # ============================================
+
+      # Override background to base00 (Stylix uses base01 which is too soft)
+      set -g status-style "bg=${colors.base00},fg=${colors.base05}"
 
       # Status bar position
       set -g status-position bottom
@@ -149,9 +158,22 @@
       set -g status-left-length 100
       set -g status-right-length 100
 
-      # Window status format
-      setw -g window-status-format " #I:#W "
-      # setw -g window-status-current-format "#[bg=black,fg=blue] #I:#W #[nobold]"
+      # Left side: Session name with accent background
+      set -g status-left "#[bg=${colors.base0D},fg=${colors.base00},bold]   #S #[bg=${colors.base00},fg=${colors.base0D}]"
+
+      # Window status format (inactive windows)
+      setw -g window-status-format "#[bg=${colors.base01},fg=${colors.base04}] #I:#W "
+      setw -g window-status-separator ""
+
+      # Current window with highlight
+      setw -g window-status-current-format "#[bg=${colors.base02},fg=${colors.base0B},bold] #I:#W #[bg=${colors.base00}]"
+
+      # Right side: Directory, time, and hostname
+      set -g status-right "#[bg=${colors.base0C},fg=${colors.base00}] 󰷏  #{b:pane_current_path} #[bg=${colors.base0E},fg=${colors.base00},bold]   #H "
+
+      # Pane borders
+      set -g pane-border-style "fg=${colors.base01}"
+      set -g pane-active-border-style "fg=${colors.base0D}"
 
       # Pane border format
       set -g pane-border-status off
