@@ -2,6 +2,7 @@
 {
   stylix = {
     enable = true;
+    targets.neovim.enable = false;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/0x96f.yaml";
     image = ../wallpaper.png;

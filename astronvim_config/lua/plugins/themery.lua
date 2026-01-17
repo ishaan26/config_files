@@ -2,6 +2,7 @@ return {
   "zaldih/themery.nvim",
   opts = {
     themes = {
+      "stylix",
       "astrotheme",
       "onedark_vivid",
       "catppuccin",
