@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 let inherit (config.lib.formats.rasi) mkLiteral;
 in {
@@ -90,6 +90,15 @@ in {
         spacing = mkLiteral "10px";
         border-radius = mkLiteral "12px";
         cursor = mkLiteral "pointer";
+        background-color = mkLiteral "transparent"; 
+      };
+
+      "element normal.normal" = {
+        background-color = lib.mkForce "transparent";
+      };
+
+      "element alternate.normal" = {
+        background-color = lib.mkForce "transparent";
       };
 
       "element selected.normal" = {
