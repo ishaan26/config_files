@@ -194,8 +194,8 @@ let
     hi("GitSignsDelete", { fg = colors.base08 })
 
     -- NeoTree
-    hi("NeoTreeNormal", { fg = colors.base05, bg = colors.base00 })
-    hi("NeoTreeNormalNC", { fg = colors.base05, bg = colors.base00 })
+    hi("NeoTreeNormal", { fg = colors.base05, bg = "NONE" })
+    hi("NeoTreeNormalNC", { fg = colors.base05, bg = "NONE" })
     hi("NeoTreeDirectoryIcon", { fg = colors.base0D })
     hi("NeoTreeDirectoryName", { fg = colors.base0D })
     hi("NeoTreeRootName", { fg = colors.base0E, bold = true })
@@ -222,8 +222,7 @@ let
     hi("IblIndent", { fg = colors.base02 })
     hi("IblScope", { fg = colors.base04 })
   '';
-in
-{
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -237,24 +236,25 @@ in
   # 1. Clone AstroNvim template if not present
   # 2. Link our user config
   # 3. Copy stylix colorscheme
-  home.activation.installAstroNvim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    if [ ! -d "$HOME/.config/nvim" ]; then
-      ${pkgs.git}/bin/git clone --depth 1 https://github.com/AstroNvim/template "$HOME/.config/nvim"
-    fi
+  home.activation.installAstroNvim =
+    lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -d "$HOME/.config/nvim" ]; then
+        ${pkgs.git}/bin/git clone --depth 1 https://github.com/AstroNvim/template "$HOME/.config/nvim"
+      fi
 
-    # Check if the link exists or if it is a directory
-    if [ -e "$HOME/.config/nvim/lua" ]; then
-       if [ ! -L "$HOME/.config/nvim/lua" ]; then
-          echo "Warning: Replacing $HOME/.config/nvim/lua with custom config"
-          rm -rf "$HOME/.config/nvim/lua"
-       fi
-    fi
+      # Check if the link exists or if it is a directory
+      if [ -e "$HOME/.config/nvim/lua" ]; then
+         if [ ! -L "$HOME/.config/nvim/lua" ]; then
+            echo "Warning: Replacing $HOME/.config/nvim/lua with custom config"
+            rm -rf "$HOME/.config/nvim/lua"
+         fi
+      fi
 
-    # Re-link every time to ensure it points to the correct store path
-    ln -sfn ${../../../astronvim_config/lua} $HOME/.config/nvim/lua
+      # Re-link every time to ensure it points to the correct store path
+      ln -sfn ${../../../astronvim_config/lua} $HOME/.config/nvim/lua
 
-    # Create colors directory and copy stylix colorscheme (force overwrite)
-    mkdir -p "$HOME/.config/nvim/colors"
-    ${pkgs.coreutils}/bin/install -m 644 ${stylixColorscheme} "$HOME/.config/nvim/colors/stylix.lua"
-  '';
+      # Create colors directory and copy stylix colorscheme (force overwrite)
+      mkdir -p "$HOME/.config/nvim/colors"
+      ${pkgs.coreutils}/bin/install -m 644 ${stylixColorscheme} "$HOME/.config/nvim/colors/stylix.lua"
+    '';
 }
