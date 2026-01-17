@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 
-{
+let inherit (config.lib.formats.rasi) mkLiteral;
+in {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
@@ -10,15 +11,14 @@
       modi = "drun,run,window,filebrowser";
       show-icons = true;
       icon-theme = "Papirus-Dark";
-      display-drun = " Apps";
-      display-run = " Run";
-      display-window = " Windows";
-      display-filebrowser = " Files";
+      display-drun = "Apps";
+      display-run = "Run";
+      display-window = "Window";
+      display-filebrowser = "Files";
       drun-display-format = "{name}";
       window-format = "{w} · {c} · {t}";
 
-      # Layout
-      sidebar-mode = true;
+      # Interaction
       hover-select = true;
       me-select-entry = "";
       me-accept-entry = "MousePrimary";
@@ -33,80 +33,92 @@
       scroll-method = 0;
       normalize-match = true;
     };
-    # Custom spacing/layout (Stylix handles colors)
+
+    # Incredible Grid Layout
     theme = {
-      "*" = {
-        spacing = 0;
-        width = 800;
-      };
+      "*" = { font = "${config.stylix.fonts.monospace.name} 12"; };
+
       window = {
-        border = "2px solid";
-        border-radius = 16;
-        padding = 32;
-        location = "center";
-        anchor = "center";
+        width = mkLiteral "45%";
+      #  height = mkLiteral "55%"; # Dynamic height? Fixed looks cleaner for grid
+        location = mkLiteral "center";
+        anchor = mkLiteral "center";
+        border = mkLiteral "2px solid";
+        border-radius = mkLiteral "16px";
+        padding = mkLiteral "20px";
       };
+
       mainbox = {
-        children = map (x: "${x}") [ "inputbar" "message" "listview" "mode-switcher" ];
-        spacing = 12;
+        children = map (x: mkLiteral x) [ "inputbar" "message" "listview" ];
+        spacing = mkLiteral "20px";
+        padding = mkLiteral "20px";
       };
+
       inputbar = {
-        border-radius = 12;
-        padding = "12px 16px";
-        spacing = 12;
-        children = map (x: "${x}") [ "prompt" "entry" ];
-        font = "${config.stylix.fonts.monospace.name} 16";
+        children = map (x: mkLiteral x) [ "prompt" "entry" ];
+        border-radius = mkLiteral "12px";
+        padding = mkLiteral "14px";
+        spacing = mkLiteral "12px";
       };
+
       entry = {
         placeholder = "Search...";
-        font = "${config.stylix.fonts.monospace.name} 16";
+        cursor = mkLiteral "text";
+        placeholder-color = mkLiteral "inherit";
       };
+
       message = {
-        border-radius = 8;
-        padding = "8px 12px";
-        font = "${config.stylix.fonts.monospace.name} 16";
+        border-radius = mkLiteral "8px";
+        padding = mkLiteral "12px";
       };
+
       listview = {
-        lines = 8;
-        columns = 1;
-        spacing = 6;
-        fixed-height = true;
+        columns = 6;
+        lines = 4;
+        spacing = mkLiteral "15px";
+        cycle = false;
+        dynamic = true;
         scrollbar = false;
+        layout = mkLiteral "vertical";
+        fixed-height = false;
+        fixed-columns = true;
       };
+
       element = {
-        border-radius = 4;
-        padding = "16px 32px";
-        spacing = 16;
+        orientation = mkLiteral "vertical";
+        padding = mkLiteral "25px 10px";
+        spacing = mkLiteral "10px";
+        border-radius = mkLiteral "12px";
+        cursor = mkLiteral "pointer";
       };
+
       "element selected.normal" = {
-        border = "1px solid";
+        border = mkLiteral "2px solid";
+        # Stylix provides background/text colors
       };
+
       element-icon = {
-        size = 32;
+        size = mkLiteral "64px";
+        horizontal-align = mkLiteral "0.5";
+        cursor = mkLiteral "inherit";
       };
+
       element-text = {
-        vertical-align = "0.5";
-        font-weight = "bold";
-        font = "${config.stylix.fonts.monospace.name} 16";
+        horizontal-align = mkLiteral "0.5";
+        vertical-align = mkLiteral "0.5";
+        font =
+          "${config.stylix.fonts.monospace.name} Medium 11"; # Slightly smaller but cleaner for grid labels
+        cursor = mkLiteral "inherit";
       };
-      mode-switcher = {
-        border-radius = 10;
-        padding = 4;
-        spacing = 4;
-      };
-      button = {
-        border-radius = 8;
-        padding = "8px 16px";
-      };
-      scrollbar = {
-        handle-width = 4;
-        border-radius = 4;
-        margin = "0 4px";
-      };
+
+      # Hide mode switcher for cleaner look, or keep it?
+      # User had it, but "Uninspiring" often calls for minimalism.
+      # Left it out of mainbox children above for maximum cleanliness.
+
       error-message = {
-        border = "2px solid";
-        border-radius = 12;
-        padding = 16;
+        border = mkLiteral "2px solid";
+        border-radius = mkLiteral "12px";
+        padding = mkLiteral "20px";
       };
     };
   };
