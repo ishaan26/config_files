@@ -161,12 +161,16 @@ in {
       # Left side: Session name with accent background
       set -g status-left "#[bg=${colors.base0D},fg=${colors.base00},bold]   #S #[bg=${colors.base00},fg=${colors.base0D}]"
 
+      # Dice icons for window indices 1-6
+      # 󱅊=1, 󱅋=2, 󱅋=3, 󱅍=4, 󱅎=5, 󱅏=6
+      dice="#{?#{==:#I,1},󱅊 ,#{?#{==:#I,2},󱅋 ,#{?#{==:#I,3},󱅌 ,#{?#{==:#I,4},󱅍 ,#{?#{==:#I,5},󱅎 ,#{?#{==:#I,6},󱅏 ,#I}}}}}}"
+
       # Window status format (inactive windows)
-      setw -g window-status-format "#[bg=${colors.base01},fg=${colors.base04}] #I:#W "
+      setw -g window-status-format "#[bg=${colors.base01},fg=${colors.base04}] $dice:#W "
       setw -g window-status-separator ""
 
       # Current window with highlight
-      setw -g window-status-current-format "#[bg=${colors.base02},fg=${colors.base0B},bold] #I:#W #[bg=${colors.base00}]"
+      setw -g window-status-current-format "#[bg=${colors.base0A},fg=${colors.base00},bold] $dice:#W #[bg=${colors.base0A}]"
 
       # Right side: Directory, time, and hostname
       set -g status-right "#[bg=${colors.base0C},fg=${colors.base00}] 󰷏  #{b:pane_current_path} #[bg=${colors.base0E},fg=${colors.base00},bold]   #H "
