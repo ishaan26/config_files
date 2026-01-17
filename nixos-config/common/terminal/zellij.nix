@@ -32,12 +32,8 @@ let
     fi
   '';
 
-in
-{
-  home.packages = [
-    pkgs.tmate
-    sesh
-  ];
+in {
+  home.packages = [ pkgs.tmate sesh ];
   # Create the KDL config file directly for keybindings
   xdg.configFile."zellij/config.kdl".text = ''
     // Streamlined keybindings configuration
@@ -266,13 +262,12 @@ in
 
       # Copy on select
       copy_on_select = true;
-      copy_command =
-        if pkgs.stdenv.isDarwin then
-          "pbcopy"
-        else if builtins.getEnv "WAYLAND_DISPLAY" != "" then
-          "wl-copy"
-        else
-          "xclip -selection clipboard";
+      copy_command = if pkgs.stdenv.isDarwin then
+        "pbcopy"
+      else if builtins.getEnv "WAYLAND_DISPLAY" != "" then
+        "wl-copy"
+      else
+        "xclip -selection clipboard";
 
       # Scrollback
       scrollback_editor = "${pkgs.neovim}/bin/nvim";
@@ -305,4 +300,36 @@ in
       styled_underlines = true;
     };
   };
+
+  programs.fish.interactiveShellInit = ''
+    # Auto-start zellij for interactive shells
+    if not set -q ZELLIJ
+      exec zellij
+    end
+
+    if status is-interactive
+        if type -q zellij
+            # Update the zellij tab name with the current process name or pwd.
+            function zellij_tab_name_update_pre --on-event fish_preexec
+                if set -q ZELLIJ
+                    set -l cmd_line (string split " " -- $argv)
+                    set -l process_name $cmd_line[1]
+                    if test -n "$process_name" -a "$process_name" != "z"
+                        command nohup zellij action rename-tab $process_name >/dev/null 2>&1
+                    end
+                end
+            end
+
+            function zellij_tab_name_update_post --on-event fish_postexec
+                if set -q ZELLIJ
+                    set -l cmd_line (string split " " -- $argv)
+                    set -l process_name $cmd_line[1]
+                    if test "$process_name" = "z"
+                        command nohup zellij action rename-tab (prompt_pwd) >/dev/null 2>&1
+                    end
+                end
+            end
+        end
+    end
+  '';
 }

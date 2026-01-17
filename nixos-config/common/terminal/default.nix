@@ -5,7 +5,7 @@
     ./ghostty.nix
     ./kitty.nix
     ./shell.nix
-    ./zellij.nix
+    ./tmux.nix
     ./vim.nix
   ];
 }
