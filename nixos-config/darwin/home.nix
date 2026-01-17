@@ -6,6 +6,9 @@
     # ../common/neovim # nvf is too unstable for now.
   ];
 
+  # Astronvim cannot be repalced
+  stylix.targets.neovim.enable = false;
+
   home.username = "ishaan";
   home.homeDirectory = "/Users/ishaan"; # macOS uses /Users, not /home!
   home.stateVersion = "25.11";
