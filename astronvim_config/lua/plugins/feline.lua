@@ -14,9 +14,9 @@ end
 local function get_theme_colors()
 	-- For bg/black, try StatusLine or NormalFloat since Normal may be transparent
 	local bar_bg = get_hl_color("StatusLine", "bg")
-		or get_hl_color("NormalFloat", "bg")
-		or get_hl_color("CursorLine", "bg")
-		or "#000000"
+			or get_hl_color("NormalFloat", "bg")
+			or get_hl_color("CursorLine", "bg")
+			or "#000000"
 
 	return {
 		black = bar_bg,
@@ -34,24 +34,10 @@ local function get_theme_colors()
 	}
 end
 
--- get a string of active_clients
+-- get the filetype icon
 local function active_clients()
-	local clients = vim.lsp.get_clients()
-	local client_string = ""
-	for i, v in ipairs(clients) do
-		if client_string ~= "typos_lsp" or client_string ~= "null-ls" then
-			client_string = client_string .. v.name
-			if i > 2 then
-				client_string = client_string .. "..."
-				break
-			end
-
-			if i < #clients then
-				client_string = client_string .. ","
-			end
-		end
-	end
-	return client_string
+	local icon = require("nvim-web-devicons").get_icon_by_filetype(vim.bo.filetype, { default = true })
+	return icon
 end
 
 -- configure feline
@@ -132,13 +118,13 @@ local function config(_, opts)
 			},
 		},
 
-		lsp = {
+		lsp_progress = {
 			provider = function()
 				if not lsp.is_lsp_attached() then
 					return " 󱏎 LSP "
 				end
 
-				return string.format(" %s [%s] ", require("lsp-progress").progress(), active_clients())
+				return string.format(" %s ", require("lsp-progress").progress())
 			end,
 
 			hl = function()
@@ -146,7 +132,7 @@ local function config(_, opts)
 				if not lsp.is_lsp_attached() then
 					return { fg = t.black, bg = t.black }
 				end
-				return { fg = t.black, bg = t.purple }
+				return { fg = t.white, bg = t.bg }
 			end,
 
 			left_sep = {
@@ -159,11 +145,34 @@ local function config(_, opts)
 			},
 		},
 
+		lsp_client = {
+			provider = function()
+				if not lsp.is_lsp_attached() then
+					return ""
+				end
+
+				return string.format(" %s  ", active_clients())
+			end,
+
+			hl = function()
+				local t = get_theme_colors()
+				if not lsp.is_lsp_attached() then
+					return { fg = t.black, bg = t.black }
+				end
+				return { fg = t.black, bg = t.cyan }
+			end,
+		},
+
 		git_diff = {
 			added = {
-				provider = {
-					name = "git_diff_added",
-				},
+				provider = function()
+					local gsd = vim.b.gitsigns_status_dict
+					if gsd and gsd.added and gsd.added > 0 then
+						return tostring(gsd.added)
+					end
+					return ""
+				end,
+				icon = "  ",
 				hl = function()
 					local t = get_theme_colors()
 					return { fg = t.green, bg = t.black }
@@ -171,7 +180,14 @@ local function config(_, opts)
 			},
 
 			removed = {
-				provider = "git_diff_removed",
+				provider = function()
+					local gsd = vim.b.gitsigns_status_dict
+					if gsd and gsd.removed and gsd.removed > 0 then
+						return tostring(gsd.removed)
+					end
+					return ""
+				end,
+				icon = "  ",
 				hl = function()
 					local t = get_theme_colors()
 					return { fg = t.red, bg = t.black }
@@ -179,7 +195,14 @@ local function config(_, opts)
 			},
 
 			changed = {
-				provider = "git_diff_changed",
+				provider = function()
+					local gsd = vim.b.gitsigns_status_dict
+					if gsd and gsd.changed and gsd.changed > 0 then
+						return tostring(gsd.changed)
+					end
+					return ""
+				end,
+				icon = "  ",
 				hl = function()
 					local t = get_theme_colors()
 					return { fg = t.yellow, bg = t.black }
@@ -356,7 +379,8 @@ local function config(_, opts)
 			c.diagnostics.hints,
 			c.macro,
 			c.search_count,
-			c.lsp,
+			c.lsp_progress,
+			c.lsp_client,
 			c.cursor_position,
 			c.scroll_bar,
 		},
