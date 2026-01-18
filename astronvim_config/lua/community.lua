@@ -32,8 +32,11 @@ return {
 	-- Generate comment shortcut
 	{ import = "astrocommunity.editing-support.neogen" },
 
-	-- AI
-	{ import = "astrocommunity.completion.avante-nvim" },
+	-- Completion
+	{ import = "astrocommunity.completion.blink-cmp" },
+	{ import = "astrocommunity.completion.blink-cmp-git" },
+	{ import = "astrocommunity.completion.blink-cmp-tmux" },
+	{ import = "astrocommunity.completion.blink-copilot" },
 
 	-----------------
 	-- UI
@@ -42,16 +45,17 @@ return {
 	-- Top Bar
 	{ import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
-	-- Better completion ui.
-	{ import = "astrocommunity.completion.blink-cmp" },
-
 	-- Smooth scrolling
 	{ import = "astrocommunity.scrolling.neoscroll-nvim" },
 
 	-- Rainbows
 	{ import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
 
-	-- Colorschemes
+	-- panels
+	{ import = "astrocommunity.utility.noice-nvim" },
+
+	-- Colors
+	{ import = "astrocommunity.syntax.hlargs-nvim" },
 	{ import = "astrocommunity.colorscheme.catppuccin" },
 	{ import = "astrocommunity.colorscheme.everforest" },
 	{ import = "astrocommunity.colorscheme.eldritch-nvim" },
