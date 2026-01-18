@@ -31,6 +31,11 @@
       python313Packages.virtualenv
       uv
 
+      # Nix
+      nixd
+      deadnix
+      statix
+
       #####################################
       # Cli tools
       #####################################

@@ -11,6 +11,7 @@ return {
 	-----------------
 
 	{ import = "astrocommunity.pack.lua" },
+	{ import = "astrocommunity.pack.nix" },
 	{ import = "astrocommunity.pack.svelte" },
 	{ import = "astrocommunity.pack.typescript-all-in-one" },
 	{ import = "astrocommunity.pack.tailwindcss" },
@@ -38,6 +39,9 @@ return {
 	-- UI
 	-----------------
 
+	-- Top Bar
+	{ import = "astrocommunity.bars-and-lines.dropbar-nvim" },
+
 	-- Better completion ui.
 	{ import = "astrocommunity.completion.blink-cmp" },
 
@@ -46,9 +50,6 @@ return {
 
 	-- Rainbows
 	{ import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
-
-	-- Bars and lines
-	{ import = "astrocommunity.bars-and-lines.bufferline-nvim" },
 
 	-- Colorschemes
 	{ import = "astrocommunity.colorscheme.catppuccin" },
