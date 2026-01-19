@@ -1,9 +1,8 @@
-{ config, ... }:
-{
+{config, ...}: {
   imports = [
     ../common/terminal
     ../common/dev
-    # ../common/neovim # nvf is too unstable for now.
+    ../common/neovim
   ];
 
   # Astronvim cannot be repalced

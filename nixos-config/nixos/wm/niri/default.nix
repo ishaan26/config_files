@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{...}: {
   xdg.configFile."niri/config.kdl".text = ''
     // Environment variables
     environment {

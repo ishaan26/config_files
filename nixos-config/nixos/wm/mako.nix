@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services.mako = {
     enable = true;
     settings = {
@@ -47,8 +47,7 @@
     '';
   };
   # Notification utilities
-  home.packages = with pkgs;
-    [
-      libnotify # notify-send
-    ];
+  home.packages = with pkgs; [
+    libnotify # notify-send
+  ];
 }

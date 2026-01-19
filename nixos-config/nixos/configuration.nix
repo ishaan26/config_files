@@ -1,10 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
-
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware/home_pc.nix
@@ -15,7 +16,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # networking.hostName = "Paimon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -57,7 +58,7 @@
     wayland.enable = true;
     enableHidpi = true;
     theme = "sddm-astronaut-theme";
-    settings = { Theme = { Current = "sddm-astronaut-theme"; }; };
+    settings = {Theme = {Current = "sddm-astronaut-theme";};};
     extraPackages = with pkgs; [
       kdePackages.qtsvg
       kdePackages.qtvirtualkeyboard
@@ -65,7 +66,7 @@
     ];
   };
 
-  # Enable plasma 
+  # Enable plasma
   # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -105,7 +106,7 @@
   users.users.ishaan = {
     isNormalUser = true;
     description = "Ishaan Goel";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = ["networkmanager" "wheel" "video" "audio"];
     shell = pkgs.fish;
   };
 
@@ -138,7 +139,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Install sddm theme
-    (pkgs.sddm-astronaut.override { embeddedTheme = "astronaut"; })
+    (pkgs.sddm-astronaut.override {embeddedTheme = "astronaut";})
 
     # System essential packages.
     fish
@@ -172,13 +173,12 @@
   security.polkit.enable = true;
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+    wantedBy = ["graphical-session.target"];
+    wants = ["graphical-session.target"];
+    after = ["graphical-session.target"];
     serviceConfig = {
       Type = "simple";
-      ExecStart =
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;

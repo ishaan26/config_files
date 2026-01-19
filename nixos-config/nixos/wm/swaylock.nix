@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
@@ -83,8 +81,7 @@
       }
       {
         timeout = 600;
-        command =
-          "niri msg action power-off-monitors || hyprctl dispatch dpms off";
+        command = "niri msg action power-off-monitors || hyprctl dispatch dpms off";
       }
     ];
   };

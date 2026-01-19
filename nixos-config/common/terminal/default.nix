@@ -6,6 +6,5 @@
     ./kitty.nix
     ./shell.nix
     ./tmux.nix
-    ./vim.nix
   ];
 }

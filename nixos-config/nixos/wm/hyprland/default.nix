@@ -1,6 +1,4 @@
-{ config, pkgs, lib, ... }:
-
-{
+{...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -12,7 +10,7 @@
       "$browser" = "firefox";
 
       # Monitor configuration
-      monitor = [ ",preferred,auto,1" ];
+      monitor = [",preferred,auto,1"];
 
       # General settings - Catppuccin Mocha
       general = {
@@ -86,7 +84,7 @@
       };
 
       # Master layout
-      master = { new_status = "master"; };
+      master = {new_status = "master";};
 
       # Misc
       misc = {
@@ -98,7 +96,7 @@
       };
 
       # Startup applications
-      exec-once = [ "waybar" "mako" ];
+      exec-once = ["waybar" "mako"];
 
       # Window rules
       windowrulev2 = [
@@ -218,10 +216,9 @@
       ];
 
       # Mouse bindings
-      bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+      bindm = ["$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow"];
 
-      layerrule =
-        [ "blur on, match:namespace waybar" "blur on, match:namespace rofi" ];
+      layerrule = ["blur on, match:namespace waybar" "blur on, match:namespace rofi"];
     };
 
     # Extra config for resize submap

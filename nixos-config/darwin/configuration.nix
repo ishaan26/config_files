@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ../common/stylix.nix
     ./darwin-pkgs.nix
@@ -93,7 +92,7 @@
   };
 
   # Set shell
-  environment.shells = [ pkgs.fish ];
+  environment.shells = [pkgs.fish];
 
   # Used for backwards compatibility
   system.stateVersion = 6;

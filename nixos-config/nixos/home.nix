@@ -1,10 +1,14 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ../common/terminal
     ../common/dev
     ./wm
     ./linux-pkgs.nix
-    # ../common/neovim # nvf is too unstable for now.
+    ../common/neovim
   ];
 
   home = {
@@ -49,7 +53,6 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake =
-      "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
+    flake = "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 }

@@ -1,13 +1,11 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   # Configure your Catppuccin theme variant here
   variant = "mocha";
   accent = "blue";
 
   # Create the Kvantum theme package with your chosen variant
   kvantumThemePackage =
-    pkgs.catppuccin-kvantum.override { inherit variant accent; };
+    pkgs.catppuccin-kvantum.override {inherit variant accent;};
 in {
   # Install necessary packages
   home.packages = with pkgs; [
@@ -43,8 +41,7 @@ in {
     '';
 
     # 2. CRITICAL: Symlink the theme from Nix store to ~/.config/Kvantum
-    "Kvantum/catppuccin-${variant}-${accent}".source =
-      "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
+    "Kvantum/catppuccin-${variant}-${accent}".source = "${kvantumThemePackage}/share/Kvantum/catppuccin-${variant}-${accent}";
 
     # 3. Configure qt5ct appearance settings
     "qt5ct/qt5ct.conf".text = ''
