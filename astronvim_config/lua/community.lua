@@ -55,7 +55,6 @@ return {
 	{ import = "astrocommunity.utility.noice-nvim" },
 
 	-- Colors
-	{ import = "astrocommunity.syntax.hlargs-nvim" },
 	{ import = "astrocommunity.colorscheme.catppuccin" },
 	{ import = "astrocommunity.colorscheme.everforest" },
 	{ import = "astrocommunity.colorscheme.eldritch-nvim" },
