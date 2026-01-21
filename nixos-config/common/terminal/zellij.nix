@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   inherit (config.lib.stylix) colors;
 
   sesh = pkgs.writeScriptBin "sesh" ''
@@ -31,9 +33,8 @@ let
     	zellij attach -c "$SESSION_TITLE"
     fi
   '';
-
 in {
-  home.packages = [ pkgs.tmate sesh ];
+  home.packages = [pkgs.tmate sesh];
   # Create the KDL config file directly for keybindings
   xdg.configFile."zellij/config.kdl".text = ''
     // Streamlined keybindings configuration
@@ -45,17 +46,17 @@ in {
             // bind "Ctrl f" { SwitchToMode "search"; }
         }
 
-        
+
         normal {
             // Mode switching
             bind "Ctrl g" { SwitchToMode "locked"; }
             bind "Ctrl p" { SwitchToMode "pane"; }
             bind "Ctrl t" { SwitchToMode "tab"; }
-            
+
             // Quick pane navigation with Alt
-            bind "Alt h" { GoToPreviousTab; }    
-            bind "Alt l" { GoToNextTab; }        
-            
+            bind "Alt h" { GoToPreviousTab; }
+            bind "Alt l" { GoToNextTab; }
+
             // Quick actions
             bind "Alt n" { NewTab; }
             bind "Alt [" { PreviousSwapLayout; }
@@ -262,12 +263,12 @@ in {
 
       # Copy on select
       copy_on_select = true;
-      copy_command = if pkgs.stdenv.isDarwin then
-        "pbcopy"
-      else if builtins.getEnv "WAYLAND_DISPLAY" != "" then
-        "wl-copy"
-      else
-        "xclip -selection clipboard";
+      copy_command =
+        if pkgs.stdenv.isDarwin
+        then "pbcopy"
+        else if builtins.getEnv "WAYLAND_DISPLAY" != ""
+        then "wl-copy"
+        else "xclip -selection clipboard";
 
       # Scrollback
       scrollback_editor = "${pkgs.neovim}/bin/nvim";

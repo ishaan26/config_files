@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   # to use flakes for development
   programs.direnv = {
     enable = true;
@@ -21,7 +21,6 @@
     RUSTUP_HOME = "$HOME/.rustup";
 
     # Python
-    PYTHONPATH =
-      "${config.home.homeDirectory}/.local/lib/python3.13/site-packages:$PYTHONPATH";
+    PYTHONPATH = "${config.home.homeDirectory}/.local/lib/python3.13/site-packages:$PYTHONPATH";
   };
 }

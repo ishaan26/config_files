@@ -18,26 +18,12 @@
     # This value determines the Home Manager release that your
     # configuration is compatible with.
     stateVersion = "25.11";
-
-    # Packages that should be installed to the user profile
-    packages = with pkgs; [
-      # Essential Apps
-      firefox
-      brave
-      bitwarden-desktop
-      qbittorrent
-
-      # Artist
-      blender
-      gimp
-      krita
-    ];
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Astronvim cannot be repalced
+  # Astronvim cannot be replaced
   stylix.targets.neovim.enable = false;
 
   # Set Icon Theme
@@ -53,6 +39,6 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable for you
+    flake = "${config.home.homeDirectory}/Documents/Github/config_files/nixos-config"; # sets NH_OS_FLAKE variable
   };
 }

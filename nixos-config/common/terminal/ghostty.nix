@@ -1,8 +1,11 @@
-{ pkgs, lib, ... }:
-
+{
+  pkgs,
+  lib,
+  ...
+}:
 # Ghostty is not available on nix darwin as of yet
 lib.mkIf pkgs.stdenv.isLinux {
-  home.packages = with pkgs; [ ghostty ];
+  home.packages = with pkgs; [ghostty];
 
   programs.ghostty = {
     enable = true;
@@ -43,7 +46,7 @@ lib.mkIf pkgs.stdenv.isLinux {
       window-decoration = "none";
 
       # Keybindings
-      keybind = [ "cmd+s>r=reload_config" "cmd+s>x=close_surface" ];
+      keybind = ["cmd+s>r=reload_config" "cmd+s>x=close_surface"];
     };
   };
 }

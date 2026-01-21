@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Core shell programs
   programs.fish = {
     enable = true;
@@ -101,11 +99,11 @@
           else
             figlet Greetings | lolcat -tp 1
           end
-          
+
           if command -v fortune >/dev/null 2>&1
             fortune | lolcat -t
           end
-          
+
           echo ""
           echo -e "Uptime:" (uptime) | lolcat
         else
@@ -142,8 +140,7 @@
       add_newline = true;
       scan_timeout = 10;
 
-      format =
-        "$username$hostname$directory$git_branch$git_status$git_state$nix_shell$cmd_duration$line_break$character";
+      format = "$username$hostname$directory$git_branch$git_status$git_state$nix_shell$cmd_duration$line_break$character";
 
       character = {
         success_symbol = "[➜](bold green)";

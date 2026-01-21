@@ -37,6 +37,7 @@
       "firefox"
       "brave-browser"
       "bitwarden"
+      "discord"
       "imageoptim"
       "github"
       "logi-options+"

@@ -11,7 +11,6 @@
       zed-editor
       antigravity
       vscode
-      # neovim - switched this to a system package
 
       #####################################
       # Language tools

@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.git = {
     enable = true;
     settings = {
@@ -64,11 +62,11 @@
         line-numbers-right-style = "cyan";
       };
 
-      interactive = { diffFilter = "delta --color-only"; };
-      init = { defaultBranch = "main"; };
-      github = { user = "ishaan26"; };
-      pull = { ff = "only"; };
-      gpg = { program = "${pkgs.gnupg}/bin/gpg"; };
+      interactive = {diffFilter = "delta --color-only";};
+      init = {defaultBranch = "main";};
+      github = {user = "ishaan26";};
+      pull = {ff = "only";};
+      gpg = {program = "${pkgs.gnupg}/bin/gpg";};
       filter.lfs = {
         clean = "git-lfs clean -- %f";
         smudge = "git-lfs smudge -- %f";
@@ -81,8 +79,7 @@
       key = "0E6951900DED125D";
       signByDefault = true;
     };
-
   };
 
-  home.packages = with pkgs; [ delta git-lfs ];
+  home.packages = with pkgs; [delta git-lfs];
 }

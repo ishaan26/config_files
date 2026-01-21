@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   # Access Stylix colors
   colors = config.lib.stylix.colors.withHashtag;
 in {
