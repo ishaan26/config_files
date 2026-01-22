@@ -2,7 +2,7 @@
   # to use flakes for development
   programs.direnv = {
     enable = true;
-    nix-direnv.enable = true;
+    nix-direnv.enable = true; # Caches nix-shell
 
     config = {
       # Optionally whitelist specific directories
