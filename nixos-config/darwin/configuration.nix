@@ -49,7 +49,7 @@
           "/Applications/Microsoft Excel.app"
           "/System/Applications/Notes.app"
           "/System/Applications/App Store.app"
-          "/Users/ishaan/Applications/Home Manager Apps/Alacritty.app"
+          "/Users/ishaan/Applications/Home Manager Apps/WezTerm.app"
           "/System/Applications/System Settings.app"
         ];
       };

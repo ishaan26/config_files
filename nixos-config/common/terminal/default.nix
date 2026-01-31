@@ -6,5 +6,6 @@
     ./kitty.nix
     ./shell.nix
     ./tmux.nix
+    ./wezterm.nix
   ];
 }
