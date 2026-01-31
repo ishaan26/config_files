@@ -242,7 +242,9 @@ in {
   # 3. Copy stylix colorscheme
   home.activation.installAstroNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -d "$HOME/.config/nvim" ]; then
-      ${pkgs.git}/bin/git clone --depth 1 https://github.com/AstroNvim/template "$HOME/.config/nvim"
+    echo --------------------------------------------------------------------------------------------------------------------------
+     echo 'Please install Astronvim manaually with git clone --depth 1 https://github.com/AstroNvim/template "$HOME/.config/nvim"'
+    echo --------------------------------------------------------------------------------------------------------------------------
     fi
 
     # Check if the link exists or if it is a directory

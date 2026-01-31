@@ -8,6 +8,7 @@
     pinentry_mac
     gnumake
     unzip
+    raycast
   ];
 
   # Homebrew integration (for GUI apps not in nixpkgs)
@@ -41,6 +42,7 @@
       "github"
       "logi-options+"
       "zed"
+      "google-drive"
     ];
 
     # CLI tools not in nixpkgs

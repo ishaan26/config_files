@@ -22,6 +22,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     nix-darwin,
     home-manager,
@@ -113,6 +114,14 @@
         hostName = "Urchin";
         system = "x86_64-darwin";
       };
+    };
+
+    # Add packages output for nh compatibility
+    packages = {
+      aarch64-darwin.Noir = self.darwinConfigurations.Noir.system;
+      x86_64-darwin.Urchin = self.darwinConfigurations.IntelMac.system;
+      x86_64-linux.Paimon = self.nixosConfigurations.Paimon.config.system.build.toplevel;
+      aarch64-linux.Vetala = self.nixosConfigurations.Vetala.config.system.build.toplevel;
     };
 
     # Standalone home-manager configurations

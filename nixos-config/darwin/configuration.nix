@@ -4,11 +4,9 @@
     ./darwin-pkgs.nix
   ];
 
-  # Nix settings
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  # Let Determinate System nix handle this stuff
+  nix.enable = false;
+
   nixpkgs.config.allowUnfree = true;
 
   system.primaryUser = "ishaan";

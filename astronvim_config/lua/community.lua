@@ -34,9 +34,7 @@ return {
 
 	-- Completion
 	{ import = "astrocommunity.completion.blink-cmp" },
-	{ import = "astrocommunity.completion.blink-cmp-git" },
 	{ import = "astrocommunity.completion.blink-cmp-tmux" },
-	{ import = "astrocommunity.completion.blink-copilot" },
 
 	-----------------
 	-- UI
