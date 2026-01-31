@@ -8,7 +8,7 @@
       local config = wezterm.config_builder()
 
       -- Shell integration
-      config.default_prog = { '${pkgs.fish}/bin/fish' }
+      -- config.default_prog = { 'fish' } 
 
       -- Appearance
       config.window_decorations = "INTEGRATED_BUTTONS|RESIZE|MACOS_FORCE_ENABLE_SHADOW"
@@ -22,6 +22,13 @@
       }
 
       config.font_size = 16.0
+      
+      -- Bell
+      config.audible_bell = "Disabled"
+
+      -- Initial Size
+      config.initial_cols = 120
+      config.initial_rows = 40
 
       -- Tab Bar
       config.use_fancy_tab_bar = false
