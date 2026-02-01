@@ -43,6 +43,8 @@
       "logi-options+"
       "zed"
       "google-drive"
+      "macs-fan-control"
+      "stats"
     ];
 
     # CLI tools not in nixpkgs

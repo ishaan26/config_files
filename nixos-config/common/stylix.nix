@@ -18,8 +18,8 @@
       };
 
       monospace = {
-        package = pkgs.nerd-fonts.iosevka-term;
-        name = "IosevkaTerm Nerd Font Propo";
+        package = pkgs.nerd-fonts.blex-mono;
+        name = "BlexMono Nerd Font";
       };
 
       emoji = {

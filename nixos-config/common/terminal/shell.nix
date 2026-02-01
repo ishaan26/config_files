@@ -27,12 +27,6 @@
         end
       end
 
-      # Bat/Batpipe configuration
-      set -gx LESSOPEN "|${pkgs.bat-extras.batpipe}/bin/batpipe %s"
-      set -e LESSCLOSE
-      set -gx LESS "$LESS -R"
-      set -gx BATPIPE color
-
       # Bun
       set -gx BUN_INSTALL "$HOME/.bun"
       set -gx PATH $BUN_INSTALL/bin $PATH
@@ -212,12 +206,6 @@
 
   # Essential packages
   home.packages = with pkgs; [
-    # Bat extras
-    bat-extras.batman
-    bat-extras.batpipe
-    bat-extras.batgrep
-    bat-extras.batdiff
-
     # Development tools
     ripgrep
     fd

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   programs.wezterm = {
     enable = true;
     enableBashIntegration = true;
@@ -8,7 +8,7 @@
       local config = wezterm.config_builder()
 
       -- Shell integration
-      -- config.default_prog = { 'fish' } 
+      -- config.default_prog = { 'fish' }
 
       -- Appearance
       config.window_decorations = "INTEGRATED_BUTTONS|RESIZE|MACOS_FORCE_ENABLE_SHADOW"
@@ -21,8 +21,8 @@
         bottom = 40,
       }
 
-      config.font_size = 16.0
-      
+      config.font_size = 18.0
+
       -- Bell
       config.audible_bell = "Disabled"
 
