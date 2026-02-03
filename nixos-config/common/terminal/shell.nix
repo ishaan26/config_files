@@ -127,59 +127,9 @@
     };
   };
 
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-    settings = {
-      add_newline = true;
-      scan_timeout = 10;
-
-      format = "$username$hostname$directory$git_branch$git_status$git_state$nix_shell$cmd_duration$line_break$character";
-
-      character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[✗](bold red)";
-      };
-
-      directory = {
-        style = "cyan bold";
-        truncation_length = 4;
-        fish_style_pwd_dir_length = 1;
-      };
-
-      git_branch = {
-        symbol = " ";
-        style = "purple bold";
-      };
-
-      git_status = {
-        style = "red bold";
-        format = "[$all_status$ahead_behind]($style) ";
-      };
-
-      nix_shell = {
-        symbol = " ";
-        format = "via [$symbol$state]($style) ";
-      };
-
-      cmd_duration = {
-        min_time = 2000;
-        format = "took [$duration]($style) ";
-        style = "yellow bold";
-      };
-    };
-  };
-
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
   };
 
   programs.bat = {

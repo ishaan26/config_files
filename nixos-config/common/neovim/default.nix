@@ -142,7 +142,7 @@
     hi("@variable", { fg = colors.base05 })
     hi("@variable.builtin", { fg = colors.base09 })
     hi("@variable.parameter", { fg = colors.base08, italic = true })
-    hi("@variable.member", { fg = colors.base05 })
+    hi("@variable.member", { fg = colors.base0C })
     hi("@constant", { fg = colors.base09 })
     hi("@constant.builtin", { fg = colors.base09 })
     hi("@constant.macro", { fg = colors.base0A })

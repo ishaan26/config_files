@@ -7,7 +7,6 @@
     gnupg
     pinentry_mac
     gnumake
-    unzip
   ];
 
   # Homebrew integration (for GUI apps not in nixpkgs)
