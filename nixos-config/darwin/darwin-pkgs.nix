@@ -17,6 +17,9 @@
       cleanup = "zap";
     };
 
+    # Add this to see more output
+    global.brewfile = true;
+
     # Mac App Store apps (requires you to be signed in to the App Store)
     masApps = {
       "Microsoft Excel" = 462058435;
@@ -44,6 +47,8 @@
       "macs-fan-control"
       "stats"
       "libreoffice"
+      "steam"
+      "blender"
     ];
 
     # CLI tools not in nixpkgs
