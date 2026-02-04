@@ -2,7 +2,7 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/chalk.yaml";
     image = ../wallpaper.png;
     polarity = "dark";
 
@@ -18,8 +18,8 @@
       };
 
       monospace = {
-        package = pkgs.nerd-fonts.blex-mono;
-        name = "BlexMono Nerd Font";
+        package = pkgs.nerd-fonts.zed-mono;
+        name = "ZedMono Nerd Font";
       };
 
       emoji = {

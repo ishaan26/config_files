@@ -43,6 +43,7 @@
       "google-drive"
       "macs-fan-control"
       "stats"
+      "libreoffice"
     ];
 
     # CLI tools not in nixpkgs
