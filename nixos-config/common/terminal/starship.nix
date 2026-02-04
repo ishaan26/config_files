@@ -105,16 +105,16 @@ in {
 
         # Status Symbols & Counts
         conflicted = "[  = $count](bold red) ";
-        ahead = "  = \${count}";
-        behind = "  = \${count}";
-        diverged = "󱓌  = \${ahead_count}⇣\${behind_count}";
+        ahead = "  = \${count} ";
+        behind = "  = \${count} ";
+        diverged = "󱓌  =  \${ahead_count} \${behind_count} ";
         up_to_date = "[  ](green)";
-        untracked = "[  = $count](blue) ";
-        stashed = "[  = $count](cyan) ";
-        modified = "[  = $count](yellow) ";
-        staged = "[  = $count](green) ";
-        renamed = "[󰑕  = $count](purple) ";
-        deleted = "[󰆴 = $count](red) ";
+        untracked = "[  = $count ](blue) ";
+        stashed = "[  = $count ](cyan) ";
+        modified = "[  = $count ](yellow) ";
+        staged = "[  = $count ](green) ";
+        renamed = "[󰑕  = $count ](purple) ";
+        deleted = "[󰆴 = $count ](red) ";
       };
 
       git_metrics = {
