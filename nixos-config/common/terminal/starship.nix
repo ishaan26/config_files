@@ -104,21 +104,22 @@ in {
         format = "([\\[ $all_status$ahead_behind\\]]($style) )";
 
         # Status Symbols & Counts
-        conflicted = "[🏳 $count](bold red) ";
-        ahead = " \${count}";
-        behind = " \${count}";
-        diverged = "󱓌 \${ahead_count}⇣\${behind_count}";
-        up_to_date = "[ ](bold green)";
-        untracked = "[ $count](bold blue) ";
-        stashed = "[ $count](bold cyan) ";
-        modified = "[ $count](bold yellow) ";
-        staged = "[ $count](bold green) ";
-        renamed = "[󰑕 $count](bold purple) ";
-        deleted = "[󰆴 $count](bold red) ";
+        conflicted = "[  = $count](bold red) ";
+        ahead = "  = \${count}";
+        behind = "  = \${count}";
+        diverged = "󱓌  = \${ahead_count}⇣\${behind_count}";
+        up_to_date = "[ ](green)";
+        untracked = "[  = $count](blue) ";
+        stashed = "[  = $count](cyan) ";
+        modified = "[  = $count](yellow) ";
+        staged = "[  = $count](green) ";
+        renamed = "[󰑕  = $count](purple) ";
+        deleted = "[󰆴 = $count](red) ";
       };
 
       git_metrics = {
         disabled = false;
+        format = "([ $added]($added_style) ) ([ $deleted]($deleted_style) )";
       };
 
       # -----------------------------------------------------------------------
