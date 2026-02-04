@@ -96,7 +96,7 @@ in {
       git_branch = {
         symbol = " ";
         style = "bold #${colors.base0E}"; # Purple
-        format = "[$symbol$branch]($style) ";
+        format = "at [$symbol$branch]($style) ";
       };
 
       git_status = {
@@ -105,9 +105,9 @@ in {
 
         # Status Symbols & Counts
         conflicted = "[🏳 $count](bold red) ";
-        ahead = "⇡\${count}";
-        behind = "⇣\${count}";
-        diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
+        ahead = " \${count}";
+        behind = " \${count}";
+        diverged = "󱓌 \${ahead_count}⇣\${behind_count}";
         up_to_date = "[ ](bold green)";
         untracked = "[ $count](bold blue) ";
         stashed = "[ $count](bold cyan) ";
