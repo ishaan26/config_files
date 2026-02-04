@@ -108,7 +108,7 @@ in {
         ahead = "  = \${count}";
         behind = "  = \${count}";
         diverged = "󱓌  = \${ahead_count}⇣\${behind_count}";
-        up_to_date = "[ ](green)";
+        up_to_date = "[  ](green)";
         untracked = "[  = $count](blue) ";
         stashed = "[  = $count](cyan) ";
         modified = "[  = $count](yellow) ";
