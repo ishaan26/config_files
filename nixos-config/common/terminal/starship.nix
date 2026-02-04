@@ -61,9 +61,9 @@ in {
         style = "bold #${colors.base05}";
         format = "[$symbol]($style)";
         symbols = {
-          Macos = " ";
-          Linux = " ";
-          NixOS = " ";
+          Macos = "  ";
+          Linux = "  ";
+          NixOS = "  ";
         };
       };
 
@@ -111,7 +111,7 @@ in {
         up_to_date = "[  ](green)";
         untracked = "[  = $count ](blue) ";
         stashed = "[  = $count ](cyan) ";
-        modified = "[  = $count ](yellow) ";
+        modified = "[  = $count ](yellow) ";
         staged = "[  = $count ](green) ";
         renamed = "[󰑕  = $count ](purple) ";
         deleted = "[󰆴 = $count ](red) ";
@@ -180,7 +180,7 @@ in {
 
       nix_shell = {
         disabled = false;
-        symbol = "";
+        symbol = " ";
         style = "bold #5277C3"; # NixOS Dark Blue
         impure_msg = "";
         pure_msg = "[pure shell](bold green)";
