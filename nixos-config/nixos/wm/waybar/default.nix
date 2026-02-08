@@ -1,8 +1,11 @@
-{ pkgs, ... }:
-
+{ config, ... }:
 {
+  stylix.targets.waybar.enable = true;
   programs.waybar = {
     enable = true;
+    style = import ./style.nix {
+      colors = config.lib.stylix.colors;
+    };
     systemd = {
       enable = false; # We start it from compositor config
     };
@@ -14,8 +17,8 @@
         height = 44;
         spacing = 0;
         margin-top = 8;
-        margin-left = 16;
-        margin-right = 16;
+        margin-left = 10;
+        margin-right = 10;
         margin-bottom = 0;
 
         # Module layout
@@ -88,7 +91,10 @@
         mpris = {
           format = "{player_icon} {dynamic}";
           format-paused = "{status_icon} <i>{dynamic}</i>";
-          dynamic-order = [ "title" "artist" ];
+          dynamic-order = [
+            "title"
+            "artist"
+          ];
           dynamic-len = 35;
           player-icons = {
             default = "󰐊";
@@ -260,7 +266,13 @@
 
         temperature = {
           format = "{icon} {temperatureC}°C";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
           critical-threshold = 80;
           tooltip-format = " CPU Temperature: {temperatureC}°C / {temperatureF}°F";
         };
@@ -322,7 +334,11 @@
             phone = "󰏲";
             portable = "󰏲";
             car = "󰄋";
-            default = [ "󰕿" "󰖀" "󰕾" ];
+            default = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
           };
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           on-click-right = "pavucontrol";
@@ -346,7 +362,11 @@
         # Backlight
         backlight = {
           format = "{icon} {percent}%";
-          format-icons = [ "󰃞" "󰃟" "󰃠" ];
+          format-icons = [
+            "󰃞"
+            "󰃟"
+            "󰃠"
+          ];
           tooltip-format = "󰃠 Brightness: {percent}%";
           on-scroll-up = "brightnessctl set 5%+";
           on-scroll-down = "brightnessctl set 5%-";
@@ -366,7 +386,19 @@
           format-plugged = "󰂄 {capacity}%";
           format-full = "󰁹 Full";
           format-alt = "{icon} {time}";
-          format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-icons = [
+            "󰂎"
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
           tooltip-format = "󰁹 Battery: {capacity}%\n󰥔 Time: {time}\n Health: {health}%\n󱐋 Power: {power:.2f}W\n󰈙 Cycles: {cycles}";
           on-click-right = "powerprofilesctl set $(powerprofilesctl list | rofi -dmenu -p ' Power Profile')";
         };
@@ -489,6 +521,5 @@
       };
     };
 
-    style = builtins.readFile ./style.css;
   };
 }
