@@ -242,18 +242,32 @@
           ];
         };
 
+        temperature = {
+          format = "{icon} {temperatureC}󰔄 ";
+          hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+          format-icons = [
+            " "
+            ""
+            ""
+            ""
+            ""
+          ];
+          critical-threshold = 80;
+          tooltip-format = " CPU Temperature: {temperatureC}°C / {temperatureF}°F";
+        };
+
         cpu = {
           format = "  {usage}%";
           interval = 2;
           tooltip-format = "  CPU Usage: {usage}%\n󱛡 Load: {load}\n Processes: {processes}";
-          on-click = "alacritty -e btop";
+          on-click = "alacritty -e btm";
         };
 
         memory = {
           format = "  {percentage}%";
           interval = 5;
           tooltip-format = "  RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)\n  Swap: {swapUsed:0.1f}GiB / {swapTotal:0.1f}GiB ({swapPercentage}%)";
-          on-click = "alacritty -e btop";
+          on-click = "alacritty -e btm";
         };
 
         disk = {
@@ -262,19 +276,6 @@
           path = "/";
           tooltip-format = "󰋊 Disk Usage: {used} / {total} ({percentage_used}%)\n Free: {free}";
           on-click = "nautilus";
-        };
-
-        temperature = {
-          format = "{icon} {temperatureC}°C";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
-          critical-threshold = 80;
-          tooltip-format = " CPU Temperature: {temperatureC}°C / {temperatureF}°F";
         };
 
         # System group (Network, Bluetooth, Audio, Backlight, Battery)

@@ -304,7 +304,6 @@ in ''
   /* CPU */
   #cpu {
     color: @base0D;
-    background-color: alpha(@base0D, 0.1);
   }
 
   #cpu:hover {
@@ -324,7 +323,6 @@ in ''
   /* Memory */
   #memory {
     color: @base0E;
-    background-color: alpha(@base0E, 0.1);
   }
 
   #memory:hover {
@@ -334,7 +332,6 @@ in ''
   /* Disk */
   #disk {
     color: @base0A;
-    background-color: alpha(@base0A, 0.1);
   }
 
   #disk:hover {
@@ -344,7 +341,6 @@ in ''
   /* Temperature */
   #temperature {
     color: @base0C;
-    background-color: alpha(@base0C, 0.1);
   }
 
   #temperature:hover {
@@ -380,7 +376,6 @@ in ''
   /* Network */
   #network {
     color: @base0B;
-    background-color: alpha(@base0B, 0.1);
   }
 
   #network:hover {
@@ -399,7 +394,6 @@ in ''
   /* Bluetooth */
   #bluetooth {
     color: @base0D;
-    background-color: alpha(@base0D, 0.1);
   }
 
   #bluetooth:hover {
@@ -420,7 +414,6 @@ in ''
   /* PulseAudio */
   #pulseaudio {
     color: @base09;
-    background-color: alpha(@base09, 0.1);
   }
 
   #pulseaudio:hover {
@@ -440,7 +433,6 @@ in ''
   /* Microphone */
   #pulseaudio.microphone {
     color: @base0E;
-    background-color: alpha(@base0E, 0.1);
   }
 
   #pulseaudio.source-muted {

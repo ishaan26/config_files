@@ -7,6 +7,8 @@
     qbittorrent
     discord
 
+    bottom
+
     # Artist
     blender
     gimp
