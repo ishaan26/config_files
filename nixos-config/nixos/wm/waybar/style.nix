@@ -2,11 +2,7 @@
 let
   c = colors;
 in ''
-  /* ============================================================
-     WAYBAR PREMIUM THEME - Stylix Dynamic (GTK Variables)
-     Defined from Nix interpolation
-     ============================================================ */
-  
+
   @define-color base00 #${c.base00};
   @define-color base01 #${c.base01};
   @define-color base02 #${c.base02};
@@ -45,28 +41,16 @@ in ''
   }
 
   window#waybar > box {
-    background: linear-gradient(
-      135deg,
-      alpha(@base00, 0.85) 0%,
-      alpha(@base01, 0.75) 100%
-    );
+    background-color: alpha(@base00, 0.9);
     border-radius: 16px;
     border: 1px solid alpha(@base04, 0.1);
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      0 0 0 1px alpha(@base05, 0.05) inset,
-      0 2px 4px rgba(0, 0, 0, 0.2);
     margin: 0 4px;
   }
 
   /* Secondary bar styling */
   window#waybar.bottom > box {
     border-radius: 12px;
-    background: linear-gradient(
-      180deg,
-      alpha(@base00, 0.8) 0%,
-      alpha(@base01, 0.7) 100%
-    );
+    background-color: alpha(@base00, 0.9);
   }
 
   /* ============================================================
@@ -74,16 +58,9 @@ in ''
      ============================================================ */
 
   tooltip {
-    background: linear-gradient(
-      135deg,
-      alpha(@base00, 0.95) 0%,
-      alpha(@base01, 0.9) 100%
-    );
+    background-color: @base00;
     border: 1px solid alpha(@base0D, 0.3);
     border-radius: 12px;
-    box-shadow: 
-      0 8px 24px rgba(0, 0, 0, 0.5),
-      0 0 20px alpha(@base0D, 0.1);
   }
 
   tooltip label {
@@ -119,22 +96,13 @@ in ''
     color: @base0D;
     padding: 4px 14px 4px 16px;
     margin: 4px 0 4px 6px;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0D, 0.15) 0%,
-      alpha(@base0D, 0.05) 100%
-    );
+    background-color: alpha(@base0D, 0.1);
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #custom-logo:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0D, 0.25) 0%,
-      alpha(@base0D, 0.1) 100%
-    );
-    text-shadow: 0 0 12px alpha(@base0D, 0.5);
+    background-color: alpha(@base0D, 0.2);
   }
 
   /* ============================================================
@@ -146,23 +114,14 @@ in ''
     font-weight: 600;
     padding: 4px 16px;
     margin: 4px 2px;
-    background: linear-gradient(
-      135deg,
-      alpha(@base08, 0.15) 0%,
-      alpha(@base08, 0.05) 100%
-    );
+    background-color: alpha(@base08, 0.1);
     border-radius: 10px;
     border-left: 3px solid @base08;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #clock:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base08, 0.25) 0%,
-      alpha(@base08, 0.1) 100%
-    );
-    text-shadow: 0 0 8px alpha(@base08, 0.4);
+    background-color: alpha(@base08, 0.2);
   }
 
   /* ============================================================
@@ -170,11 +129,7 @@ in ''
      ============================================================ */
 
   #workspaces {
-    background: linear-gradient(
-      180deg,
-      alpha(@base01, 0.6) 0%,
-      alpha(@base02, 0.4) 100%
-    );
+    background-color: alpha(@base01, 0.4);
     border-radius: 14px;
     padding: 2px 6px;
     margin: 4px 8px;
@@ -193,28 +148,20 @@ in ''
   }
 
   #workspaces button:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0D, 0.2) 0%,
-      alpha(@base0D, 0.1) 100%
-    );
+    background-color: alpha(@base0D, 0.1);
     color: @base0D;
-    box-shadow: 0 0 12px alpha(@base0D, 0.2);
   }
 
   #workspaces button.active,
   #workspaces button.focused {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0D, 0.35) 0%,
-      alpha(@base0D, 0.2) 100%
-    );
-    color: @base07;
+    background-color: @base0D;
+    color: @base00;
     font-weight: bold;
-    box-shadow: 
-      0 0 16px alpha(@base0D, 0.3),
-      0 0 0 1px alpha(@base0D, 0.3) inset;
-    text-shadow: 0 0 8px alpha(@base0D, 0.5);
+    box-shadow: inset 0 -3px transparent;
+    text-shadow: none;
+    border: none;
+    border-bottom: none;
+    background-image: none;
   }
 
   #workspaces button.empty {
@@ -222,19 +169,15 @@ in ''
   }
 
   #workspaces button.urgent {
-    background: linear-gradient(
-      135deg,
-      alpha(@base08, 0.4) 0%,
-      alpha(@base08, 0.2) 100%
-    );
-    color: @base08;
+    background-color: @base08;
+    color: @base00;
     animation: pulse-urgent 1.5s ease-in-out infinite;
   }
 
   @keyframes pulse-urgent {
-    0% { box-shadow: 0 0 8px alpha(@base08, 0.3); }
-    50% { box-shadow: 0 0 20px alpha(@base08, 0.6); }
-    100% { box-shadow: 0 0 8px alpha(@base08, 0.3); }
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
   }
 
   /* ============================================================
@@ -264,21 +207,13 @@ in ''
     color: @base0B;
     padding: 4px 14px;
     margin: 4px 2px;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0B, 0.12) 0%,
-      alpha(@base0B, 0.04) 100%
-    );
+    background-color: alpha(@base0B, 0.1);
     border-radius: 10px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #mpris:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0B, 0.22) 0%,
-      alpha(@base0B, 0.08) 100%
-    );
+    background-color: alpha(@base0B, 0.2);
   }
 
   #mpris.paused {
@@ -288,7 +223,6 @@ in ''
 
   #mpris.playing {
     color: @base0B;
-    text-shadow: 0 0 8px alpha(@base0B, 0.3);
   }
 
   /* ============================================================
@@ -316,12 +250,7 @@ in ''
 
   #idle_inhibitor.activated {
     color: @base0C;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0C, 0.2) 0%,
-      alpha(@base0C, 0.08) 100%
-    );
-    text-shadow: 0 0 8px alpha(@base0C, 0.4);
+    background-color: alpha(@base0C, 0.1);
     animation: breathe 3s ease-in-out infinite;
   }
 
@@ -338,11 +267,7 @@ in ''
   #tray {
     margin: 4px 4px;
     padding: 4px 12px;
-    background: linear-gradient(
-      135deg,
-      alpha(@base02, 0.5) 0%,
-      alpha(@base03, 0.3) 100%
-    );
+    background-color: alpha(@base02, 0.4);
     border-radius: 10px;
   }
 
@@ -352,16 +277,12 @@ in ''
 
   #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background: linear-gradient(
-      135deg,
-      alpha(@base08, 0.3) 0%,
-      alpha(@base08, 0.15) 100%
-    );
+    background-color: alpha(@base08, 0.2);
     border-radius: 6px;
   }
 
   #tray menu {
-    background: alpha(@base00, 0.95);
+    background-color: @base00;
     border: 1px solid alpha(@base04, 0.1);
     border-radius: 8px;
   }
@@ -383,19 +304,11 @@ in ''
   /* CPU */
   #cpu {
     color: @base0D;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0D, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0D, 0.1);
   }
 
   #cpu:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0D, 0.2) 0%,
-      alpha(@base0D, 0.08) 100%
-    );
+    background-color: alpha(@base0D, 0.2);
   }
 
   #cpu.warning {
@@ -404,75 +317,49 @@ in ''
 
   #cpu.critical {
     color: @base08;
+    background-color: alpha(@base08, 0.1);
     animation: pulse-critical 1s ease-in-out infinite;
   }
 
   /* Memory */
   #memory {
     color: @base0E;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0E, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0E, 0.1);
   }
 
   #memory:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0E, 0.2) 0%,
-      alpha(@base0E, 0.08) 100%
-    );
+    background-color: alpha(@base0E, 0.2);
   }
 
   /* Disk */
   #disk {
     color: @base0A;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0A, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0A, 0.1);
   }
 
   #disk:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0A, 0.2) 0%,
-      alpha(@base0A, 0.08) 100%
-    );
+    background-color: alpha(@base0A, 0.2);
   }
 
   /* Temperature */
   #temperature {
     color: @base0C;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0C, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0C, 0.1);
   }
 
   #temperature:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0C, 0.2) 0%,
-      alpha(@base0C, 0.08) 100%
-    );
+    background-color: alpha(@base0C, 0.2);
   }
 
   #temperature.critical {
     color: @base08;
+    background-color: alpha(@base08, 0.1);
     animation: pulse-critical 0.5s ease-in-out infinite alternate;
   }
 
   @keyframes pulse-critical {
-    0% { 
-      background-color: alpha(@base08, 0.2); 
-    }
-    100% { 
-      background-color: alpha(@base08, 0.4); 
-    }
+    0% { opacity: 1; }
+    100% { opacity: 0.6; }
   }
 
   /* ============================================================
@@ -493,28 +380,16 @@ in ''
   /* Network */
   #network {
     color: @base0B;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0B, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0B, 0.1);
   }
 
   #network:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0B, 0.2) 0%,
-      alpha(@base0B, 0.08) 100%
-    );
+    background-color: alpha(@base0B, 0.2);
   }
 
   #network.disconnected {
     color: @base08;
-    background: linear-gradient(
-      135deg,
-      alpha(@base08, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base08, 0.1);
   }
 
   #network.linked {
@@ -524,52 +399,38 @@ in ''
   /* Bluetooth */
   #bluetooth {
     color: @base0D;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0D, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0D, 0.1);
   }
 
   #bluetooth:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0D, 0.2) 0%,
-      alpha(@base0D, 0.08) 100%
-    );
+    background-color: alpha(@base0D, 0.2);
   }
 
   #bluetooth.connected {
     color: @base0C;
-    text-shadow: 0 0 6px alpha(@base0C, 0.3);
+    background-color: alpha(@base0C, 0.1);
   }
 
   #bluetooth.off,
   #bluetooth.disabled {
     color: @base03;
+    background-color: transparent;
   }
 
   /* PulseAudio */
   #pulseaudio {
     color: @base09;
-    background: linear-gradient(
-      135deg,
-      alpha(@base09, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base09, 0.1);
   }
 
   #pulseaudio:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base09, 0.2) 0%,
-      alpha(@base09, 0.08) 100%
-    );
+    background-color: alpha(@base09, 0.2);
   }
 
   #pulseaudio.muted {
     color: @base03;
     text-decoration: line-through;
+    background-color: transparent;
   }
 
   #pulseaudio.bluetooth {
@@ -579,73 +440,49 @@ in ''
   /* Microphone */
   #pulseaudio.microphone {
     color: @base0E;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0E, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0E, 0.1);
   }
 
   #pulseaudio.source-muted {
     color: @base03;
+    background-color: transparent;
   }
 
   /* Backlight */
   #backlight {
     color: @base0A;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0A, 0.1) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0A, 0.1);
   }
 
   #backlight:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0A, 0.2) 0%,
-      alpha(@base0A, 0.08) 100%
-    );
+    background-color: alpha(@base0A, 0.2);
   }
 
   /* Battery */
   #battery {
     color: @base0B;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0B, 0.12) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0B, 0.1);
   }
 
   #battery:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base0B, 0.22) 0%,
-      alpha(@base0B, 0.08) 100%
-    );
+    background-color: alpha(@base0B, 0.2);
   }
 
   #battery.charging,
   #battery.plugged {
     color: @base0C;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0C, 0.12) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0C, 0.1);
     animation: charging-glow 2s ease-in-out infinite;
   }
 
   @keyframes charging-glow {
-    0% { text-shadow: 0 0 4px alpha(@base0C, 0.3); }
-    50% { text-shadow: 0 0 12px alpha(@base0C, 0.6); }
-    100% { text-shadow: 0 0 4px alpha(@base0C, 0.3); }
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
   }
 
   #battery.full {
     color: @base0B;
-    text-shadow: 0 0 6px alpha(@base0B, 0.4);
   }
 
   #battery.good {
@@ -654,32 +491,18 @@ in ''
 
   #battery.warning:not(.charging) {
     color: @base0A;
-    background: linear-gradient(
-      135deg,
-      alpha(@base0A, 0.15) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base0A, 0.1);
   }
 
   #battery.critical:not(.charging) {
     color: @base08;
-    background: linear-gradient(
-      135deg,
-      alpha(@base08, 0.15) 0%,
-      transparent 100%
-    );
+    background-color: alpha(@base08, 0.1);
     animation: battery-critical 0.8s ease-in-out infinite alternate;
   }
 
   @keyframes battery-critical {
-    0% {
-      background-color: alpha(@base08, 0.15);
-      text-shadow: 0 0 4px alpha(@base08, 0.3);
-    }
-    100% {
-      background-color: alpha(@base08, 0.35);
-      text-shadow: 0 0 12px alpha(@base08, 0.6);
-    }
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
   }
 
   /* ============================================================
@@ -691,22 +514,13 @@ in ''
     font-size: 16px;
     padding: 4px 14px 4px 12px;
     margin: 4px 6px 4px 2px;
-    background: linear-gradient(
-      135deg,
-      alpha(@base08, 0.12) 0%,
-      alpha(@base08, 0.04) 100%
-    );
+    background-color: alpha(@base08, 0.1);
     border-radius: 10px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #custom-power:hover {
-    background: linear-gradient(
-      135deg,
-      alpha(@base08, 0.3) 0%,
-      alpha(@base08, 0.15) 100%
-    );
-    text-shadow: 0 0 12px alpha(@base08, 0.5);
+    background-color: alpha(@base08, 0.2);
   }
 
   /* ============================================================
@@ -719,6 +533,8 @@ in ''
     padding: 2px 14px;
     margin: 2px 4px;
     font-size: 13px;
+    background-color: alpha(@base0D, 0.1);
+    border-radius: 8px;
   }
 
   /* Spotify */
@@ -744,12 +560,11 @@ in ''
   }
 
   #taskbar button:hover {
-    background: alpha(@base0D, 0.15);
+    background-color: alpha(@base0D, 0.15);
   }
 
   #taskbar button.active {
-    background: alpha(@base0D, 0.25);
-    box-shadow: 0 0 8px alpha(@base0D, 0.2);
+    background-color: alpha(@base0D, 0.25);
   }
 
   /* Clipboard */
@@ -761,7 +576,8 @@ in ''
   }
 
   #custom-clipboard:hover {
-    text-shadow: 0 0 8px alpha(@base0E, 0.4);
+    background-color: alpha(@base0E, 0.1);
+    border-radius: 6px;
   }
 
   /* Screenshot */
@@ -773,7 +589,8 @@ in ''
   }
 
   #custom-screenshot:hover {
-    text-shadow: 0 0 8px alpha(@base0C, 0.4);
+    background-color: alpha(@base0C, 0.1);
+    border-radius: 6px;
   }
 
   /* Color Picker */
@@ -785,7 +602,8 @@ in ''
   }
 
   #custom-colorpicker:hover {
-    text-shadow: 0 0 8px alpha(@base0A, 0.4);
+    background-color: alpha(@base0A, 0.1);
+    border-radius: 6px;
   }
 
   /* Keyboard State */

@@ -55,9 +55,9 @@
 
         # NixOS Logo
         "custom/logo" = {
-          format = "󱄅";
+          format = "󱄅 ";
           tooltip = true;
-          tooltip-format = "  NixOS\n󰍛  {}";
+          tooltip-format = "  NixOS\n 󰍛  {}";
           exec = "cat /etc/os-release | grep PRETTY_NAME | cut -d '\"' -f 2";
           interval = 86400;
         };
@@ -98,10 +98,10 @@
           dynamic-len = 35;
           player-icons = {
             default = "󰐊";
-            mpv = "󰝚";
-            firefox = "󰈹";
-            spotify = "󰓇";
-            chromium = "";
+            mpv = "󰝚 ";
+            firefox = "󰈹 ";
+            spotify = "󰓇 ";
+            chromium = " ";
           };
           status-icons = {
             paused = "󰏤";
@@ -154,19 +154,19 @@
         "niri/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "󰲠";
-            "2" = "󰲢";
-            "3" = "󰲤";
-            "4" = "󰲦";
-            "5" = "󰲨";
-            "6" = "󰲪";
-            "7" = "󰲬";
-            "8" = "󰲮";
-            "9" = "󰲰";
-            "10" = "󰿬";
-            focused = "󰮯";
-            default = "󰊠";
-            urgent = "󰀨";
+            "1" = "󰲠 ";
+            "2" = "󰲢 ";
+            "3" = "󰲤 ";
+            "4" = "󰲦 ";
+            "5" = "󰲨 ";
+            "6" = "󰲪 ";
+            "7" = "󰲬 ";
+            "8" = "󰲮 ";
+            "9" = "󰲰 ";
+            "10" = "󰿬 ";
+            focused = "󰮯 ";
+            default = "󰊠 ";
+            urgent = "󰀨 ";
           };
           persistent-workspaces = {
             "1" = [ ];
@@ -181,19 +181,19 @@
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "󰲠";
-            "2" = "󰲢";
-            "3" = "󰲤";
-            "4" = "󰲦";
-            "5" = "󰲨";
-            "6" = "󰲪";
-            "7" = "󰲬";
-            "8" = "󰲮";
-            "9" = "󰲰";
-            "10" = "󰿬";
-            active = "󰮯";
-            default = "󰊠";
-            urgent = "󰀨";
+            "1" = "󰲠 ";
+            "2" = "󰲢 ";
+            "3" = "󰲤 ";
+            "4" = "󰲦 ";
+            "5" = "󰲨 ";
+            "6" = "󰲪 ";
+            "7" = "󰲬 ";
+            "8" = "󰲮 ";
+            "9" = "󰲰 ";
+            "10" = "󰿬 ";
+            active = "󰮯 ";
+            default = "󰊠 ";
+            urgent = "󰀨 ";
           };
           persistent-workspaces = {
             "1" = [ ];
@@ -217,8 +217,8 @@
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
-            activated = "󰅶";
-            deactivated = "󰾪";
+            activated = "󰅶 ";
+            deactivated = "󰾪 ";
           };
           tooltip-format-activated = "󰅶 Idle inhibitor: ON\nScreen will not turn off";
           tooltip-format-deactivated = "󰾪 Idle inhibitor: OFF\nNormal power saving enabled";
@@ -243,16 +243,16 @@
         };
 
         cpu = {
-          format = "󰻠 {usage}%";
+          format = "  {usage}%";
           interval = 2;
-          tooltip-format = "󰻠 CPU Usage: {usage}%\n󱛡 Load: {load}\n Processes: {processes}";
+          tooltip-format = "  CPU Usage: {usage}%\n󱛡 Load: {load}\n Processes: {processes}";
           on-click = "alacritty -e btop";
         };
 
         memory = {
-          format = "󰍛 {percentage}%";
+          format = "  {percentage}%";
           interval = 5;
-          tooltip-format = "󰍛 RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)\n  Swap: {swapUsed:0.1f}GiB / {swapTotal:0.1f}GiB ({swapPercentage}%)";
+          tooltip-format = "  RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)\n  Swap: {swapUsed:0.1f}GiB / {swapTotal:0.1f}GiB ({swapPercentage}%)";
           on-click = "alacritty -e btop";
         };
 
@@ -293,7 +293,7 @@
         # Network
         network = {
           format-wifi = "󰤨 {signalStrength}%";
-          format-ethernet = "󰈀";
+          format-ethernet = "󰈀 ";
           format-linked = "󰈀 (No IP)";
           format-disconnected = "󰤭";
           format-disabled = "󰤮";
