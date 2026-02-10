@@ -49,6 +49,7 @@
       "libreoffice"
       "steam"
       "blender"
+      "thaw"
     ];
 
     # CLI tools not in nixpkgs
