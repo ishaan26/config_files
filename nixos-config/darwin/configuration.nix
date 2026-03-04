@@ -43,6 +43,8 @@
           "/System/Cryptexes/App/System/Applications/Safari.app"
           "/Applications/Brave Browser.app"
           "/Applications/Firefox.app"
+          "/Applications/Notion.app"
+          "/Applications/Notion Calendar.app"
           "/Applications/WhatsApp.app"
           "/System/Applications/Mail.app"
           "/Applications/Microsoft Word.app"

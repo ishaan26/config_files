@@ -49,6 +49,11 @@
       "libreoffice"
       "steam"
       "blender"
+      "thaw"
+      "iina"
+      "notion"
+      "notion-calendar"
+      "qbittorrent"
     ];
 
     # CLI tools not in nixpkgs
