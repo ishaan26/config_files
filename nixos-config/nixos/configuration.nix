@@ -106,7 +106,7 @@
   users.users.ishaan = {
     isNormalUser = true;
     description = "Ishaan Goel";
-    extraGroups = ["networkmanager" "wheel" "video" "audio"];
+    extraGroups = ["networkmanager" "wheel" "video" "audio" "input"];
     shell = pkgs.fish;
   };
 
