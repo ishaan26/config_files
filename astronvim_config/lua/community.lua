@@ -19,7 +19,6 @@ return {
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.pack.zig" },
 	{ import = "astrocommunity.pack.cpp" },
-	{ import = "astrocommunity.pack.python-ruff" },
 	{ import = "astrocommunity.pack.bash" },
 	{ import = "astrocommunity.pack.markdown" },
 	{ import = "astrocommunity.pack.typst" },
