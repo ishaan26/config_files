@@ -419,14 +419,26 @@
           "keyboard-state"
         ];
 
-        # Weather module
+        # Weather module (widget via notify-send)
         "custom/weather" = {
           format = "{}";
+          return-type = "json";
           interval = 1800;
-          exec = "curl -s 'wttr.in/?format=1' 2>/dev/null || echo '󰖐 N/A'";
+          exec = builtins.concatStringsSep " " [
+            "text=$(curl -sf 'https://wttr.in/?format=%c+%t' 2>/dev/null);"
+            "tip=$(curl -sf 'https://wttr.in/?format=%c+%C+%t\\n󰖝+%w++%h\\n󰖐+%p++UV:+%u\\n\\n󰃭+Forecast:\\n%f+feels+like\\n󰖙+Sunrise:+%S+·+Sunset:+%s' 2>/dev/null);"
+            "if [ -z \"$text\" ]; then text='󰖐 N/A'; tip='Weather unavailable'; fi;"
+            "echo '{\"text\":\"'\"$text\"'\",\"tooltip\":\"'\"$tip\"'\"}'"
+          ];
           tooltip = true;
-          tooltip-format = "{}";
-          on-click = "xdg-open 'https://wttr.in'";
+          on-click = builtins.concatStringsSep " " [
+            "detail=$(curl -sf 'https://wttr.in/?0QnT' 2>/dev/null || echo 'Weather data unavailable');"
+            "notify-send -a 'Weather' '󰖐 Weather' \"$detail\" -t 15000"
+          ];
+          on-click-right = builtins.concatStringsSep " " [
+            "forecast=$(curl -sf 'https://wttr.in/?QnT' 2>/dev/null || echo 'Forecast unavailable');"
+            "notify-send -a 'Weather' '󰃭 3-Day Forecast' \"$forecast\" -t 20000"
+          ];
         };
 
         # Spotify-specific module
@@ -455,7 +467,7 @@
 
         # Clipboard
         "custom/clipboard" = {
-          format = "󱉫";
+          format = "󱉫 ";
           tooltip = true;
           tooltip-format = "󱉫 Clipboard History";
           on-click = "cliphist list | rofi -dmenu -p '󱉫 Clipboard' | cliphist decode | wl-copy";
@@ -464,7 +476,7 @@
 
         # Screenshot
         "custom/screenshot" = {
-          format = "󰄀";
+          format = "󰄀 ";
           tooltip = true;
           tooltip-format = "󰄀 Screenshot\n\n Left: Region\n Right: Full Screen";
           on-click = "grim -g \"$(slurp)\" - | wl-copy && notify-send '󰄀 Screenshot' 'Region copied to clipboard'";
@@ -473,7 +485,7 @@
 
         # Color picker
         "custom/colorpicker" = {
-          format = "󰏘";
+          format = "󰏘 ";
           tooltip = true;
           tooltip-format = "󰏘 Color Picker";
           on-click = "hyprpicker -a -n";
@@ -488,8 +500,8 @@
             capslock = "󰘲 {icon}";
           };
           format-icons = {
-            locked = "󰔒";
-            unlocked = "󰨙";
+            locked = "󰔒 ";
+            unlocked = "󰨙 ";
           };
         };
 

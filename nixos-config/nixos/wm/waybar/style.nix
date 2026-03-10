@@ -566,11 +566,11 @@ in ''
   }
 
   #taskbar button {
-    padding: 3px 10px;
+    padding: 3px 20px;
     margin: 2px 3px;
     border-radius: 8px;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    min-width: 30px;
+    min-width: 20px;
     background: transparent;
   }
 
