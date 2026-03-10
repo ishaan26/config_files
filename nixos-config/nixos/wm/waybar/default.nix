@@ -24,16 +24,15 @@
         # Module layout
         modules-left = [
           "custom/logo"
+          "custom/separator"
           "clock"
           "custom/separator"
           "mpris"
           "custom/separator"
-          "niri/window"
           "hyprland/window"
         ];
 
         modules-center = [
-          "niri/workspaces"
           "hyprland/workspaces"
         ];
 
@@ -150,47 +149,16 @@
         # CENTER MODULES
         # ============================================================
 
-        # Workspaces - Niri
-        "niri/workspaces" = {
-          format = "{icon}";
-          format-icons = {
-            "1" = "󰲠 ";
-            "2" = "󰲢 ";
-            "3" = "󰲤 ";
-            "4" = "󰲦 ";
-            "5" = "󰲨 ";
-            "6" = "󰲪 ";
-            "7" = "󰲬 ";
-            "8" = "󰲮 ";
-            "9" = "󰲰 ";
-            "10" = "󰿬 ";
-            focused = "󰮯 ";
-            default = "󰊠 ";
-            urgent = "󰀨 ";
-          };
-          persistent-workspaces = {
-            "1" = [ ];
-            "2" = [ ];
-            "3" = [ ];
-            "4" = [ ];
-            "5" = [ ];
-          };
-        };
-
         # Workspaces - Hyprland
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "󰲠 ";
-            "2" = "󰲢 ";
-            "3" = "󰲤 ";
-            "4" = "󰲦 ";
-            "5" = "󰲨 ";
-            "6" = "󰲪 ";
-            "7" = "󰲬 ";
-            "8" = "󰲮 ";
-            "9" = "󰲰 ";
-            "10" = "󰿬 ";
+            "1" = "󰇊 ";
+            "2" = "󰇋 ";
+            "3" = "󰇌 ";
+            "4" = "󰇍 ";
+            "5" = "󰇎 ";
+            "6" = "󰇏 ";
             active = "󰮯 ";
             default = "󰊠 ";
             urgent = "󰀨 ";
@@ -201,6 +169,7 @@
             "3" = [ ];
             "4" = [ ];
             "5" = [ ];
+            "6" = [ ];
           };
           on-click = "activate";
           on-scroll-up = "hyprctl dispatch workspace e-1";
@@ -424,10 +393,10 @@
       secondaryBar = {
         layer = "top";
         position = "bottom";
-        height = 32;
+        height = 36;
         margin-left = 32;
         margin-right = 32;
-        margin-bottom = 8;
+        margin-bottom = 6;
         spacing = 0;
 
         modules-left = [
@@ -455,6 +424,7 @@
           format = "{}";
           interval = 1800;
           exec = "curl -s 'wttr.in/?format=1' 2>/dev/null || echo '󰖐 N/A'";
+          tooltip = true;
           tooltip-format = "{}";
           on-click = "xdg-open 'https://wttr.in'";
         };
@@ -464,9 +434,13 @@
           format = "󰓇 {}";
           max-length = 40;
           interval = 1;
-          exec = "playerctl -p spotify metadata --format '{{artist}} - {{title}}' 2>/dev/null || echo ''";
+          exec = "playerctl -p spotify metadata --format '{{artist}} — {{title}}' 2>/dev/null || echo ''";
+          exec-if = "pgrep spotify";
           on-click = "playerctl -p spotify play-pause";
           on-click-right = "playerctl -p spotify next";
+          on-click-middle = "playerctl -p spotify previous";
+          on-scroll-up = "playerctl -p spotify volume 0.05+";
+          on-scroll-down = "playerctl -p spotify volume 0.05-";
         };
 
         # Taskbar
@@ -476,27 +450,32 @@
           tooltip-format = "{title}";
           on-click = "activate";
           on-click-middle = "close";
+          on-click-right = "minimize-raise";
         };
 
         # Clipboard
         "custom/clipboard" = {
-          format = "󰅍";
-          tooltip-format = "󰅍 Clipboard History";
-          on-click = "cliphist list | rofi -dmenu -p '󰅍 Clipboard' | cliphist decode | wl-copy";
+          format = "󱉫";
+          tooltip = true;
+          tooltip-format = "󱉫 Clipboard History";
+          on-click = "cliphist list | rofi -dmenu -p '󱉫 Clipboard' | cliphist decode | wl-copy";
+          on-click-right = "cliphist wipe && notify-send '󱉫 Clipboard' 'History cleared'";
         };
 
         # Screenshot
         "custom/screenshot" = {
-          format = "󰹑";
-          tooltip-format = "󰹑 Screenshot\n\nLeft: Region\nRight: Full Screen";
-          on-click = "grim -g \"$(slurp)\" - | wl-copy && notify-send 'Screenshot' 'Copied to clipboard'";
-          on-click-right = "grim - | wl-copy && notify-send 'Screenshot' 'Full screen copied to clipboard'";
+          format = "󰄀";
+          tooltip = true;
+          tooltip-format = "󰄀 Screenshot\n\n Left: Region\n Right: Full Screen";
+          on-click = "grim -g \"$(slurp)\" - | wl-copy && notify-send '󰄀 Screenshot' 'Region copied to clipboard'";
+          on-click-right = "grim - | wl-copy && notify-send '󰄀 Screenshot' 'Full screen copied to clipboard'";
         };
 
         # Color picker
         "custom/colorpicker" = {
-          format = "󰴱";
-          tooltip-format = "󰴱 Color Picker";
+          format = "󰏘";
+          tooltip = true;
+          tooltip-format = "󰏘 Color Picker";
           on-click = "hyprpicker -a -n";
         };
 
@@ -515,7 +494,7 @@
         };
 
         "custom/separator" = {
-          format = "│";
+          format = "·";
           interval = "once";
           tooltip = false;
         };
