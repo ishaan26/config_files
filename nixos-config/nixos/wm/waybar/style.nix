@@ -24,7 +24,7 @@ in ''
     border: none;
     border-radius: 0;
     font-family: "ZedMono Nerd Font", "Symbols Nerd Font Mono", monospace;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     min-height: 0;
     margin: 0;
@@ -49,8 +49,9 @@ in ''
 
   /* Secondary bar styling */
   window#waybar.bottom > box {
-    border-radius: 12px;
-    background-color: alpha(@base00, 0.9);
+    border-radius: 14px;
+    background-color: alpha(@base00, 0.88);
+    border: 1px solid alpha(@base04, 0.08);
   }
 
   /* ============================================================
@@ -116,7 +117,6 @@ in ''
     margin: 4px 2px;
     background-color: alpha(@base08, 0.1);
     border-radius: 10px;
-    border-left: 3px solid @base08;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -141,9 +141,9 @@ in ''
     color: @base04;
     border-radius: 10px;
     margin: 2px;
-    font-size: 16px;
+    font-size: 20px;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    min-width: 32px;
+    min-width: 36px;
     background: transparent;
   }
 
@@ -157,10 +157,9 @@ in ''
     background-color: @base0D;
     color: @base00;
     font-weight: bold;
-    box-shadow: inset 0 -3px transparent;
     text-shadow: none;
     border: none;
-    border-bottom: none;
+    box-shadow: none;
     background-image: none;
   }
 
@@ -304,7 +303,6 @@ in ''
   /* CPU */
   #cpu {
     color: @base0D;
-    background-color: alpha(@base0D, 0.1);
   }
 
   #cpu:hover {
@@ -324,7 +322,6 @@ in ''
   /* Memory */
   #memory {
     color: @base0E;
-    background-color: alpha(@base0E, 0.1);
   }
 
   #memory:hover {
@@ -334,7 +331,6 @@ in ''
   /* Disk */
   #disk {
     color: @base0A;
-    background-color: alpha(@base0A, 0.1);
   }
 
   #disk:hover {
@@ -344,7 +340,6 @@ in ''
   /* Temperature */
   #temperature {
     color: @base0C;
-    background-color: alpha(@base0C, 0.1);
   }
 
   #temperature:hover {
@@ -380,7 +375,6 @@ in ''
   /* Network */
   #network {
     color: @base0B;
-    background-color: alpha(@base0B, 0.1);
   }
 
   #network:hover {
@@ -399,7 +393,6 @@ in ''
   /* Bluetooth */
   #bluetooth {
     color: @base0D;
-    background-color: alpha(@base0D, 0.1);
   }
 
   #bluetooth:hover {
@@ -420,7 +413,6 @@ in ''
   /* PulseAudio */
   #pulseaudio {
     color: @base09;
-    background-color: alpha(@base09, 0.1);
   }
 
   #pulseaudio:hover {
@@ -440,7 +432,6 @@ in ''
   /* Microphone */
   #pulseaudio.microphone {
     color: @base0E;
-    background-color: alpha(@base0E, 0.1);
   }
 
   #pulseaudio.source-muted {
@@ -530,33 +521,57 @@ in ''
   /* Weather */
   #custom-weather {
     color: @base0D;
-    padding: 2px 14px;
-    margin: 2px 4px;
+    padding: 4px 14px;
+    margin: 3px 4px 3px 8px;
     font-size: 13px;
+    font-weight: 600;
     background-color: alpha(@base0D, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
+    border: 1px solid alpha(@base0D, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #custom-weather:hover {
+    background-color: alpha(@base0D, 0.2);
+    border-color: alpha(@base0D, 0.15);
   }
 
   /* Spotify */
   #custom-spotify {
     color: @base0B;
-    padding: 2px 12px;
-    margin: 2px 4px;
+    padding: 4px 14px;
+    margin: 3px 4px;
     font-size: 13px;
+    font-weight: 500;
     font-style: italic;
+    background-color: alpha(@base0B, 0.08);
+    border-radius: 10px;
+    border: 1px solid alpha(@base0B, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #custom-spotify:hover {
+    background-color: alpha(@base0B, 0.18);
+    border-color: alpha(@base0B, 0.12);
+    font-style: normal;
   }
 
   /* Taskbar */
   #taskbar {
-    background: transparent;
-    padding: 0 8px;
+    background-color: alpha(@base01, 0.3);
+    border-radius: 10px;
+    padding: 2px 8px;
+    margin: 3px 6px;
+    border: 1px solid alpha(@base04, 0.06);
   }
 
   #taskbar button {
-    padding: 4px 8px;
-    margin: 2px;
+    padding: 3px 20px;
+    margin: 2px 3px;
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 20px;
+    background: transparent;
   }
 
   #taskbar button:hover {
@@ -565,59 +580,86 @@ in ''
 
   #taskbar button.active {
     background-color: alpha(@base0D, 0.25);
+    border-radius: 8px;
   }
+
+  /* --- Utility Tools Group --- */
 
   /* Clipboard */
   #custom-clipboard {
     color: @base0E;
-    padding: 2px 12px;
+    padding: 4px 12px;
+    margin: 3px 2px;
     font-size: 15px;
-    transition: all 0.2s ease;
+    background-color: alpha(@base0E, 0.08);
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #custom-clipboard:hover {
-    background-color: alpha(@base0E, 0.1);
-    border-radius: 6px;
+    background-color: alpha(@base0E, 0.18);
+    color: @base06;
   }
 
   /* Screenshot */
   #custom-screenshot {
     color: @base0C;
-    padding: 2px 12px;
+    padding: 4px 12px;
+    margin: 3px 2px;
     font-size: 15px;
-    transition: all 0.2s ease;
+    background-color: alpha(@base0C, 0.08);
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #custom-screenshot:hover {
-    background-color: alpha(@base0C, 0.1);
-    border-radius: 6px;
+    background-color: alpha(@base0C, 0.18);
+    color: @base06;
   }
 
   /* Color Picker */
   #custom-colorpicker {
     color: @base0A;
-    padding: 2px 12px;
+    padding: 4px 12px;
+    margin: 3px 2px 3px 2px;
     font-size: 15px;
-    transition: all 0.2s ease;
+    background-color: alpha(@base0A, 0.08);
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #custom-colorpicker:hover {
-    background-color: alpha(@base0A, 0.1);
-    border-radius: 6px;
+    background-color: alpha(@base0A, 0.18);
+    color: @base06;
+  }
+
+  /* Bottom bar separator override */
+  window#waybar.bottom #custom-separator {
+    color: alpha(@base04, 0.1);
+    padding: 0 2px;
+    font-size: 10px;
+    opacity: 0.6;
   }
 
   /* Keyboard State */
   #keyboard-state {
-    padding: 2px 12px;
-    margin: 2px 4px;
+    padding: 4px 12px;
+    margin: 3px 8px 3px 4px;
+    background-color: alpha(@base02, 0.3);
+    border-radius: 10px;
+    border: 1px solid alpha(@base04, 0.06);
   }
 
   #keyboard-state label {
     color: @base03;
     font-size: 13px;
+    font-weight: 500;
+    padding: 0 4px;
+    transition: all 0.3s ease;
   }
 
   #keyboard-state label.locked {
     color: @base08;
+    text-shadow: 0 0 6px alpha(@base08, 0.3);
   }
 ''

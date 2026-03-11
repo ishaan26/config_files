@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -10,7 +11,7 @@
       "$browser" = "firefox";
 
       # Monitor configuration
-      monitor = [",preferred,auto,1"];
+      monitor = [ ",preferred,auto,1" ];
 
       # General settings - Catppuccin Mocha
       general = {
@@ -84,7 +85,9 @@
       };
 
       # Master layout
-      master = {new_status = "master";};
+      master = {
+        new_status = "master";
+      };
 
       # Misc
       misc = {
@@ -96,17 +99,20 @@
       };
 
       # Startup applications
-      exec-once = ["waybar" "mako"];
+      exec-once = [
+        "waybar"
+        "mako"
+      ];
 
       # Window rules
-      windowrulev2 = [
-        "float,class:^(pavucontrol)$"
-        "float,class:^(nm-connection-editor)$"
-        "float,class:^(blueman-manager)$"
-        "float,title:^(Picture-in-Picture)$"
-        "float,class:^(xdg-desktop-portal-gtk)$"
-        "opacity 0.9 0.85,class:^(ghostty)$"
-      ];
+      # windowrulev2 = [
+      #   "float,class:^(pavucontrol)$"
+      #   "float,class:^(nm-connection-editor)$"
+      #   "float,class:^(blueman-manager)$"
+      #   "float,title:^(Picture-in-Picture)$"
+      #   "float,class:^(xdg-desktop-portal-gtk)$"
+      #   "opacity 0.9 0.85,class:^(ghostty)$"
+      # ];
 
       # Keybindings
       bind = [
@@ -169,8 +175,7 @@
         "$mod, R, submap, resize"
 
         # Screenshots
-        ''
-          , Print, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png''
+        '', Print, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png''
         "CTRL, Print, exec, grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
         ''$mod SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy''
 
@@ -216,9 +221,15 @@
       ];
 
       # Mouse bindings
-      bindm = ["$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow"];
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
 
-      layerrule = ["blur on, match:namespace waybar" "blur on, match:namespace rofi"];
+      layerrule = [
+        "blur on, match:namespace waybar"
+        "blur on, match:namespace rofi"
+      ];
     };
 
     # Extra config for resize submap

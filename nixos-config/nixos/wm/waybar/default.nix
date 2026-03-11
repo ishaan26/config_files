@@ -24,16 +24,15 @@
         # Module layout
         modules-left = [
           "custom/logo"
+          "custom/separator"
           "clock"
           "custom/separator"
           "mpris"
           "custom/separator"
-          "niri/window"
           "hyprland/window"
         ];
 
         modules-center = [
-          "niri/workspaces"
           "hyprland/workspaces"
         ];
 
@@ -150,47 +149,16 @@
         # CENTER MODULES
         # ============================================================
 
-        # Workspaces - Niri
-        "niri/workspaces" = {
-          format = "{icon}";
-          format-icons = {
-            "1" = "󰲠 ";
-            "2" = "󰲢 ";
-            "3" = "󰲤 ";
-            "4" = "󰲦 ";
-            "5" = "󰲨 ";
-            "6" = "󰲪 ";
-            "7" = "󰲬 ";
-            "8" = "󰲮 ";
-            "9" = "󰲰 ";
-            "10" = "󰿬 ";
-            focused = "󰮯 ";
-            default = "󰊠 ";
-            urgent = "󰀨 ";
-          };
-          persistent-workspaces = {
-            "1" = [ ];
-            "2" = [ ];
-            "3" = [ ];
-            "4" = [ ];
-            "5" = [ ];
-          };
-        };
-
         # Workspaces - Hyprland
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "󰲠 ";
-            "2" = "󰲢 ";
-            "3" = "󰲤 ";
-            "4" = "󰲦 ";
-            "5" = "󰲨 ";
-            "6" = "󰲪 ";
-            "7" = "󰲬 ";
-            "8" = "󰲮 ";
-            "9" = "󰲰 ";
-            "10" = "󰿬 ";
+            "1" = "󰇊 ";
+            "2" = "󰇋 ";
+            "3" = "󰇌 ";
+            "4" = "󰇍 ";
+            "5" = "󰇎 ";
+            "6" = "󰇏 ";
             active = "󰮯 ";
             default = "󰊠 ";
             urgent = "󰀨 ";
@@ -201,6 +169,7 @@
             "3" = [ ];
             "4" = [ ];
             "5" = [ ];
+            "6" = [ ];
           };
           on-click = "activate";
           on-scroll-up = "hyprctl dispatch workspace e-1";
@@ -242,18 +211,32 @@
           ];
         };
 
+        temperature = {
+          format = "{icon} {temperatureC}󰔄 ";
+          hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+          format-icons = [
+            " "
+            ""
+            ""
+            ""
+            ""
+          ];
+          critical-threshold = 80;
+          tooltip-format = " CPU Temperature: {temperatureC}°C / {temperatureF}°F";
+        };
+
         cpu = {
           format = "  {usage}%";
           interval = 2;
           tooltip-format = "  CPU Usage: {usage}%\n󱛡 Load: {load}\n Processes: {processes}";
-          on-click = "alacritty -e btop";
+          on-click = "alacritty -e btm";
         };
 
         memory = {
           format = "  {percentage}%";
           interval = 5;
           tooltip-format = "  RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)\n  Swap: {swapUsed:0.1f}GiB / {swapTotal:0.1f}GiB ({swapPercentage}%)";
-          on-click = "alacritty -e btop";
+          on-click = "alacritty -e btm";
         };
 
         disk = {
@@ -262,19 +245,6 @@
           path = "/";
           tooltip-format = "󰋊 Disk Usage: {used} / {total} ({percentage_used}%)\n Free: {free}";
           on-click = "nautilus";
-        };
-
-        temperature = {
-          format = "{icon} {temperatureC}°C";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
-          critical-threshold = 80;
-          tooltip-format = " CPU Temperature: {temperatureC}°C / {temperatureF}°F";
         };
 
         # System group (Network, Bluetooth, Audio, Backlight, Battery)
@@ -423,10 +393,10 @@
       secondaryBar = {
         layer = "top";
         position = "bottom";
-        height = 32;
+        height = 36;
         margin-left = 32;
         margin-right = 32;
-        margin-bottom = 8;
+        margin-bottom = 6;
         spacing = 0;
 
         modules-left = [
@@ -449,13 +419,26 @@
           "keyboard-state"
         ];
 
-        # Weather module
+        # Weather module (widget via notify-send)
         "custom/weather" = {
           format = "{}";
+          return-type = "json";
           interval = 1800;
-          exec = "curl -s 'wttr.in/?format=1' 2>/dev/null || echo '󰖐 N/A'";
-          tooltip-format = "{}";
-          on-click = "xdg-open 'https://wttr.in'";
+          exec = builtins.concatStringsSep " " [
+            "text=$(curl -sf 'https://wttr.in/?format=%c+%t' 2>/dev/null);"
+            "tip=$(curl -sf 'https://wttr.in/?format=%c+%C+%t\\n󰖝+%w++%h\\n󰖐+%p++UV:+%u\\n\\n󰃭+Forecast:\\n%f+feels+like\\n󰖙+Sunrise:+%S+·+Sunset:+%s' 2>/dev/null);"
+            "if [ -z \"$text\" ]; then text='󰖐 N/A'; tip='Weather unavailable'; fi;"
+            "echo '{\"text\":\"'\"$text\"'\",\"tooltip\":\"'\"$tip\"'\"}'"
+          ];
+          tooltip = true;
+          on-click = builtins.concatStringsSep " " [
+            "detail=$(curl -sf 'https://wttr.in/?0QnT' 2>/dev/null || echo 'Weather data unavailable');"
+            "notify-send -a 'Weather' '󰖐 Weather' \"$detail\" -t 15000"
+          ];
+          on-click-right = builtins.concatStringsSep " " [
+            "forecast=$(curl -sf 'https://wttr.in/?QnT' 2>/dev/null || echo 'Forecast unavailable');"
+            "notify-send -a 'Weather' '󰃭 3-Day Forecast' \"$forecast\" -t 20000"
+          ];
         };
 
         # Spotify-specific module
@@ -463,9 +446,13 @@
           format = "󰓇 {}";
           max-length = 40;
           interval = 1;
-          exec = "playerctl -p spotify metadata --format '{{artist}} - {{title}}' 2>/dev/null || echo ''";
+          exec = "playerctl -p spotify metadata --format '{{artist}} — {{title}}' 2>/dev/null || echo ''";
+          exec-if = "pgrep spotify";
           on-click = "playerctl -p spotify play-pause";
           on-click-right = "playerctl -p spotify next";
+          on-click-middle = "playerctl -p spotify previous";
+          on-scroll-up = "playerctl -p spotify volume 0.05+";
+          on-scroll-down = "playerctl -p spotify volume 0.05-";
         };
 
         # Taskbar
@@ -475,27 +462,32 @@
           tooltip-format = "{title}";
           on-click = "activate";
           on-click-middle = "close";
+          on-click-right = "minimize-raise";
         };
 
         # Clipboard
         "custom/clipboard" = {
-          format = "󰅍";
-          tooltip-format = "󰅍 Clipboard History";
-          on-click = "cliphist list | rofi -dmenu -p '󰅍 Clipboard' | cliphist decode | wl-copy";
+          format = "󱉫 ";
+          tooltip = true;
+          tooltip-format = "󱉫 Clipboard History";
+          on-click = "cliphist list | rofi -dmenu -p '󱉫 Clipboard' | cliphist decode | wl-copy";
+          on-click-right = "cliphist wipe && notify-send '󱉫 Clipboard' 'History cleared'";
         };
 
         # Screenshot
         "custom/screenshot" = {
-          format = "󰹑";
-          tooltip-format = "󰹑 Screenshot\n\nLeft: Region\nRight: Full Screen";
-          on-click = "grim -g \"$(slurp)\" - | wl-copy && notify-send 'Screenshot' 'Copied to clipboard'";
-          on-click-right = "grim - | wl-copy && notify-send 'Screenshot' 'Full screen copied to clipboard'";
+          format = "󰄀 ";
+          tooltip = true;
+          tooltip-format = "󰄀 Screenshot\n\n Left: Region\n Right: Full Screen";
+          on-click = "grim -g \"$(slurp)\" - | wl-copy && notify-send '󰄀 Screenshot' 'Region copied to clipboard'";
+          on-click-right = "grim - | wl-copy && notify-send '󰄀 Screenshot' 'Full screen copied to clipboard'";
         };
 
         # Color picker
         "custom/colorpicker" = {
-          format = "󰴱";
-          tooltip-format = "󰴱 Color Picker";
+          format = "󰏘 ";
+          tooltip = true;
+          tooltip-format = "󰏘 Color Picker";
           on-click = "hyprpicker -a -n";
         };
 
@@ -508,13 +500,13 @@
             capslock = "󰘲 {icon}";
           };
           format-icons = {
-            locked = "󰔒";
-            unlocked = "󰨙";
+            locked = "󰔒 ";
+            unlocked = "󰨙 ";
           };
         };
 
         "custom/separator" = {
-          format = "│";
+          format = "·";
           interval = "once";
           tooltip = false;
         };
