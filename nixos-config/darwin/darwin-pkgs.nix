@@ -54,6 +54,7 @@
       "notion"
       "notion-calendar"
       "qbittorrent"
+      "spacedrive"
     ];
 
     # CLI tools not in nixpkgs

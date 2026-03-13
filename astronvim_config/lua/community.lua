@@ -19,12 +19,8 @@ return {
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.pack.zig" },
 	{ import = "astrocommunity.pack.cpp" },
-<<<<<<< HEAD
-||||||| f6d4ef1
-	{ import = "astrocommunity.pack.python-ruff" },
-=======
 	{ import = "astrocommunity.pack.python" },
->>>>>>> refs/remotes/origin/main
+	{ import = "astrocommunity.pack.python" },
 	{ import = "astrocommunity.pack.bash" },
 	{ import = "astrocommunity.pack.markdown" },
 	{ import = "astrocommunity.pack.typst" },
