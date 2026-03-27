@@ -18,6 +18,9 @@
       rustup
       cargo-update
 
+      # Go
+      go
+
       # Web
       nodejs
       bun
