@@ -57,9 +57,10 @@
       "spacedrive"
     ];
 
-    # CLI tools not in nixpkgs
+    # CLI tools 
     brews = [
       "imageoptim-cli"
+      "neovim"
     ];
   };
 
