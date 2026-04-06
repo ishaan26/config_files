@@ -26,6 +26,8 @@ return {
 	-----------------
 	-- Tools
 	-----------------
+	-- ai
+	{ import = "astrocommunity.ai.copilotchat-nvim" },
 
 	-- Generate comment shortcut
 	{ import = "astrocommunity.editing-support.neogen" },

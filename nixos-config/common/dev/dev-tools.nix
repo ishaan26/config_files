@@ -24,7 +24,6 @@
       # Web
       nodejs
       bun
-      deno
       svelte-language-server
 
       # Python - basic installation

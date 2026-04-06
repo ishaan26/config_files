@@ -3,16 +3,18 @@ return {
 		"mrcjkb/rustaceanvim",
 		version = "^8", -- Recommended
 		lazy = false, -- This plugin is already lazy
-		opts = {
-			tools = {
-				hover_action = {
-					replace_builtin_hover = false,
+		config = function()
+			vim.g.rustaceanvim = {
+				tools = {
+					hover_action = {
+						replace_builtin_hover = false,
+					},
+					float_win_config = {
+						border = "rounded",
+					},
 				},
-				float_win_config = {
-					border = "rounded",
-				},
-			},
-		},
+			}
+		end,
 	},
 	{
 		"AstroNvim/astrolsp",

@@ -58,6 +58,22 @@ return {
             local npairs = require "nvim-autopairs"
             local Rule = require "nvim-autopairs.rule"
             local cond = require "nvim-autopairs.conds"
+
+            -- Remove the default < > rule and re-add it only for filetypes where it
+            -- doesn't cause issues. In Rust and TypeScript < is used as a comparison
+            -- operator and for generics/JSX, so auto-pairing it moves the cursor
+            -- outside the brackets unexpectedly.
+            npairs.remove_rule "<"
+            npairs.add_rules {
+                Rule("<", ">"):with_pair(function(opts)
+                    local ft = vim.bo[opts.bufnr].filetype
+                    return ft ~= "rust"
+                        and ft ~= "typescript"
+                        and ft ~= "typescriptreact"
+                        and ft ~= "tsx"
+                end),
+            }
+
             npairs.add_rules(
                 {
                     Rule("$", "$", { "tex", "latex" })

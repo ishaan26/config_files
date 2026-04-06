@@ -43,6 +43,21 @@ return {
 		-- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
 		config = {
 			-- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
+			-- Disable call snippets so rust-analyzer / tsserver don't auto-insert ()
+			-- on function completions, which conflicts with nvim-autopairs also inserting ().
+			rust_analyzer = {
+				settings = {
+					["rust-analyzer"] = {
+						completion = { callable = { snippets = "none" } },
+					},
+				},
+			},
+			ts_ls = {
+				settings = {
+					typescript = { suggest = { completeFunctionCalls = false } },
+					javascript = { suggest = { completeFunctionCalls = false } },
+				},
+			},
 		},
 		-- customize how language servers are attached
 		handlers = {
