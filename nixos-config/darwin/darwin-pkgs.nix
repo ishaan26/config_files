@@ -55,9 +55,11 @@
       "notion-calendar"
       "qbittorrent"
       "spacedrive"
+      "orbstack"
+      "keka"
     ];
 
-    # CLI tools 
+    # CLI tools
     brews = [
       "imageoptim-cli"
       "neovim"
