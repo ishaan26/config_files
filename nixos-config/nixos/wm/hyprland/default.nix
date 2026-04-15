@@ -122,7 +122,7 @@
         "$mod, E, exec, $fileManager"
         "$mod, B, exec, $browser"
         "$mod, Q, killactive"
-        "$mod ALT, L, exec, swaylock"
+        "$mod ALT, L, exec, loginctl lock-session"
         "$mod ALT, W, exec, systemctl --user start awww-rotation.service"
 
         # Vim-style focus navigation (matching Niri)

@@ -7,7 +7,7 @@
     ./waybar
     ./rofi
     ./mako.nix
-    ./swaylock.nix
+    ./hyprlock.nix
     ./common.nix
     ./awww.nix
     # NOTE: The following settings are controlled by stylix
