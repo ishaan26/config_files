@@ -2,14 +2,11 @@
   pkgs,
   lib,
   ...
-}:
-# Ghostty is not available on nix darwin as of yet
-lib.mkIf pkgs.stdenv.isLinux {
-  home.packages = with pkgs; [ghostty];
-
+}: {
   programs.ghostty = {
     enable = true;
-    settings = {
+    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+    settings = lib.mkMerge [{
       bold-is-bright = true;
       selection-invert-fg-bg = true;
 
@@ -47,6 +44,14 @@ lib.mkIf pkgs.stdenv.isLinux {
 
       # Keybindings
       keybind = ["cmd+s>r=reload_config" "cmd+s>x=close_surface"];
-    };
+    }
+    (lib.optionalAttrs pkgs.stdenv.isDarwin {
+      font-size = 16;
+      window-decoration = true;
+      macos-option-as-alt = true;
+      macos-auto-secure-input = true;
+      quit-after-last-window-closed = true;
+      background-opacity = 0.9;
+    })];
   };
 }

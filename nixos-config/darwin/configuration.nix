@@ -51,7 +51,7 @@
           "/Applications/Microsoft Excel.app"
           "/System/Applications/Notes.app"
           "/System/Applications/App Store.app"
-          "/Users/ishaan/Applications/Home Manager Apps/WezTerm.app"
+          "/Users/ishaan/Applications/Home Manager Apps/Ghostty.app"
           "/System/Applications/System Settings.app"
         ];
       };
@@ -70,7 +70,7 @@
         ApplePressAndHoldEnabled = false;
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
-        AppleShowAllFiles = true;
+        AppleShowAllFiles = false;
         AppleShowScrollBars = "Automatic";
         NSDocumentSaveNewDocumentsToCloud = false;
         NSNavPanelExpandedStateForSaveMode2 = true;

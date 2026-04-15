@@ -22,11 +22,6 @@
 
     # Mac App Store apps (requires you to be signed in to the App Store)
     masApps = {
-      "Microsoft Excel" = 462058435;
-      "Microsoft Word" = 462054704;
-      "Microsoft PowerPoint" = 462062816;
-      "Onedrive" = 823766827;
-
       "Dropover" = 1355679052;
       "WhatsApp Messenger" = 310633997;
 
