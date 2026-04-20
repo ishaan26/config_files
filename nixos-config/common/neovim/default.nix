@@ -234,7 +234,14 @@ in {
     vimAlias = true;
     withNodeJs = true;
     withPython3 = true;
+    # Silence the stateVersion < 26.05 deprecation warning
+    withRuby = false;
   };
+
+  # HM now generates its own init.lua and tries to link it to ~/.config/nvim/init.lua.
+  # This would clobber AstroNvim's init.lua, so we tell HM not to manage that file.
+  # AstroNvim owns ~/.config/nvim entirely; we only manage lua/ and colors/ via activation.
+  xdg.configFile."nvim/init.lua".enable = lib.mkForce false;
 
   # Setup AstroNvim
   # 1. Clone AstroNvim template if not present
