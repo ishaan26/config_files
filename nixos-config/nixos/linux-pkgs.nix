@@ -14,6 +14,10 @@
     gimp
     krita
 
+    # Editors
+    antigravity
+    vscode
+
     # Utilities
     kdePackages.dolphin
     kdePackages.dolphin-plugins

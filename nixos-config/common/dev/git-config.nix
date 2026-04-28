@@ -63,6 +63,12 @@
       };
 
       interactive = {diffFilter = "delta --color-only";};
+      pager = {
+        diff = "delta";
+        log = "delta";
+        reflog = "delta";
+        show = "delta";
+      };
       init = {defaultBranch = "main";};
       github = {user = "ishaan26";};
       pull = {ff = "only";};

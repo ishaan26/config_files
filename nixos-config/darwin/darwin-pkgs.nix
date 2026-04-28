@@ -35,9 +35,7 @@
       "bitwarden"
       "discord"
       "imageoptim"
-      "github"
       "logi-options+"
-      "zed"
       "google-drive"
       "macs-fan-control"
       "stats"
@@ -50,8 +48,14 @@
       "notion-calendar"
       "qbittorrent"
       "spacedrive"
-      "orbstack"
       "keka"
+
+      # Developer tools
+      "github"
+      "orbstack"
+      "antigravity"
+      "visual-studio-code"
+      "zed"
     ];
 
     # CLI tools

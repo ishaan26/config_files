@@ -6,12 +6,6 @@
   home.packages = with pkgs;
     [
       #####################################
-      # Editors
-      #####################################
-      antigravity
-      vscode
-
-      #####################################
       # Language tools
       #####################################
       # Rust
@@ -36,6 +30,9 @@
       nixd
       deadnix
       statix
+
+      # Java (For Android development)
+      jdk21
 
       #####################################
       # Cli tools
