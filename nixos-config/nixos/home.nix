@@ -23,6 +23,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Silence GTK4 theme warning while keeping legacy Stylix theming behavior
+  gtk.gtk4.theme = config.gtk.theme;
+
   # Astronvim cannot be replaced
   stylix.targets.neovim.enable = false;
 

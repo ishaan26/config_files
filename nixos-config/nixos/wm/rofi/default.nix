@@ -1,7 +1,14 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
-let inherit (config.lib.formats.rasi) mkLiteral;
-in {
+let
+  inherit (config.lib.formats.rasi) mkLiteral;
+in
+{
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
@@ -36,11 +43,13 @@ in {
 
     # Incredible Grid Layout
     theme = {
-      "*" = { font = "${config.stylix.fonts.monospace.name} 12"; };
+      "*" = {
+        font = "${config.stylix.fonts.monospace.name} 12";
+      };
 
       window = {
         width = mkLiteral "45%";
-      #  height = mkLiteral "55%"; # Dynamic height? Fixed looks cleaner for grid
+        #  height = mkLiteral "55%"; # Dynamic height? Fixed looks cleaner for grid
         location = mkLiteral "center";
         anchor = mkLiteral "center";
         border = mkLiteral "2px solid";
@@ -49,13 +58,20 @@ in {
       };
 
       mainbox = {
-        children = map (x: mkLiteral x) [ "inputbar" "message" "listview" ];
+        children = map (x: mkLiteral x) [
+          "inputbar"
+          "message"
+          "listview"
+        ];
         spacing = mkLiteral "20px";
         padding = mkLiteral "20px";
       };
 
       inputbar = {
-        children = map (x: mkLiteral x) [ "prompt" "entry" ];
+        children = map (x: mkLiteral x) [
+          "prompt"
+          "entry"
+        ];
         border-radius = mkLiteral "12px";
         padding = mkLiteral "14px";
         spacing = mkLiteral "12px";
@@ -90,7 +106,7 @@ in {
         spacing = mkLiteral "10px";
         border-radius = mkLiteral "12px";
         cursor = mkLiteral "pointer";
-        background-color = mkLiteral "transparent"; 
+        background-color = mkLiteral "transparent";
       };
 
       "element normal.normal" = {
@@ -115,8 +131,7 @@ in {
       element-text = {
         horizontal-align = mkLiteral "0.5";
         vertical-align = mkLiteral "0.5";
-        font =
-          "${config.stylix.fonts.monospace.name} Medium 11"; # Slightly smaller but cleaner for grid labels
+        font = "${config.stylix.fonts.monospace.name} Medium 11"; # Slightly smaller but cleaner for grid labels
         cursor = mkLiteral "inherit";
       };
 

@@ -21,123 +21,128 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nix-darwin,
-    home-manager,
-    stylix,
-    awww,
-    ...
-  }: let
-    # Function to create a NixOS configuration (Linux)
-    mkNixosSystem = {
-      hostName,
-      system,
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+      stylix,
+      awww,
+      ...
     }:
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./nixos/configuration.nix
-          stylix.nixosModules.stylix
-          {networking.hostName = hostName;}
-        ];
-      };
-
-    # Function to create a Darwin configuration (macOS)
-    mkDarwinSystem = {
-      hostName,
-      system,
-    }:
-      nix-darwin.lib.darwinSystem {
-        inherit system;
-        modules = [
-          ./darwin/configuration.nix
-          stylix.darwinModules.stylix
-          {
-            networking.hostName = hostName;
-            networking.computerName = hostName;
-            system.defaults.smb.NetBIOSName = hostName;
-          }
-        ];
-      };
-
-    # Function to create a standalone home-manager configuration
-    mkHomeConfig = {
-      system,
-      homeFile,
-      extraModules ? [],
-    }:
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
+    let
+      # Function to create a NixOS configuration (Linux)
+      mkNixosSystem =
+        {
+          hostName,
+          system,
+        }:
+        nixpkgs.lib.nixosSystem {
           inherit system;
-          config.allowUnfree = true;
+          modules = [
+            ./nixos/configuration.nix
+            stylix.nixosModules.stylix
+            { networking.hostName = hostName; }
+          ];
         };
 
-        extraSpecialArgs = {inherit awww;};
+      # Function to create a Darwin configuration (macOS)
+      mkDarwinSystem =
+        {
+          hostName,
+          system,
+        }:
+        nix-darwin.lib.darwinSystem {
+          inherit system;
+          modules = [
+            ./darwin/configuration.nix
+            stylix.darwinModules.stylix
+            {
+              networking.hostName = hostName;
+              networking.computerName = hostName;
+              system.defaults.smb.NetBIOSName = hostName;
+            }
+          ];
+        };
 
-        modules =
-          [
+      # Function to create a standalone home-manager configuration
+      mkHomeConfig =
+        {
+          system,
+          homeFile,
+          extraModules ? [ ],
+        }:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+
+          extraSpecialArgs = { inherit awww; };
+
+          modules = [
             homeFile
             # nvf.homeManagerModules.default
             stylix.homeModules.stylix
             ./common/stylix.nix
           ]
           ++ extraModules;
-      };
-  in {
-    # NixOS configurations (Linux)
-    nixosConfigurations = {
-      # Existing x86_64-linux machine
-      Paimon = mkNixosSystem {
-        hostName = "Paimon";
-        system = "x86_64-linux";
+        };
+    in
+    {
+      # NixOS configurations (Linux)
+      nixosConfigurations = {
+        # Existing x86_64-linux machine
+        Paimon = mkNixosSystem {
+          hostName = "Paimon";
+          system = "x86_64-linux";
+        };
+
+        # aarch64-linux machine (ARM Linux)
+        Vetala = mkNixosSystem {
+          hostName = "Vetala";
+          system = "aarch64-linux";
+        };
       };
 
-      # aarch64-linux machine (ARM Linux)
-      Vetala = mkNixosSystem {
-        hostName = "Vetala";
-        system = "aarch64-linux";
+      # Darwin configurations (macOS)
+      darwinConfigurations = {
+        # Apple Silicon Mac (M1/M2/M3)
+        Noir = mkDarwinSystem {
+          hostName = "Noir";
+          system = "aarch64-darwin";
+        };
+
+        # Intel Mac (if needed)
+        IntelMac = mkDarwinSystem {
+          hostName = "Urchin";
+          system = "x86_64-darwin";
+        };
+      };
+
+      # Add packages output for nh compatibility
+      packages = {
+        aarch64-darwin.Noir = self.darwinConfigurations.Noir.system;
+        x86_64-darwin.Urchin = self.darwinConfigurations.IntelMac.system;
+        x86_64-linux.Paimon = self.nixosConfigurations.Paimon.config.system.build.toplevel;
+        aarch64-linux.Vetala = self.nixosConfigurations.Vetala.config.system.build.toplevel;
+      };
+
+      # Standalone home-manager configurations
+      homeConfigurations = {
+        "ishaan@Paimon" = mkHomeConfig {
+          system = "x86_64-linux";
+          homeFile = ./nixos/home.nix;
+        };
+        "ishaan@Vetala" = mkHomeConfig {
+          system = "aarch64-linux";
+          homeFile = ./nixos/home.nix;
+        };
+        "ishaan@Noir" = mkHomeConfig {
+          system = "aarch64-darwin";
+          homeFile = ./darwin/home.nix;
+        };
       };
     };
-
-    # Darwin configurations (macOS)
-    darwinConfigurations = {
-      # Apple Silicon Mac (M1/M2/M3)
-      Noir = mkDarwinSystem {
-        hostName = "Noir";
-        system = "aarch64-darwin";
-      };
-
-      # Intel Mac (if needed)
-      IntelMac = mkDarwinSystem {
-        hostName = "Urchin";
-        system = "x86_64-darwin";
-      };
-    };
-
-    # Add packages output for nh compatibility
-    packages = {
-      aarch64-darwin.Noir = self.darwinConfigurations.Noir.system;
-      x86_64-darwin.Urchin = self.darwinConfigurations.IntelMac.system;
-      x86_64-linux.Paimon = self.nixosConfigurations.Paimon.config.system.build.toplevel;
-      aarch64-linux.Vetala = self.nixosConfigurations.Vetala.config.system.build.toplevel;
-    };
-
-    # Standalone home-manager configurations
-    homeConfigurations = {
-      "ishaan@Paimon" = mkHomeConfig {
-        system = "x86_64-linux";
-        homeFile = ./nixos/home.nix;
-      };
-      "ishaan@Vetala" = mkHomeConfig {
-        system = "aarch64-linux";
-        homeFile = ./nixos/home.nix;
-      };
-      "ishaan@Noir" = mkHomeConfig {
-        system = "aarch64-darwin";
-        homeFile = ./darwin/home.nix;
-      };
-    };
-  };
 }

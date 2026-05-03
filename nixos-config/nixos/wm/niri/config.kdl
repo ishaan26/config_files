@@ -25,7 +25,7 @@ input {
     }
 }
 
-// Layout settings - Catppuccin Mocha colors
+// Layout settings - colors injected by Stylix
 layout {
     gaps 20
     center-focused-column "never"
@@ -39,9 +39,10 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 1
-        active-color "#cba6f7"
-        inactive-color "#45475a"
+        on
+        width 2
+        // active-color "@activeColor@"
+        // inactive-color "@inactiveColor@"
     }
 
     border {
@@ -61,7 +62,7 @@ layout {
         softness 15
         spread 5
         offset x=10 y=15
-        draw-behind-window true
+        draw-behind-window false
         color "#000000A4"
         // inactive-color "#000000"
     }
@@ -73,7 +74,7 @@ prefer-no-csd
 
 // Window rules
 window-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 20
     clip-to-geometry true
 }
 
@@ -126,6 +127,7 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.gnome\.Nautilus$"#
     draw-border-with-background false
+    opacity 0.92
     background-effect {
         blur true
     }
@@ -166,6 +168,14 @@ window-rule {
 // Layer rules with background blur
 layer-rule {
     match namespace="^waybar$"
+    background-effect {
+        blur true
+    }
+}
+
+layer-rule {
+    match namespace="^rofi$"
+    opacity 0.92
     background-effect {
         blur true
     }
@@ -215,6 +225,9 @@ binds {
     Mod+Shift+Ctrl+j { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+k { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+l { move-column-to-monitor-right; }
+
+    // Cycle windows
+    Mod+Tab       { focus-window-previous; }
 
     // Workspace navigation (1-9)
     Mod+1 { focus-workspace 1; }
