@@ -2,56 +2,62 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.ghostty = {
     enable = true;
     package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
-    settings = lib.mkMerge [{
-      bold-is-bright = true;
-      selection-invert-fg-bg = true;
+    settings = lib.mkMerge [
+      {
+        bold-is-bright = true;
+        selection-invert-fg-bg = true;
 
-      # Font
-      font-size = 14;
-      font-thicken = true;
+        # Font
+        font-size = 14;
+        font-thicken = true;
 
-      # Window Settings
-      window-padding-x = 20;
-      window-padding-y = 10;
-      window-padding-color = "background";
-      window-padding-balance = true;
-      window-save-state = "always";
-      window-colorspace = "display-p3";
-      window-width = 120;
-      window-height = 45;
+        # Window Settings
+        window-padding-x = 20;
+        window-padding-y = 10;
+        window-padding-color = "background";
+        window-padding-balance = true;
+        window-save-state = "always";
+        window-colorspace = "display-p3";
+        window-width = 120;
+        window-height = 45;
 
-      # Other Settings
-      shell-integration-features = "no-cursor,sudo,no-title";
-      adjust-cell-height = "15%";
-      shell-integration = "fish";
-      mouse-scroll-multiplier = 0.5;
+        # Other Settings
+        shell-integration-features = "no-cursor,sudo,no-title";
+        adjust-cell-height = "15%";
+        shell-integration = "fish";
+        mouse-scroll-multiplier = 0.5;
 
-      # Look and Feel
-      background-blur = true;
-      background-opacity = 0.8;
-      adjust-cursor-thickness = 3;
-      adjust-underline-position = 3;
-      cursor-invert-fg-bg = true;
-      cursor-opacity = 0.8;
-      link-url = true;
-      mouse-hide-while-typing = true;
-      window-vsync = true;
-      window-decoration = "none";
+        # Look and Feel
+        background-blur = true;
+        background-opacity = 0.8;
+        adjust-cursor-thickness = 3;
+        adjust-underline-position = 3;
+        cursor-invert-fg-bg = true;
+        cursor-opacity = 0.8;
+        link-url = true;
+        mouse-hide-while-typing = true;
+        window-vsync = true;
+        window-decoration = "none";
 
-      # Keybindings
-      keybind = ["cmd+s>r=reload_config" "cmd+s>x=close_surface"];
-    }
-    (lib.optionalAttrs pkgs.stdenv.isDarwin {
-      font-size = 16;
-      window-decoration = true;
-      macos-option-as-alt = true;
-      macos-auto-secure-input = true;
-      quit-after-last-window-closed = true;
-      background-opacity = 0.9;
-    })];
+        # Keybindings
+        keybind = [
+          "cmd+s>r=reload_config"
+          "cmd+s>x=close_surface"
+        ];
+      }
+      (lib.optionalAttrs pkgs.stdenv.isDarwin {
+        font-size = 16;
+        window-decoration = true;
+        macos-option-as-alt = true;
+        macos-auto-secure-input = true;
+        quit-after-last-window-closed = true;
+        background-opacity = 0.9;
+      })
+    ];
   };
 }

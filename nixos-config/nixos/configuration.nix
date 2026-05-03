@@ -66,6 +66,10 @@
       Theme = {
         Current = "sddm-astronaut-theme";
         CursorTheme = "Bibata-Modern-Classic";
+        CursorSize = 24;
+      };
+      General = {
+        GreeterEnvironment = "XCURSOR_THEME=Bibata-Modern-Classic,XCURSOR_SIZE=24";
       };
     };
     extraPackages = with pkgs; [

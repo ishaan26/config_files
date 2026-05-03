@@ -28,14 +28,17 @@
       Type = "oneshot";
       ExecStart = pkgs.writeShellScript "awww-rotate" ''
         WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
-        if [ -d "$WALLPAPER_DIR" ]; then
+        FALLBACK="$HOME/.config/wallpaper.jpg"
+
+        if [ -d "$WALLPAPER_DIR" ] && [ -n "$(find "$WALLPAPER_DIR" -type f -print -quit 2>/dev/null)" ]; then
           WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
-          if [ -n "$WALLPAPER" ]; then
-            ${
-          awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-        }/bin/awww img "$WALLPAPER" --transition-type random --transition-step 90 --transition-fps 60
-          fi
+        elif [ -f "$FALLBACK" ]; then
+          WALLPAPER="$FALLBACK"
+        else
+          exit 0
         fi
+
+        ${awww.packages.${pkgs.stdenv.hostPlatform.system}.awww}/bin/awww img "$WALLPAPER" --transition-type random --transition-step 90 --transition-fps 60
       '';
     };
     Install = {WantedBy = ["graphical-session.target"];};

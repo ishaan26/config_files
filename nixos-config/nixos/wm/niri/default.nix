@@ -67,7 +67,8 @@
     // Startup applications
     spawn-at-startup "waybar"
     spawn-at-startup "mako"
-    spawn-at-startup "swaybg" "-m" "fill" "-i" "~/.config/wallpaper.jpg"
+    spawn-at-startup "systemctl" "--user" "start" "awww-daemon.service"
+    spawn-at-startup "sh" "-c" "sleep 2 && systemctl --user start awww-rotation.service"
     spawn-at-startup "xwayland-satellite"
 
     // Screenshot path
