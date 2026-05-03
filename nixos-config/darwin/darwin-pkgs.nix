@@ -62,6 +62,7 @@
     brews = [
       "imageoptim-cli"
       "neovim"
+      "llama.cpp"
     ];
   };
 
