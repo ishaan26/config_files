@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  # Common packages shared between Niri and Hyprland
+  # Common packages shared between Niri
   home.packages = with pkgs; [
     # Screenshot utilities
     grim

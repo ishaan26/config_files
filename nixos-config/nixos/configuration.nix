@@ -5,7 +5,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware/home_pc.nix
@@ -16,7 +17,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # networking.hostName = "Paimon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -58,11 +62,17 @@
     wayland.enable = true;
     enableHidpi = true;
     theme = "sddm-astronaut-theme";
-    settings = {Theme = {Current = "sddm-astronaut-theme";};};
+    settings = {
+      Theme = {
+        Current = "sddm-astronaut-theme";
+        CursorTheme = "Bibata-Modern-Classic";
+      };
+    };
     extraPackages = with pkgs; [
       kdePackages.qtsvg
       kdePackages.qtvirtualkeyboard
       kdePackages.qtmultimedia
+      bibata-cursors
     ];
   };
 
@@ -106,7 +116,13 @@
   users.users.ishaan = {
     isNormalUser = true;
     description = "Ishaan Goel";
-    extraGroups = ["networkmanager" "wheel" "video" "audio" "input"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "audio"
+      "input"
+    ];
     shell = pkgs.fish;
   };
 
@@ -119,19 +135,12 @@
   # Enable Niri (scrollable tiling Wayland compositor)
   programs.niri.enable = true;
 
-  # Enable Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   # XDG portal for Wayland
   xdg.portal = {
     enable = true;
     wlr.enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
     ];
   };
 
@@ -139,7 +148,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Install sddm theme
-    (pkgs.sddm-astronaut.override {embeddedTheme = "astronaut";})
+    (pkgs.sddm-astronaut.override { embeddedTheme = "astronaut"; })
 
     # System essential packages.
     fish
@@ -173,9 +182,9 @@
   security.polkit.enable = true;
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
-    wantedBy = ["graphical-session.target"];
-    wants = ["graphical-session.target"];
-    after = ["graphical-session.target"];
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";

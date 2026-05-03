@@ -29,11 +29,11 @@
           "custom/separator"
           "mpris"
           "custom/separator"
-          "hyprland/window"
+          "niri/window"
         ];
 
         modules-center = [
-          "hyprland/workspaces"
+          "niri/workspaces"
         ];
 
         modules-right = [
@@ -64,7 +64,7 @@
         # Enhanced Clock with calendar
         clock = {
           format = "󰥔  {:%H:%M}";
-          format-alt = "󰃭  {:%A, %B %d}";
+          format-alt = "󰇭  {:%A, %B %d}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             mode = "year";
@@ -130,27 +130,12 @@
           };
         };
 
-        # Window title - Hyprland
-        "hyprland/window" = {
-          format = "{}";
-          max-length = 50;
-          rewrite = {
-            "(.*) — Mozilla Firefox" = "󰈹 $1";
-            "(.*) - Visual Studio Code" = "󰨞 $1";
-            "(.*) - Zed" = " $1";
-            "(.*) — Obsidian(.*)?" = "󱓧 $1";
-            "nvim (.*)" = " $1";
-            "fish (.*)" = "󰈺 $1";
-            "" = "󰇄 Desktop";
-          };
-        };
-
         # ============================================================
         # CENTER MODULES
         # ============================================================
 
-        # Workspaces - Hyprland
-        "hyprland/workspaces" = {
+        # Workspaces - Niri
+        "niri/workspaces" = {
           format = "{icon}";
           format-icons = {
             "1" = "󰇊 ";
@@ -163,19 +148,7 @@
             default = "󰊠 ";
             urgent = "󰀨 ";
           };
-          persistent-workspaces = {
-            "1" = [ ];
-            "2" = [ ];
-            "3" = [ ];
-            "4" = [ ];
-            "5" = [ ];
-            "6" = [ ];
-          };
           on-click = "activate";
-          on-scroll-up = "hyprctl dispatch workspace e-1";
-          on-scroll-down = "hyprctl dispatch workspace e+1";
-          sort-by-number = true;
-          all-outputs = false;
         };
 
         # ============================================================
@@ -333,11 +306,11 @@
         backlight = {
           format = "{icon} {percent}%";
           format-icons = [
-            "󰃞"
-            "󰃟"
-            "󰃠"
+            "󰇞"
+            "󰇟"
+            "󰇠"
           ];
-          tooltip-format = "󰃠 Brightness: {percent}%";
+          tooltip-format = "󰇠 Brightness: {percent}%";
           on-scroll-up = "brightnessctl set 5%+";
           on-scroll-down = "brightnessctl set 5%-";
           on-click = "brightnessctl set 50%";
@@ -414,8 +387,6 @@
           "custom/separator"
           "custom/screenshot"
           "custom/separator"
-          "custom/colorpicker"
-          "custom/separator"
           "keyboard-state"
         ];
 
@@ -426,7 +397,7 @@
           interval = 1800;
           exec = builtins.concatStringsSep " " [
             "text=$(curl -sf 'https://wttr.in/?format=%c+%t' 2>/dev/null);"
-            "tip=$(curl -sf 'https://wttr.in/?format=%c+%C+%t\\n󰖝+%w++%h\\n󰖐+%p++UV:+%u\\n\\n󰃭+Forecast:\\n%f+feels+like\\n󰖙+Sunrise:+%S+·+Sunset:+%s' 2>/dev/null);"
+            "tip=$(curl -sf 'https://wttr.in/?format=%c+%C+%t\\n󰖝+%w++%h\\n󰖐+%p++UV:+%u\\n\\n󰇭+Forecast:\\n%f+feels+like\\n󰖙+Sunrise:+%S+·+Sunset:+%s' 2>/dev/null);"
             "if [ -z \"$text\" ]; then text='󰖐 N/A'; tip='Weather unavailable'; fi;"
             "echo '{\"text\":\"'\"$text\"'\",\"tooltip\":\"'\"$tip\"'\"}'"
           ];
@@ -437,7 +408,7 @@
           ];
           on-click-right = builtins.concatStringsSep " " [
             "forecast=$(curl -sf 'https://wttr.in/?QnT' 2>/dev/null || echo 'Forecast unavailable');"
-            "notify-send -a 'Weather' '󰃭 3-Day Forecast' \"$forecast\" -t 20000"
+            "notify-send -a 'Weather' '󰇭 3-Day Forecast' \"$forecast\" -t 20000"
           ];
         };
 
@@ -481,14 +452,6 @@
           tooltip-format = "󰄀 Screenshot\n\n Left: Region\n Right: Full Screen";
           on-click = "grim -g \"$(slurp)\" - | wl-copy && notify-send '󰄀 Screenshot' 'Region copied to clipboard'";
           on-click-right = "grim - | wl-copy && notify-send '󰄀 Screenshot' 'Full screen copied to clipboard'";
-        };
-
-        # Color picker
-        "custom/colorpicker" = {
-          format = "󰏘 ";
-          tooltip = true;
-          tooltip-format = "󰏘 Color Picker";
-          on-click = "hyprpicker -a -n";
         };
 
         # Keyboard state
