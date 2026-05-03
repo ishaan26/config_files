@@ -3,7 +3,6 @@
 {
   imports = [
     ./niri
-    ./hyprland
     ./waybar
     ./rofi
     ./mako.nix
