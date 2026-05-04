@@ -139,6 +139,12 @@
   # Enable Niri (scrollable tiling Wayland compositor)
   programs.niri.enable = true;
 
+  # Enable nix-ld to run standard Linux binaries
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+  ];
+
   # XDG portal for Wayland
   xdg.portal = {
     enable = true;
