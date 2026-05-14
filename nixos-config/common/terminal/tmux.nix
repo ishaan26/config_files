@@ -65,6 +65,9 @@ in {
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set-environment -g COLORTERM "truecolor"
 
+      # Enable extended keys for modern terminal emulators
+      set -g extended-keys on
+
       # Set window and pane index to start at 1
       set -g pane-base-index 1
       set-window-option -g pane-base-index 1
