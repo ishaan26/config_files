@@ -7,6 +7,11 @@ return {
 	"AstroNvim/astrocommunity",
 
 	-----------------
+	-- Completion
+	-----------------
+	{ import = "astrocommunity.completion.blink-cmp" },
+
+	-----------------
 	-- Language Packs
 	-----------------
 	{ import = "astrocommunity.pack.lua" },

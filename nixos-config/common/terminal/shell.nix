@@ -8,6 +8,11 @@
       set -gx EDITOR nvim
       set -gx VISUAL nvim
 
+      # Opencode API key (read from ~/.opencode-key if it exists)
+      if test -f ~/.opencode-key
+        set -gx OPENCODE_GO_API_KEY (cat ~/.opencode-key | string trim)
+      end
+
       # Homebrew
       if test (uname) = Darwin
         set -gx PATH /opt/homebrew/bin $PATH

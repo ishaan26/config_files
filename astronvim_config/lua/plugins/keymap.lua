@@ -40,7 +40,6 @@ return {
           ["<leader><leader>"] = { "<c-^>" },
 
           -- Add Blank Lines
-          ["go"] = { ':<C-u>call append(line("."), repeat([""], v:count1))<CR>' },
           ["gO"] = { ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>' },
 
           -- Better movement
