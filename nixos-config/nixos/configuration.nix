@@ -17,10 +17,31 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    substituters = [
+      "https://mirror.sjtu.edu.cn/nix-channels/store" # Shanghai Jiao Tong University (Excellent for Asia)
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" # TUNA Mirror
+      "https://cache.nixos.org" # Fallback to official cache if path missing
+    ];
+
+    # Ensure you trust the public keys of the official cache (mirrors just mirror the signed files)
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    # Increase the number of parallel downloads
+    http-connections = 128;
+
+    # Allow more download jobs to happen at once
+    max-substitution-jobs = 128;
+
+    # Automatically use all available CPU cores for local builds if needed
+    max-jobs = "auto";
+  };
 
   # networking.hostName = "Paimon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -124,6 +145,7 @@
       "networkmanager"
       "wheel"
       "video"
+      "render"
       "audio"
       "input"
     ];
@@ -138,6 +160,9 @@
 
   # Enable Niri (scrollable tiling Wayland compositor)
   programs.niri.enable = true;
+
+  # Enable graphics/GPU support
+  hardware.graphics.enable = true;
 
   # Enable nix-ld to run standard Linux binaries
   programs.nix-ld.enable = true;

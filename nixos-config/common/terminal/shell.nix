@@ -30,6 +30,10 @@
             set -gx NDK_HOME "$ANDROID_HOME/ndk/$ndk_version"
           end
         end
+
+        # npm global prefix (Nix store is read-only, so redirect to ~/.npm-global)
+        set -gx NPM_CONFIG_PREFIX "$HOME/.npm-global"
+        set -gx PATH "$HOME/.npm-global/bin" $PATH
       end
 
       # Bun

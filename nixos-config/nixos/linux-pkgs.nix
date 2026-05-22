@@ -24,6 +24,10 @@
     kdePackages.dolphin-plugins
     kdePackages.filelight
 
+    # LLM inference with AMD ROCm support
+    ollama-rocm
+    (llama-cpp.override { rocmSupport = true; })
+
     # Fix for pi install command
     (pkgs.symlinkJoin {
       name = "pi-coding-agent";
