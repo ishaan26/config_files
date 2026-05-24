@@ -75,6 +75,10 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
+  # AMD GPU kernel modules and params for ROCm support
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+
   # Set sddm in the displayManager.
   services.displayManager.sddm = {
     enable = lib.mkForce true;
@@ -161,8 +165,15 @@
   # Enable Niri (scrollable tiling Wayland compositor)
   programs.niri.enable = true;
 
-  # Enable graphics/GPU support
-  hardware.graphics.enable = true;
+  # Enable graphics/GPU and ROCm compute support (RX 7900 XT)
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr
+      rocmPackages.hipblas
+      rocmPackages.rocblas
+    ];
+  };
 
   # Enable nix-ld to run standard Linux binaries
   programs.nix-ld.enable = true;

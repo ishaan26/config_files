@@ -25,7 +25,21 @@
     kdePackages.filelight
 
     # LLM inference with AMD ROCm support
-    ollama-rocm
+    # Wrapped to hide unsupported iGPU (gfx1036) from ROCm;
+    # only the RX 7900 XT (gfx1100) is used
+    (pkgs.symlinkJoin {
+      name = "ollama-rocm-wrapped";
+      buildInputs = [ pkgs.makeWrapper ];
+      paths = [ pkgs.ollama-rocm ];
+      postBuild = ''
+        for bin in $out/bin/*; do
+          wrapProgram "$bin" \
+            --set ROCR_VISIBLE_DEVICES "0" \
+            --set HSA_OVERRIDE_GFX_VERSION "11.0.0" \
+            --set HIP_VISIBLE_DEVICES "0"
+        done
+      '';
+    })
     (llama-cpp.override { rocmSupport = true; })
 
     # Fix for pi install command

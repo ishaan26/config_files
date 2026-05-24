@@ -2,8 +2,10 @@
   pkgs,
   lib,
   ...
-}: {
-  home.packages = with pkgs;
+}:
+{
+  home.packages =
+    with pkgs;
     [
       #####################################
       # Language tools
@@ -33,6 +35,12 @@
 
       # Java (For Android development)
       jdk21
+
+      #####################################
+      # Build tools
+      #####################################
+      cmake
+      curl
 
       #####################################
       # Cli tools
