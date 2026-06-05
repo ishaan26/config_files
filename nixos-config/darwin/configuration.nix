@@ -4,6 +4,9 @@
     ./darwin-pkgs.nix
   ];
 
+  # Stylix jumped to 26.11 before nix-darwin master was bumped
+  stylix.enableReleaseChecks = false;
+
   # Let Determinate System nix handle this stuff
   nix.enable = false;
 

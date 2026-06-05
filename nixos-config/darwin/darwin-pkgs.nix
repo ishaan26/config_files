@@ -16,6 +16,8 @@
       autoUpdate = true;
       upgrade = true;
       cleanup = "uninstall";
+      # Homebrew now requires --force-cleanup with --cleanup
+      extraFlags = [ "--force-cleanup" ];
     };
 
     # Add this to see more output
