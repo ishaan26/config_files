@@ -141,40 +141,33 @@ fi
 [[ -f "$FLAKE_DIR/flake.nix" ]] || error "flake.nix not found at $FLAKE_DIR/flake.nix"
 log "Flake found at $FLAKE_DIR"
 
-# ─── Install nix-darwin ───────────────────────────────────────────────────────
-step "Installing nix-darwin"
+# ─── Install/Apply nix-darwin ──────────────────────────────────────────────────
+step "Applying nix-darwin configuration"
 
-if command -v darwin-rebuild &>/dev/null; then
-  warn "darwin-rebuild is already on PATH — nix-darwin appears to be installed."
-  info "Skipping nix-darwin bootstrap; will jump straight to 'darwin-rebuild switch'."
-  DARWIN_ALREADY_INSTALLED=true
-else
-  DARWIN_ALREADY_INSTALLED=false
+log "Building nix-darwin system configuration..."
+nix build \
+  --extra-experimental-features "nix-command flakes" \
+  "$FLAKE_DIR#darwinConfigurations.$DARWIN_CONFIG.system"
 
-  log "Running nix-darwin installer..."
-  # The official first-time bootstrap: build & activate the flake
-  # We use --extra-experimental-features in case the user's nix.conf doesn't have it yet.
-  nix run \
-    --extra-experimental-features "nix-command flakes" \
-    "nix-darwin/master#darwin-rebuild" -- \
-    switch --flake "$FLAKE_DIR#$DARWIN_CONFIG"
-fi
+log "Activating system configuration (requires sudo)..."
+sudo ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_DIR#$DARWIN_CONFIG"
 
-# ─── Apply darwin config ──────────────────────────────────────────────────────
-if [[ "$DARWIN_ALREADY_INSTALLED" == "true" ]]; then
-  step "Applying darwin configuration"
-  log "Running: darwin-rebuild switch --flake $FLAKE_DIR#$DARWIN_CONFIG"
-  darwin-rebuild switch --flake "$FLAKE_DIR#$DARWIN_CONFIG"
-fi
+log "Cleaning up build symlink..."
+rm -f ./result
 
 # ─── Apply home-manager config ────────────────────────────────────────────────
 step "Applying home-manager configuration"
 
-log "Running: nix run home-manager -- switch --flake $FLAKE_DIR#$HOME_CONFIG"
-nix run \
-  --extra-experimental-features "nix-command flakes" \
-  "nixpkgs#home-manager" -- \
-  switch --flake "$FLAKE_DIR#$HOME_CONFIG"
+if command -v nh &>/dev/null; then
+  log "Using installed nh to activate home-manager configuration..."
+  nh home switch "$FLAKE_DIR" --username "$NIX_USERNAME"
+else
+  log "nh not found in PATH. Running home-manager setup using nh via nix run..."
+  nix run \
+    --extra-experimental-features "nix-command flakes" \
+    "nixpkgs#nh" -- \
+    home switch "$FLAKE_DIR" --username "$NIX_USERNAME"
+fi
 
 # ─── Done ─────────────────────────────────────────────────────────────────────
 echo ""
