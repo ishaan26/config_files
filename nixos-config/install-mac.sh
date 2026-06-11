@@ -52,7 +52,8 @@ echo ""
 GITHUB_REPO="https://github.com/ishaan26/config_files"
 CONFIG_REPO_DIR="$HOME/Documents/Github/config_files"
 FLAKE_DIR="$CONFIG_REPO_DIR/nixos-config"
-USERNAME="ishaan"
+# The Nix/home-manager config uses 'ishaan' as the user — keep this in sync with your flake
+NIX_USERNAME="ishaan"
 
 # ─── Preflight checks ─────────────────────────────────────────────────────────
 step "Preflight checks"
@@ -117,7 +118,7 @@ echo -e "  • Home config     : ${CYAN}$HOME_CONFIG${NC}"
 echo -e "  • Architecture    : ${CYAN}$NIX_SYSTEM${NC}"
 echo ""
 read -rp "$(echo -e "${BOLD}  Proceed? [y/N]: ${NC}")" CONFIRM
-[[ "${CONFIRM,,}" == "y" ]] || { echo "Aborted."; exit 0; }
+[[ "$(echo "$CONFIRM" | tr '[:upper:]' '[:lower:]')" == "y" ]] || { echo "Aborted."; exit 0; }
 
 # ─── Clone / update repo ──────────────────────────────────────────────────────
 step "Setting up config repository"
@@ -125,7 +126,7 @@ step "Setting up config repository"
 if [[ -d "$FLAKE_DIR" ]]; then
   warn "Config directory already exists at $FLAKE_DIR"
   read -rp "$(echo -e "${YELLOW}  Pull latest changes? [y/N]: ${NC}")" PULL_CONFIRM
-  if [[ "${PULL_CONFIRM,,}" == "y" ]]; then
+  if [[ "$(echo "$PULL_CONFIRM" | tr '[:upper:]' '[:lower:]')" == "y" ]]; then
     log "Pulling latest changes..."
     git -C "$CONFIG_REPO_DIR" pull --ff-only
   else
