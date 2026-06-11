@@ -14,8 +14,9 @@
 # What this script does:
 #   1. Detects your Mac architecture (Apple Silicon / Intel)
 #   2. Clones this config repo to ~/Documents/Github/config_files
-#   3. Installs nix-darwin and applies the darwin configuration (Noir / IntelMac)
-#   4. Applies the home-manager configuration (ishaan@Noir)
+#   3. Auto-configures username (replacing 'ishaan' with your active user)
+#   4. Installs nix-darwin and applies the darwin configuration (Noir / IntelMac)
+#   5. Applies the home-manager configuration using nh
 # =============================================================================
 
 set -euo pipefail
@@ -52,8 +53,9 @@ echo ""
 GITHUB_REPO="https://github.com/ishaan26/config_files"
 CONFIG_REPO_DIR="$HOME/Documents/Github/config_files"
 FLAKE_DIR="$CONFIG_REPO_DIR/nixos-config"
-# The Nix/home-manager config uses 'ishaan' as the user — keep this in sync with your flake
-NIX_USERNAME="ishaan"
+# Get the active macOS username dynamically
+CURRENT_USER="${USER:-$(id -un)}"
+NIX_USERNAME="$CURRENT_USER"
 
 # ─── Preflight checks ─────────────────────────────────────────────────────────
 step "Preflight checks"
@@ -97,12 +99,12 @@ step "Detecting architecture"
 ARCH=$(uname -m)
 if [[ "$ARCH" == "arm64" ]]; then
   DARWIN_CONFIG="Noir"
-  HOME_CONFIG="ishaan@Noir"
+  HOME_CONFIG="$NIX_USERNAME@Noir"
   NIX_SYSTEM="aarch64-darwin"
   info "Apple Silicon Mac detected → using config: ${BOLD}$DARWIN_CONFIG${NC}"
 elif [[ "$ARCH" == "x86_64" ]]; then
   DARWIN_CONFIG="IntelMac"
-  HOME_CONFIG="ishaan@Noir"   # home config is shared
+  HOME_CONFIG="$NIX_USERNAME@Noir"
   NIX_SYSTEM="x86_64-darwin"
   info "Intel Mac detected → using config: ${BOLD}$DARWIN_CONFIG${NC}"
 else
@@ -140,6 +142,31 @@ fi
 
 [[ -f "$FLAKE_DIR/flake.nix" ]] || error "flake.nix not found at $FLAKE_DIR/flake.nix"
 log "Flake found at $FLAKE_DIR"
+
+# ─── Customize Username ───────────────────────────────────────────────────────
+step "Configuring system username"
+
+# If the config username 'ishaan' is different from current user, perform replacement
+if [[ "$CURRENT_USER" != "ishaan" ]]; then
+  log "Updating configurations to use active macOS user: '${BOLD}$CURRENT_USER${NC}' (replacing 'ishaan')"
+  
+  # Replace in darwin/configuration.nix
+  sed -i '' "s/system.primaryUser = \"ishaan\";/system.primaryUser = \"$CURRENT_USER\";/g" "$FLAKE_DIR/darwin/configuration.nix"
+  sed -i '' "s/users.users.ishaan/users.users.$CURRENT_USER/g" "$FLAKE_DIR/darwin/configuration.nix"
+  sed -i '' "s|/Users/ishaan|/Users/$CURRENT_USER|g" "$FLAKE_DIR/darwin/configuration.nix"
+
+  # Replace in darwin/home.nix
+  sed -i '' "s/home.username = \"ishaan\";/home.username = \"$CURRENT_USER\";/g" "$FLAKE_DIR/darwin/home.nix"
+  sed -i '' "s|home.homeDirectory = \"/Users/ishaan\";|home.homeDirectory = \"/Users/$CURRENT_USER\";|g" "$FLAKE_DIR/darwin/home.nix"
+  sed -i '' "s|/Users/ishaan|/Users/$CURRENT_USER|g" "$FLAKE_DIR/darwin/home.nix"
+
+  # Replace in flake.nix (Noir target config)
+  sed -i '' "s/\"ishaan@Noir\"/\"$CURRENT_USER@Noir\"/g" "$FLAKE_DIR/flake.nix"
+  
+  log "Configuration files successfully updated for user '$CURRENT_USER'."
+else
+  info "Config already matches system user 'ishaan'. No changes needed."
+fi
 
 # ─── Install/Apply nix-darwin ──────────────────────────────────────────────────
 step "Applying nix-darwin configuration"
