@@ -20,8 +20,7 @@ error() {
   exit 1
 }
 
-# FIXME: Make this script runable
-error "script does not work. DO NOT USE IT"!
+
 
 warn() {
   echo -e "${YELLOW}[WARNING]${NC} $1"
@@ -69,7 +68,7 @@ while true; do
   DISK="/dev/${DISK_NAME}"
 
   if [ ! -b "$DISK" ]; then
-    error "Disk ${DISK} does not exist. Please try again."
+    warn "Disk ${DISK} does not exist. Please try again."
     continue
   fi
 
