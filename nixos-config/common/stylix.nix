@@ -22,9 +22,8 @@
         package = pkgs.nerd-fonts.zed-mono;
         name = "ZedMono Nerd Font";
       };
-
       emoji = {
-        package = pkgs.noto-fonts-color-emoji;
+        package = pkgs.noto-fonts-emoji-blob-bin;
         name = "Noto Color Emoji";
       };
     };

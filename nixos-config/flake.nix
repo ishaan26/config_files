@@ -2,7 +2,9 @@
   description = "Ishaan's NixOS and nix-darwin configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Pinned: nixpkgs removed --toc-depth from nixos-render-docs (2026-06-20+),
+    # but nix-darwin still passes it. Unpin once nix-darwin master is fixed.
+    nixpkgs.url = "github:NixOS/nixpkgs/135dd8bb47e5bbf1f502efc320ceea7bb0e2d173";
 
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
@@ -113,6 +115,7 @@
           hostName = "Noir";
           system = "aarch64-darwin";
         };
+
 
         # Intel Mac (if needed)
         IntelMac = mkDarwinSystem {

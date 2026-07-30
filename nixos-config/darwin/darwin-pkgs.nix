@@ -15,9 +15,8 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      cleanup = "uninstall";
-      # Homebrew now requires --force-cleanup with --cleanup
-      extraFlags = [ "--force-cleanup" ];
+      cleanup = "none";
+      # --force-cleanup is incompatible with cleanup = "none" (brew rejects it)
     };
 
     # Add this to see more output
@@ -47,8 +46,6 @@
       "blender"
       "thaw"
       "iina"
-      "notion"
-      "notion-calendar"
       "qbittorrent"
       "spacedrive"
       "keka"
