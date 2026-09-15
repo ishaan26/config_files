@@ -8,6 +8,10 @@
 in {
   programs.tmux = {
     enable = true;
+    # Fix tmux 3.7c build on macOS - requires explicit jemalloc flag
+    package = pkgs.tmux.overrideAttrs (old: {
+      configureFlags = (old.configureFlags or []) ++ [ "--disable-jemalloc" ];
+    });
 
     # Use a modern tmux version
     terminal = "screen-256color";

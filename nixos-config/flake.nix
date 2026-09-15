@@ -2,9 +2,8 @@
   description = "Ishaan's NixOS and nix-darwin configuration";
 
   inputs = {
-    # Pinned: nixpkgs removed --toc-depth from nixos-render-docs (2026-06-20+),
-    # but nix-darwin still passes it. Unpin once nix-darwin master is fixed.
-    nixpkgs.url = "github:NixOS/nixpkgs/135dd8bb47e5bbf1f502efc320ceea7bb0e2d173";
+    # Use latest nixpkgs - sidebar-depth issue should be resolved
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
