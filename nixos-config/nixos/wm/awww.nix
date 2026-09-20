@@ -22,6 +22,7 @@
   systemd.user.services.awww-rotation = {
     Unit = {
       Description = "Rotate wallpaper using awww";
+      Wants = ["awww-daemon.service"];
       After = ["awww-daemon.service"];
     };
     Service = {

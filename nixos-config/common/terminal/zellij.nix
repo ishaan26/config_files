@@ -264,7 +264,7 @@ in {
       # Copy on select
       copy_on_select = true;
       copy_command =
-        if pkgs.stdenv.isDarwin
+        if pkgs.stdenv.hostPlatform.isDarwin
         then "pbcopy"
         else if builtins.getEnv "WAYLAND_DISPLAY" != ""
         then "wl-copy"

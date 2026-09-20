@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: let
@@ -8,10 +9,7 @@
 in {
   programs.tmux = {
     enable = true;
-    # Fix tmux 3.7c build on macOS - requires explicit jemalloc flag
-    package = pkgs.tmux.overrideAttrs (old: {
-      configureFlags = (old.configureFlags or []) ++ [ "--disable-jemalloc" ];
-    });
+
 
     # Use a modern tmux version
     terminal = "screen-256color";
@@ -78,8 +76,7 @@ in {
       set-window-option -g pane-base-index 1
       set-option -g renumber-windows on
 
-      # Reduce escape time for better vim experience
-      set -sg escape-time 0
+      # NOTE: escape-time is set via the escapeTime option above
 
       # Increase repeat time for repeatable commands
       set -g repeat-time 1000
@@ -161,7 +158,7 @@ in {
       # Update status bar every second
       set -g status-interval 1
 
-      # Center the window list
+      # Left-align the window list
       set -g status-justify left
 
       # Status bar length
@@ -213,16 +210,6 @@ in {
       # Set titles
       set -g set-titles on
       set -g set-titles-string "#T"
-
-      # ============================================
-      # PERFORMANCE
-      # ============================================
-
-      # Increase buffer size
-      set -g buffer-limit 20
-
-      # Don't constrain window size
-      setw -g aggressive-resize on
     '';
   };
 

@@ -38,13 +38,13 @@
   };
 
   # Session variables for Wayland
+  # NOTE: GDK_BACKEND / XDG_SESSION_TYPE are deliberately not set here:
+  # niri and the xdg-desktop-portal set them, and a global GDK_BACKEND
+  # override breaks the portal file-chooser dialogs.
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
     SDL_VIDEODRIVER = "wayland";
-    CLUTTER_BACKEND = "wayland";
-    XDG_SESSION_TYPE = "wayland";
   };
 }

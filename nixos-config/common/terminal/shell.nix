@@ -13,19 +13,19 @@
         set -gx OPENCODE_GO_API_KEY (cat ~/.opencode-key | string trim)
       end
 
-      # Homebrew
+      # Homebrew (macOS)
       if test (uname) = Darwin
-        set -gx PATH /opt/homebrew/bin $PATH
+        fish_add_path -g /opt/homebrew/bin
       end
 
-      # Add Python local bins to PATH
-      set -gx PATH $HOME/.local/bin $PATH
+      # Common user-local tool paths (deduplicated by fish_add_path)
+      fish_add_path -g $HOME/.local/bin $HOME/.bun/bin $HOME/.cargo/bin
 
       # Tauri/Android Development
       if test (uname) = Linux
         set -gx ANDROID_HOME "$HOME/Android/Sdk"
         if test -d "$ANDROID_HOME/ndk"
-          set ndk_version (ls -1 $ANDROID_HOME/ndk 2>/dev/null | head -n 1)
+          set ndk_version (ls -1 $ANDROID_HOME/ndk | sort -V | tail -n 1)
           if test -n "$ndk_version"
             set -gx NDK_HOME "$ANDROID_HOME/ndk/$ndk_version"
           end
@@ -33,19 +33,15 @@
 
         # npm global prefix (Nix store is read-only, so redirect to ~/.npm-global)
         set -gx NPM_CONFIG_PREFIX "$HOME/.npm-global"
-        set -gx PATH "$HOME/.npm-global/bin" $PATH
+        fish_add_path -g "$HOME/.npm-global/bin"
       end
 
       # Bun
       set -gx BUN_INSTALL "$HOME/.bun"
-      set -gx PATH $BUN_INSTALL/bin $PATH
-
-      # Cargo
-      set -gx PATH $HOME/.cargo/bin $PATH
 
       # Custom
-      set -gx CF  "~/Documents/Github/config_files/"
-      set -gx RS  "~/Documents/Github/zung"
+      set -gx CF "$HOME/Documents/Github/config_files/"
+      set -gx RS "$HOME/Documents/Github/zung"
     '';
 
     shellAbbrs = {
@@ -86,7 +82,8 @@
       # Git aliases
       "githistory" = "git log --oneline --graph --decorate --all";
       "gd" = "git diff";
-      "gah" = "git stash; and git pull --rebase; and git stash pop";
+      # Pull with auto-stash: stash before, pop after, skip stash games
+      "gah" = "git pull --rebase --autostash";
 
       # Man pages with bat
       "man" = "batman";
@@ -175,6 +172,9 @@
     figlet
     lolcat
     fortune
+
+    # man = batman alias
+    bat-extras.batman
 
     # System tools
     fontconfig

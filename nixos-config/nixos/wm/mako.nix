@@ -1,14 +1,10 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: let
+  colors = config.lib.stylix.colors.withHashtag;
+in {
   services.mako = {
     enable = true;
     settings = {
-      # NOTE: The following settings are controlled by stylix
-      # font = "JetBrainsMono Nerd Font 11";
-      # Catppuccin Mocha colors
-      # background-color = "#1e1e2eee";
-      # text-color = "#cdd6f4";
-      # border-color = "#cba6f7";
-      # progress-color = "over #89b4fa";
+      # NOTE: font/colors are controlled by stylix
       # Dimensions
       width = 350;
       height = 150;
@@ -27,25 +23,28 @@
       max-icon-size = 48;
       # Actions
       actions = true;
+
+      # NOTE: urgency/critical accent colors are derived from the stylix
+      # palette automatically by the stylix mako target.
+      "urgency=normal" = {
+        border-color = "${colors.base0E}";
+      };
+      "urgency=critical" = {
+        default-timeout = 0; # stick around until dismissed
+      };
+      "category=spotify" = {
+        border-color = "${colors.base0A}";
+        default-timeout = 3000;
+      };
+      "app-name=firefox" = {
+        border-color = "${colors.base0C}";
+      };
+      "mode=do-not-disturb" = {
+        invisible = 1;
+      };
     };
-    # Extra config for urgency levels
-    extraConfig = ''
-      [urgency=low]
-      border-color=#a6e3a1
-      [urgency=normal]
-      border-color=#cba6f7
-      [urgency=critical]
-      border-color=#f38ba8
-      default-timeout=0
-      [category=spotify]
-      border-color=#a6e3a1
-      default-timeout=3000
-      [app-name=firefox]
-      border-color=#89b4fa
-      [mode=do-not-disturb]
-      invisible=1
-    '';
   };
+
   # Notification utilities
   home.packages = with pkgs; [
     libnotify # notify-send

@@ -6,7 +6,7 @@
 {
   programs.ghostty = {
     enable = true;
-    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     settings = lib.mkMerge [
       {
         bold-is-bright = true;
@@ -50,7 +50,7 @@
           "cmd+s>x=close_surface"
         ];
       }
-      (lib.optionalAttrs pkgs.stdenv.isDarwin {
+      (lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
         font-size = 16;
         window-decoration = true;
         macos-option-as-alt = true;

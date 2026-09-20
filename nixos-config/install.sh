@@ -33,7 +33,7 @@ info() {
 # Configuration
 GITHUB_REPO="https://github.com/ishaan26/config_files"
 CONFIG_PATH="nixos-config"
-HOSTNAME="nixos" # Change to match your flake configuration
+HOSTNAME="Paimon" # Must match a nixosConfigurations entry in flake.nix
 
 # Check if we're running as root
 if [[ $EUID -ne 0 ]]; then
@@ -221,7 +221,7 @@ nixos-generate-config --root /mnt
 
 # Set up Git and Nix with flakes
 log "Setting up environment with Git and Flakes..."
-nix-shell -p git nixFlakes --command "bash -c '
+nix-shell -p git nix --command "bash -c '
 
 # Define colors for inner script
 GREEN=\"\\033[0;32m\"
@@ -247,9 +247,9 @@ if [ ! -d \"\$CONFIG_SRC\" ]; then
     error \"Config path ${CONFIG_PATH} not found in repository\"
 fi
 
-# Copy hardware-configuration.nix to the config directory
-log \"Copying generated hardware-configuration.nix...\"
-cp /mnt/etc/nixos/hardware-configuration.nix \"\$CONFIG_SRC/\"
+# Copy generated hardware configuration to the path the flake imports
+log "Replacing hardware-configuration for the new machine..."
+cp /mnt/etc/nixos/hardware-configuration.nix "$CONFIG_SRC/nixos/hardware/home_pc.nix"
 
 # Create symlinks from /etc/nixos to the config directory
 log \"Creating symlinks...\"
@@ -274,7 +274,7 @@ log \"Configuration setup complete\"
 
 # Show flake outputs
 log "Available flake configurations:"
-nix-shell -p nixFlakes --command "cd /mnt/etc/nixos && nix flake show 2>/dev/null || echo 'Could not show flake outputs'"
+NIX_CONFIG="experimental-features = nix-command flakes" nix-shell -p nix --command "cd /mnt/etc/nixos && nix flake show 2>/dev/null || echo 'Could not show flake outputs'"
 
 echo ""
 info "The script will install using: nixosConfigurations.${HOSTNAME}"
@@ -285,7 +285,7 @@ read -p "Press Enter to continue with installation..."
 # Install NixOS
 log "Installing NixOS from flake..."
 echo ""
-nixos-install --flake "/mnt/etc/nixos#${HOSTNAME}"
+NIX_CONFIG="experimental-features = nix-command flakes" nixos-install --flake "/mnt/etc/nixos#${HOSTNAME}"
 
 # Success message
 echo ""

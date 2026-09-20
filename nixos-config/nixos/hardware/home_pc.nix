@@ -3,6 +3,7 @@
 # to /etc/nixos/configuration.nix instead.
 {
   config,
+  pkgs,
   lib,
   modulesPath,
   ...
@@ -29,6 +30,6 @@
 
   swapDevices = [{device = "/dev/disk/by-uuid/57b40b47-8046-409e-8033-7d4e56c496b2";}];
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault (pkgs.stdenv.hostPlatform.isx86_64 && config.hardware.enableRedistributableFirmware);
 }

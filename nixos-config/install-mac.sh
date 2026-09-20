@@ -103,10 +103,7 @@ if [[ "$ARCH" == "arm64" ]]; then
   NIX_SYSTEM="aarch64-darwin"
   info "Apple Silicon Mac detected → using config: ${BOLD}$DARWIN_CONFIG${NC}"
 elif [[ "$ARCH" == "x86_64" ]]; then
-  DARWIN_CONFIG="IntelMac"
-  HOME_CONFIG="$NIX_USERNAME@Noir"
-  NIX_SYSTEM="x86_64-darwin"
-  info "Intel Mac detected → using config: ${BOLD}$DARWIN_CONFIG${NC}"
+  error "Intel Macs are no longer supported by this flake: nixpkgs 26.11 dropped x86_64-darwin."
 else
   error "Unknown architecture: $ARCH"
 fi
@@ -174,13 +171,14 @@ step "Applying nix-darwin configuration"
 log "Building nix-darwin system configuration..."
 nix build \
   --extra-experimental-features "nix-command flakes" \
+  --out-link "$FLAKE_DIR/result" \
   "$FLAKE_DIR#darwinConfigurations.$DARWIN_CONFIG.system"
 
 log "Activating system configuration (requires sudo)..."
-sudo ./result/sw/bin/darwin-rebuild switch --flake "$FLAKE_DIR#$DARWIN_CONFIG"
+sudo "$FLAKE_DIR/result/sw/bin/darwin-rebuild" switch --flake "$FLAKE_DIR#$DARWIN_CONFIG"
 
 log "Cleaning up build symlink..."
-rm -f ./result
+rm -f "$FLAKE_DIR/result"
 
 # ─── Apply home-manager config ────────────────────────────────────────────────
 step "Applying home-manager configuration"

@@ -81,7 +81,7 @@ window-rule {
 // Startup applications
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
-spawn-at-startup "awww-daemon"
+
 spawn-at-startup "sh" "-c" "sleep 2 && systemctl --user start awww-rotation.service"
 spawn-at-startup "xwayland-satellite"
 

@@ -15,6 +15,7 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   nix.settings = {
@@ -41,6 +42,10 @@
 
     # Automatically use all available CPU cores for local builds if needed
     max-jobs = "auto";
+
+    # Keep devshell dependencies alive for nix-direnv cache reuse
+    keep-outputs = true;
+    keep-derivations = true;
   };
 
   # networking.hostName = "Paimon"; # Define your hostname.
@@ -156,23 +161,21 @@
     shell = pkgs.fish;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # Enable fish system-wide
   programs.fish.enable = true;
 
   # Enable Niri (scrollable tiling Wayland compositor)
   programs.niri.enable = true;
 
-  # Enable graphics/GPU and ROCm compute support (RX 7900 XT)
+  # Enable graphics/GPU and ROCm compute support (RX 7900 XT).
+  # ROCm is x86_64-only; gate it so the aarch64 host (Vetala) still evals.
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [
+    extraPackages = lib.optionals pkgs.stdenv.hostPlatform.isx86_64 (with pkgs; [
       rocmPackages.clr
       rocmPackages.hipblas
       rocmPackages.rocblas
-    ];
+    ]);
   };
 
   # Enable nix-ld to run standard Linux binaries
@@ -181,17 +184,9 @@
     stdenv.cc.cc.lib
   ];
 
-  # XDG portal for Wayland
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # GTK portal fallback. The niri module wires xdg-desktop-portal-gnome and
+  # the portal config; screencast needs gnome, file choosers need gtk.
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   environment.systemPackages = with pkgs; [
     # Install sddm theme
     (pkgs.sddm-astronaut.override { embeddedTheme = "astronaut"; })

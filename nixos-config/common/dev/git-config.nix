@@ -27,12 +27,13 @@
         editor = "nvim";
       };
 
-      ui.color = "always";
-      color.ui = true;
+      ui = {color = "auto";};
+      color = {ui = true;};
 
       merge = {
-        tool = "nvim -d";
-        conflictstyle = "diff3";
+        # nvimdiff is git's built-in name for "nvim -d"
+        tool = "nvimdiff";
+        conflictstyle = "zdiff3";
       };
 
       delta = {
@@ -70,8 +71,11 @@
         show = "delta";
       };
       init = {defaultBranch = "main";};
-      github = {user = "ishaan26";};
       pull = {ff = "only";};
+      push = {autoSetupRemote = true;};
+      fetch = {prune = true;};
+      rebase = {autoStash = true;};
+      diff = {colorMoved = "default";};
       gpg = {program = "${pkgs.gnupg}/bin/gpg";};
       filter.lfs = {
         clean = "git-lfs clean -- %f";

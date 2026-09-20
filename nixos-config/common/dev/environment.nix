@@ -2,9 +2,6 @@
   # to use flakes for development
   programs.direnv = {
     enable = true;
-    package = pkgs.direnv.overrideAttrs {
-      doCheck = false;
-    };
     nix-direnv.enable = true; # Caches nix-shell
 
     config = {
