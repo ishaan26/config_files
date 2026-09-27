@@ -18,6 +18,10 @@
     playerctl
     brightnessctl
 
+    # GUI for the waybar bluetooth module (bluetoothctl-driven bar chip opens
+    # blueman-manager)
+    blueman
+
     # XWayland support
     xwayland-satellite
 
@@ -28,6 +32,10 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
   ];
+
+  # Clipboard history daemon (`wl-paste --watch cliphist store`); the waybar
+  # clipboard chip and any rofi picker read from it.
+  services.cliphist.enable = true;
 
   # Set cursor theme
   home.pointerCursor = {

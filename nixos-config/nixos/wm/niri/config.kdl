@@ -79,11 +79,11 @@ window-rule {
 }
 
 // Startup applications
-spawn-at-startup "waybar"
+// NOTE: Waybar is started by its HM systemd user unit (programs.waybar.systemd
+// = on) and niri 26.04 spawns xwayland-satellite itself.
 spawn-at-startup "mako"
 
 spawn-at-startup "sh" "-c" "sleep 2 && systemctl --user start awww-rotation.service"
-spawn-at-startup "xwayland-satellite"
 
 // Screenshot path
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -166,11 +166,31 @@ window-rule {
 }
 
 // Layer rules with background blur
+// Frosted-glass waybar. The corner radius must equal `barRadius` in
+// wm/waybar/default.nix so the blur and shadow follow the painted bar.
 layer-rule {
     match namespace="^waybar$"
+    geometry-corner-radius 16
+    shadow {
+        on
+        softness 24
+        spread 0
+        offset x=0 y=6
+        color "#00000055"
+    }
     background-effect {
         blur true
+        saturation 1.4
+        noise 0.03
     }
+}
+
+// TUIs opened from waybar chips (btm, nvtop, nmtui, weather, failed units).
+window-rule {
+    match title="^waybar-popup$"
+    open-floating true
+    default-column-width { fixed 1100; }
+    default-window-height { fixed 700; }
 }
 
 layer-rule {

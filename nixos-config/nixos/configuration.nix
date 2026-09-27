@@ -19,15 +19,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   nix.settings = {
+    # Order matters: fastest/most-available is tried first.
+    # Note: cache.nixos.org is a Cloudflare-fronted global CDN and is by far the
+    # fastest cache for users outside of mainland China. The Chinese mirrors
+    # below are kept as fallbacks in case cache.nixos.org is unreachable.
     substituters = [
-      "https://mirror.sjtu.edu.cn/nix-channels/store" # Shanghai Jiao Tong University (Excellent for Asia)
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" # TUNA Mirror
-      "https://cache.nixos.org" # Fallback to official cache if path missing
+      "https://cache.nixos.org" # Official cache (Cloudflare CDN) — fastest
+      "https://nix-community.cachix.org" # Community binary cache (home-manager, etc.)
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" # TUNA mirror (fallback)
     ];
 
-    # Ensure you trust the public keys of the official cache (mirrors just mirror the signed files)
+    # Trust the public keys of each cache. Mirrors just mirror signed NARs, so the
+    # official key is sufficient for them; cachix caches have their own keys.
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9fq2RdCj25FwV5K0p1ecExfi08SRi9Hs9PbBQ="
     ];
     experimental-features = [
       "nix-command"
@@ -76,9 +82,9 @@
     LC_TIME = "en_IN";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  # NOTE: services.xserver is intentionally not enabled: the session is pure
+  # Wayland (niri + xwayland-satellite handles any X apps) and SDDM runs its
+  # Wayland greeter. X-app layouts fall back to the default "us".
 
   # AMD GPU kernel modules and params for ROCm support
   boot.initrd.kernelModules = [ "amdgpu" ];
@@ -114,10 +120,7 @@
   # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  # (Keyboard layout for the niri session is set in its own config.kdl.)
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -126,6 +129,13 @@
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+
+  # Bluetooth (waybar's bluetooth module + blueman-manager drive this over
+  # BlueZ/D-Bus; the module silently shows the "off" state without it).
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

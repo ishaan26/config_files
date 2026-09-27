@@ -54,6 +54,9 @@ in
       # discord ships no aarch64-linux build
       discord
 
+      # GPU monitor opened by the waybar GPU chip (AMD + ROCm aware)
+      nvtopPackages.full
+
       # LLM inference with AMD ROCm support.
       # Wrapped to hide the unsupported iGPU (gfx1036) from ROCm;
       # only the RX 7900 XT (gfx1100) is used.

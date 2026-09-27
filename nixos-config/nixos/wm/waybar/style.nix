@@ -1,39 +1,63 @@
-{ colors }:
+# Waybar stylesheet (GTK3 CSS).
+#
+# `colors` is the stylix base16 palette (hex without '#'); `barRadius` must
+# match the niri layer-rule so the compositor blur has the same shape as the
+# painted bar.
+#
+# Structure
+#   window#waybar          fully transparent layer surface
+#   └ box (the bar)        translucent glass, the only painted full-width box
+#     ├ islands            workspaces, clock and module groups sit on a
+#     │                    slightly lighter rounded plate
+#     └ chips              every module: neutral text, coloured icon (colour
+#                          comes from pango spans in the formats), hover plate
+#
+# State classes only change `color`/animation: custom modules get state
+# classes on the label, and backgrounds there would stack with the island.
+{ colors, barRadius }:
 let
-  c = colors;
-in ''
+  r = toString barRadius;
+  islandRadius = toString (barRadius - 5);
+  chipRadius = toString (barRadius - 7);
+  ease = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+in
+''
+  @define-color base00 #${colors.base00};
+  @define-color base01 #${colors.base01};
+  @define-color base02 #${colors.base02};
+  @define-color base03 #${colors.base03};
+  @define-color base04 #${colors.base04};
+  @define-color base05 #${colors.base05};
+  @define-color base06 #${colors.base06};
+  @define-color base07 #${colors.base07};
+  @define-color base08 #${colors.base08};
+  @define-color base09 #${colors.base09};
+  @define-color base0A #${colors.base0A};
+  @define-color base0B #${colors.base0B};
+  @define-color base0C #${colors.base0C};
+  @define-color base0D #${colors.base0D};
+  @define-color base0E #${colors.base0E};
+  @define-color base0F #${colors.base0F};
 
-  @define-color base00 #${c.base00};
-  @define-color base01 #${c.base01};
-  @define-color base02 #${c.base02};
-  @define-color base03 #${c.base03};
-  @define-color base04 #${c.base04};
-  @define-color base05 #${c.base05};
-  @define-color base06 #${c.base06};
-  @define-color base07 #${c.base07};
-  @define-color base08 #${c.base08};
-  @define-color base09 #${c.base09};
-  @define-color base0A #${c.base0A};
-  @define-color base0B #${c.base0B};
-  @define-color base0C #${c.base0C};
-  @define-color base0D #${c.base0D};
-  @define-color base0E #${c.base0E};
-  @define-color base0F #${c.base0F};
+  @define-color glass    alpha(@base00, 0.58);
+  @define-color island   alpha(@base01, 0.55);
+  @define-color hover    alpha(@base05, 0.08);
+  @define-color hairline alpha(@base05, 0.08);
 
   * {
-    border: none;
-    border-radius: 0;
-    font-family: "ZedMono Nerd Font", "Symbols Nerd Font Mono", monospace;
-    font-size: 16px;
+    font-family: "ZedMono Nerd Font", "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
     font-weight: 500;
     min-height: 0;
+    border: none;
+    border-radius: 0;
     margin: 0;
     padding: 0;
+    box-shadow: none;
+    text-shadow: none;
   }
 
-  /* ============================================================
-     MAIN BAR CONTAINER
-     ============================================================ */
+  /* ── Bar ─────────────────────────────────────────────────────────────── */
 
   window#waybar {
     background: transparent;
@@ -41,233 +65,201 @@ in ''
   }
 
   window#waybar > box {
-    background-color: alpha(@base00, 0.9);
-    border-radius: 16px;
-    border: 1px solid alpha(@base04, 0.1);
-    margin: 0 4px;
+    background-color: @glass;
+    border: 1px solid @hairline;
+    border-radius: ${r}px;
+    padding: 0 4px;
+    box-shadow: inset 0 1px alpha(@base07, 0.04);
+    transition: background-color 400ms ${ease};
   }
 
-  /* Secondary bar styling */
-  window#waybar.bottom > box {
-    border-radius: 14px;
-    background-color: alpha(@base00, 0.88);
-    border: 1px solid alpha(@base04, 0.08);
+  /* Nothing focused on this output: let more of the wallpaper through. */
+  window#waybar.empty > box {
+    background-color: alpha(@base00, 0.42);
   }
 
-  /* ============================================================
-     TOOLTIPS
-     ============================================================ */
+  /* ── Shared chip geometry ────────────────────────────────────────────── */
 
-  tooltip {
-    background-color: @base00;
-    border: 1px solid alpha(@base0D, 0.3);
-    border-radius: 12px;
+  #custom-logo,
+  #window,
+  #cava,
+  #mpris,
+  #clock,
+  #custom-weather,
+  #privacy,
+  #systemd-failed-units,
+  #tray,
+  #backlight,
+  #battery,
+  #custom-notifications,
+  #custom-power {
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: ${islandRadius}px;
+    transition: background-color 200ms ${ease}, color 200ms ${ease};
   }
 
-  tooltip label {
-    color: @base06;
-    padding: 8px 12px;
-    font-size: 13px;
+  #custom-logo:hover,
+  #mpris:hover,
+  #clock:hover,
+  #custom-weather:hover,
+  #backlight:hover,
+  #battery:hover,
+  #custom-notifications:hover {
+    background-color: @hover;
   }
 
-  /* ============================================================
-     GLOBAL BUTTON RESET
-     ============================================================ */
-
-  button {
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    min-width: 0;
-    min-height: 0;
+  /* Islands: plates that group related chips. */
+  #workspaces,
+  #clock,
+  #hardware,
+  #audio,
+  #connectivity {
+    background-color: @island;
+    border-radius: ${islandRadius}px;
+    margin: 5px 3px;
   }
 
-  button:hover {
-    background: transparent;
-    box-shadow: none;
+  #hardware,
+  #audio,
+  #connectivity {
+    padding: 0 2px;
   }
 
-  /* ============================================================
-     LOGO MODULE
-     ============================================================ */
+  #hardware > widget > *,
+  #audio > widget > *,
+  #connectivity > widget > * {
+    padding: 0 8px;
+    margin: 3px 0;
+    border-radius: ${chipRadius}px;
+    transition: background-color 200ms ${ease}, color 200ms ${ease};
+  }
+
+  #hardware > widget > *:hover,
+  #audio > widget > *:hover,
+  #connectivity > widget > *:hover {
+    background-color: @hover;
+  }
+
+  /* ── Left ────────────────────────────────────────────────────────────── */
 
   #custom-logo {
-    font-size: 20px;
     color: @base0D;
-    padding: 4px 14px 4px 16px;
-    margin: 4px 0 4px 6px;
-    background-color: alpha(@base0D, 0.1);
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 19px;
+    padding: 0 13px 0 11px;
+    margin-left: 4px;
   }
 
   #custom-logo:hover {
-    background-color: alpha(@base0D, 0.2);
+    color: @base0C;
+    background-color: alpha(@base0D, 0.14);
   }
-
-  /* ============================================================
-     CLOCK MODULE
-     ============================================================ */
-
-  #clock {
-    color: @base08;
-    font-weight: 600;
-    padding: 4px 16px;
-    margin: 4px 2px;
-    background-color: alpha(@base08, 0.1);
-    border-radius: 10px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  #clock:hover {
-    background-color: alpha(@base08, 0.2);
-  }
-
-  /* ============================================================
-     WORKSPACES
-     ============================================================ */
 
   #workspaces {
-    background-color: alpha(@base01, 0.4);
-    border-radius: 14px;
-    padding: 2px 6px;
-    margin: 4px 8px;
-    border: 1px solid alpha(@base04, 0.08);
+    padding: 0 3px;
   }
 
   #workspaces button {
-    padding: 4px 12px;
+    all: unset;
     color: @base04;
-    border-radius: 10px;
-    margin: 2px;
-    font-size: 20px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    min-width: 36px;
-    background: transparent;
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 22px;
+    padding: 0 4px;
+    margin: 4px 1px;
+    border-radius: ${chipRadius}px;
+    transition: min-width 300ms ${ease}, background-color 250ms ${ease},
+                color 250ms ${ease};
   }
 
-  #workspaces button:hover {
-    background-color: alpha(@base0D, 0.1);
-    color: @base0D;
-  }
-
-  #workspaces button.active,
-  #workspaces button.focused {
-    background-color: @base0D;
-    color: @base00;
-    font-weight: bold;
-    text-shadow: none;
-    border: none;
-    box-shadow: none;
-    background-image: none;
+  #workspaces button label {
+    color: inherit;
   }
 
   #workspaces button.empty {
     color: @base03;
   }
 
-  #workspaces button.urgent {
-    background-color: @base08;
+  #workspaces button.active {
+    color: @base06;
+  }
+
+  #workspaces button:hover {
+    background-color: @hover;
+    color: @base07;
+  }
+
+  #workspaces button.focused {
+    min-width: 40px;
     color: @base00;
-    animation: pulse-urgent 1.5s ease-in-out infinite;
+    background-color: @base0D;
+    box-shadow: 0 0 10px alpha(@base0D, 0.35);
   }
 
-  @keyframes pulse-urgent {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; }
+  #workspaces button.urgent {
+    color: @base00;
+    background-color: @base08;
+    animation: pulse 1.2s ease-in-out infinite alternate;
   }
-
-  /* ============================================================
-     WINDOW TITLE
-     ============================================================ */
 
   #window {
-    color: @base04;
-    padding: 4px 12px;
-    margin: 4px 4px;
-    font-weight: 500;
-    font-style: italic;
-    opacity: 0.9;
-    transition: all 0.3s ease;
+    color: @base06;
+    padding: 0 12px;
+    margin-left: 4px;
   }
 
-  #window.empty {
-    opacity: 0.5;
-    font-style: normal;
+  #window image {
+    margin-right: 6px;
   }
 
-  /* ============================================================
-     MPRIS / MEDIA PLAYER
-     ============================================================ */
+  /* ── Centre ──────────────────────────────────────────────────────────── */
+
+  #cava {
+    color: @base0B;
+    padding: 0 4px;
+    margin-right: 0;
+  }
 
   #mpris {
-    color: @base0B;
-    padding: 4px 14px;
-    margin: 4px 2px;
-    background-color: alpha(@base0B, 0.1);
-    border-radius: 10px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: @base06;
+    margin-right: 6px;
   }
 
-  #mpris:hover {
-    background-color: alpha(@base0B, 0.2);
+  #clock {
+    color: @base06;
+    padding: 0 14px;
   }
 
-  #mpris.paused {
-    color: @base03;
-    font-style: italic;
+  #custom-weather {
+    color: @base06;
+    margin-left: 6px;
   }
 
-  #mpris.playing {
-    color: @base0B;
+  #custom-weather.stale {
+    color: @base04;
   }
 
-  /* ============================================================
-     SEPARATOR
-     ============================================================ */
+  /* ── Right ───────────────────────────────────────────────────────────── */
 
-  #custom-separator {
-    color: alpha(@base04, 0.15);
-    padding: 0 4px;
-    font-size: 12px;
+  #privacy {
+    background-color: alpha(@base08, 0.16);
+    padding: 0 8px;
+    animation: pulse 1.6s ease-in-out infinite alternate;
   }
 
-  /* ============================================================
-     IDLE INHIBITOR (CAFFEINE)
-     ============================================================ */
-
-  #idle_inhibitor {
-    color: @base03;
-    padding: 4px 12px;
-    margin: 4px 2px;
-    font-size: 16px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+  #privacy-item {
+    color: @base08;
+    padding: 0 2px;
   }
 
-  #idle_inhibitor.activated {
-    color: @base0C;
-    background-color: alpha(@base0C, 0.1);
-    animation: breathe 3s ease-in-out infinite;
+  #systemd-failed-units {
+    color: @base00;
+    background-color: @base08;
+    font-weight: 700;
   }
-
-  @keyframes breathe {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; }
-  }
-
-  /* ============================================================
-     SYSTEM TRAY
-     ============================================================ */
 
   #tray {
-    margin: 4px 4px;
-    padding: 4px 12px;
-    background-color: alpha(@base02, 0.4);
-    border-radius: 10px;
+    padding: 0 8px;
   }
 
   #tray > .passive {
@@ -277,389 +269,280 @@ in ''
   #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: alpha(@base08, 0.2);
-    border-radius: 6px;
+    border-radius: ${chipRadius}px;
   }
 
-  #tray menu {
-    background-color: @base00;
-    border: 1px solid alpha(@base04, 0.1);
-    border-radius: 8px;
-  }
-
-  /* ============================================================
-     HARDWARE GROUP (CPU, Memory, Disk, Temperature)
-     ============================================================ */
-
-  #cpu,
-  #memory,
-  #disk,
-  #temperature {
-    padding: 4px 10px;
-    margin: 4px 1px;
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* CPU */
-  #cpu {
-    color: @base0D;
-  }
-
-  #cpu:hover {
-    background-color: alpha(@base0D, 0.2);
-  }
-
-  #cpu.warning {
+  /* Hardware (native modules get states; custom scripts emit classes). */
+  #cpu.warning,
+  #memory.warning,
+  #disk.warning,
+  #custom-cpu-temp.warning,
+  #custom-gpu.warning {
     color: @base0A;
   }
 
-  #cpu.critical {
+  #cpu.critical,
+  #memory.critical,
+  #disk.critical,
+  #custom-cpu-temp.critical,
+  #custom-gpu.critical {
     color: @base08;
-    background-color: alpha(@base08, 0.1);
-    animation: pulse-critical 1s ease-in-out infinite;
+    animation: pulse 0.9s ease-in-out infinite alternate;
   }
 
-  /* Memory */
-  #memory {
-    color: @base0E;
+  /* Audio */
+  #wireplumber.muted {
+    color: @base04;
   }
 
-  #memory:hover {
-    background-color: alpha(@base0E, 0.2);
+  #wireplumber.loud {
+    color: @base09;
   }
 
-  /* Disk */
-  #disk {
-    color: @base0A;
+  #wireplumber.source {
+    padding: 0 9px 0 6px;
   }
 
-  #disk:hover {
-    background-color: alpha(@base0A, 0.2);
-  }
-
-  /* Temperature */
-  #temperature {
-    color: @base0C;
-  }
-
-  #temperature:hover {
-    background-color: alpha(@base0C, 0.2);
-  }
-
-  #temperature.critical {
+  /* Connectivity */
+  #network.disconnected,
+  #network.disabled {
     color: @base08;
-    background-color: alpha(@base08, 0.1);
-    animation: pulse-critical 0.5s ease-in-out infinite alternate;
-  }
-
-  @keyframes pulse-critical {
-    0% { opacity: 1; }
-    100% { opacity: 0.6; }
-  }
-
-  /* ============================================================
-     SYSTEM GROUP (Network, Bluetooth, Audio, Backlight, Battery)
-     ============================================================ */
-
-  #network,
-  #bluetooth,
-  #pulseaudio,
-  #backlight,
-  #battery {
-    padding: 4px 12px;
-    margin: 4px 1px;
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Network */
-  #network {
-    color: @base0B;
-  }
-
-  #network:hover {
-    background-color: alpha(@base0B, 0.2);
-  }
-
-  #network.disconnected {
-    color: @base08;
-    background-color: alpha(@base08, 0.1);
   }
 
   #network.linked {
     color: @base0A;
   }
 
-  /* Bluetooth */
-  #bluetooth {
-    color: @base0D;
-  }
-
-  #bluetooth:hover {
-    background-color: alpha(@base0D, 0.2);
-  }
-
-  #bluetooth.connected {
-    color: @base0C;
-    background-color: alpha(@base0C, 0.1);
-  }
-
-  #bluetooth.off,
-  #bluetooth.disabled {
+  #bluetooth.off {
     color: @base03;
-    background-color: transparent;
   }
 
-  /* PulseAudio */
-  #pulseaudio {
-    color: @base09;
-  }
-
-  #pulseaudio:hover {
-    background-color: alpha(@base09, 0.2);
-  }
-
-  #pulseaudio.muted {
-    color: @base03;
-    text-decoration: line-through;
-    background-color: transparent;
-  }
-
-  #pulseaudio.bluetooth {
-    color: @base0D;
-  }
-
-  /* Microphone */
-  #pulseaudio.microphone {
-    color: @base0E;
-  }
-
-  #pulseaudio.source-muted {
-    color: @base03;
-    background-color: transparent;
-  }
-
-  /* Backlight */
-  #backlight {
-    color: @base0A;
-    background-color: alpha(@base0A, 0.1);
-  }
-
-  #backlight:hover {
-    background-color: alpha(@base0A, 0.2);
-  }
-
-  /* Battery */
-  #battery {
-    color: @base0B;
-    background-color: alpha(@base0B, 0.1);
-  }
-
-  #battery:hover {
-    background-color: alpha(@base0B, 0.2);
-  }
-
+  /* Laptop */
   #battery.charging,
   #battery.plugged {
-    color: @base0C;
-    background-color: alpha(@base0C, 0.1);
-    animation: charging-glow 2s ease-in-out infinite;
-  }
-
-  @keyframes charging-glow {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; }
-  }
-
-  #battery.full {
-    color: @base0B;
-  }
-
-  #battery.good {
     color: @base0B;
   }
 
   #battery.warning:not(.charging) {
     color: @base0A;
-    background-color: alpha(@base0A, 0.1);
   }
 
   #battery.critical:not(.charging) {
     color: @base08;
-    background-color: alpha(@base08, 0.1);
-    animation: battery-critical 0.8s ease-in-out infinite alternate;
+    animation: pulse 0.8s ease-in-out infinite alternate;
   }
 
-  @keyframes battery-critical {
-    0% { opacity: 1; }
-    100% { opacity: 0.5; }
+  #custom-notifications {
+    color: @base06;
+    padding: 0 11px;
   }
 
-  /* ============================================================
-     POWER BUTTON
-     ============================================================ */
+  #custom-notifications.dnd {
+    color: @base08;
+    background-color: alpha(@base08, 0.12);
+  }
 
   #custom-power {
     color: @base08;
-    font-size: 16px;
-    padding: 4px 14px 4px 12px;
-    margin: 4px 6px 4px 2px;
-    background-color: alpha(@base08, 0.1);
-    border-radius: 10px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 13px 0 12px;
+    margin-right: 4px;
   }
 
   #custom-power:hover {
-    background-color: alpha(@base08, 0.2);
+    color: @base00;
+    background-color: @base08;
   }
 
-  /* ============================================================
-     SECONDARY BAR MODULES
-     ============================================================ */
+  /* ── Dock (bottom bar) ───────────────────────────────────────────────── */
 
-  /* Weather */
-  #custom-weather {
+  window#waybar.dock > box {
+    padding: 0 5px;
+  }
+
+  #custom-apps,
+  #custom-overview,
+  #custom-hotkeys {
+    font-size: 18px;
+    padding: 0 11px;
+    margin: 6px 2px;
+    border-radius: ${islandRadius}px;
+    transition: background-color 200ms ${ease}, color 200ms ${ease};
+  }
+
+  #custom-apps {
     color: @base0D;
-    padding: 4px 14px;
-    margin: 3px 4px 3px 8px;
-    font-size: 13px;
-    font-weight: 600;
-    background-color: alpha(@base0D, 0.1);
-    border-radius: 10px;
-    border: 1px solid alpha(@base0D, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: 3px;
   }
 
-  #custom-weather:hover {
-    background-color: alpha(@base0D, 0.2);
-    border-color: alpha(@base0D, 0.15);
+  #custom-overview {
+    color: @base0E;
   }
 
-  /* Spotify */
-  #custom-spotify {
-    color: @base0B;
-    padding: 4px 14px;
-    margin: 3px 4px;
-    font-size: 13px;
-    font-weight: 500;
-    font-style: italic;
-    background-color: alpha(@base0B, 0.08);
-    border-radius: 10px;
-    border: 1px solid alpha(@base0B, 0.06);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  #custom-hotkeys {
+    color: @base04;
+    margin-right: 3px;
   }
 
-  #custom-spotify:hover {
-    background-color: alpha(@base0B, 0.18);
-    border-color: alpha(@base0B, 0.12);
-    font-style: normal;
+  #custom-apps:hover,
+  #custom-overview:hover,
+  #custom-hotkeys:hover {
+    background-color: @hover;
   }
 
-  /* Taskbar */
+  #custom-apps:hover {
+    background-color: alpha(@base0D, 0.16);
+  }
+
+  #custom-hotkeys:hover {
+    color: @base06;
+  }
+
+  /* Islands on the dock */
+  #pinned,
+  #capture,
+  #taskbar,
+  #keyboard-state {
+    background-color: @island;
+    border-radius: ${islandRadius}px;
+    margin: 6px 3px;
+    padding: 0 3px;
+  }
+
+  #pinned > widget > *,
+  #capture > widget > * {
+    font-size: 19px;
+    padding: 0 10px;
+    margin: 3px 0;
+    border-radius: ${chipRadius}px;
+    transition: background-color 200ms ${ease}, color 200ms ${ease};
+  }
+
+  #pinned > widget > *:hover,
+  #capture > widget > *:hover {
+    background-color: @hover;
+  }
+
+  #custom-screenshot { color: @base0C; }
+  #custom-color-picker { color: @base0E; }
+  #custom-clipboard { color: @base0A; }
+
+  /* Running windows */
   #taskbar {
-    background-color: alpha(@base01, 0.3);
-    border-radius: 10px;
-    padding: 2px 8px;
-    margin: 3px 6px;
-    border: 1px solid alpha(@base04, 0.06);
+    padding: 0 4px;
   }
 
   #taskbar button {
-    padding: 3px 20px;
-    margin: 2px 3px;
-    border-radius: 8px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    min-width: 20px;
-    background: transparent;
+    all: unset;
+    padding: 0 9px;
+    margin: 3px 1px;
+    border-radius: ${chipRadius}px;
+    transition: background-color 200ms ${ease}, box-shadow 200ms ${ease};
   }
 
   #taskbar button:hover {
-    background-color: alpha(@base0D, 0.15);
+    background-color: @hover;
   }
 
+  /* Accent underline marks the focused window. */
   #taskbar button.active {
-    background-color: alpha(@base0D, 0.25);
-    border-radius: 8px;
+    background-color: alpha(@base0D, 0.16);
+    box-shadow: inset 0 -2px @base0D;
   }
 
-  /* --- Utility Tools Group --- */
-
-  /* Clipboard */
-  #custom-clipboard {
-    color: @base0E;
-    padding: 4px 12px;
-    margin: 3px 2px;
-    font-size: 15px;
-    background-color: alpha(@base0E, 0.08);
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  #taskbar button.minimized {
+    opacity: 0.45;
   }
 
-  #custom-clipboard:hover {
-    background-color: alpha(@base0E, 0.18);
-    color: @base06;
+  #taskbar.empty {
+    background-color: transparent;
   }
 
-  /* Screenshot */
-  #custom-screenshot {
-    color: @base0C;
-    padding: 4px 12px;
-    margin: 3px 2px;
-    font-size: 15px;
-    background-color: alpha(@base0C, 0.08);
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Screen recorder */
+  #custom-recorder {
+    color: @base08;
   }
 
-  #custom-screenshot:hover {
-    background-color: alpha(@base0C, 0.18);
-    color: @base06;
+  #custom-recorder.recording {
+    color: @base00;
+    background-color: @base08;
+    font-size: 14px;
+    font-weight: 700;
+    animation: pulse 1s ease-in-out infinite alternate;
   }
 
-  /* Color Picker */
-  #custom-colorpicker {
-    color: @base0A;
-    padding: 4px 12px;
-    margin: 3px 2px 3px 2px;
-    font-size: 15px;
-    background-color: alpha(@base0A, 0.08);
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  #custom-colorpicker:hover {
-    background-color: alpha(@base0A, 0.18);
-    color: @base06;
-  }
-
-  /* Bottom bar separator override */
-  window#waybar.bottom #custom-separator {
-    color: alpha(@base04, 0.1);
-    padding: 0 2px;
-    font-size: 10px;
-    opacity: 0.6;
-  }
-
-  /* Keyboard State */
+  /* Lock keys: quiet when off, lit when on */
   #keyboard-state {
-    padding: 4px 12px;
-    margin: 3px 8px 3px 4px;
-    background-color: alpha(@base02, 0.3);
-    border-radius: 10px;
-    border: 1px solid alpha(@base04, 0.06);
+    padding: 0 5px;
   }
 
   #keyboard-state label {
     color: @base03;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 0 4px;
-    transition: all 0.3s ease;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 7px;
+    margin: 4px 0;
+    border-radius: ${chipRadius}px;
+    transition: background-color 200ms ${ease}, color 200ms ${ease};
   }
 
   #keyboard-state label.locked {
-    color: @base08;
-    text-shadow: 0 0 6px alpha(@base08, 0.3);
+    color: @base00;
+    background-color: @base0A;
+  }
+
+  /* ── Tooltips & menus ────────────────────────────────────────────────── */
+
+  tooltip {
+    background-color: alpha(@base00, 0.96);
+    border: 1px solid alpha(@base0D, 0.28);
+    border-radius: ${islandRadius}px;
+  }
+
+  tooltip label {
+    color: @base05;
+    font-size: 13px;
+    padding: 6px 6px;
+  }
+
+  menu {
+    background-color: alpha(@base00, 0.97);
+    border: 1px solid alpha(@base05, 0.1);
+    border-radius: ${islandRadius}px;
+    padding: 6px;
+  }
+
+  menu menuitem {
+    color: @base05;
+    padding: 7px 14px;
+    border-radius: ${chipRadius}px;
+    transition: background-color 150ms ${ease};
+  }
+
+  menu menuitem:hover {
+    color: @base07;
+    background-color: alpha(@base0D, 0.2);
+  }
+
+  menu menuitem:disabled {
+    color: @base03;
+  }
+
+  menu separator {
+    min-height: 1px;
+    margin: 5px 8px;
+    background-color: @hairline;
+  }
+
+  menu arrow {
+    min-width: 12px;
+    min-height: 12px;
+    color: @base04;
+  }
+
+  /* ── Motion ──────────────────────────────────────────────────────────── */
+
+  @keyframes pulse {
+    from { opacity: 1; }
+    to   { opacity: 0.55; }
   }
 ''
