@@ -4,7 +4,7 @@
   imports = [
     ./niri
     ./waybar
-    ./rofi
+    ./vicinae
     ./mako.nix
     ./common.nix
     ./awww.nix

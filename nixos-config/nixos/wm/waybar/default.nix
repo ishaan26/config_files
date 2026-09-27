@@ -148,7 +148,7 @@ in
       "custom/logo" = {
         format = "󱄅";
         tooltip-format = "<b>NixOS</b>\n\n${dim "Click  launcher · Right  overview"}";
-        on-click = "rofi -show drun";
+        on-click = "vicinae toggle";
         on-click-right = "niri msg action toggle-overview";
       };
 
@@ -507,7 +507,7 @@ in
 
       "custom/power" = {
         format = "󰐥";
-        tooltip-format = "<b>Power</b>\n\nClick  menu\nRight  rofi power menu";
+        tooltip-format = "<b>Power</b>\n\nClick  menu\nRight  launcher power commands";
         menu = "on-click";
         menu-file = "${powerMenu}";
         menu-actions = {
@@ -518,7 +518,7 @@ in
           firmware = "systemctl reboot --firmware-setup";
           shutdown = "systemctl poweroff";
         };
-        on-click-right = "rofi -show power-menu -modi power-menu:rofi-power-menu";
+        on-click-right = "vicinae deeplink vicinae://launch/power";
       };
     };
 
@@ -551,8 +551,8 @@ in
       "custom/apps" = {
         format = "󰀻";
         tooltip-format = "<b>Applications</b>\n\n${dim "Click  launcher · Right  run command"}";
-        on-click = "rofi -show drun";
-        on-click-right = "rofi -show run";
+        on-click = "vicinae toggle";
+        on-click-right = "vicinae deeplink vicinae://launch/system/run";
       };
 
       "custom/overview" = {
@@ -626,8 +626,8 @@ in
       "custom/clipboard" = {
         format = "󰅌";
         tooltip-format = "<b>Clipboard</b>\n\n${dim "Click  history · Right  clear"}";
-        on-click = "${scripts.clipboard}";
-        on-click-right = "${scripts.clearClipboard}";
+        on-click = "vicinae deeplink vicinae://launch/clipboard/history";
+        on-click-right = "vicinae deeplink vicinae://launch/clipboard/clear-history";
       };
 
       keyboard-state = {

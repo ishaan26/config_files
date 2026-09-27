@@ -194,8 +194,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^rofi$"
-    opacity 0.92
+    match namespace="^vicinae$"
     background-effect {
         blur true
     }
@@ -208,7 +207,8 @@ binds {
 
     // Core applications
     Mod+Return { spawn "ghostty"; }
-    Mod+Space { spawn "rofi" "-show" "drun"; }
+    Mod+Space { spawn "vicinae" "toggle"; }
+    Mod+V { spawn "vicinae" "deeplink" "vicinae://launch/clipboard/history"; }
     Mod+E { spawn "nautilus"; }
     Mod+B { spawn "firefox"; }
 

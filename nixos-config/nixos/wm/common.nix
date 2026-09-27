@@ -9,7 +9,6 @@
 
     # Clipboard
     wl-clipboard
-    cliphist
 
     # Wallpaper
     swaybg
@@ -25,17 +24,10 @@
     # XWayland support
     xwayland-satellite
 
-    # Icon theme for Rofi
-    # papirus-icon-theme
-
     # Fonts - individual nerd-fonts packages (NixOS 24.05+)
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
   ];
-
-  # Clipboard history daemon (`wl-paste --watch cliphist store`); the waybar
-  # clipboard chip and any rofi picker read from it.
-  services.cliphist.enable = true;
 
   # Set cursor theme
   home.pointerCursor = {

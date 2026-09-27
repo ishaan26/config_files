@@ -149,20 +149,6 @@ rec {
     ${pkgs.libnotify}/bin/notify-send -a Waybar -i color-select "Colour picked" "$hex copied to clipboard"
   '';
 
-  # Clipboard history picker (cliphist is fed by services.cliphist).
-  clipboard = pkgs.writeShellScript "waybar-clipboard" ''
-    set -u
-    ${pkgs.cliphist}/bin/cliphist list \
-      | rofi -dmenu -i -display-columns 2 -p '󰅌  Clipboard' \
-      | ${pkgs.cliphist}/bin/cliphist decode \
-      | ${pkgs.wl-clipboard}/bin/wl-copy
-  '';
-
-  clearClipboard = pkgs.writeShellScript "waybar-clipboard-clear" ''
-    ${pkgs.cliphist}/bin/cliphist wipe
-    ${pkgs.libnotify}/bin/notify-send -a Waybar -i edit-clear "Clipboard" "History cleared"
-  '';
-
   # Dock launcher: focus the newest window whose app-id matches the regex,
   # otherwise start the app. Spawned through niri so it is fully detached
   # from waybar (survives bar restarts) and gets the session environment.
